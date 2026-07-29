@@ -1,11 +1,12 @@
 # JCTA submission package
 
-Status: `PUBLICATION_IDENTIFIERS_RESERVED`
+Status: `PUBLIC_ARTIFACTS_RELEASED`
 
 This directory contains the editable Journal of Combinatorial Theory,
 Series A submission source and the author-facing submission materials for
-“The exact saturated 6- and 7-Sperner numbers”.  It is not evidence that the
-article or its artifacts have been submitted or made public.
+“The exact saturated 6- and 7-Sperner numbers”. The article has not been
+submitted. Its supporting artifacts are public in GitHub release `v1.0.0` and
+Zenodo record `21679078`.
 
 ## Principal files
 
@@ -25,13 +26,10 @@ article or its artifacts have been submitted or made public.
 - `output/doc/P0054-declaration-of-competing-interests.docx`: separate
   competing-interest statement, stored at the repository root relative path.
 
-## Submission blockers
+## Remaining submission checks
 
 The following items remain unresolved:
 
-- create GitHub release `v1.0.0` and attach the archive and checksum;
-- finish the Zenodo archive upload and publish reserved DOI
-  `10.5281/zenodo.21679078` after a final metadata and checksum check;
 - if Elsevier's submission system requires its declarations tool, complete
   that tool and upload its generated Word document in place of, or together
   with, the locally prepared declaration;
@@ -45,8 +43,8 @@ report is archived here, and this is not represented as journal peer review.
 The final bibliography and novelty audit is recorded in
 `Problems/P0054/literature/final-prepublication-audit-2026-07-29.md`.
 
-Do not submit the package until the GitHub release and Zenodo DOI both resolve
-publicly and the attached archive bytes match.
+GitHub release `v1.0.0` and DOI `10.5281/zenodo.21679078` resolve publicly. The
+GitHub archive digest and Zenodo file checksum match the fixed local archive.
 
 ## Local build
 
@@ -68,6 +66,8 @@ translation compiled to 14, 15, and 16 pages and were visually inspected page
 by page.  The complete `lake build` and independent Lean entry point passed,
 the forbidden-construct scan was clean, all 178 Python tests passed, and the
 fixed review archive passed both its sidecar and internal integrity checks.
+The GitHub release and Zenodo record were published on 29 July 2026, and their
+archive identifiers were checked against the fixed local payload.
 
 Repository-wide Ruff and Mypy still report diagnostics in pre-existing,
 untracked certificate-generator scripts; Ruff also repeats those diagnostics
