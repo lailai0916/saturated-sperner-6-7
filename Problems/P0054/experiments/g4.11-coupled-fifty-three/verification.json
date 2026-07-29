@@ -1,0 +1,120 @@
+{
+  "epistemic_label": "COMPUTED",
+  "five_row": {
+    "blocker_profiles": {
+      "6:3": 1,
+      "7:3": 7
+    },
+    "class_count": 8,
+    "classes": [
+      {
+        "blockers": 7,
+        "pairs": 3,
+        "points": 6,
+        "q_candidates": 1,
+        "valid_extensions": 0
+      },
+      {
+        "blockers": 7,
+        "pairs": 3,
+        "points": 6,
+        "q_candidates": 1,
+        "valid_extensions": 0
+      },
+      {
+        "blockers": 6,
+        "pairs": 3,
+        "points": 6,
+        "q_candidates": 48,
+        "valid_extensions": 0
+      },
+      {
+        "blockers": 7,
+        "pairs": 3,
+        "points": 7,
+        "q_candidates": 1,
+        "valid_extensions": 0
+      },
+      {
+        "blockers": 7,
+        "pairs": 3,
+        "points": 7,
+        "q_candidates": 1,
+        "valid_extensions": 0
+      },
+      {
+        "blockers": 7,
+        "pairs": 3,
+        "points": 7,
+        "q_candidates": 1,
+        "valid_extensions": 0
+      },
+      {
+        "blockers": 7,
+        "pairs": 3,
+        "points": 7,
+        "q_candidates": 1,
+        "valid_extensions": 0
+      },
+      {
+        "blockers": 7,
+        "pairs": 3,
+        "points": 7,
+        "q_candidates": 1,
+        "valid_extensions": 0
+      }
+    ],
+    "total_q_candidates": 55,
+    "valid_extensions": 0
+  },
+  "four_row": {
+    "blockers": 7,
+    "class_count": 1,
+    "pair_blockers": 3,
+    "points": 6,
+    "support_multiset": [
+      3,
+      5,
+      6,
+      9,
+      10,
+      12
+    ]
+  },
+  "three_row_integer_audit": {
+    "labelled_solution_count": 3,
+    "solutions": [
+      [
+        1,
+        2,
+        2,
+        1,
+        1,
+        0,
+        5,
+        4
+      ],
+      [
+        2,
+        1,
+        2,
+        1,
+        0,
+        1,
+        5,
+        4
+      ],
+      [
+        2,
+        2,
+        1,
+        0,
+        1,
+        1,
+        5,
+        4
+      ]
+    ]
+  },
+  "verifier": "independent choice-union blocker minimization"
+}

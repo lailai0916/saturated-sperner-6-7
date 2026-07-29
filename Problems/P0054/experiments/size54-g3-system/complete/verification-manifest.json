@@ -1,0 +1,59 @@
+{
+  "schema": "ai-math-lab.p0054.size54-rank-window-system.v1",
+  "generated_at_utc": "2026-07-22T10:51:52.359118+00:00",
+  "run_mode": "STRUCTURAL_REDUCED_COMPLETE_SEARCH",
+  "epistemic_label": "COMPUTED",
+  "global_sat7_lower_bound_claimed": false,
+  "semantic": {
+    "search_class": "eight-core common-block layered template class",
+    "fixed_middle14": false,
+    "target_size": 54,
+    "certified_layer_minima": [
+      1,
+      6,
+      12,
+      14,
+      12,
+      6,
+      1
+    ],
+    "safe_layer_upper_bounds": [
+      3,
+      8,
+      14,
+      16,
+      14,
+      8,
+      3
+    ],
+    "small_template_bound": 27,
+    "reference_path": "Problems/P0054/experiments/certificates/core-8-target-55-selfcontained.json",
+    "reference_sha256": "026d0f8e15a8028603ac04457cb7a3b42a8847a36368ce17b9ce75490b291fdb",
+    "solver": "/opt/homebrew/bin/kissat",
+    "solver_sha256": "05d6f3e9c402a1fe8853b0746e384e1b3d1c4a550e255f11daa2461d279aa848",
+    "checker": "/tmp/p0054-g3-drat-trim.4v6yIu/drat-trim",
+    "checker_sha256": "82f1dbee48911acca5f042c2a4c4c4fd98c46a91955da321724fbb74f4103206",
+    "checker_commit": "2e3b2dc0ecf938addbd779d42877b6ed69d9a985",
+    "solver_command": [
+      "/opt/homebrew/bin/kissat",
+      "--time=1800",
+      "Problems/P0054/experiments/size54-g3-system/complete/core8-target54-rank-window.cnf",
+      "Problems/P0054/experiments/size54-g3-system/complete/core8-target54-rank-window.drat"
+    ],
+    "solver_returncode": 0,
+    "runtime_seconds": 1800.0241201668978,
+    "solver_result": "UNKNOWN_OR_TIMEOUT",
+    "primary_variable_count": 1934,
+    "auxiliary_variable_count": 152394,
+    "clause_count": 338735,
+    "cnf_path": "Problems/P0054/experiments/size54-g3-system/complete/core8-target54-rank-window.cnf",
+    "cnf_bytes": 6458343,
+    "cnf_sha256": "058b66d00935ee7cb610173f2de7629d1f97ba2c70cc6e9a2de5ccb3dd4e5511",
+    "solver_log": "Problems/P0054/experiments/size54-g3-system/complete/core8-target54-rank-window.kissat.log",
+    "solver_log_sha256": "0f1c6576d8b85611c6f029f184c9af6bed0d9ae8bcc996848eca2462f1d0821a",
+    "result_evidence": {
+      "mathematical_consequence": "NONE"
+    }
+  },
+  "semantic_sha256": "904a2fc5ce7fe0ef26c8fecd072fe24b7bb9f867df2abeec7c1e9ba0fdbf34a9"
+}

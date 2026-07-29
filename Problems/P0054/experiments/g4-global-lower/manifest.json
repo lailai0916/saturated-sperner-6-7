@@ -1,0 +1,25 @@
+{
+  "schema": "ai-math-lab.p0054.g4-experimentalist-manifest.v1",
+  "generated_at": "2026-07-22T16:06:56Z",
+  "epistemic_label": "COMPUTED",
+  "network_used": false,
+  "random_seed": "NONE",
+  "files": [
+    {
+      "path": "Problems/P0054/experiments/g4-global-lower/exact_layer_search.py",
+      "bytes": 12954,
+      "sha256": "589a90bd629a73daf3fa70d1edd87e08a0141dcf15c1f0b64015162c354901d0"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4-global-lower/results.json",
+      "bytes": 5699,
+      "sha256": "62fd54f10dca28694b8d5c0d7e9e7fd6ede54636437fe301595be6d1bd247516"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4-global-lower/report.md",
+      "bytes": 6232,
+      "sha256": "543561c2313001b82846a0a67e30dd711b57664d72a200271b18840eccb3a09d"
+    }
+  ],
+  "manifest_self_hash": "OMITTED_TO_AVOID_SELF_REFERENCE"
+}

@@ -1,0 +1,32 @@
+{
+  "title": "Artifacts for The exact saturated 6- and 7-Sperner numbers",
+  "upload_type": "software",
+  "description": "Lean 4 formalization, exact-search programs, construction verifiers, certificate generators, CNF instances, DRAT proofs, verification scripts, manifests, checksums, tests, and locked dependency metadata supporting the exact eventual saturated 6- and 7-Sperner numbers.",
+  "creators": [
+    {
+      "name": "Chen, Jiazhi",
+      "affiliation": "Hangzhou No.2 High School of Zhejiang Province",
+      "orcid": "0009-0008-9790-9881"
+    }
+  ],
+  "access_right": "open",
+  "license": "Apache-2.0",
+  "version": "1.0.0",
+  "publication_date": "2026-07-29",
+  "keywords": [
+    "saturated Sperner family",
+    "Boolean lattice",
+    "blocker",
+    "extremal set theory",
+    "SAT certificate",
+    "Lean 4"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/lailai0916/saturated-sperner-6-7",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ],
+  "notes": "Version 1.0.0 of the reproducibility artifacts for the associated manuscript. The large archive is byte-identical to the GitHub release asset."
+}

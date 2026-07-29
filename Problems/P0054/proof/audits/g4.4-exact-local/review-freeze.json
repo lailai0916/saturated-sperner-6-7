@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "gate": "P0054_G4_4_EXACT_m_2_4",
+  "generated_at_utc": "2026-07-23T04:33:07Z",
+  "generated_at_local": "2026-07-22T21:33:07-0700",
+  "head": "d2c8e3eb81466a3743c736319ef1874920590abc",
+  "network": "OFFLINE",
+  "candidate_status": "DEPENDENCY_RESOLVED_PENDING_TWO_REFEREES",
+  "candidate": {
+    "path": "Problems/P0054/proof/g4.4-exact-local/candidate-proof.md",
+    "bytes": 23291,
+    "sha256": "5bacfe8e319ce76ac1c8e8e9efa35fe1454cf896ace8c6ee5c10d8f04b2d9832"
+  },
+  "frozen_gate_inputs": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 3848,
+      "sha256": "5ec4fe8a019a5c52efe2a382989d58782abfc6242240f77f9a0f5f8a7a39f4c1"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.4-exact-local/section0-freeze.md",
+      "bytes": 9386,
+      "sha256": "b06600a748f39f1a5d09b0a7980e90cd717a8878d1059d9a86deb7700dacdd3d"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.4-exact-local/frozen-subproblem.md",
+      "bytes": 3607,
+      "sha256": "e0dd5370eb639cd678bff60e7b17e0d025758a99c2648bc99d95d197924b78c7"
+    },
+    {
+      "path": "Problems/P0054/literature/g4.4-exact-local/freeze-manifest.json",
+      "bytes": 3338,
+      "sha256": "765b79a3832c03e03903045286be1fa8f05f714dee1381e6a5d34a2b067954e5"
+    }
+  ],
+  "isolated_prover_reports": [
+    {
+      "path": "Problems/P0054/proof/g4.4-exact-local/prover-a-report.md",
+      "bytes": 8315,
+      "sha256": "afb11b7887bda08537cc5830d8d94ed562e58d36739c1fa06d9a4a5b19cff703",
+      "route_status": "PARTIAL_PRODUCT_UNKNOWN"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.4-exact-local/prover-b-report.md",
+      "bytes": 14508,
+      "sha256": "dac0f17731f8de229c50a357e7ca3002a7e5c391529f42e706b8a78909b8bed0",
+      "route_status": "COMPLETE_CANDIDATE"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.4-exact-local/prover-c-finite-reduction.md",
+      "bytes": 9057,
+      "sha256": "7091bed29152e2e3d7ee79f8e67d678e4b55330e3ae3f44d4afe35c258846bfc",
+      "route_status": "FINITE_REDUCTION_PROVED_SEARCH_UNSAT_COMPUTED_ONLY"
+    }
+  ],
+  "experiment": [
+    {
+      "path": "Problems/P0054/experiments/g4.4-exact-local/search.py",
+      "bytes": 29730,
+      "sha256": "50a1016029f1b57138a9209adbe6cd1d22a1a759cc802a9df3e6dc3ebf78fe58"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.4-exact-local/results.json",
+      "bytes": 17204,
+      "sha256": "6a8bda57208fd9648d350732d7a72fd97c10d304fa50dd62590ddcf66afe1a5c"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.4-exact-local/report.md",
+      "bytes": 11701,
+      "sha256": "8371f89731f88709804639139cebd7d5560a9524f5dd5c3c9e537af79148065c"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.4-exact-local/manifest.json",
+      "bytes": 4754,
+      "sha256": "da2ef88911228df8a41f7d596e708d826199a00410128ba895bbba6ffb838b2f"
+    }
+  ],
+  "accepted_g4_3_dependencies": [
+    {
+      "path": "Problems/P0054/proof/g4.3-stronger-lower/candidate-proof.md",
+      "bytes": 15870,
+      "sha256": "ff1271a9552f5eaf82f6d44ac19edfa0e5f550d383d2157e0d16b0eac591a684"
+    },
+    {
+      "path": "Problems/P0054/proof/audits/g4.3-stronger-lower/referee-a.md",
+      "bytes": 13364,
+      "sha256": "6e11b6a925c50e9d84f06c53987fb6c527f4fb0567edad5c0602da1d85aba807"
+    },
+    {
+      "path": "Problems/P0054/proof/audits/g4.3-stronger-lower/referee-b.md",
+      "bytes": 9295,
+      "sha256": "22f191ada7e91d9cc00b41eb4011cd0f5a4ad23168aad8b1341c11b4a53c0c84"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.3-stronger-lower/stronger-local-parameter.md",
+      "bytes": 6502,
+      "sha256": "69bdc4575e825e1b49c3de35696e306889cf901d2f2136252033c5c4694e58c9"
+    }
+  ],
+  "conditionally_writable_after_two_accepts": [
+    {
+      "path": "Problems/P0054/status.md",
+      "bytes": 12060,
+      "sha256": "6e957c8a0a195e7fc384f67adf4b9c0ff89034773ebd8254f2cba3822cf5be65"
+    },
+    {
+      "path": "Problems/P0054/claims.yaml",
+      "bytes": 5091,
+      "sha256": "b3f03ea76cddd8af51bb8f5f4e0a6832dd44ae27e1c5d8e4541caeb2afb5536f"
+    }
+  ],
+  "evidence_boundary": {
+    "finite_reduction": "PROVED",
+    "all_15_search_rows": "COMPUTED_UNSAT",
+    "independent_unsat_certificate": false,
+    "second_complete_enumerator": false,
+    "candidate_proof_depends_on_search": false,
+    "formalizer_used": false
+  },
+  "allowed_referee_verdicts": [
+    "ACCEPT",
+    "REPAIRABLE_GAP",
+    "MAJOR_GAP",
+    "REFUTED",
+    "STATEMENT_MISMATCH"
+  ]
+}

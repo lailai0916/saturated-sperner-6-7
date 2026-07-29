@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "gate": "P0054_G4_4_EXACT_m_2_4",
+  "generated_at_utc": "2026-07-23T04:31:54Z",
+  "generated_at_local": "2026-07-22T21:31:54-0700",
+  "epistemic_label": "COMPUTED",
+  "status": "ALL_15_SPLITS_UNSAT_COMPUTED",
+  "complete_exhaustion": true,
+  "network": "OFFLINE",
+  "random_seed": "NONE_DETERMINISTIC_EXHAUSTIVE_ENUMERATION",
+  "source_sha256": "50a1016029f1b57138a9209adbe6cd1d22a1a759cc802a9df3e6dc3ebf78fe58",
+  "parameters": {
+    "totals": [9, 10, 11],
+    "splits": [
+      [7, 2],
+      [6, 3],
+      [5, 4],
+      [4, 5],
+      [8, 2],
+      [7, 3],
+      [6, 4],
+      [5, 5],
+      [4, 6],
+      [9, 2],
+      [8, 3],
+      [7, 4],
+      [6, 5],
+      [5, 6],
+      [4, 7]
+    ],
+    "per_split_seconds_limit": 7200,
+    "temporary_disk_limit_gb": 30
+  },
+  "environment": {
+    "python_under_uv": "3.12.13",
+    "uv": "0.11.29 (Homebrew 2026-07-15 aarch64-apple-darwin)",
+    "os": "macOS 27.0 build 26A5378n arm64",
+    "head": "d2c8e3eb81466a3743c736319ef1874920590abc"
+  },
+  "command": "UV_OFFLINE=1 uv run --offline python Problems/P0054/experiments/g4.4-exact-local/search.py --totals 9 10 11",
+  "replay_command": "UV_OFFLINE=1 uv run --offline python Problems/P0054/experiments/g4.4-exact-local/search.py --totals 9 10 11 --verify-results Problems/P0054/experiments/g4.4-exact-local/results.json",
+  "replay_status": "STRUCTURAL_REPLAY_MATCH_COMPUTED",
+  "stable_projection_sha256": "995d635cc94b6c28188d60ed866f2e332826a55f3736b54096c2a9bc8f068f4c",
+  "coverage": {
+    "case_count": 15,
+    "unsat_computed_count": 15,
+    "timeout_count": 0,
+    "sat_count": 0,
+    "total_dfs_nodes": 147340811,
+    "semantic_clutters_checked": 199,
+    "incidence_formula_cases_checked": 194,
+    "incremental_cover_cases_checked": 194,
+    "independent_blocker_validators": [
+      "direct_powerset",
+      "edge_choice_union_minimization"
+    ]
+  },
+  "resource_record": {
+    "complete_run_elapsed_seconds": 1164.17779754207,
+    "longest_split": [6, 5],
+    "longest_split_elapsed_seconds": 1078.9807339999825,
+    "peak_resident_set_size_raw": 28082176,
+    "peak_resident_set_size_unit": "bytes_on_macos_kibibytes_on_linux",
+    "search_cnf_or_solver_database_bytes": 0
+  },
+  "abandoned_non_evidence_runs": [
+    {
+      "reason": "interrupted during (6,5) to replace repeated cover recomputation with the proved incremental cover cache",
+      "output_imported": false,
+      "status_imported": false
+    },
+    {
+      "reason": "interrupted during (6,5) after a concurrent audit of a stale intermediate call; explicit 194-case incremental and three-argument API self-test added before restart",
+      "output_imported": false,
+      "status_imported": false
+    }
+  ],
+  "frozen_input_sha256": {
+    "AGENTS.md": "5ec4fe8a019a5c52efe2a382989d58782abfc6242240f77f9a0f5f8a7a39f4c1",
+    "Problems/P0054/experiments/g4.4-exact-local/section0-freeze.md": "b06600a748f39f1a5d09b0a7980e90cd717a8878d1059d9a86deb7700dacdd3d",
+    "Problems/P0054/proof/g4.4-exact-local/frozen-subproblem.md": "e0dd5370eb639cd678bff60e7b17e0d025758a99c2648bc99d95d197924b78c7",
+    "Problems/P0054/literature/g4.4-exact-local/freeze-manifest.json": "765b79a3832c03e03903045286be1fa8f05f714dee1381e6a5d34a2b067954e5",
+    "Problems/P0054/experiments/g4.3-stronger-lower/search.py": "ce1026519f6e9f7b3a90da6bd0ea7e1eb7fc6d6b0f7db2cadda05262488b7ec0",
+    "Problems/P0054/experiments/g4.3-stronger-lower/results.json": "315a9daea8ab4c1f28e03fdc8d17c1478bdb1ac0a1a28b4ec5fe7bf65b51d095",
+    "Problems/P0054/experiments/g4.3-stronger-lower/report.md": "93084dec2231b05d33fe4d66e585a809261961a0b6a9d10006796f42cfc387fb"
+  },
+  "artifact_aggregate": {
+    "file_count": 3,
+    "total_bytes": 58635,
+    "sha256_lines_digest": "9e12a317debd97ee37f06ed0c4a52db2b9bf39efbae4a4ed17e0bdb55b228601",
+    "ordering": "lexicographic path order",
+    "manifest_excluded_from_self_hash": true
+  },
+  "artifacts": [
+    {
+      "path": "Problems/P0054/experiments/g4.4-exact-local/report.md",
+      "bytes": 11701,
+      "sha256": "8371f89731f88709804639139cebd7d5560a9524f5dd5c3c9e537af79148065c"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.4-exact-local/results.json",
+      "bytes": 17204,
+      "sha256": "6a8bda57208fd9648d350732d7a72fd97c10d304fa50dd62590ddcf66afe1a5c"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.4-exact-local/search.py",
+      "bytes": 29730,
+      "sha256": "50a1016029f1b57138a9209adbe6cd1d22a1a759cc802a9df3e6dc3ebf78fe58"
+    }
+  ],
+  "limitations": [
+    "UNSAT remains COMPUTED because there is no independent exhaustive certificate and no second complete search implementation",
+    "no exact m(2,4), product inequality, global sat(7), novelty, publication, or next-gate claim is made"
+  ]
+}

@@ -1,0 +1,761 @@
+{
+  "schema": "ai-math-lab.p0054.size54-profile-search.v1",
+  "generated_at_utc": "2026-07-22T11:00:11.191869+00:00",
+  "run_mode": "BOUNDED_PROFILE_DISCOVERY",
+  "epistemic_label": "COMPUTED",
+  "global_sat7_lower_bound_claimed": false,
+  "semantic": {
+    "certified_layer_minima": [
+      1,
+      6,
+      12,
+      14,
+      12,
+      6,
+      1
+    ],
+    "profile_count": 28,
+    "coverage_argument": "every nonnegative actual slack vector of sum at most two is componentwise bounded by a listed vector of sum exactly two",
+    "solver": "/opt/homebrew/bin/kissat",
+    "solver_sha256": "05d6f3e9c402a1fe8853b0746e384e1b3d1c4a550e255f11daa2461d279aa848",
+    "timeout_seconds_per_profile": 60,
+    "workers": 4,
+    "counts": {
+      "SAT_VERIFIED_CANDIDATE": 0,
+      "UNSAT_NO_CERTIFICATE": 0,
+      "UNKNOWN_OR_TIMEOUT": 28
+    },
+    "records": [
+      {
+        "profile": [
+          3,
+          6,
+          12,
+          14,
+          12,
+          6,
+          1
+        ],
+        "profile_name": "profile-3-6-12-14-12-6-1",
+        "runtime_seconds": 60.015084416023456,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 148798,
+        "clause_count": 331567,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-3-6-12-14-12-6-1.cnf",
+        "cnf_sha256": "7c00386599d8e9ff0d0c0bfe268d8a4f7e5dd9494156ec351870bef0de8c840b",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-3-6-12-14-12-6-1.kissat.log",
+        "log_sha256": "24d121a68f29e85a9771826de847a7cd1ce0472e95d9ff18019d7521a4c02396",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          2,
+          7,
+          12,
+          14,
+          12,
+          6,
+          1
+        ],
+        "profile_name": "profile-2-7-12-14-12-6-1",
+        "runtime_seconds": 60.05177179200109,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 148923,
+        "clause_count": 331817,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-7-12-14-12-6-1.cnf",
+        "cnf_sha256": "250b5aa4d7ee74c7a41d47cfa09a1c303585ce3314ff8366f22f05fdfab92d9f",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-7-12-14-12-6-1.kissat.log",
+        "log_sha256": "5ca511087dbb2a0122593e632195a494447edb914428dbbc273dfb6491e8801c",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          2,
+          6,
+          13,
+          14,
+          12,
+          6,
+          1
+        ],
+        "profile_name": "profile-2-6-13-14-12-6-1",
+        "runtime_seconds": 60.06882670905907,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 149040,
+        "clause_count": 332051,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-13-14-12-6-1.cnf",
+        "cnf_sha256": "de94956722db417e94e040dc0088f5b8be85d0c3e69a4d109c19270d70b6c87b",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-13-14-12-6-1.kissat.log",
+        "log_sha256": "420e191ccbb4ac2fc4df3ed5d1963ae1ccb0cc9174b8cc2102e8d0346543c9b5",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          2,
+          6,
+          12,
+          15,
+          12,
+          6,
+          1
+        ],
+        "profile_name": "profile-2-6-12-15-12-6-1",
+        "runtime_seconds": 60.01958249998279,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 149088,
+        "clause_count": 332147,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-12-15-12-6-1.cnf",
+        "cnf_sha256": "ef74aaeb2bc8991c7705a9426ac7cff2df3377a11a4a8033f3c7c554787fcf9a",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-12-15-12-6-1.kissat.log",
+        "log_sha256": "664deac763a295fee99025e4d50d66197060cc124b1d5720d5222f9834c74936",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          2,
+          6,
+          12,
+          14,
+          13,
+          6,
+          1
+        ],
+        "profile_name": "profile-2-6-12-14-13-6-1",
+        "runtime_seconds": 60.025234709028155,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 149040,
+        "clause_count": 332051,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-12-14-13-6-1.cnf",
+        "cnf_sha256": "d87cd4d8421b6bde69d99dff1edb50b27087c90514d297f9728cdd0fb1beab17",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-12-14-13-6-1.kissat.log",
+        "log_sha256": "ec587482170fa2cfa930a225ae626656216933db93b570948c0e0f2db5f86fee",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          2,
+          6,
+          12,
+          14,
+          12,
+          7,
+          1
+        ],
+        "profile_name": "profile-2-6-12-14-12-7-1",
+        "runtime_seconds": 60.01779370789882,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 148923,
+        "clause_count": 331817,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-12-14-12-7-1.cnf",
+        "cnf_sha256": "9b3bbc20eb1c2d4b6597b196d16d1d16b08dd023753737e09b69d1718c16167d",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-12-14-12-7-1.kissat.log",
+        "log_sha256": "65e471ee24976df74f078ea6f08febe13070af89286bdd027d9ebcd00dcfba72",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          2,
+          6,
+          12,
+          14,
+          12,
+          6,
+          2
+        ],
+        "profile_name": "profile-2-6-12-14-12-6-2",
+        "runtime_seconds": 60.036220749956556,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 148798,
+        "clause_count": 331567,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-12-14-12-6-2.cnf",
+        "cnf_sha256": "0517a56ac60847d174ce953d8e0548c0b72a62a61be3a1560ad797669eb6190b",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-12-14-12-6-2.kissat.log",
+        "log_sha256": "b9664ee531191f7540da414aada5ffaf8f6ba7bb269c36584294657d102ab2e4",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          1,
+          8,
+          12,
+          14,
+          12,
+          6,
+          1
+        ],
+        "profile_name": "profile-1-8-12-14-12-6-1",
+        "runtime_seconds": 60.03813045809511,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 149048,
+        "clause_count": 332067,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-8-12-14-12-6-1.cnf",
+        "cnf_sha256": "130e9676295eced885bb5119d0c9cff2f9997c25d26a27e26cd626e655dc5131",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-8-12-14-12-6-1.kissat.log",
+        "log_sha256": "e4d4ce3c0053a2056236f5ee63b4c4256240abb77e08ba2ae3ca6cc46b224513",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          1,
+          7,
+          13,
+          14,
+          12,
+          6,
+          1
+        ],
+        "profile_name": "profile-1-7-13-14-12-6-1",
+        "runtime_seconds": 60.01345816696994,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 149165,
+        "clause_count": 332301,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-13-14-12-6-1.cnf",
+        "cnf_sha256": "8e35dfcca8ae632f96fbb724a9987b94b2eca5d334bde881689c84cbdb8dd641",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-13-14-12-6-1.kissat.log",
+        "log_sha256": "d0177616dd265658c12f5e1ed62715704a731a035c98748b04bd2529ddd18311",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          1,
+          7,
+          12,
+          15,
+          12,
+          6,
+          1
+        ],
+        "profile_name": "profile-1-7-12-15-12-6-1",
+        "runtime_seconds": 60.04050741600804,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 149213,
+        "clause_count": 332397,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-12-15-12-6-1.cnf",
+        "cnf_sha256": "6373c2d11d9e20181af4e7a9623a403f45bbf04cd6724cd184b65185c343a864",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-12-15-12-6-1.kissat.log",
+        "log_sha256": "a571bfac81ec765b5cef776add84f3fa9dcc3d40b7d58c3d1a5add383c9438c7",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          1,
+          7,
+          12,
+          14,
+          13,
+          6,
+          1
+        ],
+        "profile_name": "profile-1-7-12-14-13-6-1",
+        "runtime_seconds": 60.04292675002944,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 149165,
+        "clause_count": 332301,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-12-14-13-6-1.cnf",
+        "cnf_sha256": "e7ecf126868151e51ea56e06a02f434c11f4806b2b5d074676d3d50b2c3ec005",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-12-14-13-6-1.kissat.log",
+        "log_sha256": "7ee054d8919e32fc9dca46958e46261bebaaa2b26beb376743be2488ef666848",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          1,
+          7,
+          12,
+          14,
+          12,
+          7,
+          1
+        ],
+        "profile_name": "profile-1-7-12-14-12-7-1",
+        "runtime_seconds": 60.077222333988175,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 149048,
+        "clause_count": 332067,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-12-14-12-7-1.cnf",
+        "cnf_sha256": "877e92c6954256e33268f2ec1f265df74bdccb8528bcea69c18ae09411f7db04",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-12-14-12-7-1.kissat.log",
+        "log_sha256": "cf2ebd23573d791ec9024f08b7372ae533b668ca4aeb19544bb5589db44c3889",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          1,
+          7,
+          12,
+          14,
+          12,
+          6,
+          2
+        ],
+        "profile_name": "profile-1-7-12-14-12-6-2",
+        "runtime_seconds": 60.0156927080825,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 148923,
+        "clause_count": 331817,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-12-14-12-6-2.cnf",
+        "cnf_sha256": "6880a8864b16cc6250542efe90c20406be107a779c05f7275a2bb3bffb91773e",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-12-14-12-6-2.kissat.log",
+        "log_sha256": "19b12342f87268dcc25e1507150429b7e46fb633ec6672bf82668ba43d97d1ac",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          1,
+          6,
+          14,
+          14,
+          12,
+          6,
+          1
+        ],
+        "profile_name": "profile-1-6-14-14-12-6-1",
+        "runtime_seconds": 60.04260729101952,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 149282,
+        "clause_count": 332535,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-14-14-12-6-1.cnf",
+        "cnf_sha256": "df10bcf6deb35c19c2ef5deb107ebbdaf3682a6a495b4f1b8788c8cf2df8ebea",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-14-14-12-6-1.kissat.log",
+        "log_sha256": "b0dd3a1b9d51104612249168c72c24519d1efe5998e066a6bb60cbf3c56dc5ad",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          1,
+          6,
+          13,
+          15,
+          12,
+          6,
+          1
+        ],
+        "profile_name": "profile-1-6-13-15-12-6-1",
+        "runtime_seconds": 60.031028499943204,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 149330,
+        "clause_count": 332631,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-13-15-12-6-1.cnf",
+        "cnf_sha256": "dbcebc611dda4054379434f0a3b347f84f92c4ca51cd324940bb3dd75a0f1aee",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-13-15-12-6-1.kissat.log",
+        "log_sha256": "6f825e4679eec5bf0bc310e821cb9397ccf5970ef538c80c929698fc84bf36a8",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          1,
+          6,
+          13,
+          14,
+          13,
+          6,
+          1
+        ],
+        "profile_name": "profile-1-6-13-14-13-6-1",
+        "runtime_seconds": 60.053717000060715,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 149282,
+        "clause_count": 332535,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-13-14-13-6-1.cnf",
+        "cnf_sha256": "6e2af43ee96bd30d2b94e61f07dfb8bd6f895dc79debde5095de37b46e827689",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-13-14-13-6-1.kissat.log",
+        "log_sha256": "8d6063437669c5ae1a46d75a2e2f2507360c58bc489a5074e18ef87590ef69e5",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          1,
+          6,
+          13,
+          14,
+          12,
+          7,
+          1
+        ],
+        "profile_name": "profile-1-6-13-14-12-7-1",
+        "runtime_seconds": 60.028170166071504,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 149165,
+        "clause_count": 332301,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-13-14-12-7-1.cnf",
+        "cnf_sha256": "2a890f3c7c584c279e489106a75121f1a8e91a4a004a64f9b0e08233952916d6",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-13-14-12-7-1.kissat.log",
+        "log_sha256": "cda4d1795a73b3c0800bb023b308ba7ec2b18c28bcfbf302fde452b9f8109bd0",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          1,
+          6,
+          13,
+          14,
+          12,
+          6,
+          2
+        ],
+        "profile_name": "profile-1-6-13-14-12-6-2",
+        "runtime_seconds": 60.02319937502034,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 149040,
+        "clause_count": 332051,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-13-14-12-6-2.cnf",
+        "cnf_sha256": "93ee6e2162d75b32db238929facd4048b5309b87fc20881bfbb61ea17f0604c0",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-13-14-12-6-2.kissat.log",
+        "log_sha256": "b8dabafef7fc79f651a4909800fe93e9b621fc9241acc9db8f587183aef3c65d",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          1,
+          6,
+          12,
+          16,
+          12,
+          6,
+          1
+        ],
+        "profile_name": "profile-1-6-12-16-12-6-1",
+        "runtime_seconds": 60.01771570905112,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 149378,
+        "clause_count": 332727,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-16-12-6-1.cnf",
+        "cnf_sha256": "d9191be52530e4dd174c85f8e2e76384b037a0cc722f9b89a4dd1355d6a47f0a",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-16-12-6-1.kissat.log",
+        "log_sha256": "b645e309cbde992254ac4cf359a290dd11bdf8d586ab31b42c81aa6d332946ee",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          1,
+          6,
+          12,
+          15,
+          13,
+          6,
+          1
+        ],
+        "profile_name": "profile-1-6-12-15-13-6-1",
+        "runtime_seconds": 60.01827749994118,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 149330,
+        "clause_count": 332631,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-15-13-6-1.cnf",
+        "cnf_sha256": "563807e75c0b70d1878235be0afb4c65d882b7d627e55b489a88d79a8fe06402",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-15-13-6-1.kissat.log",
+        "log_sha256": "c1b6ad3086e23c1e506134bcd2461f4a8c8492b629de95544bba419df7d7fb63",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          1,
+          6,
+          12,
+          15,
+          12,
+          7,
+          1
+        ],
+        "profile_name": "profile-1-6-12-15-12-7-1",
+        "runtime_seconds": 60.016057041008025,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 149213,
+        "clause_count": 332397,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-15-12-7-1.cnf",
+        "cnf_sha256": "d14c1ef01f6675ca7ba6aec32741bbf977a4f16cfebbb28184b9a602933f8e52",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-15-12-7-1.kissat.log",
+        "log_sha256": "a464ee7bbdb305abe01432c1597dbafb6af40dcc3e6ca08e6597ec30e5ccbca4",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          1,
+          6,
+          12,
+          15,
+          12,
+          6,
+          2
+        ],
+        "profile_name": "profile-1-6-12-15-12-6-2",
+        "runtime_seconds": 60.05381408298854,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 149088,
+        "clause_count": 332147,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-15-12-6-2.cnf",
+        "cnf_sha256": "2a95863f18304179d256f847494bf4af8b49a2b5713887777f85eae946a75f1a",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-15-12-6-2.kissat.log",
+        "log_sha256": "2812f9cecd3af37945ce4903c0c6019d56f546be668ced84131cc9d02113e2d3",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          1,
+          6,
+          12,
+          14,
+          14,
+          6,
+          1
+        ],
+        "profile_name": "profile-1-6-12-14-14-6-1",
+        "runtime_seconds": 60.072976291994564,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 149282,
+        "clause_count": 332535,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-14-6-1.cnf",
+        "cnf_sha256": "889ea9cb40e304e5f9ed633532f26737eb9adf4af7d9ac3f17c9dac5e77d7964",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-14-6-1.kissat.log",
+        "log_sha256": "4bb4f28e806a49add2a1440baaf58c747ab3e69162583a3225ba99773a853967",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          1,
+          6,
+          12,
+          14,
+          13,
+          7,
+          1
+        ],
+        "profile_name": "profile-1-6-12-14-13-7-1",
+        "runtime_seconds": 60.041630708030425,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 149165,
+        "clause_count": 332301,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-13-7-1.cnf",
+        "cnf_sha256": "1372d8c62fdd11d078b099641a30d7cb47f3f40efbd3db8513b6e7fa1b257c32",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-13-7-1.kissat.log",
+        "log_sha256": "10dde779536e72f32262090a7d4673680ee0df551749a85474cda3c138abed57",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          1,
+          6,
+          12,
+          14,
+          13,
+          6,
+          2
+        ],
+        "profile_name": "profile-1-6-12-14-13-6-2",
+        "runtime_seconds": 60.01540862489492,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 149040,
+        "clause_count": 332051,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-13-6-2.cnf",
+        "cnf_sha256": "0299affdbab761f879ea44b12f7812d97d964353f3fe99c3eae4636aeaac099b",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-13-6-2.kissat.log",
+        "log_sha256": "4918c650c6be1010f1519cb0074d19877fc856330bf4146b5428eda232bdc54f",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          1,
+          6,
+          12,
+          14,
+          12,
+          8,
+          1
+        ],
+        "profile_name": "profile-1-6-12-14-12-8-1",
+        "runtime_seconds": 60.01526787504554,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 149048,
+        "clause_count": 332067,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-12-8-1.cnf",
+        "cnf_sha256": "5cae19a5543bec49d0d560392d6ae8b8b775e6e526b2147d88d18ed4133ed1dc",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-12-8-1.kissat.log",
+        "log_sha256": "3a2a4d185a32e6891fc278dbc9f509f551a581b1a92f00746b80dd015a44210c",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          1,
+          6,
+          12,
+          14,
+          12,
+          7,
+          2
+        ],
+        "profile_name": "profile-1-6-12-14-12-7-2",
+        "runtime_seconds": 60.01670162496157,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 148923,
+        "clause_count": 331817,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-12-7-2.cnf",
+        "cnf_sha256": "8b610fd91d761069ff1c8e5c59dbf25361c0db213475aaac7366eee0975ee653",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-12-7-2.kissat.log",
+        "log_sha256": "b2237bb7cfeb92147f24dba152ed52cbb267e1287d1cfecc4574b0ddea7009f7",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      },
+      {
+        "profile": [
+          1,
+          6,
+          12,
+          14,
+          12,
+          6,
+          3
+        ],
+        "profile_name": "profile-1-6-12-14-12-6-3",
+        "runtime_seconds": 60.0126822500024,
+        "solver_returncode": 0,
+        "solver_result": "UNKNOWN_OR_TIMEOUT",
+        "epistemic_label": "COMPUTED",
+        "primary_variable_count": 1934,
+        "auxiliary_variable_count": 148798,
+        "clause_count": 331567,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-12-6-3.cnf",
+        "cnf_sha256": "f1f55800489fc386d2d939ed9325b1e69a700e2d0653012df39b06e394b39a7d",
+        "log_path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-12-6-3.kissat.log",
+        "log_sha256": "0e0170bf1063eeb139675e3114a1020ac28de7c8fba7d7e3d1dfbdcdf68a7b80",
+        "evidence": {
+          "mathematical_consequence": "NONE"
+        }
+      }
+    ],
+    "candidate_found": false
+  },
+  "semantic_sha256": "cd863a2b0aa1d31f68d5250f714aa8938d001a777afc7cf6f2a52150981d1719"
+}

@@ -1,0 +1,109 @@
+{
+  "classes": [
+    {
+      "blockers": 7,
+      "key": "10:1,11:1,13:1,19:1,20:2,|b:7|p:3",
+      "pair_blockers": 3,
+      "row_sizes": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "blockers": 7,
+      "key": "11:1,13:1,14:1,16:1,17:1,22:1,|b:7|p:3",
+      "pair_blockers": 3,
+      "row_sizes": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "blockers": 6,
+      "key": "11:1,13:1,14:1,17:1,18:1,20:1,|b:6|p:3",
+      "pair_blockers": 3,
+      "row_sizes": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "blockers": 7,
+      "key": "1:1,10:1,11:1,12:1,18:1,20:1,21:1,|b:7|p:3",
+      "pair_blockers": 3,
+      "row_sizes": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "blockers": 7,
+      "key": "1:1,10:1,11:1,12:1,19:1,20:2,|b:7|p:3",
+      "pair_blockers": 3,
+      "row_sizes": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "blockers": 7,
+      "key": "1:1,10:1,13:1,14:1,16:1,18:1,21:1,|b:7|p:3",
+      "pair_blockers": 3,
+      "row_sizes": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "blockers": 7,
+      "key": "1:1,10:2,13:1,16:1,21:1,22:1,|b:7|p:3",
+      "pair_blockers": 3,
+      "row_sizes": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "blockers": 7,
+      "key": "1:1,6:1,10:1,13:1,18:1,21:1,25:1,|b:7|p:3",
+      "pair_blockers": 3,
+      "row_sizes": [
+        3,
+        3,
+        3,
+        3,
+        4
+      ]
+    }
+  ],
+  "classes_with_minimum_row_four": 0,
+  "classes_with_minimum_row_three": 8,
+  "epistemic_label": "COMPUTED",
+  "multiplicity_vectors": 490,
+  "python_source_sha256": "61e8601cbd78b39c2b0fc52bf34b6e3b76fe9914bf1031b4e12c0c4768f50d99",
+  "reference_path": "Problems/P0054/experiments/g4.11-coupled-fifty-three/five-row-kernel-results.txt",
+  "reference_sha256": "9069cbceab1612fd1268c8d28e5a0fe9d4b94d3f5f9067729cbbcc01fafcfd38",
+  "row_permutation_classes": 8,
+  "schema": "p0054.g4.12.middle-seven-nine-five-row.v1"
+}

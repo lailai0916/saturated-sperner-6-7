@@ -1,0 +1,64 @@
+{
+  "schema": "ai-math-lab.p0054.size54-rank-window-system.v1",
+  "generated_at_utc": "2026-07-22T10:21:46.215499+00:00",
+  "run_mode": "STRUCTURAL_REDUCED_COMPLETE_SEARCH",
+  "epistemic_label": "PROVED_CLASS_RESTRICTED_LOWER_BOUND",
+  "global_sat7_lower_bound_claimed": false,
+  "semantic": {
+    "search_class": "eight-core common-block layered template class",
+    "fixed_middle14": true,
+    "target_size": 54,
+    "certified_layer_minima": [
+      1,
+      6,
+      12,
+      14,
+      12,
+      6,
+      1
+    ],
+    "safe_layer_upper_bounds": [
+      3,
+      8,
+      14,
+      16,
+      14,
+      8,
+      3
+    ],
+    "small_template_bound": 27,
+    "reference_path": "Problems/P0054/experiments/certificates/core-8-target-55-selfcontained.json",
+    "reference_sha256": "026d0f8e15a8028603ac04457cb7a3b42a8847a36368ce17b9ce75490b291fdb",
+    "solver": "/opt/homebrew/bin/kissat",
+    "solver_sha256": "05d6f3e9c402a1fe8853b0746e384e1b3d1c4a550e255f11daa2461d279aa848",
+    "checker": "/tmp/p0054-g3-drat-trim.4v6yIu/drat-trim",
+    "checker_sha256": "82f1dbee48911acca5f042c2a4c4c4fd98c46a91955da321724fbb74f4103206",
+    "checker_commit": "2e3b2dc0ecf938addbd779d42877b6ed69d9a985",
+    "solver_command": [
+      "/opt/homebrew/bin/kissat",
+      "--time=600",
+      "Problems/P0054/experiments/size54-g3-system/fixed-middle14/core8-target54-rank-window-fixed-middle14.cnf",
+      "Problems/P0054/experiments/size54-g3-system/fixed-middle14/core8-target54-rank-window-fixed-middle14.drat"
+    ],
+    "solver_returncode": 20,
+    "runtime_seconds": 10.540689875022508,
+    "solver_result": "UNSAT_VERIFIED",
+    "primary_variable_count": 1934,
+    "auxiliary_variable_count": 152394,
+    "clause_count": 339155,
+    "cnf_path": "Problems/P0054/experiments/size54-g3-system/fixed-middle14/core8-target54-rank-window-fixed-middle14.cnf",
+    "cnf_bytes": 6461447,
+    "cnf_sha256": "4788e55ffd51c81e0639611d9e25e2ff103af5838b0ef08ce13c6bb697f74412",
+    "solver_log": "Problems/P0054/experiments/size54-g3-system/fixed-middle14/core8-target54-rank-window-fixed-middle14.kissat.log",
+    "solver_log_sha256": "62ccd24bc1cda740c7425246402450779f400121b8ef919ab9936e7381baa71a",
+    "result_evidence": {
+      "proof_path": "Problems/P0054/experiments/size54-g3-system/fixed-middle14/core8-target54-rank-window-fixed-middle14.drat",
+      "proof_bytes": 42951282,
+      "proof_sha256": "72570874c2fc0a30ae80fc243cc60d2110e282beadb87096f718c0567cbf63db",
+      "checker_log": "Problems/P0054/experiments/size54-g3-system/fixed-middle14/core8-target54-rank-window-fixed-middle14.drat-trim.log",
+      "checker_log_sha256": "4df3d69add8ebf6d835d11cf6bde6536db07dc73c87271dec3d2ff41aeeaf7f1",
+      "mathematical_consequence": "no system extending this fixed middle-layer witness"
+    }
+  },
+  "semantic_sha256": "cd804916720610e6f252a2b8e834c2e2aa08362623ebb639a1be03c5158b83e9"
+}

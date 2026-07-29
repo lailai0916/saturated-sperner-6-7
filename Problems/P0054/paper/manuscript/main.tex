@@ -1,0 +1,1207 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!55!black,
+  citecolor=blue!55!black,
+  urlcolor=blue!55!black,
+  pdftitle={The exact saturated 6- and 7-Sperner numbers},
+  pdfauthor={Jiazhi Chen}
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\powerset}{\mathcal{P}}
+\newcommand{\family}{\mathcal{F}}
+\newcommand{\smallcores}{\mathcal{S}}
+\newcommand{\largecores}{\mathcal{L}}
+\newcommand{\sat}{\operatorname{sat}}
+\newcommand{\blocker}{\mathcal{B}}
+\newcommand{\bits}[1]{\mathtt{#1}}
+
+\title{The Exact Saturated 6- and 7-Sperner Numbers}
+\author{Jiazhi Chen\\
+\small Hangzhou No.2 High School of Zhejiang Province\\
+\small No. 76 Dongxin Avenue, Binjiang District,\\
+\small Hangzhou, Zhejiang 310053, China\\
+\small \href{mailto:lailai0x394@gmail.com}{lailai0x394@gmail.com}\quad
+\href{https://orcid.org/0009-0008-9790-9881}{ORCID: 0009-0008-9790-9881}}
+\date{July 29, 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We determine the eventual saturated 6- and 7-Sperner numbers.  At six layers,
+the exact value is $\sat(6)=30$.  Its lower bound reduces the two middle
+canonical layers to the finite-clutter parameter $m(2,3)$, for which we prove
+$m(2,3)=9$ on arbitrary finite ground sets.  At seven layers, a stronger
+blocker inequality first gives $m(2,4)=12$ and $\sat(7)\geq47$.  Successive
+arbitrary-finite reductions then exclude the equality profiles of sizes 52
+and 53 and reduce size 54 to two profiles.  Exact branch arguments and
+independently replayed finite kernel enumerations exclude the Fano profile and
+all middle splits $(5,11)$, $(6,10)$, $(7,9)$, and $(8,8)$, together with
+their blocker duals.  Hence $\sat(7)\geq55$.  An explicit 55-member family
+over an eight-element core and a disjoint homogeneous atom gives equality.
+Its small/large split is $28/27$, so composition also yields
+\[
+  \sat(5j+2+s)\leq 2^s(28^j+27^j)
+  \qquad(j\geq1,\ 0\leq s\leq4).
+\]
+Both eventual equalities are also formalized in Lean 4 as attainment-and-
+optimality statements on every sufficiently large labelled ground set.  A
+certificate-checked encoding separately proves that 56 is optimal only within
+the analogous seven-core layered template class.
+\end{abstract}
+
+\noindent\textbf{Keywords:} saturated Sperner family; Boolean lattice;
+blocker; extremal set theory; SAT certificate; Lean 4
+
+\section{Introduction}
+
+Let $X$ be a finite set.  A family $\family\subseteq\powerset(X)$ is
+$k$-Sperner when it contains no strict chain of length $k+1$, and it is
+saturated when adjoining any subset outside $\family$ creates such a chain.
+The corresponding minimum size, denoted $\sat(n,k)$ when $|X|=n$, asks for a
+family that is simultaneously chain-free and maximal with respect to this
+property.
+
+Thus, the number 55 counts selected subsets, not points of the ground set.
+The difficulty is maximality: every one of the many omitted subsets must
+become part of a forbidden eight-term chain as soon as it is adjoined.
+
+Gerbner et al.~\cite{gerbner2013} initiated the systematic study of these
+minimum saturated families and proved, among other structural results, that
+the value stabilizes when the ground set is sufficiently large for fixed $k$.
+The eventual value is denoted $\sat(k)$.  Morrison, Noel, and Scott
+\cite{mns2014} developed a layered construction from saturated antichains and
+a composition operation that turns an efficient construction for one value of
+$k$ into upper bounds for larger values.
+
+Martin and Veldt~\cite{martinveldt2025} used this framework to construct a
+56-member saturated 7-Sperner family.  Their construction improved the
+composition factor available at $k=7$ and led to the upper bound
+$2^{s+1}28^j$ at parameter $5j+2+s$.  They explicitly asked whether
+$\sat(7)=56$ or a smaller construction exists.  The same paper records that a
+smaller value appearing in early preprint versions was erroneous.  A separate
+machine-learning search later produced a 108-member saturated 8-Sperner
+family~\cite{patternboost}; that result changes the leading asymptotic bound
+but does not answer the question at $k=7$.
+
+There are four main results.  First, \cref{thm:sat6} proves
+$\sat(6)=30$, matching the upper construction of Morrison--Noel--Scott.  The
+new ingredient is the exact finite-clutter theorem $m(2,3)=9$.  Second,
+\cref{thm:sat7-lower} proves $\sat(7)\geq47$ from the stronger local theorem
+$m(2,4)=12$.  Third, \cref{sec:exact-seven} excludes every 54-member profile.
+Fourth, \cref{sec:construction} gives a 55-member construction.  Together,
+these results prove $\sat(7)=55$.
+
+The upper-bound construction has two short, inspectable certificates.  For
+each layer, the large core sets are precisely the inclusion-maximal sets that
+avoid all small core members.  A general lemma proves saturation, and an
+explicit predecessor list proves layering.  A direct finite-ground verifier
+and Lean 4 check its concrete eleven-point realization.  The Lean development
+also formalizes the arbitrary-ground lower-bound chain and exports the two
+eventual exact statements.  Separately, a DRAT-certified encoding proves that
+56 is optimal inside the seven-core version of the same template class.  That
+class result is not a global lower bound.
+
+A final pre-submission search on 29 July 2026 found no public equivalent of
+either exact value in Crossref, arXiv, OpenAlex, Google Scholar, the indexed
+citation graph, or the directly relevant full texts.  This bounded negative
+search does not establish novelty or priority.
+
+\section{Preliminaries}
+\label{sec:preliminaries}
+
+We write $A\subsetneq B$ for strict inclusion.  A \emph{strict chain of
+length $r$} is a sequence $A_0\subsetneq\cdots\subsetneq A_{r-1}$.
+
+\begin{definition}
+A family $\family\subseteq\powerset(X)$ is \emph{$k$-Sperner} if it has no
+strict chain of length $k+1$.  It is \emph{saturated $k$-Sperner} if it is
+$k$-Sperner and, for every $S\in\powerset(X)\setminus\family$, the family
+$\family\cup\{S\}$ contains a strict chain of length $k+1$.
+\end{definition}
+
+A saturated 1-Sperner family is exactly a maximal antichain.  The following
+notion organizes several such antichains.
+
+\begin{definition}
+Pairwise disjoint families $\mathcal A_0,\ldots,\mathcal A_{k-1}$ are
+\emph{layered} if, for every $i>0$ and every $B\in\mathcal A_i$, some
+$A\in\mathcal A_{i-1}$ satisfies $A\subsetneq B$.
+\end{definition}
+
+We use the following theorem of Morrison--Noel--Scott, in the formulation used
+by Martin--Veldt.
+
+\begin{theorem}[Layered saturated antichains
+  \cite{mns2014,martinveldt2025}]
+\label{thm:layered}
+If $\mathcal A_0,\ldots,\mathcal A_{k-1}$ are pairwise disjoint, layered
+saturated antichains, then their union is a saturated $k$-Sperner family.
+\end{theorem}
+
+Our layers use a common block.  Fix a finite core $C$ and a nonempty set $H$
+disjoint from $C$.  A \emph{small template} is a subset $S\subseteq C$; a
+\emph{large template} has the form $L\cup H$ for $L\subseteq C$.  A core set
+$L$ is \emph{$\smallcores$-free} if it contains no member of
+$\smallcores\subseteq\powerset(C)$.
+
+Following Morrison--Noel--Scott, an \emph{atom} of a family is an
+inclusion-maximal set $H$ such that every family member either contains $H$
+or is disjoint from $H$.  An atom is \emph{homogeneous} when $|H|>2$.
+
+\begin{lemma}[Maximal-small-free certificate]
+\label{lem:maximal-free}
+Let $\smallcores\subseteq\powerset(C)$ be an antichain, and let
+$\largecores$ be the collection of all inclusion-maximal
+$\smallcores$-free subsets of $C$.  Then
+\[
+  \mathcal A(\smallcores,\largecores)
+  =\smallcores\ \cup\ \{L\cup H:L\in\largecores\}
+\]
+is a saturated antichain in $\powerset(C\cup H)$.
+\end{lemma}
+
+\begin{proof}
+The small templates are mutually incomparable.  Distinct maximal
+$\smallcores$-free sets are mutually incomparable, so the large templates are
+also mutually incomparable.  A small template $S$ cannot be contained in
+$L\cup H$ for $L\in\largecores$, because this would give $S\subseteq L$ and
+contradict that $L$ is $\smallcores$-free.  A large template cannot be
+contained in a small one because it contains $H$.  Thus $\mathcal A$ is an
+antichain.
+
+Now let $T\subseteq C\cup H$ be outside $\mathcal A$, and put $R=T\cap C$.
+If $R$ contains some $S\in\smallcores$, then $S\subsetneq T$.  Otherwise $R$
+is $\smallcores$-free.  Since $C$ is finite, $R$ is contained in an
+inclusion-maximal $\smallcores$-free set $L\in\largecores$, and hence
+$T\subseteq L\cup H$.  This containment is strict because $T$ is outside
+$\mathcal A$.  Therefore every external set is strictly comparable with a
+member of $\mathcal A$, proving saturation.
+\end{proof}
+
+\section{Blockers and stable lower bounds}
+\label{sec:blockers}
+
+Let $U$ be finite.  A \emph{transversal} of
+$\mathcal H\subseteq\powerset(U)$ meets every member of $\mathcal H$, and the
+\emph{blocker} $\blocker(\mathcal H)$ is the family of its inclusion-minimal
+transversals.  A \emph{clutter} is a family in which no two distinct members
+contain one another.  For positive integers $p,q$, define
+\[
+  m(p,q)=\min\bigl\{|\mathcal S|+|\mathcal C|:
+  \mathcal S=\blocker(\mathcal C),\
+  \mathcal C=\blocker(\mathcal S),\
+  \min_{S\in\mathcal S}|S|\geq p,\
+  \min_{C\in\mathcal C}|C|\geq q\bigr\},
+\]
+where the minimum ranges over all finite ground sets and admissible clutters.
+
+\begin{lemma}[Blocker involution and private witnesses]
+\label{lem:blocker-basic}
+For every finite clutter $\mathcal H$,
+$\blocker(\blocker(\mathcal H))=\mathcal H$.  Moreover, if
+$T\in\blocker(\mathcal H)$ and $x\in T$, then some
+$E_x\in\mathcal H$ satisfies $T\cap E_x=\{x\}$.  Consequently,
+$|T|\leq|\mathcal H|$.
+\end{lemma}
+
+\begin{proof}
+Minimality of $T$ implies that $T\setminus\{x\}$ misses some $E_x$, while
+$T$ meets $E_x$.  Thus $T\cap E_x=\{x\}$.  Distinct points have distinct
+private witnesses, proving the cardinality bound.
+
+Every $E\in\mathcal H$ is a transversal of $\blocker(\mathcal H)$.  If a
+proper subset $D\subsetneq E$ were also a transversal, then $D$ would contain
+no member of the clutter $\mathcal H$.  Hence $U\setminus D$ would meet every
+member of $\mathcal H$ and would contain a minimal transversal disjoint from
+$D$, a contradiction.  Thus
+$\mathcal H\subseteq\blocker(\blocker(\mathcal H))$.  Conversely, every
+member of the latter blocker contains a member of $\mathcal H$, and
+minimality forces equality.
+\end{proof}
+
+The next lemma isolates the interface between canonical layers and blockers.
+
+\begin{lemma}[Canonical blocker interface]
+\label{lem:canonical-blocker}
+Let $\mathcal A_i$ be an internal canonical layer of a minimum saturated
+$k$-Sperner family with homogeneous atom $H$, and put $U=X\setminus H$.
+Let $\mathcal S_i$ be the small members of $\mathcal A_i$, and write each
+large member as $K\cup H$ with $K\subseteq U$.  Define
+\[
+  \mathcal C_i=\{U\setminus K:K\cup H\in\mathcal A_i\}.
+\]
+Then
+\[
+  \mathcal S_i=\blocker(\mathcal C_i),\qquad
+  \mathcal C_i=\blocker(\mathcal S_i).
+\]
+Every member of $\mathcal S_i$ has size at least $i$, and every member of
+$\mathcal C_i$ has size at least $k-1-i$.
+\end{lemma}
+
+\begin{proof}
+The size statements are Proposition 14 of Martin--Veldt
+\cite{martinveldt2025}.  Choose a nonempty proper subset $Q\subset H$.  For
+each $R\subseteq U$, the mixed set $R\cup Q$ is outside the layer.  Saturation
+of $\mathcal A_i$ gives either $S\subseteq R$ for some
+$S\in\mathcal S_i$, or $R\subseteq K$ for some large trace $K$.  The
+antichain property says that every $S$ meets every $U\setminus K$.
+
+If $T$ is a transversal of $\mathcal C_i$, it is contained in no large trace,
+so the cover condition gives some $S\subseteq T$.  Minimal transversals are
+therefore precisely the members of $\mathcal S_i$.  Applying the same argument
+to $U\setminus T$ gives the reverse blocker equality.  Alternatively, it
+follows from \cref{lem:blocker-basic}, since both sides are clutters.
+\end{proof}
+
+\begin{theorem}
+\label{thm:m23}
+The exact local blocker parameter is $m(2,3)=9$.
+\end{theorem}
+
+\begin{proof}
+Consider an admissible pair and write
+$a=|\mathcal S|$, $b=|\mathcal C|$.  The private-witness bound applied in both
+directions gives $a\geq3$ and $b\geq2$.
+
+If $b=2$, the two members of $\mathcal C$ are disjoint, because their
+intersection would give a singleton blocker.  Choosing one point from each
+gives at least $3^2=9$ members of $\mathcal S$.
+
+Suppose $b=3$, with rows $C_1,C_2,C_3$.  Their triple intersection is empty.
+For $\{i,j,k\}=\{1,2,3\}$, put
+\[
+  A_i=C_i\setminus(C_j\cup C_k),\qquad
+  P_i=(C_j\cap C_k)\setminus C_i,
+\]
+and write $\alpha_i=|A_i|$, $\pi_i=|P_i|$.  The two-point minimal
+transversals use one point from $A_i$ and one from $P_i$, or one point from
+each of two distinct $P$-classes.  The three-point minimal transversals use
+one point from each $A_i$.  The private-witness part of
+\cref{lem:blocker-basic} excludes every other type.  Hence
+\[
+  a=\alpha_1\alpha_2\alpha_3+
+  \sum_{i=1}^3\alpha_i\pi_i+
+  \pi_1\pi_2+\pi_1\pi_3+\pi_2\pi_3.
+  \tag{1}
+\]
+The row inequalities are
+$\alpha_i+\pi_j+\pi_k\geq3$.  If some $\pi_i\geq2$, the terms in (1)
+containing $\pi_i$ give at least six.  Equality would force
+$\pi_i=2$, the corresponding row sum to be three, and every remaining term
+to vanish.  The other two row inequalities then force all three
+$\alpha$-classes to be nonempty, a contradiction.  Thus $a\geq7$.  If every
+$\pi_i\leq1$, monotonicity in the $\alpha_i$ reduces the calculation, up to
+symmetry, to
+\[
+\begin{array}{c|c|c}
+(\pi_1,\pi_2,\pi_3)&
+\min(\alpha_1,\alpha_2,\alpha_3)&\min a\\
+\hline
+(0,0,0)&(3,3,3)&27\\
+(0,0,1)&(2,2,3)&15\\
+(0,1,1)&(1,2,2)&9\\
+(1,1,1)&(1,1,1)&7
+\end{array}
+\]
+so again $a\geq7$.
+
+It remains to consider $b\geq4$.  If $a=3$, the three members of
+$\mathcal S$ are pairwise disjoint: an intersection point and one point from
+the remaining row would otherwise form a transversal of size at most two.
+Choosing one point from each row gives $b\geq2^3=8$.  If $a=4$, form the
+intersection graph on the four rows of $\mathcal S$.  Two vertex-disjoint
+edges would again give a transversal of size at most two, so the matching
+number is at most one.  With two isolated rows, blocker factorization gives at
+least $2\cdot2\cdot2=8$ transversals.  With one isolated row, the connected
+three-row component has at least three blockers and factorization gives at
+least $2\cdot3=6$.  With no isolated row, the graph is a three-leaf star.
+The leaves are pairwise disjoint; choosing one point from each gives at least
+\[
+  n_1n_2n_3-(n_1-1)(n_2-1)(n_3-1)\geq7
+\]
+minimal transversals, where $n_i\geq2$ are the leaf sizes.  Hence $b\geq6$.
+If $a\geq5$, the desired total is immediate.  These cases prove
+$a+b\geq9$.
+
+For equality, take distinct points $x_1,x_2,y_1,y_2,w,z$ and set
+\[
+  \mathcal S=\{\{x_i,y_j\}:i,j\in\{1,2\}\}\cup\{\{w,z\}\},
+\]
+\[
+  \mathcal C=\{\{x_1,x_2,w\},\{x_1,x_2,z\},
+  \{y_1,y_2,w\},\{y_1,y_2,z\}\}.
+\]
+A minimal transversal of $\mathcal C$ either chooses one $x_i$ and one
+$y_j$, or equals $\{w,z\}$.  Thus
+$\blocker(\mathcal C)=\mathcal S$, and blocker involution gives
+$\blocker(\mathcal S)=\mathcal C$.  The total size is nine.
+\end{proof}
+
+\begin{theorem}
+\label{thm:sat6}
+The eventual saturated 6-Sperner number is
+\[
+  \sat(6)=30.
+\]
+\end{theorem}
+
+\begin{proof}
+Morrison--Noel--Scott constructed a 30-member saturated 6-Sperner family on
+every ground set of size at least eight
+\cite[Proposition~20]{mns2014}, so $\sat(6)\leq30$.
+
+Choose $n$ in the stable range with $n\geq8$ and $n>2^{30}$, and choose an
+endpoint-normal minimum family $\family$ on an $n$-element set.  Since
+$|\family|\leq30$, the homogeneous-atom theorem applies.  The canonical
+decomposition gives six nonempty saturated-antichain layers
+$\mathcal A_0,\ldots,\mathcal A_5$.  The endpoint result and
+\cite[Lemma~15]{martinveldt2025} give
+\[
+  |\mathcal A_0|=|\mathcal A_5|=1,\qquad
+  |\mathcal A_1|,|\mathcal A_4|\geq5.
+\]
+By \cref{lem:canonical-blocker}, the second layer is an admissible
+$(2,3)$ blocker pair, and the third becomes one after exchanging the two
+sides.  Thus \cref{thm:m23} gives
+$|\mathcal A_2|,|\mathcal A_3|\geq9$.  Therefore
+\[
+  |\family|\geq1+5+9+9+5+1=30.
+\]
+The upper and lower bounds agree.
+\end{proof}
+
+\section{A global lower bound at seven layers}
+\label{sec:sat7-lower}
+
+The technical blocker estimate needed at seven layers is proved in
+\cref{app:m24}.
+
+\begin{theorem}
+\label{thm:m24}
+The exact local blocker parameter is $m(2,4)=12$.
+\end{theorem}
+
+\begin{proof}
+By \cref{prop:m24-product}, every admissible pair satisfies
+$ab\geq32$, where $a$ and $b$ are its side cardinalities.  Hence
+\[
+  (a+b)^2=(a-b)^2+4ab\geq128>11^2,
+\]
+so $a+b\geq12$.
+
+For equality, let $\mathcal S$ be the eight edges of two vertex-disjoint
+four-cycles.  The blocker of each cycle consists of its two bipartition
+classes, so $\blocker(\mathcal S)$ consists of the four unions of one class
+from each cycle.  Conversely, any transversal of these four unions contains
+an edge of one of the cycles.  Thus the two families are mutual blockers,
+their member-size minima are two and four, and their total cardinality is
+$8+4=12$.
+\end{proof}
+
+\begin{lemma}
+\label{lem:middle-nine}
+In the canonical decomposition used for a minimum saturated 7-Sperner
+family, the middle layer satisfies $|\mathcal A_3|\geq9$.
+\end{lemma}
+
+\begin{proof}
+Use the notation of \cref{lem:canonical-blocker}.  Every member of
+$\mathcal S_3$ and $\mathcal C_3$ has size at least three.  Choose
+$R\subseteq U$ uniformly.  The canonical cover says that at least one event
+$S\subseteq R$ or $R\cap C=\varnothing$ occurs.  Each event has probability
+at most $2^{-3}$.  The union bound gives
+$|\mathcal A_3|\geq8$.
+
+If equality held, every event would have probability $1/8$ and all events
+would be pairwise disjoint.  The choice $R=U$ belongs to every small-side
+event, while $R=\varnothing$ belongs to every large-complement event.  Both
+sides are nonempty, so equality would force one event on each side, contrary
+to a total of eight.  Hence $|\mathcal A_3|\geq9$.
+\end{proof}
+
+\begin{theorem}
+\label{thm:sat7-lower}
+The eventual saturated 7-Sperner number satisfies
+\[
+  \sat(7)\geq47.
+\]
+\end{theorem}
+
+\begin{proof}
+Choose a stable ground set with $n>2^{55}$.  The construction in
+\cref{thm:size55} ensures that a minimum family has at most 55 members, so a
+homogeneous atom and the canonical decomposition are available.  The endpoint
+and adjacent-layer bounds give
+\[
+  (|\mathcal A_0|,|\mathcal A_1|,|\mathcal A_5|,
+  |\mathcal A_6|)\geq(1,6,6,1).
+\]
+The canonical blocker interface and \cref{thm:m24} give
+$|\mathcal A_2|,|\mathcal A_4|\geq12$, while
+\cref{lem:middle-nine} gives $|\mathcal A_3|\geq9$.  Summing the seven layers
+gives
+\[
+  \sat(7)\geq1+6+12+9+12+6+1=47.
+\]
+\end{proof}
+
+\section{The 55-member construction}
+\label{sec:construction}
+
+Let $C=[8]=\{1,\ldots,8\}$, let $H$ be disjoint from $C$, and assume
+$|H|>2$.  We abbreviate a core subset by concatenating its elements; for
+example, $145$ denotes $\{1,4,5\}$ and $1346H$ denotes
+$\{1,3,4,6\}\cup H$.  The symbol $-$ denotes an empty list.
+
+For each row of \cref{tab:layers}, let $\smallcores_i$ be the listed small
+cores and let $\largecores_i$ be the listed large cores.  Define
+\[
+  \mathcal A_i
+   =\smallcores_i\cup\{L\cup H:L\in\largecores_i\},
+  \qquad 0\leq i\leq6.
+\]
+
+\begin{table}[htbp]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{c p{0.35\textwidth} p{0.48\textwidth}}
+\toprule
+$i$ & $\smallcores_i$ & $\largecores_i$ \\
+\midrule
+0 & $\varnothing$ & -- \\
+1 & $1$, $2$, $3$, $6$, $7$ & $458$ \\
+2 & $24$, $15$, $35$, $26$, $47$, $67$, $18$, $38$
+  & $1346$, $1237$, $4568$, $2578$ \\
+3 & $124$, $234$, $145$, $345$, $156$, $356$, $267$, $178$, $378$
+  & $12357$, $13467$, $12358$, $12368$, $13468$, $24568$, $24578$, $45678$ \\
+4 & $2345$, $1247$, $3568$, $1678$
+  & $123567$, $134567$, $123468$, $124568$, $123578$, $134578$, $234678$, $245678$ \\
+5 & $23457$
+  & $1234568$, $1234678$, $1235678$, $1245678$, $1345678$ \\
+6 & -- & $12345678$ \\
+\bottomrule
+\end{tabular}
+\caption{Core description of the seven layers.  Every large core in the
+right column represents its union with $H$.}
+\label{tab:layers}
+\end{table}
+
+\begin{proposition}
+\label{prop:layer-certificate}
+For every $i\in\{0,\ldots,6\}$, the family $\mathcal A_i$ is a saturated
+antichain.
+\end{proposition}
+
+\begin{proof}
+Within each nonempty small column of \cref{tab:layers}, all sets have the same
+cardinality, so $\smallcores_i$ is an antichain.  For each row, the large-core
+column is exactly the collection of inclusion-maximal core subsets that avoid
+all members of the small-core column.  This statement is a finite certificate:
+adding any missing core element to a listed large core creates one of the
+listed small cores, while every small-free core set is contained in one of the
+listed large cores.  The latter coverage implication has only $2^8$ core
+masks per row; the supplementary verifier checks both implications for all
+seven rows.  The endpoint rows say respectively that no set avoids
+$\varnothing$ and that $C$ is the unique maximal set avoiding an empty small
+family.  The result now follows from \cref{lem:maximal-free}.
+\end{proof}
+
+For completeness, \cref{app:layering} records one predecessor for every member
+above layer zero.  Each displayed containment is strict, so the seven layers
+are layered.  The 55 templates in \cref{tab:layers} are pairwise distinct
+across the rows.
+
+\begin{theorem}
+\label{thm:size55}
+For every finite $H$ disjoint from $[8]$ with $|H|>2$, the family
+\[
+  \family=\bigcup_{i=0}^{6}\mathcal A_i
+\]
+is a saturated 7-Sperner family of cardinality 55.
+\end{theorem}
+
+\begin{proof}
+By \cref{prop:layer-certificate}, all seven layers are saturated antichains.
+The predecessor certificate in \cref{app:layering} proves layering, and direct
+inspection of \cref{tab:layers} proves pairwise disjointness.  Thus
+\cref{thm:layered} shows that their union is saturated 7-Sperner.  The layer
+sizes are
+\[
+  1,\ 6,\ 12,\ 17,\ 12,\ 6,\ 1,
+\]
+whose sum is 55.
+\end{proof}
+
+\begin{proposition}
+\label{prop:endpoints-atom}
+The family $\family$ contains both $\varnothing$ and $C\cup H$, and $H$ is a
+homogeneous atom of $\family$.  Relative to this atom, $\family$ has 28 small
+members and 27 large members.
+\end{proposition}
+
+\begin{proof}
+The two endpoints are the unique members of $\mathcal A_0$ and
+$\mathcal A_6$.  Every displayed template either contains all of $H$ or is
+disjoint from $H$.  To see maximality, note that every core point occurs in a
+small member: points $1,2,3,6,7$ occur in singleton members of
+$\mathcal A_1$, while $4,5,8$ occur respectively in $24$, $15$, and $18$.
+Thus, for each $c\in C$, some member of $\family$ meets $H\cup\{c\}$ in a
+nonempty proper subset.  No strict superset of $H$ can therefore have the
+atom property.  Since $|H|>2$, the atom is homogeneous.  Finally, counting
+the two columns of \cref{tab:layers} gives
+$1+5+8+9+4+1=28$ small templates and
+$1+4+8+8+5+1=27$ large templates.
+\end{proof}
+
+\par\medskip
+
+\begin{corollary}
+\label{cor:main-bound}
+For every $n\geq11$, one has $\sat(n,7)\leq55$.  Consequently,
+$\sat(7)\leq55$.
+\end{corollary}
+
+\begin{proof}
+Choose $|H|=n-8$.  Then $|H|>2$, so \cref{thm:size55} applies on an
+$n$-element ground set.  The eventual inequality follows from the definition
+of $\sat(7)$.
+\end{proof}
+
+\section{Excluding 54 members}
+\label{sec:exact-seven}
+
+We now refine the lower bound.  Let
+$\mathcal A_0,\ldots,\mathcal A_6$ be the canonical layers of a minimum
+family on a stable ground set with a homogeneous atom.  For an internal layer,
+write $\mathcal S_i$ for its small traces and $\mathcal C_i$ for the
+complements of its large traces, as in \cref{lem:canonical-blocker}.
+
+\begin{proposition}[Canonical profile reduction]
+\label{prop:canonical-profiles}
+No canonical family has total size 52 or 53.  If a canonical family has total
+size 54, its layer profile is one of
+\[
+  P_{\mathrm F}=(1,6,13,14,13,6,1),\qquad
+  P_{16}=(1,6,12,16,12,6,1).
+\]
+In the first profile the middle blocker pair is the Fano line clutter.  In the
+second profile the middle blocker pair has total cardinality 16.
+\end{proposition}
+
+\begin{proof}
+The endpoint, adjacent-layer, and blocker bounds give
+\[
+  (|\mathcal A_0|,\ldots,|\mathcal A_6|)
+  \geq(1,6,12,14,12,6,1).
+  \tag{2}
+\]
+The middle bound follows by applying private witnesses, residual blockers,
+and the three-row incidence formula to every blocker split of total at most
+13.  When every point has degree at most two, the active points form an actual
+loop-multigraph on the fixed row labels.  Inclusion-minimality forces every
+positive support to meet a minimum-degree row, so the row-size bounds leave a
+finite exhaustive support problem.  Independent implementations agree on all
+saved classifications.
+
+Equality in (2) forces the middle pair to be the Fano plane.  Its lower or
+upper adjacent 12-member equality interface is impossible, so total 52 is
+excluded.  With one slack member, either the same Fano exclusion applies or
+the middle pair has total 15.  The splits $(5,10)$, $(6,9)$, $(7,8)$ and their
+duals are excluded by the same arbitrary-finite degree and residual
+reductions, so total 53 is excluded.
+
+For total 54, write the five internal slacks over (2) as nonnegative integers
+with sum two.  A 14-member middle pair is Fano and forces both adjacent layers
+above equality.  A 15-member middle pair is impossible.  If the middle layer
+has more than 15 members, it has exactly 16 and every other layer attains
+equality.  These alternatives give exactly the two displayed profiles.
+\end{proof}
+
+For the exact exclusion, put
+\[
+\begin{aligned}
+  \mathcal F&=\mathcal S_2,&\mathcal G&=\mathcal C_2,\\
+  \mathcal H&=\mathcal S_3,&\mathcal K&=\mathcal C_3,\\
+  \mathcal P&=\mathcal S_4,&\mathcal Q&=\mathcal C_4.
+\end{aligned}
+\]
+The adjacent interfaces say that every member of $\mathcal G$ strictly
+contains a member of $\mathcal K$, with
+$\mathcal F\cap\mathcal H=\varnothing$, and dually that every member of
+$\mathcal P$ strictly contains a member of $\mathcal H$, with
+$\mathcal K\cap\mathcal Q=\varnothing$.
+
+\begin{proposition}[Fifty-four-member exclusion]
+\label{prop:exclude54}
+Neither profile in \cref{prop:canonical-profiles} is realizable on any finite
+trace ground set.
+\end{proposition}
+
+\begin{proof}
+For $P_{\mathrm F}$, each Fano line strictly contains a distinct pair in
+$\mathcal F$.  Up to blocker duality, the adjacent split is $(7,6)$,
+$(8,5)$, or $(9,4)$.  In the first split, $\mathcal F$ chooses one of three
+pairs on each Fano line.  All $3^7=2187$ choices are checked, and none has six
+minimal vertex covers of size at least four.  In the second split, write
+$\mathcal F=E(Q)\cup\{R\}$.  The trace $R\cap X$ is independent in $Q$, while
+the outside points of $R$ form one incidence class whose exact multiplicity
+is at most five by the private-witness bound.  This reduces every finite
+instance to 249576 triples $(Q,R\cap X,t)$.  No admissible triple has five
+blockers of minimum size four.  In the last split, the four rows of
+$\mathcal G$ have size at least four and intersect pairwise.  A residual trace
+argument gives at least ten blockers, contradicting $|\mathcal F|=9$.
+Thus the Fano profile and its upper dual are impossible.
+
+For $P_{16}$, a uniformly random subset gives an exhaustive disjoint cover by
+the events $D\subseteq R$ and $E\subseteq U\setminus R$ for the two middle
+blocker sides.  If all 16 rows had size at least four, the union bound would be
+an equality, but two events on one side overlap with positive probability.
+Hence some middle row has size three.
+
+Up to exchanging blocker sides, the middle split is $(5,11)$, $(6,10)$,
+$(7,9)$, or $(8,8)$.  The following table records the exhaustive reductions.
+All multiplicities count actual points, so parallel supports and repeated
+incidence patterns remain distinct.
+\begin{table}[htbp]
+\centering
+\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.16}
+\begin{tabular}{c p{0.41\textwidth} p{0.38\textwidth}}
+\toprule
+Split & Arbitrary-finite reduction & Exhaustive residue \\
+\midrule
+$(5,11)$ & A degree-three point gives nine blockers containing it and two
+residual blockers avoiding it. & Equality would make the residual the blocker
+of two disjoint rows of size at least three, producing at least nine residual
+rows from only five. \\
+$(6,10)$ & Degrees at least four give eleven blockers.  Degree three leaves
+three exact three-row kernels; degree at most two gives an actual
+loop-multigraph. & The nonanalytic kernel has 95 multiplicity vectors and zero
+compatible extensions.  Every low-degree core has at least 15 blockers. \\
+$(8,8)$ & Degree reductions leave maximum degree three.  A three-point row
+then leaves a five-row kernel with rank-at-most-three supports. & There are
+1890 multiplicity vectors in 24 classes and 2514 possible extensions; none is
+valid. \\
+$(7,9)$ & Maximum degrees are three and four.  A three-point row on the
+nine-row side leaves a four-row kernel; if it occurs only on the seven-row
+side, two three-row residuals must be coupled. & The first branch has 136
+vectors, 138161 extensions, and no valid case.  All 90898 couplings in the
+second branch have at least four pair blockers, contradicting the bound three.
+\\
+\bottomrule
+\end{tabular}
+\caption{Exhaustive middle-split reductions for the 16-member profile.}
+\label{tab:exact-splits}
+\end{table}
+
+Each finite domain in \cref{tab:exact-splits} follows from row count, private
+witnesses, point-degree bounds, and support minimization; no finite bound on
+the original trace ground set is assumed.  C++ enumerators and independent
+Python implementations reproduce the saved outputs byte for byte.  Thus all
+four splits and their blocker duals are impossible.  The forced three-point
+row has nowhere to occur, excluding $P_{16}$.
+\end{proof}
+
+\begin{theorem}
+\label{thm:sat7}
+The eventual saturated 7-Sperner number is
+\[
+  \sat(7)=55.
+\]
+\end{theorem}
+
+\begin{proof}
+Choose a minimum family in the stable range.  The 55-member construction
+ensures that the homogeneous-atom reduction applies.  The total-52 and
+total-53 exclusions give $\sat(7)\geq54$, and
+\cref{prop:exclude54} excludes equality.  Hence $\sat(7)\geq55$.
+The reverse inequality is \cref{cor:main-bound}.
+\end{proof}
+
+\section{Composition consequences}
+\label{sec:composition}
+
+By \cref{prop:endpoints-atom}, the family in \cref{thm:size55} satisfies the
+endpoint and homogeneous-atom hypotheses of the composition lemma of
+Morrison--Noel--Scott~\cite[Lemma~18]{mns2014}.  That lemma combines two saturated
+systems on disjoint ground sets by taking small--small and large--large
+pairs.  If the factors have small/large sizes $(a_1,b_1)$ and $(a_2,b_2)$,
+the composition has sizes $(a_1a_2,b_1b_2)$ and saturation parameter
+$k_1+k_2-2$; it also preserves the endpoint and homogeneous-atom hypotheses.
+
+Iterating the 55-member factor $j\geq1$ times therefore gives parameter
+$5j+2$ and small/large sizes $(28^j,27^j)$.  For the remainder factor, take
+an $s$-element set $Y$ and another homogeneous atom $K$, and use
+\[
+  \powerset(Y)\ \cup\ \{S\cup K:S\subseteq Y\}.
+\]
+This is the standard saturated $(s+2)$-Sperner system: its small and large
+parts both have size $2^s$, and it contains both endpoints.  Composing it with
+the iterated factor changes the parameter by
+$(s+2)-2=s$ and gives small/large sizes
+$2^s28^j$ and $2^s27^j$, respectively.  We use $0\leq s\leq4$ to select the
+usual five residue classes.
+
+\begin{corollary}
+\label{cor:discrete-bound}
+For $j\geq1$ and $0\leq s\leq4$,
+\[
+  \sat(5j+2+s)\leq 2^s\bigl(28^j+27^j\bigr).
+\]
+\end{corollary}
+
+For comparison, the symmetric 56-member factor gives
+$2^{s+1}28^j$.  The inequality
+\[
+  2^s(28^j+27^j)<2^{s+1}28^j
+\]
+is strict for every $j\geq1$.  The leading exponential rate is unchanged,
+because the larger part still has size 28.
+
+\section{Seven-core class optimality}
+\label{sec:class-optimality}
+
+The 55-member construction uses an eight-element core.  We also tested whether
+the analogous seven-core template class can contain 55 members.  The next
+result is computer-assisted and has a deliberately narrower scope than
+\cref{thm:size55}.
+
+\begin{proposition}[Certificate-backed class optimum]
+\label{prop:class-optimum}
+Let $|C|=7$ and $|H|>2$.  Among all ordered seven-tuples of pairwise disjoint,
+layered saturated antichains whose members have the form $A$ or $A\cup H$ with
+$A\subseteq C$, the minimum total cardinality is 56.
+\end{proposition}
+
+\begin{proof}[Computer-assisted proof]
+For layer $i$, atom-use bit $b$, and core mask $m$, introduce a Boolean
+variable $x_{i,b,m}$ specifying whether the associated template is selected.
+The CNF contains: exclusions for comparable pairs within a layer; one coverage
+clause for each of the three homogeneous-block signatures and each core mask;
+pairwise exclusions between layers; predecessor implications for layering;
+and a sequential counter~\cite{sinz2005} restricting the total number of
+selected templates to at most 55.
+
+The three signatures record whether an arbitrary test set meets $H$ in
+$\varnothing$, a nonempty proper subset, or all of $H$.  Inclusion against a
+template depends only on this signature and the core mask.  Hence every
+mathematical candidate of size at most 55 extends to a satisfying assignment
+of the CNF.  Conversely, the selected variables of a satisfying assignment
+decode to the stated template conditions; independent semantic checks are
+included as controls.
+
+The deterministic instance contains 100,297 variables and 252,427 clauses.
+Kissat 4.0.4 returned UNSAT and emitted a 253,731,315-byte DRAT proof.
+DRAT-trim~\cite{wetzler2014} independently checked the proof and returned
+\texttt{s VERIFIED}.  Therefore no seven-core candidate of size at most 55
+exists.  The 56-member construction of Martin--Veldt supplies the matching
+upper bound.
+\end{proof}
+
+The encoding imposes neither complement symmetry nor prescribed layer sizes,
+and it does not require the Fano-plane pattern.  Nevertheless,
+\cref{prop:class-optimum} does not cover larger cores, non-template families,
+or systems without a common block, and therefore gives no global lower bound
+on $\sat(7)$.
+
+\section{Independent verification and formalization}
+\label{sec:verification}
+
+The discovery computations, independently replayed certificates, and Lean
+formalization have different logical roles.  The proof of
+\cref{thm:size55} is the structural argument from
+\cref{lem:maximal-free} and the displayed certificates; it does not trust the
+SAT solver used to discover the family.  Four redundant exact checks were
+also performed.
+
+\begin{enumerate}[leftmargin=*]
+  \item A symbolic verifier checks all $3\cdot2^8=768$ core/block signatures
+        for every layer.
+  \item Expanding $H$ to three points gives an eleven-element ground set; a
+        second verifier checks each layer on the full powerset.
+  \item An integer-bitmask dynamic program checks that the 55-set union has no
+        chain of length eight and checks a witness after adjoining each of the
+        other 1993 ground subsets.
+  \item A separately implemented set/DAG verifier repeats the union-level
+        check without sharing the bitmask dynamic program.
+\end{enumerate}
+
+All four checks accept the same semantic family; its SHA-256 identifier is
+recorded in the supplementary computational certificate.
+As a negative control, they reject the withdrawn 54-member preprint family at
+its third layer, with core set $\{2,3,6\}$ uncovered.
+
+The concrete eleven-element realization was formalized in Lean
+4~\cite{lean4} using Mathlib~\cite{mathlib2020}.  Lean proves that the explicit
+family has cardinality 55, is 7-Sperner, and is saturated.  Saturation is
+checked through a frozen table covering all $2^{11}=2048$ masks: 55 member
+rows and 1993 external rows containing a strict chain of length eight after
+insertion.  The table is divided into 32 kernel-reduced blocks.  This theorem
+covers the concrete case $H\cong[3]$; the arbitrary-$H$ construction in
+\cref{thm:size55} is proved independently by the maximal-small-free argument.
+
+The final Lean development goes beyond this concrete certificate and
+formalizes both eventual exact values.  Its central predicate is not a
+numeric function evaluated by Lean.  Writing
+$\operatorname{Sat}_k(\mathcal F)$ for the assertion that $\mathcal F$ is a
+saturated $k$-Sperner family, the proposition
+\texttt{IsStableSaturationNumber k s} expands to
+\[
+  \exists N\ \forall n\geq N,\quad
+  \left(\exists\mathcal F\subseteq\powerset([n]),
+    \operatorname{Sat}_k(\mathcal F)\ \land\ |\mathcal F|=s\right)
+  \land
+  \left(\forall\mathcal F\subseteq\powerset([n]),
+    \operatorname{Sat}_k(\mathcal F)\ \Longrightarrow\ s\leq|\mathcal F|\right).
+\]
+Thus the proposition contains, after one threshold, both an upper-bound
+witness and a universal lower bound on every labelled ground
+\texttt{Fin n}.  In their respective stable-exact namespaces, the two
+exported declarations are
+\begin{quote}\small\ttfamily
+sat\_six\_eq\_thirty : IsStableSaturationNumber 6 30\\
+sat\_seven\_eq\_fifty\_five : IsStableSaturationNumber 7 55.
+\end{quote}
+
+For six layers, the formal proof combines a parameterized 30-member
+construction with the arbitrary-finite theorem $m(2,3)=9$, homogeneous-atom
+existence, canonical decomposition, and the resulting layer sum.  For seven
+layers, it combines the parameterized 55-member construction with the
+canonical profile reduction, the Fano-adjacent exclusion, and every middle
+split of total 16.  In particular, the Fano, $(5,11)$, $(6,10)$, $(7,9)$,
+and $(8,8)$ branches and their blocker duals now occur in the dependency graph
+of the exported exact theorem.  The earlier local theorem
+\texttt{no\_kernel\_completion\_of\_eight} remains the arbitrary-finite
+five-row component of the $(8,8)$ branch.
+
+The finite branches in \cref{prop:canonical-profiles,prop:exclude54} retain a
+separate manifest-bound trust chain.  The G4.10, G4.11, and G4.12 manifests
+bind 8, 23, and 36 proof, source, and output objects, respectively.  Every
+saved enumeration was replayed, and independent implementations agreed on
+the semantic counts.  In Lean, executable checks are connected to the
+mathematical statements by proved soundness and realization lemmas; a raw
+search result is never used as an unproved theorem.
+
+The final formalization audit was completed on 27 July 2026.  The full Lake
+build reported successful completion of 17,488 jobs, and the independent
+entry point \nolinkurl{Problems/P0054/formal/Main.lean} checked both exact
+theorems successfully.  For the exported exact statements,
+\texttt{\#print axioms} reports only \texttt{propext},
+\texttt{Classical.choice}, and \texttt{Quot.sound}.  A source-wide scan of
+the Lean files found zero occurrences of \texttt{sorry}, \texttt{admit}, an
+\texttt{axiom} declaration, \texttt{unsafe}, \texttt{native\_decide}, or
+\texttt{run\_tac}.
+
+We use three evidence labels throughout the project.  \texttt{COMPUTED}
+denotes discovery searches and redundant semantic replays that are not, by
+themselves, proof dependencies.  \texttt{PROVED} denotes the mathematical
+arguments and independently checked certificate reductions in this
+manuscript.  \texttt{FORMALIZED} denotes statements accepted by the Lean
+kernel, including $m(2,3)=9$, $m(2,4)=12$, the concrete 55-member
+certificate, the branch exclusions, and the two eventual exact values.  These
+labels concern logical support; none establishes novelty, priority, or
+independent peer review.
+
+\section{Discussion and open problems}
+
+The construction and exclusion theorem answer the numerical question posed by
+Martin--Veldt: the eventual value is 55.  The construction's asymmetry is
+useful under composition.  Although replacing the split $28/28$ by $28/27$
+does not change the leading asymptotic exponent, it improves every finite
+bound in \cref{cor:discrete-bound}.
+
+The seven-core class result gives a limited structural explanation for why the
+published family could not simply be optimized within its original core size:
+the complete common-block layered template class on seven core points has
+minimum 56.  The 55-member family escapes by using an eighth core point.  This
+does not imply that every smaller global construction must use eight core
+points or even admit a homogeneous-block description.
+
+The exact six-layer value closes the gap left by the published 30-member
+construction.  Its blocker proof is independent of the finite
+incidence-pattern search, which serves only as a regression and
+counterexample check.
+
+Kernel acceptance complements rather than replaces human reconstruction of
+the arbitrary-finite reductions and scrutiny of the certificate interfaces.
+The final pre-submission search found no public equivalent in its recorded
+scope.  This negative result remains bounded and does not establish novelty
+or priority.
+
+Another open direction is the proposed identity
+$\sat(k)=\operatorname{A075529}(k)$, where A075529 counts distinct terminal
+values of star addition chains.  This conjecture remains \texttt{UNKNOWN}:
+the agreement of the first seven values neither proves a general formula nor
+supplies a structural correspondence.  We defer its study to future work.
+
+\section*{Reproducibility and declarations}
+
+\par\medskip\noindent\textbf{Data and code availability.}\quad
+This work is theoretical and does not generate or analyse empirical datasets.
+The supporting artifact package contains the proofs, exact blocker searches,
+construction verifiers, CNF generator, DRAT certificates and manifest, Lean
+sources, tests, and locked dependencies.  The package has been prepared for a
+versioned GitHub release and an immutable Zenodo archive.  Their public release
+URL and DOI will be inserted here before submission.
+
+\par\medskip\noindent\textbf{Declaration of generative AI and AI-assisted
+technologies in the manuscript preparation process.}\quad
+During the preparation of this work, the author used OpenAI Codex for
+literature-query design, proof and code drafting, verification orchestration,
+and language editing.  The author reviewed and edited all generated content
+and takes full responsibility for the content of the publication.  The
+mathematical claims rely on the displayed arguments, independently replayable
+certificates, direct verifiers, and Lean kernel acceptance rather than on
+model output.
+
+\par\medskip\noindent\textbf{Funding.}\quad
+This research did not receive any specific grant from funding agencies in the
+public, commercial, or not-for-profit sectors.
+
+\par\medskip\noindent\textbf{Declaration of competing interest.}\quad
+The author declares that he has no known competing financial interests or
+personal relationships that could have appeared to influence the work
+reported in this paper.
+
+\appendix
+
+\section{A product inequality for a local blocker parameter}
+\label{app:m24}
+
+\begin{proposition}
+\label{prop:m24-product}
+Let $\mathcal S$ and $\mathcal C$ be mutual blockers on a finite ground set,
+with every member of $\mathcal S$ of size at least two and every member of
+$\mathcal C$ of size at least four.  Then
+\[
+  |\mathcal S||\mathcal C|\geq32.
+\]
+\end{proposition}
+
+\begin{proof}
+Put $a=|\mathcal S|$ and $b=|\mathcal C|$.  The private-witness lemma gives
+$a\geq4$ and $b\geq2$.  We prove the following six bounds:
+\[
+\begin{array}{c|c@{\qquad}c|c}
+b&\text{lower bound on }a&a&\text{lower bound on }b\\
+\hline
+2&16&4&16\\
+3&12&5&8\\
+4&8&6&6
+\end{array}
+\tag{2}
+\]
+
+For $b=2$, the two members of $\mathcal C$ are disjoint, and choosing one
+point from each gives at least $4^2=16$ blockers.  For $b=3$, use the six
+incidence classes from the proof of \cref{thm:m23}.  Formula (1) remains
+valid, now with
+$\alpha_i+\pi_j+\pi_k\geq4$.  If some $\pi_i\geq3$, its terms contribute at
+least $3\cdot4=12$.  Otherwise, order
+$0\leq\pi_1\leq\pi_2\leq\pi_3\leq2$ and minimize each $\alpha_i$.
+The ten possibilities give respectively
+\[
+  64,40,24,25,16,12,17,13,12,12,
+\]
+so $a\geq12$.  If $a=4$, every transversal of $\mathcal S$ has size at least
+four.  Two intersecting rows, together with one point from each remaining
+row, would give a transversal of size at most three.  Hence the four rows are
+pairwise disjoint, and choosing one point from each gives $b\geq2^4=16$.
+
+We next prove the $b=4$ bound.  Write
+$\mathcal C=\{C_1,C_2,C_3,C_4\}$ and choose a minimum-size member
+$E=C_1$, with $n=|E|\geq4$.  For $j=2,3,4$, set
+\[
+  O_j=E\setminus C_j,\qquad R_j=C_j\setminus E,\qquad
+  o_j=|O_j|,\quad q_j=|R_j|.
+\]
+The clutter property makes all $O_j,R_j$ nonempty, minimality of $|E|$ gives
+$q_j\geq o_j$, and the absence of singleton blockers gives
+$O_2\cup O_3\cup O_4=E$.  For $x\in E$, let
+\[
+  \mathcal J_x=\{R_j:x\in O_j\}.
+\]
+The map $R\mapsto\{x\}\cup R$ is a bijection from
+$\blocker(\mathcal J_x)$ to the members of $\blocker(\mathcal C)$ whose
+intersection with $E$ is $\{x\}$.  This follows in both directions from
+private witnesses.  Consequently, if
+$w_x=\min_{j:x\in O_j}o_j$, then
+\[
+  |\blocker(\mathcal C)|\geq\sum_{x\in E}w_x.
+\tag{3}
+\]
+Assign each $x$ to an index attaining $w_x$, and let $t_j$ be the three
+class sizes.  Since $t_j\leq o_j$ and $\sum t_j=n$,
+\[
+  \sum_{x\in E}w_x=\sum_{j=2}^4t_jo_j
+  \geq\sum_{j=2}^4t_j^2
+  \geq\left\lceil\frac{n^2}{3}\right\rceil.
+\tag{4}
+\]
+For $n\geq5$, this is at least nine.  Let $n=4$.  The right side of (3) is
+at least six.  If it is seven, the nonempty traces
+$E,E\setminus O_2,E\setminus O_3,E\setminus O_4$ have a minimal
+transversal of size at least two, which gives one further blocker outside all
+singleton-intersection classes.  If it is six, equality in (4) forces the
+$O_j$ to partition $E$ with sizes $2,1,1$; the four cross-pairs between the
+two-point block and the singleton blocks, together with the pair of
+singletons, give five further blockers.  Thus
+$|\blocker(\mathcal C)|\geq8$ in every case.
+
+For $a=5$, every transversal of $\mathcal S$ has size at least four.  A point
+belongs to at most two rows.  The row-intersection graph has matching number
+at most one, since two disjoint edges and one point from the fifth row would
+give a three-point transversal.  Such a graph is empty, a star, or a triangle,
+with isolated vertices allowed.  The empty case gives $2^5$ blockers.  In a
+star, fix one center--leaf intersection point and choose one point from each
+of the other three pairwise disjoint rows.  In a triangle, fix an intersection
+point on one edge and choose one point from the third triangle row and each
+isolated row.  Incidence degree at most two supplies a private witness for the
+fixed point.  Both nonempty cases give at least $2^3=8$ blockers.
+
+Finally, let $a=6$.  If a point lies in three rows, the other three rows are
+pairwise disjoint; fixing that point and choosing one point from each remaining
+row gives at least eight blockers.  Otherwise encode each actual ground point
+as a loop or edge on the six row labels according as it belongs to one or two
+rows.  Parallel points remain distinct.  Each vertex has incidence degree at
+least two, and the nonloop support graph has matching number at most two.
+
+If the matching number is zero, loop choices give at least $2^6$ minimal
+covers.  If it is one, the nonloop support is a star or a triangle, with
+isolated vertices allowed.  In the star case, fix one actual center--leaf
+point and choose one incident point at each of the other four vertices.  No
+nonloop support joins two of those vertices, so the choices are distinct and
+each has a private vertex; this gives at least $2^4$ covers.  In the triangle
+case, fix actual points on two adjacent edges.  The other three vertices are
+isolated in the nonloop support and each has at least two loop choices, giving
+at least $2^3$ covers.
+
+Suppose the matching number is two, and fix disjoint supports $E_1,E_2$ with
+multiplicities $m_1,m_2$.  Let $u,v$ be the unmatched vertices.  Choosing one
+actual point on each $E_i$ and one incident point at each of $u,v$ gives
+\[
+  m_1m_2d(u)d(v)
+\]
+distinct four-point covers.  They are minimal because no three-point
+transversal exists.  This number is at least six unless
+$m_1=m_2=1$ and $d(u)=d(v)=2$.
+
+In that exceptional case, a second actual two-edge matching generates at
+least four analogous covers.  The two families overlap in at most two.  If
+the matchings share no actual point, a common cover must be their four-point
+union.  If they share one actual point, the two remaining supports cannot be
+disjoint.  When they meet in one vertex, the fourth point must cover a fixed
+unmatched vertex of degree two; when they are parallel, no minimal common
+cover exists.  Their union therefore contains at least six covers.
+
+If the fixed matching is unique, every incidence at $u$ or $v$ is a loop.
+Let $e_i$ be the unique actual point on $E_i$.  Write $E_1=\{a,b\}$ and
+$E_2=\{c,d\}$, and choose incident points
+$r_a\neq e_1$ and $r_b\neq e_1$ at $a$ and $b$.  Uniqueness forces
+$r_a\neq r_b$ and keeps both supports inside the four matched vertices, so
+$\{r_a,r_b,e_2\}$ covers those vertices.  An inclusion-minimal subcover
+$K$ avoids $e_1$.  Combining $K$ with either loop at $u$ and either loop at
+$v$ gives four minimal covers avoiding $e_1$, disjoint from the four covers
+containing $e_1$.  Thus $b\geq6$.
+
+The bounds in (2) now exhaust all possibilities:
+\[
+\begin{array}{c|c}
+\text{case}&ab\\
+\hline
+b=2&\geq32\\
+b=3&\geq36\\
+b=4&\geq32\\
+b\geq5,\ a=4&\geq64\\
+b\geq5,\ a=5&\geq40\\
+b\geq5,\ a=6&\geq36\\
+b\geq5,\ a\geq7&\geq35
+\end{array}
+\]
+which proves the proposition.
+\end{proof}
+
+\section{Layering predecessor certificate}
+\label{app:layering}
+
+In the following list, $B\leftarrow A$ means that $A$ belongs to the preceding
+layer and $A\subsetneq B$.  A suffix $H$ means union with the full homogeneous
+block.
+
+\begin{description}[leftmargin=1.8em,style=nextline]
+\item[$\mathcal A_1\leftarrow\mathcal A_0$]
+$1\leftarrow\varnothing$;
+$2\leftarrow\varnothing$;
+$3\leftarrow\varnothing$;
+$6\leftarrow\varnothing$;
+$7\leftarrow\varnothing$;
+$458H\leftarrow\varnothing$.
+
+\item[$\mathcal A_2\leftarrow\mathcal A_1$]
+$24\leftarrow2$; $15\leftarrow1$; $35\leftarrow3$;
+$26\leftarrow2$; $47\leftarrow7$; $67\leftarrow6$;
+$18\leftarrow1$; $38\leftarrow3$; $1346H\leftarrow1$;
+$1237H\leftarrow1$; $4568H\leftarrow6$; $2578H\leftarrow2$.
+
+\item[$\mathcal A_3\leftarrow\mathcal A_2$]
+$124\leftarrow24$; $234\leftarrow24$; $145\leftarrow15$;
+$345\leftarrow35$; $156\leftarrow15$; $356\leftarrow35$;
+$267\leftarrow26$; $178\leftarrow18$; $378\leftarrow38$;
+$12357H\leftarrow15$; $13467H\leftarrow47$;
+$12358H\leftarrow15$; $12368H\leftarrow26$;
+$13468H\leftarrow18$; $24568H\leftarrow24$;
+$24578H\leftarrow24$; $45678H\leftarrow47$.
+
+\item[$\mathcal A_4\leftarrow\mathcal A_3$]
+$2345\leftarrow234$; $1247\leftarrow124$;
+$3568\leftarrow356$; $1678\leftarrow178$;
+$123567H\leftarrow156$; $134567H\leftarrow145$;
+$123468H\leftarrow124$; $124568H\leftarrow124$;
+$123578H\leftarrow178$; $134578H\leftarrow145$;
+$234678H\leftarrow234$; $245678H\leftarrow267$.
+
+\item[$\mathcal A_5\leftarrow\mathcal A_4$]
+$23457\leftarrow2345$; $1234568H\leftarrow2345$;
+$1234678H\leftarrow1247$; $1235678H\leftarrow3568$;
+$1245678H\leftarrow1247$; $1345678H\leftarrow3568$.
+
+\item[$\mathcal A_6\leftarrow\mathcal A_5$]
+$12345678H\leftarrow23457$.
+\end{description}
+
+{\small
+\bibliographystyle{plain}
+\bibliography{references}
+}
+
+\end{document}

@@ -1,0 +1,8 @@
+supports=14
+minimal_support_covers=48
+active_masks_checked=16383
+support_feasible_masks=910
+multiplicity_vectors=1
+blockers=7 pairs=3 vectors=1
+canonical_classes=1
+class=3:1,5:1,6:1,9:1,10:1,12:1,|b:7|p:3

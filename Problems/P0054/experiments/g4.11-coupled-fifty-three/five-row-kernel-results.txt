@@ -1,0 +1,16 @@
+supports=25
+minimal_support_covers=396
+active_masks_checked=33554431
+support_feasible_masks=55023
+multiplicity_vectors=490
+blockers=6 pairs=3 vectors=20
+blockers=7 pairs=3 vectors=470
+canonical_classes=8
+class=10:1,11:1,13:1,19:1,20:2,|b:7|p:3
+class=11:1,13:1,14:1,16:1,17:1,22:1,|b:7|p:3
+class=11:1,13:1,14:1,17:1,18:1,20:1,|b:6|p:3
+class=1:1,10:1,11:1,12:1,18:1,20:1,21:1,|b:7|p:3
+class=1:1,10:1,11:1,12:1,19:1,20:2,|b:7|p:3
+class=1:1,10:1,13:1,14:1,16:1,18:1,21:1,|b:7|p:3
+class=1:1,10:2,13:1,16:1,21:1,22:1,|b:7|p:3
+class=1:1,6:1,10:1,13:1,18:1,21:1,25:1,|b:7|p:3

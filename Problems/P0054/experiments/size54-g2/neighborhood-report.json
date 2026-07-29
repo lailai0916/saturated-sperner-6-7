@@ -1,0 +1,85 @@
+{
+  "schema": "ai-math-lab.p0054.size54-neighborhood.v1",
+  "generated_at_utc": "2026-07-22T09:14:55.624931+00:00",
+  "run_mode": "BOUNDED_DISCOVERY",
+  "epistemic_label": "COMPUTED",
+  "search_class": "eight-core common-block layered template class",
+  "global_lower_bound_claimed": false,
+  "reference_path": "Problems/P0054/experiments/certificates/core-8-target-55-selfcontained.json",
+  "reference_sha256": "026d0f8e15a8028603ac04457cb7a3b42a8847a36368ce17b9ce75490b291fdb",
+  "reference_candidate_sha256": "55d0a1e19a024efb944fc9a00ea466bdd6d5b11383f1bd86c1f772d8fb92acac",
+  "runs": [
+    {
+      "minimum_overlap": 54,
+      "maximum_reference_deletions": 1,
+      "target_size": 54,
+      "timeout_seconds": 45.0,
+      "runtime_seconds": 0.7629735000664368,
+      "solver_result": "UNSAT",
+      "epistemic_label": "COMPUTED",
+      "proof_status": "NO_EXTERNAL_CERTIFICATE_NOT_A_THEOREM"
+    },
+    {
+      "minimum_overlap": 53,
+      "maximum_reference_deletions": 2,
+      "target_size": 54,
+      "timeout_seconds": 45.0,
+      "runtime_seconds": 1.1195767500903457,
+      "solver_result": "UNSAT",
+      "epistemic_label": "COMPUTED",
+      "proof_status": "NO_EXTERNAL_CERTIFICATE_NOT_A_THEOREM"
+    },
+    {
+      "minimum_overlap": 52,
+      "maximum_reference_deletions": 3,
+      "target_size": 54,
+      "timeout_seconds": 45.0,
+      "runtime_seconds": 4.98226187506225,
+      "solver_result": "UNSAT",
+      "epistemic_label": "COMPUTED",
+      "proof_status": "NO_EXTERNAL_CERTIFICATE_NOT_A_THEOREM"
+    },
+    {
+      "minimum_overlap": 51,
+      "maximum_reference_deletions": 4,
+      "target_size": 54,
+      "timeout_seconds": 45.0,
+      "runtime_seconds": 45.01432170893531,
+      "solver_result": "UNKNOWN",
+      "epistemic_label": "COMPUTED",
+      "reason_unknown": "timeout"
+    },
+    {
+      "minimum_overlap": 50,
+      "maximum_reference_deletions": 5,
+      "target_size": 54,
+      "timeout_seconds": 45.0,
+      "runtime_seconds": 45.01563770789653,
+      "solver_result": "UNKNOWN",
+      "epistemic_label": "COMPUTED",
+      "reason_unknown": "timeout"
+    },
+    {
+      "minimum_overlap": 49,
+      "maximum_reference_deletions": 6,
+      "target_size": 54,
+      "timeout_seconds": 45.0,
+      "runtime_seconds": 45.01669429091271,
+      "solver_result": "UNKNOWN",
+      "epistemic_label": "COMPUTED",
+      "reason_unknown": "timeout"
+    },
+    {
+      "minimum_overlap": 48,
+      "maximum_reference_deletions": 7,
+      "target_size": 54,
+      "timeout_seconds": 45.0,
+      "runtime_seconds": 45.01155520800967,
+      "solver_result": "UNKNOWN",
+      "epistemic_label": "COMPUTED",
+      "reason_unknown": "timeout"
+    }
+  ],
+  "candidate_found": false,
+  "mathematical_consequence": "NONE_RESTRICTED_OR_INCOMPLETE_SEARCH_ONLY"
+}

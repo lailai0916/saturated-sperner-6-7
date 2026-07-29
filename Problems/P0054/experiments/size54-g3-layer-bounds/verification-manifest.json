@@ -1,0 +1,232 @@
+{
+  "schema": "ai-math-lab.p0054.size54-layer-bounds.v1",
+  "generated_at_utc": "2026-07-22T10:18:41.836370+00:00",
+  "run_mode": "STRUCTURAL_LOWER_BOUND_CERTIFICATION",
+  "epistemic_label": "PROVED",
+  "global_sat7_lower_bound_claimed": false,
+  "semantic": {
+    "core_size": 8,
+    "layer_count": 7,
+    "reference_path": "Problems/P0054/experiments/certificates/core-8-target-55-selfcontained.json",
+    "reference_sha256": "026d0f8e15a8028603ac04457cb7a3b42a8847a36368ce17b9ce75490b291fdb",
+    "reference_audit": {
+      "valid": true,
+      "family_size": 55,
+      "layer_sizes": [
+        1,
+        6,
+        12,
+        17,
+        12,
+        6,
+        1
+      ],
+      "missing_successors": [],
+      "rank_violations": []
+    },
+    "middle14_witness": [
+      {
+        "core_mask": 14,
+        "uses_atom": false,
+        "rank": 3
+      },
+      {
+        "core_mask": 52,
+        "uses_atom": false,
+        "rank": 3
+      },
+      {
+        "core_mask": 88,
+        "uses_atom": false,
+        "rank": 3
+      },
+      {
+        "core_mask": 98,
+        "uses_atom": false,
+        "rank": 3
+      },
+      {
+        "core_mask": 146,
+        "uses_atom": false,
+        "rank": 3
+      },
+      {
+        "core_mask": 168,
+        "uses_atom": false,
+        "rank": 3
+      },
+      {
+        "core_mask": 196,
+        "uses_atom": false,
+        "rank": 3
+      },
+      {
+        "core_mask": 59,
+        "uses_atom": true,
+        "rank": 6
+      },
+      {
+        "core_mask": 87,
+        "uses_atom": true,
+        "rank": 6
+      },
+      {
+        "core_mask": 109,
+        "uses_atom": true,
+        "rank": 6
+      },
+      {
+        "core_mask": 157,
+        "uses_atom": true,
+        "rank": 6
+      },
+      {
+        "core_mask": 167,
+        "uses_atom": true,
+        "rank": 6
+      },
+      {
+        "core_mask": 203,
+        "uses_atom": true,
+        "rank": 6
+      },
+      {
+        "core_mask": 241,
+        "uses_atom": true,
+        "rank": 6
+      }
+    ],
+    "middle14_audit": {
+      "valid": true,
+      "size": 14,
+      "small_count": 7,
+      "large_count": 7,
+      "comparable_pair_count": 0,
+      "uncovered_core_masks": [],
+      "outside_rank_window_count": 0
+    },
+    "solver": "/opt/homebrew/bin/kissat",
+    "solver_sha256": "05d6f3e9c402a1fe8853b0746e384e1b3d1c4a550e255f11daa2461d279aa848",
+    "checker": "/tmp/p0054-g3-drat-trim.4v6yIu/drat-trim",
+    "checker_sha256": "82f1dbee48911acca5f042c2a4c4c4fd98c46a91955da321724fbb74f4103206",
+    "checker_commit": "2e3b2dc0ecf938addbd779d42877b6ed69d9a985",
+    "records": [
+      {
+        "layer_index": 0,
+        "rank_window": [
+          0,
+          3
+        ],
+        "size_bound": 0,
+        "proved_minimum_at_least": 1,
+        "solver_result": "UNSAT",
+        "checker_result": "VERIFIED",
+        "epistemic_label": "PROVED_WITH_CHECKED_CERTIFICATE",
+        "runtime_seconds": 0.005208540940657258,
+        "primary_variable_count": 130,
+        "auxiliary_variable_count": 0,
+        "clause_count": 1091,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer0-at-most-0.cnf",
+        "cnf_bytes": 22398,
+        "cnf_sha256": "c049ce5942934833085dfffec30d8dda560e3f6baeac6acb59dfd9884d2ba34d",
+        "proof_path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer0-at-most-0.drat",
+        "proof_bytes": 33,
+        "proof_sha256": "5748951bb5da1314516af7a631b1ab3f237e3129b24ceaf5553d5b679ef9afb5",
+        "solver_log": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer0-at-most-0.kissat.log",
+        "solver_log_sha256": "4a1f06c8330eb094ad7e446cf25a34da70e2e925a2038dd50635fff7f8573f04",
+        "checker_log": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer0-at-most-0.drat-trim.log",
+        "checker_log_sha256": "919d2c417c56baec0082798a46bcaf8b71fe13ccb89d10227a031be3e054ffd8"
+      },
+      {
+        "layer_index": 1,
+        "rank_window": [
+          1,
+          4
+        ],
+        "size_bound": 5,
+        "proved_minimum_at_least": 6,
+        "solver_result": "UNSAT",
+        "checker_result": "VERIFIED",
+        "epistemic_label": "PROVED_WITH_CHECKED_CERTIFICATE",
+        "runtime_seconds": 0.045665707904845476,
+        "primary_variable_count": 255,
+        "auxiliary_variable_count": 1270,
+        "clause_count": 5381,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer1-at-most-5.cnf",
+        "cnf_bytes": 83610,
+        "cnf_sha256": "56ad6277fffba0245160d61919c0da6e85fd58a9258cf8fd9a8483c4f15c1b60",
+        "proof_path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer1-at-most-5.drat",
+        "proof_bytes": 85572,
+        "proof_sha256": "e2ef0dd0c927c9d23c470bff6f95cd3a0ba9d73beea607d96bf391ce73ceebbb",
+        "solver_log": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer1-at-most-5.kissat.log",
+        "solver_log_sha256": "80a2afebeafcb1e11f60b521a886fcbb0c55c374dc4e94a34003dabb50ff2d17",
+        "checker_log": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer1-at-most-5.drat-trim.log",
+        "checker_log_sha256": "3cdee612a4e1b892f1f9a66ee5083b163e46a7bee837c8c9fae5bea1cb1c9f87"
+      },
+      {
+        "layer_index": 2,
+        "rank_window": [
+          2,
+          5
+        ],
+        "size_bound": 11,
+        "proved_minimum_at_least": 12,
+        "solver_result": "UNSAT",
+        "checker_result": "VERIFIED",
+        "epistemic_label": "PROVED_WITH_CHECKED_CERTIFICATE",
+        "runtime_seconds": 8.90490837499965,
+        "primary_variable_count": 372,
+        "auxiliary_variable_count": 4081,
+        "clause_count": 13430,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer2-at-most-11.cnf",
+        "cnf_bytes": 201998,
+        "cnf_sha256": "acefa74a1ea24393091245eb2f25562447a37e8a33c7e768a33579d7724a5129",
+        "proof_path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer2-at-most-11.drat",
+        "proof_bytes": 22440659,
+        "proof_sha256": "9fcbf6b00baac8f18e0c31f3cbd6b0bfb4ba0dbae4bcbd2a0493482882a25936",
+        "solver_log": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer2-at-most-11.kissat.log",
+        "solver_log_sha256": "fb1b7d9573345047c7d15f56c201e7f2dd6f9f04dfd5b5ad37d6c68228474a9e",
+        "checker_log": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer2-at-most-11.drat-trim.log",
+        "checker_log_sha256": "c0b79c3fc0c1f7bd57084704e70e41a49cf14cc983b05cb5bb4988652a9424ed"
+      },
+      {
+        "layer_index": 3,
+        "rank_window": [
+          3,
+          6
+        ],
+        "size_bound": 13,
+        "proved_minimum_at_least": 14,
+        "solver_result": "UNSAT",
+        "checker_result": "VERIFIED",
+        "epistemic_label": "PROVED_WITH_CHECKED_CERTIFICATE",
+        "runtime_seconds": 37.61759554198943,
+        "primary_variable_count": 420,
+        "auxiliary_variable_count": 5447,
+        "clause_count": 17382,
+        "cnf_path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer3-at-most-13.cnf",
+        "cnf_bytes": 260673,
+        "cnf_sha256": "995c798516c5dafb6507350de1a04ee7b5e4cc9836f6b76b0f3cb5dc23f54e26",
+        "proof_path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer3-at-most-13.drat",
+        "proof_bytes": 107527685,
+        "proof_sha256": "99e79dea28f1256b0586a66c223bf321facdc06b13af88409bbee3113b186ce6",
+        "solver_log": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer3-at-most-13.kissat.log",
+        "solver_log_sha256": "44d86065d6faf0370389e14224c3f98812ea8414bd976fc0e0bef50cc3aa3bcf",
+        "checker_log": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer3-at-most-13.drat-trim.log",
+        "checker_log_sha256": "654b7c45e75395b8b9f6cf931667466dc6ceac4b28e03599e85c7097ce89b885"
+      }
+    ],
+    "all_certificates_verified": true,
+    "proved_layer_minima_if_verified": [
+      1,
+      6,
+      12,
+      14,
+      12,
+      6,
+      1
+    ],
+    "proved_total_independent_layer_lower_bound_if_verified": 52
+  },
+  "semantic_sha256": "61d4aad46a3257c3845ccccd8c18e75d49d24eccdf2ab767d897d1f9c64e2b6d"
+}

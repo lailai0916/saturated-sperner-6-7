@@ -1,0 +1,14 @@
+import AiMathLab.P0054MiddleSevenNineFour.MiddleFourClassificationPrefix02590314
+import AiMathLab.P0054MiddleSevenNineFour.MiddleFourClassificationPrefix02709311
+import AiMathLab.P0054MiddleSevenNineFourFinite
+
+namespace AiMathLab.P0054.MiddleSevenNineFinite
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+-- The fixed prefix leaves a bounded residual search tree.
+theorem middle_four_classification_prefix_02709_3_1_2 :
+    middleFourClassificationValuesCheck 2709 [3, 1, 2] = true := by
+  rfl
+
+end AiMathLab.P0054.MiddleSevenNineFinite

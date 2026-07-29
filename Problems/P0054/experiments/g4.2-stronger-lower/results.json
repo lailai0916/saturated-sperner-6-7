@@ -1,0 +1,538 @@
+{
+  "epistemic_label": "COMPUTED",
+  "experimental_conclusion": {
+    "first_uncertain_step": "no external certificate and no formal proof of the general quotient reduction",
+    "relation_to_C17": "If independently proved, |A2|>=8 would add one to the C17 layer sum and support sat(7)>=38; this experiment does not modify or promote C17.",
+    "seven_member_A2": "UNSAT_COMPUTED"
+  },
+  "finite_q_results": {
+    "0": "UNSAT_COMPUTED",
+    "1": "UNSAT_COMPUTED",
+    "10": "UNSAT_COMPUTED",
+    "2": "UNSAT_COMPUTED",
+    "3": "UNSAT_COMPUTED",
+    "4": "UNSAT_COMPUTED",
+    "5": "UNSAT_COMPUTED",
+    "6": "UNSAT_COMPUTED",
+    "7": "UNSAT_COMPUTED",
+    "8": "UNSAT_COMPUTED",
+    "9": "UNSAT_COMPUTED"
+  },
+  "finite_q_split_searches": [
+    {
+      "a_small": 4,
+      "b_large_complements": 3,
+      "canonical_symmetry": "nondecreasing row sizes and full incidence column codes",
+      "q": 0,
+      "redundant_blocker_pruning": true,
+      "result": "UNSAT",
+      "timeout_ms": 60000
+    },
+    {
+      "a_small": 5,
+      "b_large_complements": 2,
+      "canonical_symmetry": "nondecreasing row sizes and full incidence column codes",
+      "q": 0,
+      "redundant_blocker_pruning": true,
+      "result": "UNSAT",
+      "timeout_ms": 60000
+    },
+    {
+      "a_small": 4,
+      "b_large_complements": 3,
+      "canonical_symmetry": "nondecreasing row sizes and full incidence column codes",
+      "q": 1,
+      "redundant_blocker_pruning": true,
+      "result": "UNSAT",
+      "timeout_ms": 60000
+    },
+    {
+      "a_small": 5,
+      "b_large_complements": 2,
+      "canonical_symmetry": "nondecreasing row sizes and full incidence column codes",
+      "q": 1,
+      "redundant_blocker_pruning": true,
+      "result": "UNSAT",
+      "timeout_ms": 60000
+    },
+    {
+      "a_small": 4,
+      "b_large_complements": 3,
+      "canonical_symmetry": "nondecreasing row sizes and full incidence column codes",
+      "q": 2,
+      "redundant_blocker_pruning": true,
+      "result": "UNSAT",
+      "timeout_ms": 60000
+    },
+    {
+      "a_small": 5,
+      "b_large_complements": 2,
+      "canonical_symmetry": "nondecreasing row sizes and full incidence column codes",
+      "q": 2,
+      "redundant_blocker_pruning": true,
+      "result": "UNSAT",
+      "timeout_ms": 60000
+    },
+    {
+      "a_small": 4,
+      "b_large_complements": 3,
+      "canonical_symmetry": "nondecreasing row sizes and full incidence column codes",
+      "q": 3,
+      "redundant_blocker_pruning": true,
+      "result": "UNSAT",
+      "timeout_ms": 60000
+    },
+    {
+      "a_small": 5,
+      "b_large_complements": 2,
+      "canonical_symmetry": "nondecreasing row sizes and full incidence column codes",
+      "q": 3,
+      "redundant_blocker_pruning": true,
+      "result": "UNSAT",
+      "timeout_ms": 60000
+    },
+    {
+      "a_small": 4,
+      "b_large_complements": 3,
+      "canonical_symmetry": "nondecreasing row sizes and full incidence column codes",
+      "q": 4,
+      "redundant_blocker_pruning": true,
+      "result": "UNSAT",
+      "timeout_ms": 60000
+    },
+    {
+      "a_small": 5,
+      "b_large_complements": 2,
+      "canonical_symmetry": "nondecreasing row sizes and full incidence column codes",
+      "q": 4,
+      "redundant_blocker_pruning": true,
+      "result": "UNSAT",
+      "timeout_ms": 60000
+    },
+    {
+      "a_small": 4,
+      "b_large_complements": 3,
+      "canonical_symmetry": "nondecreasing row sizes and full incidence column codes",
+      "q": 5,
+      "redundant_blocker_pruning": true,
+      "result": "UNSAT",
+      "timeout_ms": 60000
+    },
+    {
+      "a_small": 5,
+      "b_large_complements": 2,
+      "canonical_symmetry": "nondecreasing row sizes and full incidence column codes",
+      "q": 5,
+      "redundant_blocker_pruning": true,
+      "result": "UNSAT",
+      "timeout_ms": 60000
+    },
+    {
+      "a_small": 4,
+      "b_large_complements": 3,
+      "canonical_symmetry": "nondecreasing row sizes and full incidence column codes",
+      "q": 6,
+      "redundant_blocker_pruning": true,
+      "result": "UNSAT",
+      "timeout_ms": 60000
+    },
+    {
+      "a_small": 5,
+      "b_large_complements": 2,
+      "canonical_symmetry": "nondecreasing row sizes and full incidence column codes",
+      "q": 6,
+      "redundant_blocker_pruning": true,
+      "result": "UNSAT",
+      "timeout_ms": 60000
+    },
+    {
+      "a_small": 4,
+      "b_large_complements": 3,
+      "canonical_symmetry": "nondecreasing row sizes and full incidence column codes",
+      "q": 7,
+      "redundant_blocker_pruning": true,
+      "result": "UNSAT",
+      "timeout_ms": 60000
+    },
+    {
+      "a_small": 5,
+      "b_large_complements": 2,
+      "canonical_symmetry": "nondecreasing row sizes and full incidence column codes",
+      "q": 7,
+      "redundant_blocker_pruning": true,
+      "result": "UNSAT",
+      "timeout_ms": 60000
+    },
+    {
+      "a_small": 4,
+      "b_large_complements": 3,
+      "canonical_symmetry": "nondecreasing row sizes and full incidence column codes",
+      "q": 8,
+      "redundant_blocker_pruning": true,
+      "result": "UNSAT",
+      "timeout_ms": 60000
+    },
+    {
+      "a_small": 5,
+      "b_large_complements": 2,
+      "canonical_symmetry": "nondecreasing row sizes and full incidence column codes",
+      "q": 8,
+      "redundant_blocker_pruning": true,
+      "result": "UNSAT",
+      "timeout_ms": 60000
+    },
+    {
+      "a_small": 4,
+      "b_large_complements": 3,
+      "canonical_symmetry": "nondecreasing row sizes and full incidence column codes",
+      "q": 9,
+      "redundant_blocker_pruning": true,
+      "result": "UNSAT",
+      "timeout_ms": 60000
+    },
+    {
+      "a_small": 5,
+      "b_large_complements": 2,
+      "canonical_symmetry": "nondecreasing row sizes and full incidence column codes",
+      "q": 9,
+      "redundant_blocker_pruning": true,
+      "result": "UNSAT",
+      "timeout_ms": 60000
+    },
+    {
+      "a_small": 4,
+      "b_large_complements": 3,
+      "canonical_symmetry": "nondecreasing row sizes and full incidence column codes",
+      "q": 10,
+      "redundant_blocker_pruning": true,
+      "result": "UNSAT",
+      "timeout_ms": 60000
+    },
+    {
+      "a_small": 5,
+      "b_large_complements": 2,
+      "canonical_symmetry": "nondecreasing row sizes and full incidence column codes",
+      "q": 10,
+      "redundant_blocker_pruning": true,
+      "result": "UNSAT",
+      "timeout_ms": 60000
+    }
+  ],
+  "incidence_quotient": {
+    "arbitrary_q_result": "UNSAT_COMPUTED_NO_EXTERNAL_CERTIFICATE",
+    "blocker_equivalence_used": "small family equals the minimal transversals of the complement family",
+    "epistemic_label": "COMPUTED",
+    "first_unverified_step": "general arbitrary-U blocker/incidence reduction is human-audited code and prose, not externally certified or formalized",
+    "isolated_zero_pattern": "discarded; it changes neither sizes, antichain witnesses, nor coverage",
+    "quotient_object": "nonzero full membership patterns with integer multiplicities",
+    "splits": [
+      {
+        "a_small": 0,
+        "b_complements": 7,
+        "reason": "R=U has no small event",
+        "result": "ELIMINATED"
+      },
+      {
+        "a_small": 1,
+        "b_complements": 6,
+        "reason": "a-edge clutter has a transversal of size at most a<4",
+        "result": "ELIMINATED"
+      },
+      {
+        "a_small": 2,
+        "b_complements": 5,
+        "reason": "a-edge clutter has a transversal of size at most a<4",
+        "result": "ELIMINATED"
+      },
+      {
+        "a_small": 3,
+        "b_complements": 4,
+        "reason": "a-edge clutter has a transversal of size at most a<4",
+        "result": "ELIMINATED"
+      },
+      {
+        "a_small": 4,
+        "b_complements": 3,
+        "canonical_incidence_patterns": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "cap_justification": "counts above 2 only increase the product of blocker choices",
+        "computed_blocker_count_lower_bound": 16,
+        "forced_structure": "four pairwise-disjoint small edges",
+        "multiplicity_cap": 2,
+        "multiplicity_lower_bounds": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "multiplicity_variables": [
+          "m1",
+          "m2",
+          "m4",
+          "m8"
+        ],
+        "required_complement_count": 3,
+        "result": "ELIMINATED"
+      },
+      {
+        "a_small": 5,
+        "b_complements": 2,
+        "canonical_incidence_patterns": [
+          1,
+          2
+        ],
+        "cap_justification": "counts above 4 only increase the product of blocker choices",
+        "computed_blocker_count_lower_bound": 16,
+        "forced_structure": "two disjoint complement edges",
+        "multiplicity_cap": 4,
+        "multiplicity_lower_bounds": [
+          4,
+          4
+        ],
+        "multiplicity_variables": [
+          "m1",
+          "m2"
+        ],
+        "required_small_count": 5,
+        "result": "ELIMINATED"
+      },
+      {
+        "a_small": 6,
+        "b_complements": 1,
+        "reason": "blocker of one complement consists of singletons",
+        "result": "ELIMINATED"
+      },
+      {
+        "a_small": 7,
+        "b_complements": 0,
+        "reason": "R=empty has no large event",
+        "result": "ELIMINATED"
+      }
+    ]
+  },
+  "model": {
+    "coverage": "for every R: some S subseteq R or some R disjoint from C",
+    "cross_condition": "S intersects C",
+    "exact_split": "a+b=7",
+    "large_complement_size_min": 4,
+    "same_side_antichain": true,
+    "small_size_min": 2
+  },
+  "parameters": {
+    "experiment_random_seed": "NONE",
+    "member_total": 7,
+    "q_max": 10,
+    "q_min": 0,
+    "solver_timeout_ms_per_split": 60000,
+    "z3_random_seed": 0
+  },
+  "schema": "ai-math-lab.p0054.g4.2-a2-experimentalist.v1",
+  "scope_warning": "No UNSAT row is a proof; no external certificate or formal arbitrary-U reduction is present.",
+  "structural_split_elimination": [
+    {
+      "a_small": 0,
+      "b_complements": 7,
+      "reason": "R=U has no small event",
+      "result": "ELIMINATED"
+    },
+    {
+      "a_small": 1,
+      "b_complements": 6,
+      "reason": "a-edge clutter has a transversal of size at most a<4",
+      "result": "ELIMINATED"
+    },
+    {
+      "a_small": 2,
+      "b_complements": 5,
+      "reason": "a-edge clutter has a transversal of size at most a<4",
+      "result": "ELIMINATED"
+    },
+    {
+      "a_small": 3,
+      "b_complements": 4,
+      "reason": "a-edge clutter has a transversal of size at most a<4",
+      "result": "ELIMINATED"
+    },
+    {
+      "a_small": 4,
+      "b_complements": 3,
+      "canonical_incidence_patterns": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "cap_justification": "counts above 2 only increase the product of blocker choices",
+      "computed_blocker_count_lower_bound": 16,
+      "forced_structure": "four pairwise-disjoint small edges",
+      "multiplicity_cap": 2,
+      "multiplicity_lower_bounds": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "multiplicity_variables": [
+        "m1",
+        "m2",
+        "m4",
+        "m8"
+      ],
+      "required_complement_count": 3,
+      "result": "ELIMINATED"
+    },
+    {
+      "a_small": 5,
+      "b_complements": 2,
+      "canonical_incidence_patterns": [
+        1,
+        2
+      ],
+      "cap_justification": "counts above 4 only increase the product of blocker choices",
+      "computed_blocker_count_lower_bound": 16,
+      "forced_structure": "two disjoint complement edges",
+      "multiplicity_cap": 4,
+      "multiplicity_lower_bounds": [
+        4,
+        4
+      ],
+      "multiplicity_variables": [
+        "m1",
+        "m2"
+      ],
+      "required_small_count": 5,
+      "result": "ELIMINATED"
+    },
+    {
+      "a_small": 6,
+      "b_complements": 1,
+      "reason": "blocker of one complement consists of singletons",
+      "result": "ELIMINATED"
+    },
+    {
+      "a_small": 7,
+      "b_complements": 0,
+      "reason": "R=empty has no large event",
+      "result": "ELIMINATED"
+    }
+  ],
+  "validator_controls": {
+    "negative_control": {
+      "description": "remove one small edge from the positive control",
+      "validator_A": {
+        "R_checked": 256,
+        "accepted": false,
+        "coverage_multiplicity_max": 16,
+        "coverage_multiplicity_min": 0,
+        "failures": [
+          "oriented_coverage_failure"
+        ],
+        "uncovered_R_masks": [
+          3,
+          7,
+          11,
+          19,
+          23,
+          27,
+          35,
+          39,
+          43,
+          67,
+          71,
+          75,
+          83,
+          87,
+          91,
+          99,
+          103,
+          107,
+          131,
+          135,
+          139,
+          147,
+          151,
+          155,
+          163,
+          167,
+          171
+        ],
+        "validator": "direct_oriented_all_R"
+      },
+      "validator_B": {
+        "accepted": false,
+        "blocker_of_complements_masks": [
+          3,
+          12,
+          48,
+          192
+        ],
+        "blocker_of_small_masks": [
+          84,
+          88,
+          100,
+          104,
+          148,
+          152,
+          164,
+          168
+        ],
+        "failures": [
+          "small_not_blocker_of_complements",
+          "complements_not_blocker_of_small"
+        ],
+        "validator": "independent_blocker_involution"
+      }
+    },
+    "positive_control": {
+      "description": "four disjoint 2-sets and all 16 choice transversals; total 20, not a seven-member witness",
+      "validator_A": {
+        "R_checked": 256,
+        "accepted": true,
+        "coverage_multiplicity_max": 16,
+        "coverage_multiplicity_min": 1,
+        "failures": [],
+        "uncovered_R_masks": [],
+        "validator": "direct_oriented_all_R"
+      },
+      "validator_B": {
+        "accepted": true,
+        "blocker_of_complements_masks": [
+          3,
+          12,
+          48,
+          192
+        ],
+        "blocker_of_small_masks": [
+          85,
+          86,
+          89,
+          90,
+          101,
+          102,
+          105,
+          106,
+          149,
+          150,
+          153,
+          154,
+          165,
+          166,
+          169,
+          170
+        ],
+        "failures": [],
+        "validator": "independent_blocker_involution"
+      }
+    }
+  },
+  "versions": {
+    "platform": "macOS-27.0-arm64-arm-64bit",
+    "python": "3.12.13",
+    "python_implementation": "CPython",
+    "z3": "4.16.0"
+  }
+}

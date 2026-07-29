@@ -1,0 +1,10 @@
+class=1 points=6 blockers=7 pairs=3 q_candidates=1 valid_extensions=0
+class=2 points=6 blockers=7 pairs=3 q_candidates=1 valid_extensions=0
+class=3 points=6 blockers=6 pairs=3 q_candidates=48 valid_extensions=0
+class=4 points=7 blockers=7 pairs=3 q_candidates=1 valid_extensions=0
+class=5 points=7 blockers=7 pairs=3 q_candidates=1 valid_extensions=0
+class=6 points=7 blockers=7 pairs=3 q_candidates=1 valid_extensions=0
+class=7 points=7 blockers=7 pairs=3 q_candidates=1 valid_extensions=0
+class=8 points=7 blockers=7 pairs=3 q_candidates=1 valid_extensions=0
+total_q_candidates=55
+total_valid_extensions=0

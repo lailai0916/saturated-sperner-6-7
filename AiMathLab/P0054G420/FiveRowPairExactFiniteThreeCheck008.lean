@@ -1,0 +1,14 @@
+import AiMathLab.P0054G420.FiveRowPairExactFiniteMasks
+
+namespace AiMathLab.P0054.G420
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+-- The offline node budget is at most 100; Lean rechecks the whole group.
+theorem three_padded_pair_exact_mask_group_008 :
+    threePairExactMaskGroup008.all
+      (smallFourClassificationMaskCheck 0
+        threePaddedMultiplicityLeafValid threePaddedMultiplicityInCertificate) = true := by
+  rfl
+
+end AiMathLab.P0054.G420

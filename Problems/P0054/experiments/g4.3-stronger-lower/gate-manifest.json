@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "gate": "P0054_G4_3_EIGHT_MEMBER_LAYER_EXCLUSION",
+  "generated_at_utc": "2026-07-23T02:43:27Z",
+  "epistemic_summary": {
+    "local_lower_bound": "PROVED: m(2,4)>=9",
+    "global_lower_bound": "PROVED: sat(7)>=41",
+    "stronger_local_interval": "PROVED: 9<=m(2,4)<=12; exact value UNKNOWN",
+    "finite_search": "COMPUTED_ONLY",
+    "referee_verdicts": ["ACCEPT", "ACCEPT"]
+  },
+  "frozen_baseline": {
+    "head": "d2c8e3eb81466a3743c736319ef1874920590abc",
+    "protected_file_count": 195,
+    "protected_total_bytes": 683250228,
+    "protected_sha256_lines_digest": "c526b9301cc6a42fc84820e6fec332489006cd0c2a60e8a8ddd1a12be7071981",
+    "g0_through_g4_2_manifest_count": 11,
+    "g0_through_g4_2_manifest_total_bytes": 56494,
+    "g0_through_g4_2_manifest_digest": "f2fc336f8bbc58b395bae0ae1dbde56d67b9f89dc57a2275686263635141ae0b",
+    "c1_through_c18_reconstructed_claims_sha256": "d35820b25c181be7c3dc80a95d7d80eefcc6a9260153bd8711cae246c16e037a"
+  },
+  "artifact_aggregate": {
+    "file_count": 15,
+    "total_bytes": 151189,
+    "sha256_lines_digest": "9101a0d12c9e58ff2bfa72c4e9207e11250cc7cbc554f713ec541def6b6e97b2"
+  },
+  "artifacts": [
+    {
+      "path": "Problems/P0054/claims.yaml",
+      "bytes": 5091,
+      "sha256": "b3f03ea76cddd8af51bb8f5f4e0a6832dd44ae27e1c5d8e4541caeb2afb5536f"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.3-stronger-lower/manifest.json",
+      "bytes": 3258,
+      "sha256": "2f9c604e0c3a7f2bff505acd97f7c1866db44676c1a4a874f62683b386b4b89c"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.3-stronger-lower/report.md",
+      "bytes": 6938,
+      "sha256": "93084dec2231b05d33fe4d66e585a809261961a0b6a9d10006796f42cfc387fb"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.3-stronger-lower/results.json",
+      "bytes": 7906,
+      "sha256": "315a9daea8ab4c1f28e03fdc8d17c1478bdb1ac0a1a28b4ec5fe7bf65b51d095"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.3-stronger-lower/search.py",
+      "bytes": 20355,
+      "sha256": "ce1026519f6e9f7b3a90da6bd0ea7e1eb7fc6d6b0f7db2cadda05262488b7ec0"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.3-stronger-lower/section0-freeze.md",
+      "bytes": 7735,
+      "sha256": "759e7b6a2bbad8853f2baa7424c8b19ac06e6ecaf07b3c3758a30d57a9a99aaf"
+    },
+    {
+      "path": "Problems/P0054/proof/audits/g4.3-stronger-lower/referee-a.md",
+      "bytes": 13364,
+      "sha256": "6e11b6a925c50e9d84f06c53987fb6c527f4fb0567edad5c0602da1d85aba807"
+    },
+    {
+      "path": "Problems/P0054/proof/audits/g4.3-stronger-lower/referee-b.md",
+      "bytes": 9295,
+      "sha256": "22f191ada7e91d9cc00b41eb4011cd0f5a4ad23168aad8b1341c11b4a53c0c84"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.3-stronger-lower/candidate-proof.md",
+      "bytes": 15870,
+      "sha256": "ff1271a9552f5eaf82f6d44ac19edfa0e5f550d383d2157e0d16b0eac591a684"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.3-stronger-lower/frozen-subproblem.md",
+      "bytes": 2617,
+      "sha256": "cc64e1e376196355b68266abcfdf228d38836b6fc05c170204397efc67a8ddaa"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.3-stronger-lower/prover-a-split-exclusion.md",
+      "bytes": 13531,
+      "sha256": "c0f8a78a886d9f1f37657378902cd92d16886ce6069376136af4fdcc5092a0b0"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.3-stronger-lower/prover-b-parameter-search.md",
+      "bytes": 12549,
+      "sha256": "f4d30518966d65bc6d363f29221579fcfbf3341564f018e8bd21c976425d54b4"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.3-stronger-lower/prover-c-adversarial.md",
+      "bytes": 14118,
+      "sha256": "e34c3650abc4cf34de35bb257bbe376f642e810b52e42c6be7e20169cace7b57"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.3-stronger-lower/stronger-local-parameter.md",
+      "bytes": 6502,
+      "sha256": "69bdc4575e825e1b49c3de35696e306889cf901d2f2136252033c5c4694e58c9"
+    },
+    {
+      "path": "Problems/P0054/status.md",
+      "bytes": 12060,
+      "sha256": "6e957c8a0a195e7fc384f67adf4b9c0ff89034773ebd8254f2cba3822cf5be65"
+    }
+  ],
+  "completed_validation": {
+    "uv_sync_locked_offline": "PASS",
+    "pytest": "PASS: 178 tests",
+    "ruff": "PASS",
+    "mypy": "PASS: 39 source files",
+    "lake_build": "PASS: 8662 jobs",
+    "p0054_lean_entry": "PASS",
+    "p0001_lean_entry": "PASS",
+    "experiment_structural_replay": "PASS_COMPUTED",
+    "size12_witness_two_engine_replay": "PASS_COMPUTED"
+  },
+  "forbidden_actions": {
+    "network": false,
+    "formalizer": false,
+    "old_size54_cnf": false,
+    "stage": false,
+    "commit": false,
+    "push": false,
+    "publication": false
+  }
+}

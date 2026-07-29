@@ -1,0 +1,184 @@
+{
+  "schema": "p0054.g4.14.integration-manifest.v1",
+  "base_commit": "58f005e2f0bde9103acd15d37a6a22ce16308ad9",
+  "gate": "P0054_G4_14_EXACT_VALUE_PROMOTION",
+  "network": "MATHEMATICS_OFFLINE",
+  "workflow_status": "SOLVED_CANDIDATE",
+  "exact_value": {
+    "claim_id": "P0054-C28",
+    "label": "PROVED",
+    "statement": "sat(7) = 55"
+  },
+  "formalization_boundary": {
+    "g4_13_local_theorem": "FORMALIZED",
+    "global_exact_value": "NOT_FULLY_FORMALIZED"
+  },
+  "novelty_and_priority": "UNKNOWN",
+  "files": [
+    {
+      "path": "Problems/P0054/experiments/g4.10-coupled-fifty-two/manifest.json",
+      "sha256": "de8017a3dbfe4fc952b12290d56ecf9f0860f261cd4ef71d8ad4598408050a9a",
+      "role": "g4_10_manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.10-coupled-fifty-two/candidate-proof.md",
+      "sha256": "5525e73d5d25394f2e35bcf051968243fb70597e63daa43e9fc0e773b853d454",
+      "role": "g4_10_proof"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.10-coupled-fifty-two/referee-audit.md",
+      "sha256": "26e80739d5d451c511ede7110812e114ed4eb98fe83266cae7965c0633f1a3dd",
+      "role": "g4_10_referee"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.10-coupled-fifty-two/post-referee-validation.md",
+      "sha256": "23421d63fe43094e644a5a6bf32fd2e079b2b3cddadad5f2a29e2403156c34c9",
+      "role": "g4_10_validation"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.11-coupled-fifty-three/manifest.json",
+      "sha256": "72372e0954a62c4c55cc7daace2550f81d8c28d10ed4eb0e4a08f6f271ed6258",
+      "role": "g4_11_manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.11-coupled-fifty-three/candidate-proof.md",
+      "sha256": "74c790f92d68728fd858aed64f3222700793db5f00a9f683c8f1699f8498b553",
+      "role": "g4_11_proof"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.11-coupled-fifty-three/referee-audit.md",
+      "sha256": "a9b83c133c5d1a24a46099cadf1c89c10c016b32092430a27fde431c8410c121",
+      "role": "g4_11_referee"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.11-coupled-fifty-three/post-referee-validation.md",
+      "sha256": "5fb45dc50ccb59c039d9017c83961015b7f4f51529e9c67604ac35daa28fc11f",
+      "role": "g4_11_validation"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/manifest.json",
+      "sha256": "af0093442958622c7b6a7fb52201da6fb153ce4725c2d922aadedcc2a0f85bbd",
+      "role": "g4_12_manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.12-exact-fifty-four/partial-proof.md",
+      "sha256": "34523d981c6f32e03dff873bc488c7b3832341db9459716a1d7058db495ed1ce",
+      "role": "g4_12_proof"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.12-exact-fifty-four/referee-audit.md",
+      "sha256": "e7b8b468fc6f39f12370c4f46a93d83325d74c50e813f7c566184ede8402eb02",
+      "role": "g4_12_referee"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.12-exact-fifty-four/post-referee-validation.md",
+      "sha256": "d1fc348a96e7777a845fdafd33c276ba211b330d31d99c1d43cbd5c463fbb73e",
+      "role": "g4_12_validation"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.13-five-row-kernel/p0054_g413_dependency_manifest_v1.md",
+      "sha256": "65f795cd20b5277d564593f29bdca76557994963cf5744b99bb5ce7623def2b0",
+      "role": "g4_13_dependency_manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.13-five-row-kernel/p0054_g413_master_proof_v1.md",
+      "sha256": "d2f755fd6c14f271ac067d81ed73086693b960f19abb58f7fafa6a2ba819a77b",
+      "role": "g4_13_proof"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.13-five-row-kernel/formalization-status.md",
+      "sha256": "5adb46ed65046f055b9e3a377b68899debd3a64772bd0e25321880cc65e898de",
+      "role": "g4_13_frozen_status"
+    },
+    {
+      "path": "AiMathLab/P0054G413.lean",
+      "sha256": "dcde4c26e79aa9c055257a5a4be1002f4dac07dd8842e44558b4b5b13c751397",
+      "role": "g4_13_lean_entrypoint"
+    },
+    {
+      "path": "Problems/P0054/formal/G413.lean",
+      "sha256": "ffea70ca12c63e64cb47fc11a2278221e6ca2193a7acfba901d3eb24d5e22a4c",
+      "role": "g4_13_lean_audit"
+    },
+    {
+      "path": "Problems/P0054/formal/g413-formalization-report.md",
+      "sha256": "5e234c737039a2f3c497e58251c4e400a4650a2acc294378c402b70f63c01735",
+      "role": "g4_13_formalization_report"
+    },
+    {
+      "path": "Problems/P0054/formal/g413-statement-crosswalk.md",
+      "sha256": "7ceb837cc0d8b019655fe7c5c80f51ca79b19399f8404bdcc45d80a946f15b2d",
+      "role": "g4_13_statement_crosswalk"
+    },
+    {
+      "path": "Problems/P0054/claims.yaml",
+      "sha256": "6cfde74342cd0c48caa0e6c91a5ab251e5459d75e1fffdd82d91d6ff4fdba0db",
+      "role": "claim_ledger"
+    },
+    {
+      "path": "Problems/P0054/status.md",
+      "sha256": "d2f4e93fac781f845136cbc2547d3407b5029d8da0d66600f3615677c2efa015",
+      "role": "project_status"
+    },
+    {
+      "path": "Problems/P0054/formal/Main.lean",
+      "sha256": "d72422b6864e1ddd7e22698ae95652dba6c76133ab93c3dcdf87f72d469d7e25",
+      "role": "formal_audit_entrypoint"
+    },
+    {
+      "path": "Problems/P0054/formal/formalization-report.md",
+      "sha256": "98e8983cc078c050d26194eb622178cf984c4bc2cf267c3da06fe9168c16c68d",
+      "role": "formalization_report"
+    },
+    {
+      "path": "Problems/P0054/formal/statement-crosswalk.md",
+      "sha256": "ee4c58ef5f9f406e78c2be975c0f7bb80a851594ab4dae15a1af3aeac74a640b",
+      "role": "statement_crosswalk"
+    },
+    {
+      "path": "Problems/P0054/paper/argument-map.md",
+      "sha256": "663873645ed4173e0f6ee34b231a044816589b6f694aa474c55c7908c857a70c",
+      "role": "manuscript_argument_map"
+    },
+    {
+      "path": "Problems/P0054/paper/terminology-ledger.md",
+      "sha256": "d3e46c4af12299002b9c903118699b7ae9ef5f1ee63f16be77acd5dbcac928b7",
+      "role": "manuscript_terminology"
+    },
+    {
+      "path": "Problems/P0054/paper/audits/mock-review-revision-log.md",
+      "sha256": "67ff0a90f984395ec364826358d4b1b6df40b25651e8dc4bd6be8756c120c314",
+      "role": "manuscript_review_boundary"
+    },
+    {
+      "path": "Problems/P0054/paper/manuscript/README.md",
+      "sha256": "75467e1089eb3ea1970d62d4ad95560903cd6ca8eb57fd766fd650d3bfd91135",
+      "role": "manuscript_build_record"
+    },
+    {
+      "path": "Problems/P0054/paper/manuscript/main.tex",
+      "sha256": "5a4b42d21e6cf72e8ba0b11e7f3c4416827b06f2a005bca8ac3b6e1a3ed80e28",
+      "role": "english_manuscript_source"
+    },
+    {
+      "path": "Problems/P0054/paper/manuscript/main.zh-Hans.tex",
+      "sha256": "8fe467dcca5f41193cf7d64268d046b847b356bf3b2d3162bf8645e6db8ac730",
+      "role": "chinese_manuscript_source"
+    },
+    {
+      "path": "Problems/P0054/paper/manuscript/references.bib",
+      "sha256": "73bce5dac63936a27f11ad2be6e2f1e10e0cf924631eb2846752f4230edbc8ec",
+      "role": "manuscript_bibliography"
+    },
+    {
+      "path": "output/pdf/P0054-sat6-sat7-manuscript.pdf",
+      "sha256": "428fa82c7a8bd139e36e3c4678edf08799eea9111253623f5f391d42544b99fc",
+      "role": "english_manuscript_pdf"
+    },
+    {
+      "path": "output/pdf/P0054-sat6-sat7-manuscript-zh-Hans.pdf",
+      "sha256": "f0a1c48874dc6ba4ea7c97017a4b9151468d92914de25c7f3362354f342a28df",
+      "role": "chinese_manuscript_pdf"
+    }
+  ]
+}

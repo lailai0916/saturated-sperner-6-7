@@ -1,0 +1,17 @@
+import AiMathLab.P0054G420.MiddleFourDegreeFourVector20
+
+namespace AiMathLab.P0054.G420
+
+def middleFourDegreeFourVector20Chunk0_04 :
+    List (List MiddleFourModelPoint) :=
+  [[1], [1, 6], [1, 5], [1, 5, 6], [1, 4], [1, 4, 6], [1, 4, 5], [1, 4, 5, 6]]
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 10000000 in
+theorem middleFourDegreeFourVector20_chunk0_04_check :
+    middleFourModelRawChunkCheck middleFourDegreeFourVector20
+        middleFourDegreeFourVector20Base0
+        middleFourDegreeFourVector20Chunk0_04 = true := by
+  decide
+
+end AiMathLab.P0054.G420

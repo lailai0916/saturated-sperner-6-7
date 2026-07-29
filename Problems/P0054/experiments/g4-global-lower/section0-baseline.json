@@ -1,0 +1,899 @@
+{
+  "schema": "ai-math-lab.p0054.g4-section0-baseline.v1",
+  "captured_at_local": "2026-07-22T08:43:40-07:00",
+  "head": "d2c8e3eb81466a3743c736319ef1874920590abc",
+  "file_count": 162,
+  "total_bytes": 682943569,
+  "sha256_lines_digest": "e5c7cd57dad8062e00376046da3e0ad056f9d746df2e7f059ed1a39826a339c9",
+  "files": [
+    {
+      "path": "Problems/P0054/claims.yaml",
+      "bytes": 4636,
+      "sha256": "5ba25ce2d3cb36f5e13c3c2d4dd252d0d47ef3033408d131141e38abe5744564"
+    },
+    {
+      "path": "Problems/P0054/experiments/README.md",
+      "bytes": 1193,
+      "sha256": "09fb88af9ae28db0c88eb1598980ee1f514853ba7cc2628b6bc069f543e5eeff"
+    },
+    {
+      "path": "Problems/P0054/experiments/calibration-results.json",
+      "bytes": 2978,
+      "sha256": "e0dc6106a0cb590c0b3f1e11d2e754c80f494291290b274a5cad5328744e8f68"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-4-target-55-selfcontained-kissat.drat",
+      "bytes": 93005,
+      "sha256": "ea4f9e2d6f6853fb17c7fc16844d78e62975dea3ddcc14dac90de0c16dd5a68b"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-4-target-55-selfcontained-kissat.drat.verify.log",
+      "bytes": 428,
+      "sha256": "e610b499b79ef6b9e68a33f1ad3a3d165ef606f714669a79eec1f9ccd3328325"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-4-target-55-selfcontained.cnf",
+      "bytes": 426005,
+      "sha256": "885c65912c12a4d200c299feb971e39d7f3112a9e87f436902e09db248ae7e4b"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-4-target-55-selfcontained.json",
+      "bytes": 1226,
+      "sha256": "0e73ceca4cbaf71a453c3f5f8e07ae308f42fa091a94e919b6f04147d17b84e0"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-5-target-55-selfcontained-kissat.drat",
+      "bytes": 473860,
+      "sha256": "df35eaf5358cc4f20d8f10249f8ddd6129a4aad06fbd656fe5c89557a50a371d"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-5-target-55-selfcontained-kissat.drat.verify.log",
+      "bytes": 431,
+      "sha256": "8832851fdb71d48d3cdb47e8767267ad03d2e9c39b1464f794070d7bd015c4a1"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-5-target-55-selfcontained.cnf",
+      "bytes": 952497,
+      "sha256": "325e51a5c351ce8625cfe19c967a08882c1fbc93d19be6c831e5034247ba5509"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-5-target-55-selfcontained.json",
+      "bytes": 1228,
+      "sha256": "a5129fadf4015d7013bcb719448551e898114f5ddc2a948b1d53853179daea5b"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-6-target-55-selfcontained-kissat.drat",
+      "bytes": 4505506,
+      "sha256": "338fb49b273e0b4ada1f427be484bc32a2ced94890820b723dcf9268dc0db15b"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-6-target-55-selfcontained-kissat.drat.verify.log",
+      "bytes": 464,
+      "sha256": "f68e37911c610fa6ed86fd955e4e62043797948b0bed7933251f42a911435ba7"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-6-target-55-selfcontained.cnf",
+      "bytes": 2095628,
+      "sha256": "c3ca49a18d874c6e4068749ec3e8c70dac4193129ed9e82d0b3f6a59264ba31a"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-6-target-55-selfcontained.json",
+      "bytes": 1226,
+      "sha256": "b0c2dff32dc3c6a5742de51fbbc04cf6d41718ec5d28623e2bf9517ee33418f2"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-7-target-55-selfcontained-kissat.drat",
+      "bytes": 253731315,
+      "sha256": "cf6eb02a217c9b0eb790f8321bd8f77a7b9fd42f5829c50d6410a4383b2ef0fa"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-7-target-55-selfcontained-kissat.drat.verify.log",
+      "bytes": 477,
+      "sha256": "19c30821d4091df4e757f0f005d6032aca651e7933e3d0c9e26e90ff9ab9d6d9"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-7-target-55-selfcontained.cnf",
+      "bytes": 4801642,
+      "sha256": "5f7db3865fe3a1438370fe107de64bbdf4e921aa52b7f2553f88f62075cbdb89"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-7-target-55-selfcontained.json",
+      "bytes": 1230,
+      "sha256": "684c6000b3da4384bbd50e1d4d088f25ce02e4173810e0966c53b531cf9ee44d"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-8-target-55-selfcontained.cnf",
+      "bytes": 11641100,
+      "sha256": "74327a2822168ec19c1b1b2cfe25a9d237b12376f4d077e0e12ad4511a585b33"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-8-target-55-selfcontained.json",
+      "bytes": 6074,
+      "sha256": "026d0f8e15a8028603ac04457cb7a3b42a8847a36368ce17b9ce75490b291fdb"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/verification-manifest.json",
+      "bytes": 3534,
+      "sha256": "090f80066cd3b157f6e29032211ebe4a138e9617dcc785e1ad5687d3548696a5"
+    },
+    {
+      "path": "Problems/P0054/experiments/core-8-size-55-dual-verification.json",
+      "bytes": 2393,
+      "sha256": "f1637e0219bb9ae3fd720083fba480fe9a1fba2fcd4bd1628c47a54d93ccd80c"
+    },
+    {
+      "path": "Problems/P0054/experiments/core-8-size-55-manifest.json",
+      "bytes": 995,
+      "sha256": "de814a661c5f8f78bf00bdaffc3ed9804e94076637bb3ce4f342374e4a73dc7a"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/README.md",
+      "bytes": 1949,
+      "sha256": "ea8ce63eddf7ef662386a0e51c0c541ddb26735780c0c15f88a7c51ae61274f1"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/core-8-target-54-complete.cnf",
+      "bytes": 11498920,
+      "sha256": "e284ec2828793e26b591c7153b6366e8f44e4c7b928854f4e45c965f465f833a"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/kissat-oriented/core-8-target-54-oriented-small-le-27.cnf",
+      "bytes": 12147316,
+      "sha256": "975d47af99af174850301de76dbe89bdab488b1cb31372417c5a9dce9cf1d078"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/kissat-oriented/portfolio-default.log",
+      "bytes": 261606,
+      "sha256": "622d3b19219dfe05549b5a6c100407a2c8b3ac360af2d8b70156113fa9b506cb"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/kissat-oriented/portfolio-report.json",
+      "bytes": 4194,
+      "sha256": "9a9172a139b9f35f666f5f0e73902be05c9a1e94d3af06c5db2d0cd9c5a1c370"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/kissat-oriented/portfolio-sat-seed1.log",
+      "bytes": 253362,
+      "sha256": "d31f5059986c7634e7556180e58160a99f5b86926bae18b1c1bd3eba8721773c"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/kissat-oriented/portfolio-sat-seed2-negative-phase.log",
+      "bytes": 250564,
+      "sha256": "099c60ee539d80e007bfbd2570f5cdd1ed4a00095317f03a2bb12daa48fe6ae7"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/kissat-oriented/portfolio-sat.log",
+      "bytes": 253635,
+      "sha256": "a0fa7a2eb4e2caf0643b2e1c2df19fb0046cede114164020b91bd606266138b8"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/neighborhood-report.json",
+      "bytes": 2788,
+      "sha256": "3ffc246ec592fa2e3dba8f55ce754c2a90cf523d17f5a150d1134ca4abc4cf3d"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/oriented/core-8-target-54-oriented-small-le-27.cnf",
+      "bytes": 12147316,
+      "sha256": "975d47af99af174850301de76dbe89bdab488b1cb31372417c5a9dce9cf1d078"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/oriented/portfolio-default.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/oriented/portfolio-default.model",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/oriented/portfolio-report.json",
+      "bytes": 5040,
+      "sha256": "6f4faf61bb9dfcf2d2edb58bd3e85ee2632478c51aa234b21187ff3d9ceec924"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/oriented/portfolio-sat-shuffle-seed1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/oriented/portfolio-sat-shuffle-seed1.model",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/oriented/portfolio-sat-shuffle-seed2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/oriented/portfolio-sat-shuffle-seed2.model",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/oriented/portfolio-sat.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/oriented/portfolio-sat.model",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/portfolio-default.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/portfolio-default.model",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/portfolio-report.json",
+      "bytes": 4744,
+      "sha256": "444342ff4d440b2e3eb8d2d3216a8b20d36831adf43d46f8180a1631f054fbe4"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/portfolio-sat-shuffle-seed1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/portfolio-sat-shuffle-seed1.model",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/portfolio-sat-shuffle-seed2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/portfolio-sat-shuffle-seed2.model",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/portfolio-sat.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/portfolio-sat.model",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-README.md",
+      "bytes": 1790,
+      "sha256": "61c1d3131b4f0bd309a18143074bbcf3dca30dbcdea7547ae6af22490ad7afec"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer0-at-most-0.cnf",
+      "bytes": 22398,
+      "sha256": "c049ce5942934833085dfffec30d8dda560e3f6baeac6acb59dfd9884d2ba34d"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer0-at-most-0.drat",
+      "bytes": 33,
+      "sha256": "5748951bb5da1314516af7a631b1ab3f237e3129b24ceaf5553d5b679ef9afb5"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer0-at-most-0.drat-trim.log",
+      "bytes": 418,
+      "sha256": "919d2c417c56baec0082798a46bcaf8b71fe13ccb89d10227a031be3e054ffd8"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer0-at-most-0.kissat.log",
+      "bytes": 2513,
+      "sha256": "4a1f06c8330eb094ad7e446cf25a34da70e2e925a2038dd50635fff7f8573f04"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer1-at-most-5.cnf",
+      "bytes": 83610,
+      "sha256": "56ad6277fffba0245160d61919c0da6e85fd58a9258cf8fd9a8483c4f15c1b60"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer1-at-most-5.drat",
+      "bytes": 85572,
+      "sha256": "e2ef0dd0c927c9d23c470bff6f95cd3a0ba9d73beea607d96bf391ce73ceebbb"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer1-at-most-5.drat-trim.log",
+      "bytes": 452,
+      "sha256": "3cdee612a4e1b892f1f9a66ee5083b163e46a7bee837c8c9fae5bea1cb1c9f87"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer1-at-most-5.kissat.log",
+      "bytes": 4837,
+      "sha256": "80a2afebeafcb1e11f60b521a886fcbb0c55c374dc4e94a34003dabb50ff2d17"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer2-at-most-11.cnf",
+      "bytes": 201998,
+      "sha256": "acefa74a1ea24393091245eb2f25562447a37e8a33c7e768a33579d7724a5129"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer2-at-most-11.drat",
+      "bytes": 22440659,
+      "sha256": "9fcbf6b00baac8f18e0c31f3cbd6b0bfb4ba0dbae4bcbd2a0493482882a25936"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer2-at-most-11.drat-trim.log",
+      "bytes": 467,
+      "sha256": "c0b79c3fc0c1f7bd57084704e70e41a49cf14cc983b05cb5bb4988652a9424ed"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer2-at-most-11.kissat.log",
+      "bytes": 32281,
+      "sha256": "fb1b7d9573345047c7d15f56c201e7f2dd6f9f04dfd5b5ad37d6c68228474a9e"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer3-at-most-13.cnf",
+      "bytes": 260673,
+      "sha256": "995c798516c5dafb6507350de1a04ee7b5e4cc9836f6b76b0f3cb5dc23f54e26"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer3-at-most-13.drat",
+      "bytes": 107527685,
+      "sha256": "99e79dea28f1256b0586a66c223bf321facdc06b13af88409bbee3113b186ce6"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer3-at-most-13.drat-trim.log",
+      "bytes": 471,
+      "sha256": "654b7c45e75395b8b9f6cf931667466dc6ceac4b28e03599e85c7097ce89b885"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer3-at-most-13.kissat.log",
+      "bytes": 57146,
+      "sha256": "44d86065d6faf0370389e14224c3f98812ea8414bd976fc0e0bef50cc3aa3bcf"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer3-at-most-16.cnf",
+      "bytes": 299235,
+      "sha256": "5736096c53413bc6fbb87b50e0dd388773b720f9f34e7359265dcf6f6da49857"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer3-at-most-16.kissat.log",
+      "bytes": 73702,
+      "sha256": "acc975240d829ae924cbfb4cb46ebb22946d62cb5f7116f5bbedb3ce70bc1fb0"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/verification-manifest.json",
+      "bytes": 8204,
+      "sha256": "15eb4ec0cb2ae00d0612db087bb3e768ab17743b2c0d2eb3a3f5b200515c743a"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-12-6-3.cnf",
+      "bytes": 6317179,
+      "sha256": "f1f55800489fc386d2d939ed9325b1e69a700e2d0653012df39b06e394b39a7d"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-12-6-3.kissat.log",
+      "bytes": 85802,
+      "sha256": "0e0170bf1063eeb139675e3114a1020ac28de7c8fba7d7e3d1dfbdcdf68a7b80"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-12-7-2.cnf",
+      "bytes": 6322179,
+      "sha256": "8b610fd91d761069ff1c8e5c59dbf25361c0db213475aaac7366eee0975ee653"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-12-7-2.kissat.log",
+      "bytes": 88032,
+      "sha256": "b2237bb7cfeb92147f24dba152ed52cbb267e1287d1cfecc4574b0ddea7009f7"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-12-8-1.cnf",
+      "bytes": 6327179,
+      "sha256": "5cae19a5543bec49d0d560392d6ae8b8b775e6e526b2147d88d18ed4133ed1dc"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-12-8-1.kissat.log",
+      "bytes": 89722,
+      "sha256": "3a2a4d185a32e6891fc278dbc9f509f551a581b1a92f00746b80dd015a44210c"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-13-6-2.cnf",
+      "bytes": 6326859,
+      "sha256": "0299affdbab761f879ea44b12f7812d97d964353f3fe99c3eae4636aeaac099b"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-13-6-2.kissat.log",
+      "bytes": 84808,
+      "sha256": "4918c650c6be1010f1519cb0074d19877fc856330bf4146b5428eda232bdc54f"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-13-7-1.cnf",
+      "bytes": 6331859,
+      "sha256": "1372d8c62fdd11d078b099641a30d7cb47f3f40efbd3db8513b6e7fa1b257c32"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-13-7-1.kissat.log",
+      "bytes": 88247,
+      "sha256": "10dde779536e72f32262090a7d4673680ee0df551749a85474cda3c138abed57"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-14-6-1.cnf",
+      "bytes": 6336539,
+      "sha256": "889ea9cb40e304e5f9ed633532f26737eb9adf4af7d9ac3f17c9dac5e77d7964"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-14-6-1.kissat.log",
+      "bytes": 89324,
+      "sha256": "4bb4f28e806a49add2a1440baaf58c747ab3e69162583a3225ba99773a853967"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-15-12-6-2.cnf",
+      "bytes": 6328538,
+      "sha256": "2a95863f18304179d256f847494bf4af8b49a2b5713887777f85eae946a75f1a"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-15-12-6-2.kissat.log",
+      "bytes": 96270,
+      "sha256": "2812f9cecd3af37945ce4903c0c6019d56f546be668ced84131cc9d02113e2d3"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-15-12-7-1.cnf",
+      "bytes": 6333538,
+      "sha256": "d14c1ef01f6675ca7ba6aec32741bbf977a4f16cfebbb28184b9a602933f8e52"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-15-12-7-1.kissat.log",
+      "bytes": 88372,
+      "sha256": "a464ee7bbdb305abe01432c1597dbafb6af40dcc3e6ca08e6597ec30e5ccbca4"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-15-13-6-1.cnf",
+      "bytes": 6338218,
+      "sha256": "563807e75c0b70d1878235be0afb4c65d882b7d627e55b489a88d79a8fe06402"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-15-13-6-1.kissat.log",
+      "bytes": 90538,
+      "sha256": "c1b6ad3086e23c1e506134bcd2461f4a8c8492b629de95544bba419df7d7fb63"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-16-12-6-1.cnf",
+      "bytes": 6339897,
+      "sha256": "d9191be52530e4dd174c85f8e2e76384b037a0cc722f9b89a4dd1355d6a47f0a"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-16-12-6-1.kissat.log",
+      "bytes": 91558,
+      "sha256": "b645e309cbde992254ac4cf359a290dd11bdf8d586ab31b42c81aa6d332946ee"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-13-14-12-6-2.cnf",
+      "bytes": 6326489,
+      "sha256": "93ee6e2162d75b32db238929facd4048b5309b87fc20881bfbb61ea17f0604c0"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-13-14-12-6-2.kissat.log",
+      "bytes": 92250,
+      "sha256": "b8dabafef7fc79f651a4909800fe93e9b621fc9241acc9db8f587183aef3c65d"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-13-14-12-7-1.cnf",
+      "bytes": 6331489,
+      "sha256": "2a890f3c7c584c279e489106a75121f1a8e91a4a004a64f9b0e08233952916d6"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-13-14-12-7-1.kissat.log",
+      "bytes": 96622,
+      "sha256": "cda4d1795a73b3c0800bb023b308ba7ec2b18c28bcfbf302fde452b9f8109bd0"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-13-14-13-6-1.cnf",
+      "bytes": 6336169,
+      "sha256": "6e2af43ee96bd30d2b94e61f07dfb8bd6f895dc79debde5095de37b46e827689"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-13-14-13-6-1.kissat.log",
+      "bytes": 90276,
+      "sha256": "8d6063437669c5ae1a46d75a2e2f2507360c58bc489a5074e18ef87590ef69e5"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-13-15-12-6-1.cnf",
+      "bytes": 6337848,
+      "sha256": "dbcebc611dda4054379434f0a3b347f84f92c4ca51cd324940bb3dd75a0f1aee"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-13-15-12-6-1.kissat.log",
+      "bytes": 86059,
+      "sha256": "6f825e4679eec5bf0bc310e821cb9397ccf5970ef538c80c929698fc84bf36a8"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-14-14-12-6-1.cnf",
+      "bytes": 6335799,
+      "sha256": "df10bcf6deb35c19c2ef5deb107ebbdaf3682a6a495b4f1b8788c8cf2df8ebea"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-14-14-12-6-1.kissat.log",
+      "bytes": 90352,
+      "sha256": "b0dd3a1b9d51104612249168c72c24519d1efe5998e066a6bb60cbf3c56dc5ad"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-12-14-12-6-2.cnf",
+      "bytes": 6321926,
+      "sha256": "6880a8864b16cc6250542efe90c20406be107a779c05f7275a2bb3bffb91773e"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-12-14-12-6-2.kissat.log",
+      "bytes": 86848,
+      "sha256": "19b12342f87268dcc25e1507150429b7e46fb633ec6672bf82668ba43d97d1ac"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-12-14-12-7-1.cnf",
+      "bytes": 6326926,
+      "sha256": "877e92c6954256e33268f2ec1f265df74bdccb8528bcea69c18ae09411f7db04"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-12-14-12-7-1.kissat.log",
+      "bytes": 91826,
+      "sha256": "cf2ebd23573d791ec9024f08b7372ae533b668ca4aeb19544bb5589db44c3889"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-12-14-13-6-1.cnf",
+      "bytes": 6331606,
+      "sha256": "e7ecf126868151e51ea56e06a02f434c11f4806b2b5d074676d3d50b2c3ec005"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-12-14-13-6-1.kissat.log",
+      "bytes": 97689,
+      "sha256": "7ee054d8919e32fc9dca46958e46261bebaaa2b26beb376743be2488ef666848"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-12-15-12-6-1.cnf",
+      "bytes": 6333285,
+      "sha256": "6373c2d11d9e20181af4e7a9623a403f45bbf04cd6724cd184b65185c343a864"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-12-15-12-6-1.kissat.log",
+      "bytes": 95927,
+      "sha256": "a571bfac81ec765b5cef776add84f3fa9dcc3d40b7d58c3d1a5add383c9438c7"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-13-14-12-6-1.cnf",
+      "bytes": 6331236,
+      "sha256": "8e35dfcca8ae632f96fbb724a9987b94b2eca5d334bde881689c84cbdb8dd641"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-13-14-12-6-1.kissat.log",
+      "bytes": 88644,
+      "sha256": "d0177616dd265658c12f5e1ed62715704a731a035c98748b04bd2529ddd18311"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-8-12-14-12-6-1.cnf",
+      "bytes": 6326673,
+      "sha256": "130e9676295eced885bb5119d0c9cff2f9997c25d26a27e26cd626e655dc5131"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-8-12-14-12-6-1.kissat.log",
+      "bytes": 92691,
+      "sha256": "e4d4ce3c0053a2056236f5ee63b4c4256240abb77e08ba2ae3ca6cc46b224513"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-12-14-12-6-2.cnf",
+      "bytes": 6316945,
+      "sha256": "0517a56ac60847d174ce953d8e0548c0b72a62a61be3a1560ad797669eb6190b"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-12-14-12-6-2.kissat.log",
+      "bytes": 95717,
+      "sha256": "b9664ee531191f7540da414aada5ffaf8f6ba7bb269c36584294657d102ab2e4"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-12-14-12-7-1.cnf",
+      "bytes": 6321945,
+      "sha256": "9b3bbc20eb1c2d4b6597b196d16d1d16b08dd023753737e09b69d1718c16167d"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-12-14-12-7-1.kissat.log",
+      "bytes": 91703,
+      "sha256": "65e471ee24976df74f078ea6f08febe13070af89286bdd027d9ebcd00dcfba72"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-12-14-13-6-1.cnf",
+      "bytes": 6326625,
+      "sha256": "d87cd4d8421b6bde69d99dff1edb50b27087c90514d297f9728cdd0fb1beab17"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-12-14-13-6-1.kissat.log",
+      "bytes": 94262,
+      "sha256": "ec587482170fa2cfa930a225ae626656216933db93b570948c0e0f2db5f86fee"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-12-15-12-6-1.cnf",
+      "bytes": 6328304,
+      "sha256": "ef74aaeb2bc8991c7705a9426ac7cff2df3377a11a4a8033f3c7c554787fcf9a"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-12-15-12-6-1.kissat.log",
+      "bytes": 84781,
+      "sha256": "664deac763a295fee99025e4d50d66197060cc124b1d5720d5222f9834c74936"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-13-14-12-6-1.cnf",
+      "bytes": 6326255,
+      "sha256": "de94956722db417e94e040dc0088f5b8be85d0c3e69a4d109c19270d70b6c87b"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-13-14-12-6-1.kissat.log",
+      "bytes": 85896,
+      "sha256": "420e191ccbb4ac2fc4df3ed5d1963ae1ccb0cc9174b8cc2102e8d0346543c9b5"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-7-12-14-12-6-1.cnf",
+      "bytes": 6321692,
+      "sha256": "250b5aa4d7ee74c7a41d47cfa09a1c303585ce3314ff8366f22f05fdfab92d9f"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-7-12-14-12-6-1.kissat.log",
+      "bytes": 90837,
+      "sha256": "5ca511087dbb2a0122593e632195a494447edb914428dbbc273dfb6491e8801c"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-3-6-12-14-12-6-1.cnf",
+      "bytes": 6316711,
+      "sha256": "7c00386599d8e9ff0d0c0bfe268d8a4f7e5dd9494156ec351870bef0de8c840b"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-3-6-12-14-12-6-1.kissat.log",
+      "bytes": 94156,
+      "sha256": "24d121a68f29e85a9771826de847a7cd1ce0472e95d9ff18019d7521a4c02396"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-search-manifest.json",
+      "bytes": 27148,
+      "sha256": "d4be923bf052a19b3292b36118ff063491442803317a6e90b17d509ef4427b53"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-system/complete/core8-target54-rank-window.cnf",
+      "bytes": 6458343,
+      "sha256": "058b66d00935ee7cb610173f2de7629d1f97ba2c70cc6e9a2de5ccb3dd4e5511"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-system/complete/core8-target54-rank-window.kissat.log",
+      "bytes": 453282,
+      "sha256": "0f1c6576d8b85611c6f029f184c9af6bed0d9ae8bcc996848eca2462f1d0821a"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-system/complete/verification-manifest.json",
+      "bytes": 2246,
+      "sha256": "e101d46c4fab748956056266a3029bd3dbb839c6b692c8e6bd33fd476a4623c8"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-system/fixed-middle14/core8-target54-rank-window-fixed-middle14.cnf",
+      "bytes": 6461447,
+      "sha256": "4788e55ffd51c81e0639611d9e25e2ff103af5838b0ef08ce13c6bb697f74412"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-system/fixed-middle14/core8-target54-rank-window-fixed-middle14.drat",
+      "bytes": 42951282,
+      "sha256": "72570874c2fc0a30ae80fc243cc60d2110e282beadb87096f718c0567cbf63db"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-system/fixed-middle14/core8-target54-rank-window-fixed-middle14.drat-trim.log",
+      "bytes": 472,
+      "sha256": "4df3d69add8ebf6d835d11cf6bde6536db07dc73c87271dec3d2ff41aeeaf7f1"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-system/fixed-middle14/core8-target54-rank-window-fixed-middle14.kissat.log",
+      "bytes": 44205,
+      "sha256": "62ccd24bc1cda740c7425246402450779f400121b8ef919ab9936e7381baa71a"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-system/fixed-middle14/verification-manifest.json",
+      "bytes": 2884,
+      "sha256": "1ca447a68e90d13cc60a10af99316acfd7681f60c2cd5c00aeee2d92baa73ebc"
+    },
+    {
+      "path": "Problems/P0054/formal/Main.lean",
+      "bytes": 481,
+      "sha256": "0b6ab2a4350d58e0e39677472be78782de6aa64f7a4bd2a2eed2ac8ecd6352bb"
+    },
+    {
+      "path": "Problems/P0054/formal/formalization-report.md",
+      "bytes": 2190,
+      "sha256": "d141018b2e75a51f1bd4cf83341eefad5eaf80326552d7dd6866e6b3f6ad7af1"
+    },
+    {
+      "path": "Problems/P0054/formal/statement-crosswalk.md",
+      "bytes": 1652,
+      "sha256": "4de5c2157c701be409a22753bfbd251b48982d32abf47b421b1788e8e2c9c35e"
+    },
+    {
+      "path": "Problems/P0054/formal/witness-table-manifest.json",
+      "bytes": 5982,
+      "sha256": "3b726c30669e07e777e4508ddd38015d1fe979c792cd78b32fb0f9f8c5ee09b2"
+    },
+    {
+      "path": "Problems/P0054/literature-search-log.md",
+      "bytes": 2401,
+      "sha256": "4b6668842186970c49d8a4c3400f7e0e6b7ebd952f1c95bb7af0f99cf55a1af2"
+    },
+    {
+      "path": "Problems/P0054/literature/extremal-poset-theory-2026/access-resolution.md",
+      "bytes": 1685,
+      "sha256": "947d25ee0d8b3746b1949c96914b39313fd812e43e3749290d634cdbba26b5d9"
+    },
+    {
+      "path": "Problems/P0054/literature/extremal-poset-theory-2026/manifest.json",
+      "bytes": 1179,
+      "sha256": "19ef28e11941bc524089c6cdbcd4fb8809bcd2a53f5c99be4d05d8bbbcd34cf5"
+    },
+    {
+      "path": "Problems/P0054/literature/final-prior-art-audit.md",
+      "bytes": 4031,
+      "sha256": "5c8383bc138193af80a07de737bad18ec55ac54d0825d3daa03e038fdcdf18d4"
+    },
+    {
+      "path": "Problems/P0054/literature/reference-verification.md",
+      "bytes": 1987,
+      "sha256": "3c4989c3b4fd9cbf2a4c266fce33c3190fb269a3cad36bb16576e35d786bf8e9"
+    },
+    {
+      "path": "Problems/P0054/paper/argument-map.md",
+      "bytes": 1903,
+      "sha256": "52e706410fe576678acb42ce45e23605609a149e850c1f80a253931a4e7b5215"
+    },
+    {
+      "path": "Problems/P0054/paper/audits/mock-review-revision-log.md",
+      "bytes": 1552,
+      "sha256": "92bb52c6bbc8b60081778cb76a060b24709ad15c670a6cabc0a33a78bb724cc8"
+    },
+    {
+      "path": "Problems/P0054/paper/audits/mock-review.md",
+      "bytes": 13306,
+      "sha256": "88b88ba498cbcaaf9623c5e25a96f8f760950bc48649b2b712257c865f124c75"
+    },
+    {
+      "path": "Problems/P0054/paper/manuscript/README.md",
+      "bytes": 2085,
+      "sha256": "0880cbaa6c85a62f7c77a7e90d132e715398742148b298b93ea85ac94c6ed601"
+    },
+    {
+      "path": "Problems/P0054/paper/manuscript/main.tex",
+      "bytes": 23187,
+      "sha256": "dc860eb2722edc2d06cc8a17965fc3606d6d701abe40980b6f0cc5ef7623c3b6"
+    },
+    {
+      "path": "Problems/P0054/paper/manuscript/main.zh-Hans.tex",
+      "bytes": 22206,
+      "sha256": "8731e0ea6d2228ca3d7217afe9d8d99d973f58bf571d682b0d35f2fe9e1598bd"
+    },
+    {
+      "path": "Problems/P0054/paper/manuscript/references.bib",
+      "bytes": 3013,
+      "sha256": "16fa03231b9a800a06e639798bbf3bf8035f5b831249396992e59dc171854119"
+    },
+    {
+      "path": "Problems/P0054/paper/supplement/computational-certificate.md",
+      "bytes": 1768,
+      "sha256": "51131ab156453f213d1078a40d09fc812c55d27b29c7f4002d810c2ba75f5cc1"
+    },
+    {
+      "path": "Problems/P0054/paper/terminology-ledger.md",
+      "bytes": 1740,
+      "sha256": "04f5dc034cd91959a534ecd95b40d18f07478b99a789ba2c59e49b8af167eed8"
+    },
+    {
+      "path": "Problems/P0054/proof/audits/f1-formalization-audit.md",
+      "bytes": 1117,
+      "sha256": "d37ea385d45b342dd5cc722a38d75ed3c21f7162af231dee6855ed816633f7e9"
+    },
+    {
+      "path": "Problems/P0054/proof/model-reduction.md",
+      "bytes": 3888,
+      "sha256": "fb567b46242843685836ae2b28d013141df46664cb3547a1d538e09152ad2cc5"
+    },
+    {
+      "path": "Problems/P0054/proof/size-55-construction.md",
+      "bytes": 3605,
+      "sha256": "2b4a41b1af63468875f6c27a479cff02e9094ee1d2da820b1b48a8889742e782"
+    },
+    {
+      "path": "Problems/P0054/proof/size54-layer-structure.md",
+      "bytes": 5358,
+      "sha256": "bd54295ded0ac7e71a25291ba729970a1c6b7ca1444b78f2c8d5a6286bfe0d59"
+    },
+    {
+      "path": "Problems/P0054/proof/size54-oriented-reduction.md",
+      "bytes": 3910,
+      "sha256": "063f27c85c5981c54ca0ac373739a48be866f291b38c46cc46b7192655a6aeba"
+    },
+    {
+      "path": "Problems/P0054/statement.md",
+      "bytes": 2263,
+      "sha256": "c09275667570ef827939625d7e82560ad8eeb5a448efca3ba251af3208d57990"
+    },
+    {
+      "path": "Problems/P0054/status.md",
+      "bytes": 5925,
+      "sha256": "e412554110cc58f9189237a261eb8699a6b88304a6088ac9e0f99f1c0e41d65f"
+    }
+  ],
+  "run_mode": "GLOBAL_LOWER_BOUND_DISCOVERY",
+  "current_gate": "P0054_G4_GLOBAL_LOWER_BOUND_FOR_sat7",
+  "starting_git_status_porcelain": [
+    " M Problems/P0053/status.md",
+    "?? AiMathLab/P0054Size55.lean",
+    "?? AiMathLab/P0054Size55Core.lean",
+    "?? AiMathLab/P0054Size55WitnessBlocks.lean",
+    "?? AiMathLab/P0054Size55WitnessBlocks/",
+    "?? Problems/P0053/paper/manuscript/",
+    "?? Problems/P0054/",
+    "?? f5-p0053-manuscript-draft-summary.md",
+    "?? novelty-crosswalk.md",
+    "?? output/",
+    "?? p0054-f1-size55-formalization-summary.md",
+    "?? p0054-f2-manuscript-readiness-summary.md",
+    "?? p0054-g0-class-optimality-summary.md",
+    "?? p0054-g1-size55-construction-summary.md",
+    "?? p0054-g2-size54-discovery-summary.md",
+    "?? p0054-g3-structural-lower-bound-summary.md",
+    "?? prior-art-search-log.md",
+    "?? proof-audit-summary.md",
+    "?? scripts/p0054_generate_lean_witnesses.py",
+    "?? scripts/p0054_layered_sat7.py",
+    "?? scripts/p0054_size54_discovery.py",
+    "?? scripts/p0054_size54_profile_search.py",
+    "?? scripts/p0054_size54_structural.py",
+    "?? scripts/p0054_size54_system_search.py",
+    "?? scripts/p0054_verify_candidate.py",
+    "?? scripts/p0054_verify_drat.py",
+    "?? submission-readiness-verdict.md",
+    "?? tests/test_p0054_drat_manifest.py",
+    "?? tests/test_p0054_formalization.py",
+    "?? tests/test_p0054_layered_sat7.py",
+    "?? tests/test_p0054_size54_discovery.py",
+    "?? tests/test_p0054_size54_g3_artifacts.py",
+    "?? tests/test_p0054_size54_profile_search.py",
+    "?? tests/test_p0054_size54_structural.py",
+    "?? tests/test_p0054_size54_system_search.py"
+  ],
+  "starting_git_status_sha256": "8d9e7aee10be447b404eb41eba353f0d0a0e94376754eee7ed4f5dbf691fdb21",
+  "environment": {
+    "os": "macOS 27.0 build 26A5378n arm64",
+    "python_system": "3.9.6",
+    "python_uv": "3.12.13",
+    "uv": "0.11.29",
+    "lean": "4.33.0-rc1 commit 62eed1db4d67327ec8120be05f1a1b0847d74561",
+    "lake": "5.0.0-src+62eed1d",
+    "z3_solver": "4.16.0.0",
+    "kissat": "4.0.4",
+    "cadical_current_path": "UNAVAILABLE",
+    "drat_trim_current_path": "UNAVAILABLE",
+    "recorded_drat_trim_commit": "2e3b2dc0ecf938addbd779d42877b6ed69d9a985"
+  },
+  "historical_68_replay": {
+    "recorded_count": 68,
+    "present_count": 68,
+    "exact_match_count": 66,
+    "authorized_later_state_file_changes": [
+      {
+        "path": "Problems/P0054/claims.yaml",
+        "recorded_sha256": "7b04ffe932235498ebdd2c478aeb6b46f69b6fb221336ad7772277a57ccd50f7",
+        "current_sha256": "5ba25ce2d3cb36f5e13c3c2d4dd252d0d47ef3033408d131141e38abe5744564",
+        "reason": "authorized G2/G3 claim additions P0054-C11 through P0054-C16"
+      },
+      {
+        "path": "Problems/P0054/status.md",
+        "recorded_sha256": "417aecfd1f626c54928ce267e3b191d5594322acfe97e44ee33077944671dd10",
+        "current_sha256": "e412554110cc58f9189237a261eb8699a6b88304a6088ac9e0f99f1c0e41d65f",
+        "reason": "authorized G2/G3 status updates"
+      }
+    ],
+    "protected_proof_lean_certificate_manifest_mismatches": []
+  },
+  "g0_g3_manifest_replay": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 UV_OFFLINE=1 uv run pytest -p no:cacheprovider tests/test_p0054_drat_manifest.py tests/test_p0054_formalization.py tests/test_p0054_layered_sat7.py tests/test_p0054_size54_discovery.py tests/test_p0054_size54_g3_artifacts.py tests/test_p0054_size54_profile_search.py tests/test_p0054_size54_structural.py tests/test_p0054_size54_system_search.py",
+    "result": "PASS",
+    "tests_passed": 42,
+    "runtime_seconds": 26.91
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "base_head": "bb73a8524d79621ca1aa185b82426bd4f39d5b21",
+  "candidate": {
+    "path": "Problems/P0054/proof/g4.11-coupled-fifty-three/candidate-proof.md",
+    "sha256": "74c790f92d68728fd858aed64f3222700793db5f00a9f683c8f1699f8498b553"
+  },
+  "frozen_dependencies": [
+    {
+      "path": "Problems/P0054/proof/g4-global-lower/candidate-proof.md",
+      "sha256": "9e0821e821458ee390d809d03e5fd927ae661222b4712c2c679b02a26d6ed448"
+    },
+    {
+      "path": "Problems/P0054/proof/audits/g4-global-lower/referee-a.md",
+      "sha256": "0996bc5bd64941554f3b0e6d36f3d29ffc36a5c1c32e203802092dc81c6acba4"
+    },
+    {
+      "path": "Problems/P0054/proof/audits/g4-global-lower/referee-b.md",
+      "sha256": "b1a40729e21ce51e52739cd5e06cb4417fb7cb399cb43edeffbfdc142852b57a"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.4-exact-local/candidate-proof.md",
+      "sha256": "5bacfe8e319ce76ac1c8e8e9efa35fe1454cf896ace8c6ee5c10d8f04b2d9832"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.5-coupled-layers/candidate-proof.md",
+      "sha256": "41e957067396f3b83f7db4c6fba89c638ddc3894ca34d0eda804da324220f1bc"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.5-coupled-layers/referee-audit.md",
+      "sha256": "30c7ef69bb620f104bc9c70cf9580c2cc00b227730d8a477a76130a6259c027f"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.5-coupled-layers/post-referee-validation.md",
+      "sha256": "763c98a0d40b22661f45db4c290537a61441141111d82a1a71d940ee46a99c4c"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.10-coupled-fifty-two/frozen-subproblem.md",
+      "sha256": "c82b485af00399be79f36be46d8b6cece90dd4828a9a065d148305ea71410db4"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.10-coupled-fifty-two/candidate-proof.md",
+      "sha256": "5525e73d5d25394f2e35bcf051968243fb70597e63daa43e9fc0e773b853d454"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.10-coupled-fifty-two/referee-audit.md",
+      "sha256": "26e80739d5d451c511ede7110812e114ed4eb98fe83266cae7965c0633f1a3dd"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.10-coupled-fifty-two/post-referee-validation.md",
+      "sha256": "23421d63fe43094e644a5a6bf32fd2e079b2b3cddadad5f2a29e2403156c34c9"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.10-coupled-fifty-two/manifest.json",
+      "sha256": "de8017a3dbfe4fc952b12290d56ecf9f0860f261cd4ef71d8ad4598408050a9a"
+    }
+  ],
+  "frozen_statement": {
+    "path": "Problems/P0054/proof/g4.11-coupled-fifty-three/frozen-subproblem.md",
+    "sha256": "37c422adc330ceb43ffca7b930f3da0b7c46ee5ece3d0c1da2e7186695eeca34"
+  },
+  "gate": "P0054_G4_11_COUPLED_TOTAL_FIFTY_THREE",
+  "label": "COMPUTED",
+  "network": "MATHEMATICS_OFFLINE",
+  "outputs": [
+    {
+      "path": "Problems/P0054/experiments/g4.11-coupled-fifty-three/four-row-kernel-results.txt",
+      "sha256": "21849a7032e719bd195ecf893ccb6d3307077fbb031b6965d3ee07b3f5914c23"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.11-coupled-fifty-three/five-row-kernel-results.txt",
+      "sha256": "9069cbceab1612fd1268c8d28e5a0fe9d4b94d3f5f9067729cbbcc01fafcfd38"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.11-coupled-fifty-three/five-row-extension-results.txt",
+      "sha256": "ad1e8a68e39206ae653ebe6925b3b8dff00e9e0e1c1e62a38892086e14868ab6"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.11-coupled-fifty-three/verification.json",
+      "sha256": "59838a02d3c1a7fa402019f82ba75798d1d1dc03147c1069d1f53ee2fceaa78d"
+    }
+  ],
+  "report": {
+    "path": "Problems/P0054/experiments/g4.11-coupled-fifty-three/report.md",
+    "sha256": "2854e9141ed752565bec9369f94c09746750646e0f4fc4d35d33987d19cd218b"
+  },
+  "sources": [
+    {
+      "path": "Problems/P0054/experiments/g4.11-coupled-fifty-three/four-row-kernel.cpp",
+      "sha256": "90beba15e882f076daf18facf49a5cd5051474f3692d636b648db6de89062dc5"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.11-coupled-fifty-three/five-row-kernel.cpp",
+      "sha256": "1f11efbb7c018ee726bb327d3ce29088e68754a02534c3819ea1d6d3ef85fbd2"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.11-coupled-fifty-three/five-row-extension.cpp",
+      "sha256": "87fe0c2993363281de81850808f2ec5e9f17cfd8e46de0d80105880f65347bed"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.11-coupled-fifty-three/verify.py",
+      "sha256": "26d637633cd373ff1f1602a9e4f83e77960f8255898dfd6d8417c9989781c7c5"
+    }
+  ]
+}

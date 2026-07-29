@@ -1,0 +1,22 @@
+# Preserve the exact bytes of generated/formally verified sources while
+# allowing their stable extra newline at EOF.
+AiMathLab/** whitespace=-blank-at-eof
+
+# Preserve frozen research notes whose final blank line is checksum-stable.
+Problems/P0054/literature/** whitespace=-blank-at-eof
+Problems/P0054/proof/** whitespace=-blank-at-eof
+
+# CommonMark hard line breaks are intentional in the review and letters.
+Problems/P0054/paper/audits/mock-review.md whitespace=-trailing-space
+Problems/P0054/paper/submission/jcta/cover-letter*.md whitespace=-trailing-space
+
+# Elsevier CAS distribution files are kept byte-for-byte as supplied.
+Problems/P0054/paper/submission/jcta/cas-common.sty -whitespace
+Problems/P0054/paper/submission/jcta/cas-model2-names.bst -whitespace
+Problems/P0054/paper/submission/jcta/cas-sc.cls -whitespace
+
+# Bibliography and tiny index files preserve their generated EOF convention.
+Problems/P0054/paper/**/references.bib whitespace=-blank-at-eof
+CHANGELOG.md whitespace=-blank-at-eof
+artifacts/README.md whitespace=-blank-at-eof
+scripts/__init__.py whitespace=-blank-at-eof

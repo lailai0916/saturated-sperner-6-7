@@ -1,0 +1,38 @@
+{
+  "epistemic_label": "COMPUTED",
+  "extension_candidates": 138161,
+  "extension_independent_match": true,
+  "five_row_classes_with_minimum_row_four": 0,
+  "four_row_independent_match": true,
+  "inputs": {
+    "cpp_extensions": {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-seven-nine-extension-results.txt",
+      "sha256": "f836fa15552da512e51f4128787d13007d466247b9c6d66576d4ad12fc61c696"
+    },
+    "cpp_kernels": {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-seven-nine-four-row-results.txt",
+      "sha256": "5796cbb4062358f6679e1d73ab431bf7dafdd2a5c80607c702ddf3bf2f51d67f"
+    },
+    "five_row": {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-seven-nine-five-row-verification.json",
+      "sha256": "b7b8818bedb31187f335aea4397c32b228e7ad59d48e4f1dd56d51d113fac67d"
+    },
+    "python_extensions": {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-seven-nine-extension-verification.json",
+      "sha256": "8f54ab48a916ee8801fc7fa62c1c886b522b681d1e8d9f98c3c3b2c83f4cca63"
+    },
+    "python_kernels": {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-seven-nine-four-row-kernels.json",
+      "sha256": "59532aede4cb7071af1eeb658796b6c72567739c0abbddec32c52f465f3526f9"
+    },
+    "six_row": {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-seven-nine-six-row-verification.json",
+      "sha256": "bae6bb2acdc1a6b2a1b7a77f9256d68e66b1b6b3590659cbb0327cd4138f8df8"
+    }
+  },
+  "kernel_classes": 11,
+  "python_source_sha256": "f58e93d8fd7548c96a3150e9d400f5366f57590522772db9e0784331ba7cdffb",
+  "schema": "p0054.g4.12.middle-seven-nine-cross-verification.v1",
+  "six_row_minimum_pair_blockers": 4,
+  "valid_extensions": 0
+}

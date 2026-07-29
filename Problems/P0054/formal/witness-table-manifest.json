@@ -1,0 +1,147 @@
+{
+  "schema": "ai-math-lab.p0054.lean-witness-table.v2",
+  "source_candidate_sha256": "55d0a1e19a024efb944fc9a00ea466bdd6d5b11383f1bd86c1f772d8fb92acac",
+  "ground_size": 11,
+  "row_count": 2048,
+  "external_witness_count": 1993,
+  "member_row_count": 55,
+  "witness_length": 8,
+  "table_semantic_sha256": "6593d440b082ff49be9bfdd55123d981f475f8ba718f58c4ad2d471daf2c9ca7",
+  "block_size": 64,
+  "core_path": "AiMathLab/P0054Size55Core.lean",
+  "core_sha256": "21301d37999caac85b1ceefcc9de9a3edff8bad8d1ece5695ab72074a264b2fa",
+  "blocks": [
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block00.lean",
+      "sha256": "b4fde2ba0e95eee793a77363b816be8fc6ce3cbe949c26d5f55c47ef43997c4c"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block01.lean",
+      "sha256": "f6cd76bf5ad5a234650eeed2d16e636248257a0b5ae9e2c4c56a77f11206b983"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block02.lean",
+      "sha256": "b5d1b16d94e46e83593a6ab22550c5a3495c8295d0da4e145058b95b3d7fe68e"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block03.lean",
+      "sha256": "ee39c810ad350da73c9e9892340b435cbb06a02cf284597a5d8d2059742b1347"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block04.lean",
+      "sha256": "151d9bcb9c43fe397cdc0ddeafb466853b2d903a3d9e057ebeacd40b44e9bdaf"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block05.lean",
+      "sha256": "e9f4723d01f2f2739da628732ae25ac563f294b15e8c1c3d0313c304c54a53b2"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block06.lean",
+      "sha256": "f222a46568f29e72cd11c0c637c702821da72e4a5a6932cac509851edc546b33"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block07.lean",
+      "sha256": "1543b66fb381b69354d295d396e2695a8e13658d0e0c28dd7aa07c289d49e7a6"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block08.lean",
+      "sha256": "f96e7ef1711e852972482f5d2f15b5c7a78624b35155578f5a993087db0a7686"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block09.lean",
+      "sha256": "cfcf6528ba8e1003d087f500653a975d3ab9508796bfe8700758ec286e5b5040"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block10.lean",
+      "sha256": "3809b7b271e413067f9fa40cb8fa990d71752792114557f1381059f4e5f5d94a"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block11.lean",
+      "sha256": "dcfaba94fa91bf862f63993d75d69cc9373b336b6b1b21772e11c62ce0b0b673"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block12.lean",
+      "sha256": "ebaa17a452e248b7eb44c3e3aa8f307a7fb27b33c1cefc15f0a1f362544b37da"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block13.lean",
+      "sha256": "a77b975e69d66aed2c85a8f8883f50a773e678e38375b70146b2800136e7125c"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block14.lean",
+      "sha256": "d29e90521e750a33a82fba10011ce6d785bc8c94e27b9d7ce7738f5bb09ae428"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block15.lean",
+      "sha256": "e245836f5781e8dc9d1392420916204c47c1c620e317cb31cf705d7ac51a5526"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block16.lean",
+      "sha256": "c187af445d4babb2182ce5b1f84c04b641586da9251660cfffc17f08effe4eba"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block17.lean",
+      "sha256": "2352fe679cd73366dc02c329c47cf6de06fe3778fdd410c7a7e8ec4fcecb9074"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block18.lean",
+      "sha256": "a88929ce82b4642831bffd7a49d96e030c9df9a1b5cace9cdddbd4738cc0f020"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block19.lean",
+      "sha256": "f6803f7574ee63d034ecc1e5ee1c6eed7cf6b76cec7dc09b6d2e4aa6dab42e0d"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block20.lean",
+      "sha256": "fa805878b20fad8bc3c40448f24da4327b8b663c244e2b2521b4f9e17875d6e6"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block21.lean",
+      "sha256": "5fac5a9c65c4a98c838886faa9918ecff28352162da228c15c346bfe351309af"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block22.lean",
+      "sha256": "892eea1188224d3ee04af8cda11bfea41ed7dc162e0456e1ffc813c644770623"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block23.lean",
+      "sha256": "506dd8d5c375ec7974a171b372c6976c6dc8302e66f9cbda0fadcd326c9756cb"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block24.lean",
+      "sha256": "53a53d3d3e6f562683af0f140ddd87937cd06f1493305543dccaa4060bc028c4"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block25.lean",
+      "sha256": "8ded59c751eee26bdc9de6480b4e613bfb180a5371400097789381dbdf12ec6d"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block26.lean",
+      "sha256": "527939372f529f0561c64f93ebcde0c770e905053da59828c932745e49524402"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block27.lean",
+      "sha256": "6d0d38e7a2c8eeee14180e8b45f4d0d9f937bc3d0aef2d6c449edfe8c2997617"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block28.lean",
+      "sha256": "f037f1d54e22619059acf37def49ab3887b3baa1d5284b4e06426c2fa0fad72c"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block29.lean",
+      "sha256": "8eb96e1e5e70e1b1eb32386d27db4f50ffb4cab3e41ed46ed26e2944941a7539"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block30.lean",
+      "sha256": "f6c12581673b7ed6904e0bf00cc752be8f32051f40f2b1bf16b04821386e2385"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block31.lean",
+      "sha256": "4f6fa2f5e76606fd3de12e13e7ca17c9ae299a2c2fbaa6520bd473f5aca4c7d3"
+    }
+  ],
+  "aggregate_path": "AiMathLab/P0054Size55WitnessBlocks.lean",
+  "aggregate_sha256": "b6ba80154a792325ee0aa2c702c2e5875050b64eb381c9701854b6c94e71eaf5",
+  "main_path": "AiMathLab/P0054Size55.lean",
+  "main_sha256": "7b16a449b4b8b38b98d3990808b1caf87845ab6d4f783fc88da5e989f83798ce"
+}

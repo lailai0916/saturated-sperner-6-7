@@ -1,0 +1,211 @@
+problem_id: P0054
+claims:
+  - id: P0054-C1
+    label: PROVED
+    statement: >-
+      The EMPTY/PARTIAL/FULL signature model exactly represents comparability
+      between arbitrary subsets of C union H and templates A or A union H when
+      H has more than one element.
+    dependencies: []
+  - id: P0054-C2
+    label: COMPUTED
+    statement: >-
+      The frozen published 56-template construction is accepted by both the
+      signature verifier and an independent full-ground powerset verifier.
+    dependencies: [P0054-C1]
+  - id: P0054-C3
+    label: PROVED
+    statement: >-
+      No seven-layer system in the P0054 class with core size 7 has total size
+      at most 55; the CNF reduction is accompanied by a DRAT certificate checked
+      by an independent checker.
+    dependencies: [P0054-C1]
+  - id: P0054-C4
+    label: PROVED
+    statement: >-
+      The exact minimum in the fixed seven-core P0054 template class is 56.
+    dependencies: [P0054-C2, P0054-C3]
+  - id: P0054-C5
+    label: UNKNOWN
+    statement: >-
+      The fixed seven-core class-optimality theorem is new relative to all prior
+      public literature.
+    dependencies: []
+  - id: P0054-C6
+    label: FORMALIZED
+    statement: >-
+      The displayed eight-core, common-block layered family contains exactly 55
+      sets and is a saturated 7-Sperner family for every homogeneous block H
+      with more than two elements.
+    dependencies: [P0054-C1]
+  - id: P0054-C7
+    label: PROVED
+    statement: >-
+      The stable saturation number satisfies sat(7) <= 55.
+    dependencies: [P0054-C6]
+  - id: P0054-C8
+    label: PROVED
+    statement: >-
+      For j >= 1 and 0 <= s <= 4, the standard composition construction gives
+      sat(5*j + 2 + s) <= 2^s * (28^j + 27^j).
+    dependencies: [P0054-C6]
+  - id: P0054-C9
+    label: UNKNOWN
+    statement: >-
+      The 55-member construction and its resulting upper bounds are new
+      relative to all prior public literature.
+    dependencies: []
+  - id: P0054-C10
+    label: FORMALIZED
+    statement: >-
+      On the concrete ground Fin 11, the frozen explicit family has exactly 55
+      members and is a saturated 7-Sperner family, as accepted by Lean with a
+      complete 2048-state witness certificate.
+    dependencies: [P0054-C6]
+  - id: P0054-C11
+    label: PROVED
+    statement: >-
+      In the complete common-block layered template class, saturation of one
+      layer is equivalent to one oriented coverage condition per core mask;
+      moreover, the target-at-most-54 decision problem has a complement-dual
+      representative with at most 27 small templates.
+    dependencies: [P0054-C1]
+  - id: P0054-C12
+    label: COMPUTED
+    statement: >-
+      No size-at-most-54 candidate was found in the recorded eight-core search:
+      overlap at least 52 with the frozen size-55 family returned Z3 UNSAT
+      without an external certificate, wider neighborhoods timed out, and
+      twelve complete CaDiCaL/Kissat portfolio runs timed out at 600 seconds.
+      This supplies neither a construction nor a lower bound.
+    dependencies: [P0054-C11]
+  - id: P0054-C13
+    label: PROVED
+    statement: >-
+      In every valid seven-layer P0054 system, each member has both a strict
+      predecessor when applicable and a strict successor when applicable;
+      consequently every member lies on a full seven-template chain, and for
+      an eight-element core layer i is confined to template ranks i through
+      i+3.
+    dependencies: [P0054-C1]
+  - id: P0054-C14
+    label: PROVED
+    statement: >-
+      In the eight-core rank windows, the exact independent minimum sizes of
+      saturated template antichains are (1,6,12,14,12,6,1).  The lower bounds
+      are backed by four deterministic CNFs and four DRAT-trim-verified proofs;
+      the upper bounds are supplied by verified explicit layers.
+    dependencies: [P0054-C11, P0054-C13]
+  - id: P0054-C15
+    label: PROVED
+    statement: >-
+      The displayed sharp 14-member middle-layer witness cannot be extended to
+      a complete eight-core P0054 system of total size at most 54; the reduced
+      full-system CNF is UNSAT with an independently checked DRAT proof.
+    dependencies: [P0054-C11, P0054-C13, P0054-C14]
+  - id: P0054-C16
+    label: COMPUTED
+    statement: >-
+      The unrestricted reduced eight-core target-54 CNF timed out after 1800
+      seconds, and all 28 complete two-slack layer-profile runs timed out after
+      60 seconds each.  No size-54 candidate or unrestricted class lower bound
+      follows from these runs.
+    dependencies: [P0054-C11, P0054-C13, P0054-C14]
+  - id: P0054-C17
+    label: PROVED
+    statement: >-
+      The eventual stable saturation number satisfies sat(7) >= 37.
+    dependencies: [P0054-C7]
+  - id: P0054-C18
+    label: PROVED
+    statement: >-
+      The eventual stable saturation number satisfies sat(7) >= 39.
+    dependencies: [P0054-C17]
+  - id: P0054-C19
+    label: PROVED
+    statement: >-
+      The eventual stable saturation number satisfies sat(7) >= 41.
+    dependencies: [P0054-C18]
+  - id: P0054-C20
+    label: PROVED
+    statement: >-
+      Every finite admissible (2,4) mutual-blocker pair has cardinality product
+      at least 32 and total cardinality at least 12; the explicit twelve-member
+      pair gives m(2,4) = 12, and the canonical layer argument consequently
+      gives the eventual stable bound sat(7) >= 47.
+    dependencies: [P0054-C19]
+  - id: P0054-C21
+    label: COMPUTED
+    statement: >-
+      The exact incidence-pattern search exhausts every admissible ordered
+      mutual-blocker cardinality split of total at most eight under member-size
+      minima two and three, and independently verifies a nine-member witness.
+      The computation is supporting evidence and is not a proof dependency.
+    dependencies: []
+  - id: P0054-C22
+    label: FORMALIZED
+    statement: >-
+      On every finite ground set, an admissible mutual-blocker pair whose two
+      sides have member-size minima two and three has total cardinality at least
+      nine; the displayed six-point pair has cardinalities five and four and
+      satisfies both blocker equalities. Thus the local theorem m(2,3)=9 is
+      represented by kernel-checked lower and upper witnesses.
+    dependencies: []
+  - id: P0054-C23
+    label: FORMALIZED
+    statement: >-
+      Lean proves IsStableSaturationNumber 6 30: there is a threshold N such
+      that, for every n at least N, a saturated 6-Sperner family of cardinality
+      30 exists on Fin n and every saturated 6-Sperner family on Fin n has
+      cardinality at least 30. This formalizes the eventual statement commonly
+      written sat(6) = 30; it is not evaluation of a numerical function.
+    dependencies: [P0054-C22]
+  - id: P0054-C24
+    label: UNKNOWN
+    statement: >-
+      The eventual exact-value theorem conventionally written sat(6) = 30 is
+      new relative to all prior public literature and has publication priority.
+    dependencies: []
+  - id: P0054-C25
+    label: PROVED
+    statement: >-
+      The total-52 equality profile in the arbitrary-finite canonical
+      decomposition is impossible. Consequently, the eventual stable
+      saturation number satisfies sat(7) >= 53.
+    dependencies: [P0054-C20]
+  - id: P0054-C26
+    label: PROVED
+    statement: >-
+      The total-53 equality profile in the arbitrary-finite canonical
+      decomposition is impossible. Consequently, the eventual stable
+      saturation number satisfies sat(7) >= 54.
+    dependencies: [P0054-C25]
+  - id: P0054-C27
+    label: PROVED
+    statement: >-
+      Every possible 54-member canonical profile is impossible. The proof
+      covers the Fano profile and every ordered middle split of total sixteen
+      on an arbitrary finite trace ground set; finite enumerations enter only
+      after proved exhaustive reductions and independent replay.
+    dependencies: [P0054-C26]
+  - id: P0054-C28
+    label: FORMALIZED
+    statement: >-
+      Lean proves IsStableSaturationNumber 7 55: there is a threshold N such
+      that, for every n at least N, a saturated 7-Sperner family of cardinality
+      55 exists on Fin n and every saturated 7-Sperner family on Fin n has
+      cardinality at least 55. This formalizes the eventual statement commonly
+      written sat(7) = 55; it is not evaluation of a numerical function.
+    dependencies: [P0054-C7, P0054-C27]
+  - id: P0054-C29
+    label: UNKNOWN
+    statement: >-
+      The eventual exact-value theorem conventionally written sat(7) = 55 is
+      new relative to all prior public literature and has publication priority.
+    dependencies: []
+unresolved_dependencies: []
+open_claims:
+  - P0054-C5
+  - P0054-C9
+  - P0054-C24
+  - P0054-C29

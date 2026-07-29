@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "gate": "P0054_G4_4_EXACT_m_2_4",
+  "generated_at_utc": "2026-07-23T04:51:41Z",
+  "generated_at_local": "2026-07-22T21:51:41-0700",
+  "epistemic_summary": {
+    "product_inequality": "PROVED: |S||C|>=32",
+    "exact_local_parameter": "PROVED: m(2,4)=12",
+    "global_lower_bound": "PROVED: sat(7)>=47",
+    "finite_search": "COMPUTED_ONLY",
+    "referee_verdicts": [
+      "ACCEPT",
+      "ACCEPT"
+    ],
+    "exact_sat_7": "UNKNOWN",
+    "novelty_or_priority": "UNKNOWN"
+  },
+  "frozen_baseline": {
+    "head": "d2c8e3eb81466a3743c736319ef1874920590abc",
+    "protected_file_count": 210,
+    "protected_total_bytes": 683397414,
+    "protected_sha256_lines_digest": "cc17227ca98c557f42d3f19eb0a085d6cc7d8f4ed282ebd68ec1dd31331c8f81",
+    "g0_through_g4_3_manifest_count": 13,
+    "g0_through_g4_3_manifest_total_bytes": 64384,
+    "g0_through_g4_3_manifest_digest": "b90cb7ee7fa41f2bfebf42e30e72c1be0bc78fa35f12b456cc224de705198f2b",
+    "p0053_file_count": 652,
+    "p0053_total_bytes": 10891371,
+    "p0053_sha256_lines_digest": "72709eae29a345ddb02888591b3faee15ab01be48170785d65466ae1839a6afe",
+    "p0053_status_sha256": "886bcac67f1c901752f5848c360051f09d35e3090b43e9a785b870dc6ecb1e29",
+    "c1_through_c19_reconstructed_prefix_sha256": "13273c136c6f91154b4418577baab25325a2c9bc7b24554e42e1c33a93236944"
+  },
+  "review": {
+    "candidate_sha256": "5bacfe8e319ce76ac1c8e8e9efa35fe1454cf896ace8c6ee5c10d8f04b2d9832",
+    "review_freeze_sha256": "25a89f111a4a5b1487bbea0a40ca0f738cfacd8dd3b2f55f107f178ab9153149",
+    "compatible_referee_a_sha256": "aa49082f8b5db78556c26f182a41a1736fd85789ed4a708aff60606302f2d2a2",
+    "compatible_referee_b_sha256": "9f8de2a7d01485baa9e992993017df41098c166689c361c21c761dde92bb5598",
+    "repair_cycles": 0
+  },
+  "role_accounting": {
+    "networked_read_only_scouts_before_freeze": 2,
+    "isolated_offline_compatible_provers": 3,
+    "isolated_offline_compatible_experimentalists": 1,
+    "isolated_read_only_offline_compatible_referees": 2,
+    "dedicated_prover_launches_failed_before_material_access": 2,
+    "dedicated_referee_launches_failed_before_material_access": 2,
+    "formalizers": 0
+  },
+  "experiment": {
+    "status": "ALL_15_SPLITS_UNSAT_COMPUTED",
+    "case_count": 15,
+    "complete_exhaustion_count": 15,
+    "timeout_count": 0,
+    "witness_count": 0,
+    "total_dfs_nodes": 147340811,
+    "replay_status": "STRUCTURAL_REPLAY_MATCH_COMPUTED",
+    "stable_projection_sha256": "995d635cc94b6c28188d60ed866f2e332826a55f3736b54096c2a9bc8f068f4c",
+    "independent_unsat_certificate": false,
+    "second_complete_enumerator": false,
+    "candidate_proof_depends_on_search": false
+  },
+  "artifact_aggregate": {
+    "file_count": 21,
+    "total_bytes": 206645,
+    "sha256_lines_digest": "0a21149eea34d70e87522af66b1e45505fa32bfc0e129da95d63934a66a2abca",
+    "ordering": "lexicographic path order",
+    "gate_manifest_excluded_from_self_hash": true
+  },
+  "artifacts": [
+    {
+      "path": "Problems/P0054/claims.yaml",
+      "bytes": 5463,
+      "sha256": "14835deb1514002d1e5368419dd4636bfeb164c343ef853f5692cb0c7f0142e5"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.4-exact-local/manifest.json",
+      "bytes": 4754,
+      "sha256": "da2ef88911228df8a41f7d596e708d826199a00410128ba895bbba6ffb838b2f"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.4-exact-local/report.md",
+      "bytes": 11701,
+      "sha256": "8371f89731f88709804639139cebd7d5560a9524f5dd5c3c9e537af79148065c"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.4-exact-local/results.json",
+      "bytes": 17204,
+      "sha256": "6a8bda57208fd9648d350732d7a72fd97c10d304fa50dd62590ddcf66afe1a5c"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.4-exact-local/search.py",
+      "bytes": 29730,
+      "sha256": "50a1016029f1b57138a9209adbe6cd1d22a1a759cc802a9df3e6dc3ebf78fe58"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.4-exact-local/section0-freeze.md",
+      "bytes": 9386,
+      "sha256": "b06600a748f39f1a5d09b0a7980e90cd717a8878d1059d9a86deb7700dacdd3d"
+    },
+    {
+      "path": "Problems/P0054/literature/g4.4-exact-local/freeze-manifest.json",
+      "bytes": 3338,
+      "sha256": "765b79a3832c03e03903045286be1fa8f05f714dee1381e6a5d34a2b067954e5"
+    },
+    {
+      "path": "Problems/P0054/literature/g4.4-exact-local/literature-pack.md",
+      "bytes": 12026,
+      "sha256": "6d184ee722d183c57a6ef69fb0ff85595759871df621b236ad755aa2e0a940bf"
+    },
+    {
+      "path": "Problems/P0054/literature/g4.4-exact-local/search-log.md",
+      "bytes": 8792,
+      "sha256": "5112491f36753f0227b8f5365be846d17051d9f75a3de57249ae4b6ab59affd2"
+    },
+    {
+      "path": "Problems/P0054/literature/g4.4-exact-local/theorem-crosswalk.md",
+      "bytes": 4741,
+      "sha256": "526777d81a88510bfd787285288d8fba296e0d0c07e1dd6c3b2207e3f2c6acb5"
+    },
+    {
+      "path": "Problems/P0054/proof/audits/g4.4-exact-local/final-validation.md",
+      "bytes": 4808,
+      "sha256": "0ba8d4b4d1b364c5e0e92643d906f847062475b70e32e29bb31eb2209c91ba48"
+    },
+    {
+      "path": "Problems/P0054/proof/audits/g4.4-exact-local/referee-a.md",
+      "bytes": 5174,
+      "sha256": "aa49082f8b5db78556c26f182a41a1736fd85789ed4a708aff60606302f2d2a2"
+    },
+    {
+      "path": "Problems/P0054/proof/audits/g4.4-exact-local/referee-b.md",
+      "bytes": 5780,
+      "sha256": "9f8de2a7d01485baa9e992993017df41098c166689c361c21c761dde92bb5598"
+    },
+    {
+      "path": "Problems/P0054/proof/audits/g4.4-exact-local/review-freeze.json",
+      "bytes": 4433,
+      "sha256": "25a89f111a4a5b1487bbea0a40ca0f738cfacd8dd3b2f55f107f178ab9153149"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.4-exact-local/candidate-proof.md",
+      "bytes": 23291,
+      "sha256": "5bacfe8e319ce76ac1c8e8e9efa35fe1454cf896ace8c6ee5c10d8f04b2d9832"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.4-exact-local/frozen-subproblem.md",
+      "bytes": 3607,
+      "sha256": "e0dd5370eb639cd678bff60e7b17e0d025758a99c2648bc99d95d197924b78c7"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.4-exact-local/prover-a-report.md",
+      "bytes": 8315,
+      "sha256": "afb11b7887bda08537cc5830d8d94ed562e58d36739c1fa06d9a4a5b19cff703"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.4-exact-local/prover-b-report.md",
+      "bytes": 14508,
+      "sha256": "dac0f17731f8de229c50a357e7ca3002a7e5c391529f42e706b8a78909b8bed0"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.4-exact-local/prover-c-finite-reduction.md",
+      "bytes": 9057,
+      "sha256": "7091bed29152e2e3d7ee79f8e67d678e4b55330e3ae3f44d4afe35c258846bfc"
+    },
+    {
+      "path": "Problems/P0054/status.md",
+      "bytes": 14921,
+      "sha256": "b8f04391eefc9a39e10a9d4825d377f7f55283c5ee56a279f04e9715612090a6"
+    },
+    {
+      "path": "p0054-g4.4-exact-local-summary.md",
+      "bytes": 5616,
+      "sha256": "d6e73aa3d7db622db309a4aa6b5dcc52c9128c9e2f0749159e7ec1a282693e7f"
+    }
+  ],
+  "completed_validation": {
+    "uv_sync_locked_offline": "PASS",
+    "pytest": "PASS: 178 tests",
+    "ruff": "PASS",
+    "mypy": "PASS: 39 source files",
+    "lake_build": "PASS: 8662 jobs",
+    "p0054_lean_entry": "PASS",
+    "p0001_lean_entry": "PASS",
+    "experiment_structural_replay": "PASS_COMPUTED",
+    "blocker_validators": "PASS_COMPUTED",
+    "json_yaml_manifests": "PASS",
+    "protected_hashes": "PASS",
+    "p0053_zero_modification": "PASS",
+    "git_diff_check": "PASS"
+  },
+  "forbidden_actions": {
+    "post_freeze_network": false,
+    "formalizer": false,
+    "old_size54_cnf": false,
+    "reset": false,
+    "clean": false,
+    "stage": false,
+    "commit": false,
+    "push": false,
+    "publication": false
+  },
+  "stop": {
+    "reason": "GATE_COMPLETE_TWO_ACCEPT_STOP_AFTER_GATE",
+    "next_allowed_action": "WAIT_FOR_USER_REVIEW"
+  }
+}

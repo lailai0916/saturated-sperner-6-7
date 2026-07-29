@@ -1,0 +1,102 @@
+{
+  "epistemic_label": "COMPUTED",
+  "named_examples": [
+    {
+      "blocker_count": 27,
+      "blocker_minimum_size": 3,
+      "ground_size": 9,
+      "name": "three_disjoint_rows",
+      "rows": 3
+    },
+    {
+      "blocker_count": 19,
+      "blocker_minimum_size": 3,
+      "ground_size": 9,
+      "name": "four_star_no_center_exclusive",
+      "rows": 4
+    },
+    {
+      "blocker_count": 21,
+      "blocker_minimum_size": 3,
+      "ground_size": 8,
+      "name": "four_triangle_plus_isolate",
+      "rows": 4
+    }
+  ],
+  "records": [
+    {
+      "blocker_size_histogram": {},
+      "candidate_row_families": 0,
+      "clutters": 0,
+      "ground_size": 3,
+      "minimum_blocker_count_seen": null,
+      "rows": 3,
+      "tau_at_least_3": 0
+    },
+    {
+      "blocker_size_histogram": {},
+      "candidate_row_families": 0,
+      "clutters": 0,
+      "ground_size": 3,
+      "minimum_blocker_count_seen": null,
+      "rows": 4,
+      "tau_at_least_3": 0
+    },
+    {
+      "blocker_size_histogram": {},
+      "candidate_row_families": 10,
+      "clutters": 4,
+      "ground_size": 4,
+      "minimum_blocker_count_seen": null,
+      "rows": 3,
+      "tau_at_least_3": 0
+    },
+    {
+      "blocker_size_histogram": {},
+      "candidate_row_families": 5,
+      "clutters": 1,
+      "ground_size": 4,
+      "minimum_blocker_count_seen": null,
+      "rows": 4,
+      "tau_at_least_3": 0
+    },
+    {
+      "blocker_size_histogram": {},
+      "candidate_row_families": 560,
+      "clutters": 235,
+      "ground_size": 5,
+      "minimum_blocker_count_seen": null,
+      "rows": 3,
+      "tau_at_least_3": 0
+    },
+    {
+      "blocker_size_histogram": {},
+      "candidate_row_families": 1820,
+      "clutters": 355,
+      "ground_size": 5,
+      "minimum_blocker_count_seen": null,
+      "rows": 4,
+      "tau_at_least_3": 0
+    },
+    {
+      "blocker_size_histogram": {},
+      "candidate_row_families": 11480,
+      "clutters": 5845,
+      "ground_size": 6,
+      "minimum_blocker_count_seen": null,
+      "rows": 3,
+      "tau_at_least_3": 0
+    },
+    {
+      "blocker_size_histogram": {},
+      "candidate_row_families": 111930,
+      "clutters": 31210,
+      "ground_size": 6,
+      "minimum_blocker_count_seen": null,
+      "rows": 4,
+      "tau_at_least_3": 0
+    }
+  ],
+  "scope": "labelled clutters on ground sizes 3..6 only",
+  "theorem_not_inferred": true
+}

@@ -1,0 +1,100 @@
+{
+  "classes": [
+    {
+      "extension_candidates": 1,
+      "kernel": "1:1,2:1,3:1,4:1,7:1,8:2,12:1|b:9|p:4",
+      "kernel_blockers": 9,
+      "pair_blockers": 4,
+      "points": 8,
+      "valid_extensions": 0
+    },
+    {
+      "extension_candidates": 262,
+      "kernel": "1:1,2:1,3:1,4:1,9:1,12:1,14:1|b:8|p:4",
+      "kernel_blockers": 8,
+      "pair_blockers": 4,
+      "points": 7,
+      "valid_extensions": 0
+    },
+    {
+      "extension_candidates": 7,
+      "kernel": "1:1,2:1,3:1,5:1,10:1,12:2|b:9|p:3",
+      "kernel_blockers": 9,
+      "pair_blockers": 3,
+      "points": 7,
+      "valid_extensions": 0
+    },
+    {
+      "extension_candidates": 1,
+      "kernel": "1:1,2:1,3:2,4:1,8:1,12:2|b:9|p:4",
+      "kernel_blockers": 9,
+      "pair_blockers": 4,
+      "points": 8,
+      "valid_extensions": 0
+    },
+    {
+      "extension_candidates": 1,
+      "kernel": "1:1,2:1,5:1,6:2,9:1,10:2|b:9|p:4",
+      "kernel_blockers": 9,
+      "pair_blockers": 4,
+      "points": 8,
+      "valid_extensions": 0
+    },
+    {
+      "extension_candidates": 1,
+      "kernel": "1:1,2:1,5:2,10:2,12:1|b:9|p:4",
+      "kernel_blockers": 9,
+      "pair_blockers": 4,
+      "points": 7,
+      "valid_extensions": 0
+    },
+    {
+      "extension_candidates": 1,
+      "kernel": "1:1,2:2,5:1,10:1,12:1,13:1|b:9|p:4",
+      "kernel_blockers": 9,
+      "pair_blockers": 4,
+      "points": 7,
+      "valid_extensions": 0
+    },
+    {
+      "extension_candidates": 290,
+      "kernel": "1:1,3:1,5:1,10:2,12:2|b:8|p:4",
+      "kernel_blockers": 8,
+      "pair_blockers": 4,
+      "points": 7,
+      "valid_extensions": 0
+    },
+    {
+      "extension_candidates": 79,
+      "kernel": "1:1,3:1,6:1,10:1,12:1,13:1|b:8|p:4",
+      "kernel_blockers": 8,
+      "pair_blockers": 4,
+      "points": 6,
+      "valid_extensions": 0
+    },
+    {
+      "extension_candidates": 137517,
+      "kernel": "3:1,5:1,6:1,9:1,10:1,12:1|b:7|p:3",
+      "kernel_blockers": 7,
+      "pair_blockers": 3,
+      "points": 6,
+      "valid_extensions": 0
+    },
+    {
+      "extension_candidates": 1,
+      "kernel": "3:1,5:1,6:2,9:1,10:2|b:9|p:4",
+      "kernel_blockers": 9,
+      "pair_blockers": 4,
+      "points": 7,
+      "valid_extensions": 0
+    }
+  ],
+  "epistemic_label": "COMPUTED",
+  "extension_candidates": 138161,
+  "kernel_classes": 11,
+  "kernel_path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-seven-nine-four-row-kernels.json",
+  "kernel_sha256": "59532aede4cb7071af1eeb658796b6c72567739c0abbddec32c52f465f3526f9",
+  "python_source_sha256": "49bca56eae808b767e79f85826a726c88d30a64e244faab513c962b63a41dcd5",
+  "schema": "p0054.g4.12.middle-seven-nine-extension.v1",
+  "valid_extensions": 0
+}

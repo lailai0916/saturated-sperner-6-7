@@ -1,0 +1,20 @@
+{
+  "epistemic_label": "COMPUTED",
+  "files": {
+    "Problems/P0054/experiments/g4.2-stronger-lower/exact_a2_search.py": {
+      "bytes": 18503,
+      "sha256": "5b3c695340658d63ebf067e812ff45a6f9127d022aef1aa056653f3a83b6bc1e"
+    },
+    "Problems/P0054/experiments/g4.2-stronger-lower/report.md": {
+      "bytes": 7921,
+      "sha256": "9ff4ad0ee0063b306f203597ffe1fd068f03a879510d9b5b86e13dad2f95688f"
+    },
+    "Problems/P0054/experiments/g4.2-stronger-lower/results.json": {
+      "bytes": 14477,
+      "sha256": "4f98f709706f5baed1cca3b8fede43e4c68dbf555f19216cf5f0c80893662b9c"
+    }
+  },
+  "hash_algorithm": "sha256",
+  "manifest_self_hash": "EXCLUDED",
+  "schema": "ai-math-lab.p0054.g4.2-a2-manifest.v1"
+}

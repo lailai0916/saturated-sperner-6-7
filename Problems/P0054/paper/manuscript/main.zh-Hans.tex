@@ -1,0 +1,1045 @@
+\documentclass[UTF8,11pt,a4paper]{ctexart}
+
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!55!black,
+  citecolor=blue!55!black,
+  urlcolor=blue!55!black,
+  pdftitle={饱和6-Sperner数与7-Sperner数的精确值},
+  pdfauthor={Jiazhi Chen}
+}
+
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命题}
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{corollary}[theorem]{推论}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定义}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{注}
+\renewcommand{\proofname}{证明}
+
+\crefformat{section}{第#2#1#3节}
+\crefformat{table}{表#2#1#3}
+\crefformat{theorem}{定理#2#1#3}
+\crefformat{proposition}{命题#2#1#3}
+\crefformat{lemma}{引理#2#1#3}
+\crefformat{corollary}{推论#2#1#3}
+
+\newcommand{\powerset}{\mathcal{P}}
+\newcommand{\family}{\mathcal{F}}
+\newcommand{\smallcores}{\mathcal{S}}
+\newcommand{\largecores}{\mathcal{L}}
+\newcommand{\sat}{\operatorname{sat}}
+\newcommand{\blocker}{\mathcal{B}}
+\newcommand{\bits}[1]{\mathtt{#1}}
+
+\title{饱和 6-Sperner 数与 7-Sperner 数的精确值}
+\author{Jiazhi Chen\\
+\small 浙江省杭州第二中学\\
+\small 中国浙江省杭州市滨江区东信大道 76 号，310053\\
+\small \href{mailto:lailai0x394@gmail.com}{lailai0x394@gmail.com}\quad
+\href{https://orcid.org/0009-0008-9790-9881}{ORCID: 0009-0008-9790-9881}}
+\date{内部审阅中文对照稿，2026 年 7 月 29 日}
+
+\begin{document}
+
+\pagestyle{plain}
+\maketitle
+
+\begin{abstract}
+本文确定最终稳定的饱和 6-Sperner 数与 7-Sperner 数。六层情形的精确值为
+$\sat(6)=30$。下界归结为两个中间 canonical 层对应的有限 clutter 参数
+$m(2,3)$；本文对任意有限底集证明 $m(2,3)=9$。七层情形中，一个更强的
+blocker 不等式先给出 $m(2,4)=12$ 与 $\sat(7)\geq47$。连续的任意有限归约
+排除 52 元与 53 元的等号轮廓，并把 54 元情形归结为两个轮廓。精确分支论证与
+可独立重放的有限核枚举排除了 Fano 轮廓、中间拆分 $(5,11)$、$(6,10)$、
+$(7,9)$、$(8,8)$ 及其 blocker 对偶。因此 $\sat(7)\geq55$。另一方面，本文
+在八元素核心和一个与之不交的齐次原子上构造了一个 55 元显式族，故取等成立。
+该构造的小成员与大成员数量之比为 $28/27$，所以复合还给出
+\[
+  \sat(5j+2+s)\leq 2^s(28^j+27^j)
+  \qquad(j\geq1,\ 0\leq s\leq4).
+\]
+局部定理 $m(2,3)=9$、具体的 55 元实现，以及两个精确稳定值的完整证明链均已
+在 Lean 4 中形式化。最终定理分别给出参数 $(6,30)$ 与 $(7,55)$ 的
+\texttt{IsStableSaturationNumber} 证明：存在统一阈值，此后每个有限底集上
+都能取到该大小，且任意饱和族都不小于该大小。这不是对数值函数的直接求值。
+另一个经证书检验的穷尽编码仅证明：在相应的七点核心分层模板类内，56 是最优值。
+\end{abstract}
+
+\noindent\textbf{关键词：}饱和 Sperner 族；布尔格；blocker；极值集合论；
+SAT 证书；Lean 4
+
+\section{引言}
+
+设 $X$ 为有限集。如果族 $\family\subseteq\powerset(X)$ 不含长度为 $k+1$
+的严格链，则称它为 $k$-Sperner 族；如果向 $\family$ 中加入任何一个原本不属于
+$\family$ 的子集都会产生这样的链，则称它是饱和的。当 $|X|=n$ 时，相应的
+最小基数记为 $\sat(n,k)$；该问题要求寻找一个既无禁链、又对这一性质极大的族。
+
+因此，数字 55 表示所选子集的个数，而不是底集点的个数。困难之处在于极大性：
+大量未选子集中的每一个，一旦加入，都必须成为一条被禁止的八项严格链的一部分。
+
+Gerbner 等人~\cite{gerbner2013} 开创了对此类最小饱和族的系统研究，并证明了
+若干结构性结果，其中包括：对固定的 $k$，当底集足够大时，该数值会稳定。
+这一最终稳定值记为 $\sat(k)$。Morrison、Noel 和 Scott~\cite{mns2014}
+从饱和反链出发建立了分层构造，并给出一种复合运算，可以把某个 $k$ 值下的
+高效构造转化为更大参数的上界。
+
+Martin 和 Veldt~\cite{martinveldt2025} 利用这一框架构造了一个 56 元饱和
+7-Sperner 族。该构造改进了 $k=7$ 时可用的复合因子，并在参数
+$5j+2+s$ 处得到上界 $2^{s+1}28^j$。他们明确提出问题：
+$\sat(7)=56$，还是存在更小的构造？同一篇论文还说明，早期预印本版本中出现的
+更小数值是错误的。此后，一次独立的机器学习搜索给出了一个 108 元饱和
+8-Sperner 族~\cite{patternboost}；该结果改变了主导渐近上界，但没有回答
+$k=7$ 的问题。
+
+本文包含四项主要结果。第一，\cref{thm:sat6}证明 $\sat(6)=30$，与
+Morrison--Noel--Scott 的上界构造吻合。新的核心是精确有限 clutter 定理
+$m(2,3)=9$。第二，\cref{thm:sat7-lower}由更强的局部定理
+$m(2,4)=12$ 推出 $\sat(7)\geq47$。第三，\cref{sec:exact-seven}排除全部
+54 元轮廓。第四，\cref{sec:construction}给出一个 55 元构造。两者合并得到
+$\sat(7)=55$。
+
+该上界构造包含两个简短且可检查的证书。对每一层，大核心集合恰好是避开所有
+小核心成员的包含极大集合；一个一般引理证明饱和性，显式前驱表证明分层性。
+直接有限底集验证器和 Lean 4 检验了具体的十一点实现。另一个经 DRAT 认证的
+编码证明 56 在同一模板类的七点核心版本内最优。该类内结果不是全局下界。
+独立的 Lean 证明还核验了两个最终稳定值；其精确定义与构建门见
+\cref{sec:verification}。
+
+2026 年 7 月 29 日完成的投稿前终检覆盖 Crossref、arXiv、OpenAlex、
+Google Scholar、已索引引用链及直接相关全文。在记录范围内，检索没有找到
+两个精确值的公开等价结果。这项有限负面检索不能证明新颖性或优先权。
+
+\section{预备知识}
+\label{sec:preliminaries}
+
+我们用 $A\subsetneq B$ 表示严格包含。长度为 $r$ 的\emph{严格链}是一个序列
+$A_0\subsetneq\cdots\subsetneq A_{r-1}$。
+
+\begin{definition}
+若族 $\family\subseteq\powerset(X)$ 不含长度为 $k+1$ 的严格链，则称其为
+\emph{$k$-Sperner 族}。如果它是 $k$-Sperner 族，并且对每个
+$S\in\powerset(X)\setminus\family$，族 $\family\cup\{S\}$ 都含有长度为
+$k+1$ 的严格链，则称其为\emph{饱和 $k$-Sperner 族}。
+\end{definition}
+
+饱和 1-Sperner 族恰好就是极大反链。下面的概念用于组织若干这样的反链。
+
+\begin{definition}
+称两两不交的族 $\mathcal A_0,\ldots,\mathcal A_{k-1}$ 是\emph{分层的}，
+如果对每个 $i>0$ 以及每个 $B\in\mathcal A_i$，都存在
+$A\in\mathcal A_{i-1}$ 使得 $A\subsetneq B$。
+\end{definition}
+
+我们使用 Morrison--Noel--Scott 的下述定理，并采用 Martin--Veldt 使用的表述。
+
+\begin{theorem}[分层饱和反链~\cite{mns2014,martinveldt2025}]
+\label{thm:layered}
+如果 $\mathcal A_0,\ldots,\mathcal A_{k-1}$ 两两不交，并且构成分层的饱和
+反链，那么它们的并是一个饱和 $k$-Sperner 族。
+\end{theorem}
+
+我们的各层使用一个公共块。固定有限核心 $C$ 和一个与 $C$ 不交的非空集合
+$H$。\emph{小模板}是子集 $S\subseteq C$；\emph{大模板}形如 $L\cup H$，
+其中 $L\subseteq C$。若核心集合 $L$ 不包含
+$\smallcores\subseteq\powerset(C)$ 的任何成员，则称 $L$ 是
+\emph{$\smallcores$-自由的}。
+
+按照 Morrison--Noel--Scott 的定义，族的一个\emph{原子}是满足下述性质的
+包含极大集合 $H$：族中的每个成员要么包含 $H$，要么与 $H$ 不交。当
+$|H|>2$ 时，称该原子是\emph{齐次的}。
+
+\begin{lemma}[极大无小核证书]
+\label{lem:maximal-free}
+设 $\smallcores\subseteq\powerset(C)$ 是一个反链，$\largecores$ 是 $C$ 中
+所有包含极大的 $\smallcores$-自由子集所成的集合。那么
+\[
+  \mathcal A(\smallcores,\largecores)
+  =\smallcores\ \cup\ \{L\cup H:L\in\largecores\}
+\]
+是 $\powerset(C\cup H)$ 中的一个饱和反链。
+\end{lemma}
+
+\begin{proof}
+各个小模板彼此不可比。不同的极大 $\smallcores$-自由集合彼此不可比，所以各个
+大模板也彼此不可比。若 $L\in\largecores$，小模板 $S$ 不可能包含于
+$L\cup H$，否则 $S\subseteq L$，这与 $L$ 是 $\smallcores$-自由的相矛盾。
+大模板也不可能包含于小模板，因为大模板含有 $H$。因此 $\mathcal A$ 是反链。
+
+现取 $\mathcal A$ 外部的 $T\subseteq C\cup H$，并令 $R=T\cap C$。如果
+$R$ 包含某个 $S\in\smallcores$，那么 $S\subsetneq T$。否则，$R$ 是
+$\smallcores$-自由的。由于 $C$ 有限，$R$ 包含于某个包含极大的
+$\smallcores$-自由集合 $L\in\largecores$，从而 $T\subseteq L\cup H$。
+这个包含是严格的，因为 $T$ 不属于 $\mathcal A$。所以每个外部集合都与
+$\mathcal A$ 的某个成员严格可比，饱和性得证。
+\end{proof}
+
+\section{Blocker 与稳定下界}
+\label{sec:blockers}
+
+设 $U$ 为有限集。若集合与族 $\mathcal H\subseteq\powerset(U)$ 的每个成员
+相交，则称其为 $\mathcal H$ 的\emph{横截集}。所有包含极小横截集组成的族
+称为 $\mathcal H$ 的 \emph{blocker}，记为 $\blocker(\mathcal H)$。若族中
+任意两个不同成员互不包含，则称该族为 \emph{clutter}。对正整数 $p,q$，定义
+\[
+  m(p,q)=\min\bigl\{|\mathcal S|+|\mathcal C|:
+  \mathcal S=\blocker(\mathcal C),\
+  \mathcal C=\blocker(\mathcal S),\
+  \min_{S\in\mathcal S}|S|\geq p,\
+  \min_{C\in\mathcal C}|C|\geq q\bigr\},
+\]
+其中最小值遍历所有有限底集及满足条件的 clutter。
+
+\begin{lemma}[Blocker 对合与私有见证]
+\label{lem:blocker-basic}
+对每个有限 clutter $\mathcal H$，有
+$\blocker(\blocker(\mathcal H))=\mathcal H$。此外，若
+$T\in\blocker(\mathcal H)$ 且 $x\in T$，则存在
+$E_x\in\mathcal H$ 使得 $T\cap E_x=\{x\}$。因此
+$|T|\leq|\mathcal H|$。
+\end{lemma}
+
+\begin{proof}
+$T$ 的极小性说明 $T\setminus\{x\}$ 会漏掉某个 $E_x$，但 $T$ 与
+$E_x$ 相交。因此 $T\cap E_x=\{x\}$。不同点对应不同私有见证，故得到基数
+不等式。
+
+每个 $E\in\mathcal H$ 都是 $\blocker(\mathcal H)$ 的横截集。若其真子集
+$D$ 也是横截集，则 clutter 性说明 $D$ 不包含 $\mathcal H$ 的成员。于是
+$U\setminus D$ 与 $\mathcal H$ 的每个成员相交，并包含一个与 $D$ 不交的极小
+横截集，矛盾。因此
+$\mathcal H\subseteq\blocker(\blocker(\mathcal H))$。反向包含中，后一
+blocker 的每个成员都包含 $\mathcal H$ 的某个成员，极小性迫使二者相等。
+\end{proof}
+
+下面的引理给出 canonical 层与 blocker 之间的接口。
+
+\begin{lemma}[Canonical blocker 接口]
+\label{lem:canonical-blocker}
+设 $\mathcal A_i$ 是一个极小饱和 $k$-Sperner 族的内部 canonical 层，
+$H$ 为其齐次原子，并令 $U=X\setminus H$。令 $\mathcal S_i$ 为
+$\mathcal A_i$ 的小成员。把每个大成员写成 $K\cup H$，其中 $K\subseteq U$，
+再定义
+\[
+  \mathcal C_i=\{U\setminus K:K\cup H\in\mathcal A_i\}.
+\]
+则
+\[
+  \mathcal S_i=\blocker(\mathcal C_i),\qquad
+  \mathcal C_i=\blocker(\mathcal S_i).
+\]
+$\mathcal S_i$ 的每个成员大小至少为 $i$，$\mathcal C_i$ 的每个成员大小
+至少为 $k-1-i$。
+\end{lemma}
+
+\begin{proof}
+大小结论来自 Martin--Veldt 的命题 14~\cite{martinveldt2025}。取非空真子集
+$Q\subset H$。对每个 $R\subseteq U$，混合集 $R\cup Q$ 不属于该层。
+$\mathcal A_i$ 的饱和性说明：存在 $S\in\mathcal S_i$ 使 $S\subseteq R$，
+或者存在大迹 $K$ 使 $R\subseteq K$。反链性质说明，每个 $S$ 都与每个
+$U\setminus K$ 相交。
+
+若 $T$ 是 $\mathcal C_i$ 的横截集，则 $T$ 不包含于任何大迹。上述覆盖条件
+给出某个 $S\subseteq T$。所以极小横截集恰为 $\mathcal S_i$ 的成员。对
+$U\setminus T$ 使用同一论证得到反向 blocker 等式；也可由
+\cref{lem:blocker-basic}和两侧的 clutter 性直接得到。
+\end{proof}
+
+\begin{theorem}
+\label{thm:m23}
+精确局部 blocker 参数为 $m(2,3)=9$。
+\end{theorem}
+
+\begin{proof}
+取一个满足条件的 pair，并记
+$a=|\mathcal S|$、$b=|\mathcal C|$。在两个方向使用私有见证不等式，得到
+$a\geq3$ 与 $b\geq2$。
+
+若 $b=2$，则 $\mathcal C$ 的两个成员不交，否则交中的点会给出单点 blocker。
+从二者各取一点，至少得到 $3^2=9$ 个 $\mathcal S$ 成员。
+
+设 $b=3$，三行为 $C_1,C_2,C_3$。三重交为空。对
+$\{i,j,k\}=\{1,2,3\}$，令
+\[
+  A_i=C_i\setminus(C_j\cup C_k),\qquad
+  P_i=(C_j\cap C_k)\setminus C_i,
+\]
+并记 $\alpha_i=|A_i|$、$\pi_i=|P_i|$。二点极小横截集要么从
+$A_i,P_i$ 各取一点，要么从两个不同的 $P$ 类各取一点。三点极小横截集恰好
+从三个 $A_i$ 各取一点。\cref{lem:blocker-basic}中的私有见证排除了其他
+类型。因此
+\[
+  a=\alpha_1\alpha_2\alpha_3+
+  \sum_{i=1}^3\alpha_i\pi_i+
+  \pi_1\pi_2+\pi_1\pi_3+\pi_2\pi_3.
+  \tag{1}
+\]
+行大小给出 $\alpha_i+\pi_j+\pi_k\geq3$。若某个 $\pi_i\geq2$，式 (1)
+中包含 $\pi_i$ 的项至少贡献六。等号会迫使 $\pi_i=2$、对应行大小为三，且
+剩余项全部为零；另外两条行不等式随后迫使三个 $\alpha$ 类都非空，矛盾。
+故 $a\geq7$。若所有 $\pi_i\leq1$，利用式 (1) 对 $\alpha_i$ 的单调性，
+在对称意义下仅需检查
+\[
+\begin{array}{c|c|c}
+(\pi_1,\pi_2,\pi_3)&
+\min(\alpha_1,\alpha_2,\alpha_3)&\min a\\
+\hline
+(0,0,0)&(3,3,3)&27\\
+(0,0,1)&(2,2,3)&15\\
+(0,1,1)&(1,2,2)&9\\
+(1,1,1)&(1,1,1)&7
+\end{array}
+\]
+所以仍有 $a\geq7$。
+
+以下设 $b\geq4$。若 $a=3$，则 $\mathcal S$ 的三行两两不交；否则一个
+交点加上第三行中的一点会构成至多二点的横截集。逐行取一点给出
+$b\geq2^3=8$。若 $a=4$，在 $\mathcal S$ 的四行上构造交图。两条顶点不交
+的边会给出至多二点的横截集，所以交图匹配数至多为一。若有两条孤立行，
+blocker 按不交分量分解，至少给出 $2\cdot2\cdot2=8$ 个横截集。若恰有一条
+孤立行，连通三行分量至少有三个 blocker，故总数至少为 $2\cdot3=6$。若没有
+孤立行，交图只能是三叶星。三条叶行两两不交；从各叶行取一点，至少得到
+\[
+  n_1n_2n_3-(n_1-1)(n_2-1)(n_3-1)\geq7
+\]
+个极小横截集，其中 $n_i\geq2$ 是叶行大小。因此 $b\geq6$。若 $a\geq5$，
+总数至少为九。所有情形都给出 $a+b\geq9$。
+
+为证明取等，取不同点 $x_1,x_2,y_1,y_2,w,z$，并令
+\[
+  \mathcal S=\{\{x_i,y_j\}:i,j\in\{1,2\}\}\cup\{\{w,z\}\},
+\]
+\[
+  \mathcal C=\{\{x_1,x_2,w\},\{x_1,x_2,z\},
+  \{y_1,y_2,w\},\{y_1,y_2,z\}\}.
+\]
+$\mathcal C$ 的极小横截集要么各取一个 $x_i,y_j$，要么等于 $\{w,z\}$。
+所以 $\blocker(\mathcal C)=\mathcal S$。Blocker 对合给出
+$\blocker(\mathcal S)=\mathcal C$，两侧总大小为九。
+\end{proof}
+
+\begin{theorem}
+\label{thm:sat6}
+最终稳定的饱和 6-Sperner 数为
+\[
+  \sat(6)=30.
+\]
+\end{theorem}
+
+\begin{proof}
+Morrison--Noel--Scott 对每个至少含八个点的底集构造了一个 30 元饱和
+6-Sperner 族~\cite[Proposition~20]{mns2014}，故 $\sat(6)\leq30$。
+
+在稳定区间内选取满足 $n\geq8$ 且 $n>2^{30}$ 的底集，并在其上选取端点正规
+的极小族 $\family$。由于 $|\family|\leq30$，齐次原子定理适用。Canonical
+分解给出六个非空饱和反链层 $\mathcal A_0,\ldots,\mathcal A_5$。端点结论与
+Martin--Veldt 的引理 15~\cite{martinveldt2025}给出
+\[
+  |\mathcal A_0|=|\mathcal A_5|=1,\qquad
+  |\mathcal A_1|,|\mathcal A_4|\geq5.
+\]
+由\cref{lem:canonical-blocker}，第二层构成满足条件的 $(2,3)$ blocker pair；
+第三层交换两侧后也满足同一条件。\cref{thm:m23}因此给出
+$|\mathcal A_2|,|\mathcal A_3|\geq9$。所以
+\[
+  |\family|\geq1+5+9+9+5+1=30.
+\]
+上下界相等。
+\end{proof}
+
+\section{七层情形的全局下界}
+\label{sec:sat7-lower}
+
+七层情形所需的技术 blocker 估计见\cref{app:m24}。
+
+\begin{theorem}
+\label{thm:m24}
+精确局部 blocker 参数为 $m(2,4)=12$。
+\end{theorem}
+
+\begin{proof}
+由\cref{prop:m24-product}，每个满足条件的 pair 都有 $ab\geq32$，其中
+$a,b$ 为两侧大小。因此
+\[
+  (a+b)^2=(a-b)^2+4ab\geq128>11^2,
+\]
+故 $a+b\geq12$。
+
+取两个顶点不交四环的八条边组成 $\mathcal S$。每个四环的 blocker 恰由两个
+二分部组成，所以 $\blocker(\mathcal S)$ 是从每个环各取一个二分部后得到的
+四个并集。反过来，这四个并集的任意横截集都包含某个环的一条边。因此两族互为
+blocker，成员大小下界分别为二和四，总基数为 $8+4=12$。
+\end{proof}
+
+\begin{lemma}
+\label{lem:middle-nine}
+极小饱和 7-Sperner 族的 canonical 分解中，
+$|\mathcal A_3|\geq9$。
+\end{lemma}
+
+\begin{proof}
+使用\cref{lem:canonical-blocker}的记号。$\mathcal S_3$ 与
+$\mathcal C_3$ 的每个成员大小至少为三。从 $U$ 的所有子集中等概率选取 $R$。
+Canonical 覆盖说明，至少一个事件 $S\subseteq R$ 或
+$R\cap C=\varnothing$ 发生。每个事件的概率至多为 $2^{-3}$。并集界给出
+$|\mathcal A_3|\geq8$。
+
+若等号成立，则每个事件的概率都为 $1/8$，且这些事件两两不交。$R=U$ 属于
+每个小侧事件，$R=\varnothing$ 属于每个大迹补事件。两侧都非空，所以等号会
+迫使每侧各仅有一个事件，这与总数为八矛盾。因此
+$|\mathcal A_3|\geq9$。
+\end{proof}
+
+\begin{theorem}
+\label{thm:sat7-lower}
+最终稳定的饱和 7-Sperner 数满足
+\[
+  \sat(7)\geq47.
+\]
+\end{theorem}
+
+\begin{proof}
+选取满足 $n>2^{55}$ 的稳定底集。\cref{thm:size55}的构造说明极小族至多有
+55 个成员，所以齐次原子与 canonical 分解均存在。端点和相邻层下界给出
+\[
+  (|\mathcal A_0|,|\mathcal A_1|,|\mathcal A_5|,
+  |\mathcal A_6|)\geq(1,6,6,1).
+\]
+Canonical blocker 接口与\cref{thm:m24}给出
+$|\mathcal A_2|,|\mathcal A_4|\geq12$；
+\cref{lem:middle-nine}给出 $|\mathcal A_3|\geq9$。七层求和可得
+\[
+  \sat(7)\geq1+6+12+9+12+6+1=47.
+\]
+\end{proof}
+
+\section{含 55 个集合的构造}
+\label{sec:construction}
+
+令 $C=[8]=\{1,\ldots,8\}$，令 $H$ 与 $C$ 不交，并假设 $|H|>2$。
+我们把核心子集的元素连接起来作为缩写；例如，$145$ 表示
+$\{1,4,5\}$，而 $1346H$ 表示 $\{1,3,4,6\}\cup H$。符号 $-$ 表示
+空列表。
+
+对\cref{tab:layers}的每一行，令 $\smallcores_i$ 为列出的小核心，令
+$\largecores_i$ 为列出的大核心。定义
+\[
+  \mathcal A_i
+   =\smallcores_i\cup\{L\cup H:L\in\largecores_i\},
+  \qquad 0\leq i\leq6.
+\]
+
+\begin{table}[htbp]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{c p{0.35\textwidth} p{0.48\textwidth}}
+\toprule
+$i$ & $\smallcores_i$ & $\largecores_i$ \\
+\midrule
+0 & $\varnothing$ & -- \\
+1 & $1$, $2$, $3$, $6$, $7$ & $458$ \\
+2 & $24$, $15$, $35$, $26$, $47$, $67$, $18$, $38$
+  & $1346$, $1237$, $4568$, $2578$ \\
+3 & $124$, $234$, $145$, $345$, $156$, $356$, $267$, $178$, $378$
+  & $12357$, $13467$, $12358$, $12368$, $13468$, $24568$, $24578$, $45678$ \\
+4 & $2345$, $1247$, $3568$, $1678$
+  & $123567$, $134567$, $123468$, $124568$, $123578$, $134578$, $234678$, $245678$ \\
+5 & $23457$
+  & $1234568$, $1234678$, $1235678$, $1245678$, $1345678$ \\
+6 & -- & $12345678$ \\
+\bottomrule
+\end{tabular}
+\caption{七层的核心描述。右栏中的每个大核心都代表它与 $H$ 的并。}
+\label{tab:layers}
+\end{table}
+
+\begin{proposition}
+\label{prop:layer-certificate}
+对每个 $i\in\{0,\ldots,6\}$，族 $\mathcal A_i$ 都是饱和反链。
+\end{proposition}
+
+\begin{proof}
+在\cref{tab:layers}每个非空的小核心列中，所有集合都有相同的基数，所以
+$\smallcores_i$ 是反链。对每一行，大核心列恰好由那些避开小核心列全部成员的
+包含极大核心子集组成。这一陈述是一个有限证书：向列出的大核心中加入任意一个
+缺失的核心元素，都会产生一个列出的小核心；而每个不含小核心的核心集合，都
+包含于某个列出的大核心中。后一覆盖蕴含在每一行中只有 $2^8$ 个核心掩码；
+补充验证器检查了全部七行中的这两个蕴含。两个端点行分别表示：没有集合能避开
+$\varnothing$；当小核心族为空时，$C$ 是唯一的极大避集。结论由
+\cref{lem:maximal-free}立即得到。
+\end{proof}
+
+为完整起见，附录~\ref{app:layering}为第零层以上的每个成员记录了一个前驱。
+所有列出的包含关系都是严格的，因此这七层是分层的。\cref{tab:layers}中的
+55 个模板在不同层之间两两不同。
+
+\begin{theorem}
+\label{thm:size55}
+对每个与 $[8]$ 不交且满足 $|H|>2$ 的有限集 $H$，族
+\[
+  \family=\bigcup_{i=0}^{6}\mathcal A_i
+\]
+是一个基数为 55 的饱和 7-Sperner 族。
+\end{theorem}
+
+\begin{proof}
+由\cref{prop:layer-certificate}，全部七层都是饱和反链。
+附录~\ref{app:layering}中的前驱证书证明了分层性，而直接检查
+\cref{tab:layers}可知各层两两不交。因此，\cref{thm:layered}说明它们的并
+是饱和 7-Sperner 族。各层大小为
+\[
+  1, 6, 12, 17, 12, 6, 1,
+\]
+总和为 55。
+\end{proof}
+
+\begin{proposition}
+\label{prop:endpoints-atom}
+族 $\family$ 同时含有 $\varnothing$ 和 $C\cup H$，并且 $H$ 是
+$\family$ 的一个齐次原子。相对于这一原子，$\family$ 有 28 个小成员和
+27 个大成员。
+\end{proposition}
+
+\begin{proof}
+两个端点分别是 $\mathcal A_0$ 和 $\mathcal A_6$ 的唯一成员。每个列出的模板
+要么包含整个 $H$，要么与 $H$ 不交。为了验证极大性，注意每个核心点都出现在
+某个小成员中：点 $1,2,3,6,7$ 出现在 $\mathcal A_1$ 的单点成员中，而
+$4,5,8$ 分别出现在 $24$、$15$ 和 $18$ 中。因此，对每个 $c\in C$，
+$\family$ 中某个成员与 $H\cup\{c\}$ 的交是一个非空真子集。于是，$H$ 的
+任何严格超集都不可能具有原子性质。由于 $|H|>2$，该原子是齐次的。最后，
+对\cref{tab:layers}两列计数可得，小模板数为
+$1+5+8+9+4+1=28$，大模板数为
+$1+4+8+8+5+1=27$。
+\end{proof}
+
+\par\medskip
+
+\begin{corollary}
+\label{cor:main-bound}
+对每个 $n\geq11$，都有 $\sat(n,7)\leq55$。因此 $\sat(7)\leq55$。
+\end{corollary}
+
+\begin{proof}
+取 $|H|=n-8$。此时 $|H|>2$，故\cref{thm:size55}适用于一个 $n$ 元底集。
+关于稳定值的不等式由 $\sat(7)$ 的定义得到。
+\end{proof}
+
+\section{排除 54 元族}
+\label{sec:exact-seven}
+
+下面改进下界。设 $\mathcal A_0,\ldots,\mathcal A_6$ 是稳定底集上某个极小族
+的 canonical 层，并取一个齐次原子。对每个内部层，记 $\mathcal S_i$ 为其小迹，
+记 $\mathcal C_i$ 为大迹的补族，定义同\cref{lem:canonical-blocker}。
+
+\begin{proposition}[Canonical 轮廓归约]
+\label{prop:canonical-profiles}
+不存在总大小为 52 或 53 的 canonical 族。如果 canonical 族的总大小为 54，
+其层轮廓只能是
+\[
+  P_{\mathrm F}=(1,6,13,14,13,6,1),\qquad
+  P_{16}=(1,6,12,16,12,6,1).
+\]
+第一个轮廓的中间 blocker 对是 Fano 直线 clutter。第二个轮廓的中间 blocker
+对总基数为 16。
+\end{proposition}
+
+\begin{proof}
+端点、相邻层与 blocker 下界给出
+\[
+  (|\mathcal A_0|,\ldots,|\mathcal A_6|)
+  \geq(1,6,12,14,12,6,1).
+  \tag{2}
+\]
+中间层下界来自私有见证、残余 blocker 和三行关联公式。证明检查 blocker 总数
+不超过 13 时的每个拆分。若每个点的度至多为二，则活跃点构成固定行标签上的实际
+自环多重图。包含极小性迫使每个正支撑接触一个最小度行；行大小界把问题归结为
+有限且穷尽的支撑分类。两个独立实现对全部保存分类给出相同结果。
+
+式 (2) 取等时，中间 blocker 对只能是 Fano 平面。它无法与下方或上方的 12 元
+等号相邻层兼容，所以总数 52 不可能。若仅增加一个成员，则仍落入 Fano 排除，
+或使中间 blocker 对的总数为 15。拆分 $(5,10)$、$(6,9)$、$(7,8)$ 及其对偶
+均被同一类任意有限度数与残余归约排除，所以总数 53 也不可能。
+
+对总数 54，在式 (2) 的五个内部层上引入非负松弛量，其和为二。若中间层有
+14 个成员，则它是 Fano 对，并迫使两个相邻层都严格大于等号。15 元中间对不
+存在。若中间层超过 15，则它恰有 16 个成员，其他各层全部取等。由此仅剩所列
+两个轮廓。
+\end{proof}
+
+为证明精确排除，令
+\[
+\begin{aligned}
+  \mathcal F&=\mathcal S_2,&\mathcal G&=\mathcal C_2,\\
+  \mathcal H&=\mathcal S_3,&\mathcal K&=\mathcal C_3,\\
+  \mathcal P&=\mathcal S_4,&\mathcal Q&=\mathcal C_4.
+\end{aligned}
+\]
+相邻接口说明：$\mathcal G$ 的每个成员都严格包含 $\mathcal K$ 的某个成员，且
+$\mathcal F\cap\mathcal H=\varnothing$。对偶地，$\mathcal P$ 的每个成员都
+严格包含 $\mathcal H$ 的某个成员，且
+$\mathcal K\cap\mathcal Q=\varnothing$。
+
+\begin{proposition}[54 元排除]
+\label{prop:exclude54}
+\cref{prop:canonical-profiles}中的两个轮廓在任意有限迹底集上都无法实现。
+\end{proposition}
+
+\begin{proof}
+先考虑 $P_{\mathrm F}$。每条 Fano 直线都严格包含 $\mathcal F$ 中一个不同的
+二元组。不计 blocker 对偶时，相邻拆分为 $(7,6)$、$(8,5)$ 或 $(9,4)$。
+在第一个拆分中，$\mathcal F$ 从每条 Fano 直线的三个二元组中选择一个。穷尽
+检查全部 $3^7=2187$ 个选择后，没有任何选择恰有六个大小至少为四的极小点覆盖。
+在第二个拆分中，写成 $\mathcal F=E(Q)\cup\{R\}$。迹 $R\cap X$ 是 $Q$ 中
+的独立集，而 $R$ 的外部点构成一个关联类。私有见证界说明其精确重数至多为五。
+这样，每个有限实例都归结为 249576 个三元组 $(Q,R\cap X,t)$ 之一。没有合格
+三元组恰有五个大小至少为四的 blocker。最后一个拆分中，$\mathcal G$ 的四行
+大小至少为四，且两两相交。残余迹论证给出至少十个 blocker，与
+$|\mathcal F|=9$ 矛盾。因此 Fano 轮廓及其上方对偶均不可能。
+
+再考虑 $P_{16}$。对有限底集均匀随机取子集。两个中间 blocker 侧对应事件
+$D\subseteq R$ 与 $E\subseteq U\setminus R$ 构成穷尽且不交的覆盖。若 16 行
+大小都至少为四，则并合界必须取等；但同一侧的两个事件以正概率相交，产生矛盾。
+所以至少有一条中间行大小为三。
+
+不计交换 blocker 两侧时，中间拆分为 $(5,11)$、$(6,10)$、$(7,9)$ 或
+$(8,8)$。下表记录全部归约。所有重数都按实际点计数，所以平行支撑和重复关联
+模式仍保持为不同的点。
+\begin{table}[htbp]
+\centering
+\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.16}
+\begin{tabular}{c p{0.41\textwidth} p{0.38\textwidth}}
+\toprule
+拆分 & 任意有限归约 & 穷尽余项 \\
+\midrule
+$(5,11)$ & 一个三度点给出九个含该点的 blocker，以及两个避开该点的残余
+blocker。 & 若处处取等，残余将成为两个大小至少为三的不交行的 blocker；这会
+从仅有五行的残余中产生至少九行。 \\
+$(6,10)$ & 度至少为四时可得十一个 blocker。度为三时留下三个精确三行核；
+度至多为二时得到一个实际自环多重图。 & 非解析核有 95 个重数向量，没有兼容
+扩展。每个低度核至少有 15 个 blocker。 \\
+$(8,8)$ & 度数归约后最大度为三。一条三元行留下一个支撑秩至多为三的五行核。
+& 共有 1890 个重数向量，分成 24 类；2514 个可能扩展中没有合格实例。 \\
+$(7,9)$ & 两侧最大度分别为三和四。若九行侧有三元行，则留下四行核；若三元行
+仅在七行侧，则必须耦合两个三行残余。 & 第一支有 136 个向量和 138161 个扩展，
+没有合格实例。第二支的 90898 个耦合全部至少有四个二元 blocker，与上界三
+矛盾。 \\
+\bottomrule
+\end{tabular}
+\caption{16 元轮廓中全部中间拆分的穷尽归约。}
+\label{tab:exact-splits}
+\end{table}
+
+
+\cref{tab:exact-splits}中的每个有限域都来自行数、私有见证、点度界和支撑极小化；
+证明没有限制原始迹底集的大小。C++ 枚举器与独立 Python 实现逐字节重放保存的
+输出。因此四个拆分及其 blocker 对偶均不可能。被强制存在的三元行无处可放，
+从而排除 $P_{16}$。
+\end{proof}
+
+\begin{theorem}
+\label{thm:sat7}
+最终稳定的饱和 7-Sperner 数为
+\[
+  \sat(7)=55.
+\]
+\end{theorem}
+
+\begin{proof}
+在稳定范围内选择一个极小族。55 元构造保证齐次原子归约可用。52 元与 53 元
+排除给出 $\sat(7)\geq54$，而\cref{prop:exclude54}排除等号。因此
+$\sat(7)\geq55$。反向不等式由\cref{cor:main-bound}给出。
+\end{proof}
+
+\section{复合推论}
+\label{sec:composition}
+
+由\cref{prop:endpoints-atom}，\cref{thm:size55}中的族满足
+Morrison--Noel--Scott 复合引理~\cite[Lemma~18]{mns2014}所要求的端点条件
+和齐次原子条件。该引理在不交底集上把两个饱和系统的“小--小”部分和
+“大--大”部分分别配对。若两个因子的小成员数与大成员数分别为
+$(a_1,b_1)$ 和 $(a_2,b_2)$，则复合后的数量为 $(a_1a_2,b_1b_2)$，
+饱和参数为 $k_1+k_2-2$；同时，端点条件和齐次原子条件仍被保留。
+
+因此，将这个 55 元因子迭代 $j\geq1$ 次，所得参数为 $5j+2$，小成员数与
+大成员数分别为 $(28^j,27^j)$。对余项因子，取一个 $s$ 元集合 $Y$ 和另一个
+齐次原子 $K$，并使用
+\[
+  \powerset(Y)\ \cup\ \{S\cup K:S\subseteq Y\}.
+\]
+这是标准的饱和 $(s+2)$-Sperner 系统：其小部分和大部分的大小均为 $2^s$，
+并且它含有两个端点。将它与上述迭代因子复合，会使参数增加
+$(s+2)-2=s$，并分别得到大小为 $2^s28^j$ 和 $2^s27^j$ 的小部分与
+大部分。我们取 $0\leq s\leq4$，以覆盖通常的五个剩余类。
+
+\begin{corollary}
+\label{cor:discrete-bound}
+对 $j\geq1$ 和 $0\leq s\leq4$，有
+\[
+  \sat(5j+2+s)\leq 2^s\bigl(28^j+27^j\bigr).
+\]
+\end{corollary}
+
+作为比较，对称的 56 元因子给出 $2^{s+1}28^j$。对每个 $j\geq1$，
+不等式
+\[
+  2^s(28^j+27^j)<2^{s+1}28^j
+\]
+都是严格的。主导指数增长率没有改变，因为较大部分的大小仍为 28。
+
+\section{七点核心模板类中的最优性}
+\label{sec:class-optimality}
+
+55 元构造使用了八元素核心。我们还检验了相应的七点核心模板类能否包含一个
+55 元族。下面的结果是计算机辅助的，其适用范围有意取得比
+\cref{thm:size55}更窄。
+
+\begin{proposition}[证书支持的类内最优性]
+\label{prop:class-optimum}
+设 $|C|=7$ 且 $|H|>2$。在所有满足下述条件的有序七元组中，总基数的最小值
+为 56：七个族两两不交、构成分层的饱和反链，并且每个成员都形如 $A$ 或
+$A\cup H$，其中 $A\subseteq C$。
+\end{proposition}
+
+\begin{proof}[计算机辅助证明]
+对层 $i$、原子使用位 $b$ 和核心掩码 $m$，引入布尔变量 $x_{i,b,m}$，表示
+是否选择相应模板。CNF 包含：同一层内可比模板对的排除子句；对三种齐次块
+特征和每个核心掩码各设置一个覆盖子句；不同层之间的两两排除子句；用于分层的
+前驱蕴含；以及一个顺序计数器~\cite{sinz2005}，把所选模板总数限制为至多 55。
+
+三种特征分别记录任意测试集合与 $H$ 的交是 $\varnothing$、非空真子集，还是
+整个 $H$。一个集合与模板之间的包含关系只取决于这一特征和核心掩码。因此，
+每个大小至多为 55 的数学候选都能扩展为 CNF 的一个满足赋值。反过来，一个
+满足赋值中被选中的变量可以解码为命题所述的模板条件；另外还包含独立语义检查
+作为对照。
+
+这个确定性实例包含 100,297 个变量和 252,427 个子句。Kissat 4.0.4 返回
+UNSAT，并生成一个大小为 253,731,315 字节的 DRAT 证明。
+DRAT-trim~\cite{wetzler2014} 独立检查该证明，并返回
+\texttt{s VERIFIED}。所以，不存在大小至多为 55 的七点核心候选。
+Martin--Veldt 的 56 元构造给出了与之匹配的上界。
+\end{proof}
+
+该编码既没有施加补集对称性，也没有预先指定各层大小，并且不要求 Fano 平面
+模式。尽管如此，\cref{prop:class-optimum}并不覆盖更大的核心、非模板族或不含
+公共块的系统，因此它没有给出 $\sat(7)$ 的全局下界。
+
+\section{独立验证与形式化}
+\label{sec:verification}
+
+\cref{thm:size55}的证明是由\cref{lem:maximal-free}和所展示证书组成的结构性
+论证；它不信任用于发现该族的 SAT 求解器。我们还执行了以下四项精确检查。
+
+\begin{enumerate}[leftmargin=*]
+  \item 一个符号验证器对每一层检查全部 $3\cdot2^8=768$ 种核心/块特征。
+  \item 把 $H$ 展开为三个点，得到一个十一元素底集；第二个验证器在完整幂集上
+        检查每一层。
+  \item 一个整数位掩码动态规划程序检查 55 元并集不含八项链，并检查加入其他
+        1993 个底集子集中的每一个之后都存在一条见证链。
+  \item 一个独立实现的集合/DAG 验证器再次执行并集层面的检查，而且不与位掩码
+        动态规划共享实现。
+\end{enumerate}
+
+四项检查都接受同一个语义族；其 SHA-256 标识符记录在补充计算证书中。
+作为负面对照，它们拒绝早期预印本中后来撤回的 54 元族：该族的第三层没有覆盖
+核心集合 $\{2,3,6\}$。
+
+具体的十一元素实现还使用 Mathlib~\cite{mathlib2020} 在 Lean 4
+\cite{lean4} 中完成了形式化。Lean 证明这个显式族的基数为 55，是
+7-Sperner 族，并且是饱和的。饱和性通过一个覆盖全部
+$2^{11}=2048$ 个掩码的冻结表进行检查：其中有 55 个成员行，以及 1993 个
+外部行；每个外部行都包含一条在插入对应集合后形成的八项严格链。该表被分为
+32 个由内核归约的块。
+
+这条 Lean 定理覆盖具体情形 $H\cong[3]$。\cref{thm:size55}中对任意 $H$
+的陈述由人类可读的极大无小核证明给出，而不是从有限 Lean 实例迁移得到。
+
+形式化没有定义一个可执行的数值函数 \texttt{sat}。
+谓词 \texttt{IsSaturationNumberAt} 对参数 $k,n,s$ 同时要求两件事：在
+\texttt{Fin} $n$ 上存在大小恰为 $s$ 的饱和 $k$-Sperner 族；任意这样的
+饱和族都有至少 $s$ 个成员。谓词 \texttt{IsStableSaturationNumber} 对
+参数 $k,s$ 要求存在阈值 $N$，使前一性质对每个 $n\geq N$ 成立。因此，最终
+定理表达的是充分大底集上的统一取到性与最优性，而不是一次有限计算。
+
+\cref{thm:m23}中的局部定理已单独形式化。Lean 证明了任意有限底集上的下界、
+六点见证的两个 blocker 等式及两侧基数。在此基础上，定理
+\path{AiMathLab.P0054.Sat6StableExact.sat_six_eq_thirty}
+形式化了参数 $(6,30)$ 的 \texttt{IsStableSaturationNumber}。它把参数化的
+30 元构造、齐次原子与 canonical 层下界，以及 $m(2,3)=9$ 的局部结论接入
+同一个稳定值证明。因此，$\sat(6)=30$ 的完整稳定值陈述已经形式化。
+
+\cref{prop:canonical-profiles,prop:exclude54}中的有限分支具有单独的清单绑定信任链。
+G4.10、G4.11、G4.12 清单分别绑定 8、23、36 个证明、源文件和输出对象。全部保存
+枚举均已重放，独立实现对语义计数给出一致结果。有限计算仅在所展示的任意有限
+归约之后成为证明依赖。
+
+Lean 形式化首先覆盖了 $(8,8)$ 分支中的局部五行三度核；定理
+\path{no_kernel_completion_of_eight} 量化任意有限底集，并排除所有五行
+残余与配对图情形。后续模块继续形式化 Fano 相邻层、$(5,11)$、$(6,10)$、
+$(7,9)$、$(8,8)$ 及其对偶分支，并把它们接入齐次原子与 canonical 层归约。
+最终定理
+\path{AiMathLab.P0054.Sat7StableExact.sat_seven_eq_fifty_five}
+证明参数 $(7,55)$ 的 \texttt{IsStableSaturationNumber}。形式化中的有限核
+证书均位于已经证明的任意有限归约之后；独立求解器实验仍按各自边界标为
+\texttt{COMPUTED}，不会仅凭求解器输出提升为普遍结论。
+
+2026 年 7 月 27 日的最终门完成了整个 \texttt{AiMathLab} 库的构建，共处理
+17488 个构建任务；\path{Problems/P0054/formal/Main.lean} 的独立检查也成功。
+\texttt{\#print axioms} 对最终精确值定理仅报告 \texttt{propext}、
+\texttt{Classical.choice} 和 \texttt{Quot.sound}。源代码扫描对
+\texttt{sorry}、\texttt{admit}、\texttt{axiom} 声明、\texttt{unsafe}、
+\texttt{native\_decide} 和 \texttt{run\_tac} 均为零命中。由此，两个精确
+稳定值均可标为 \texttt{FORMALIZED}。这项门不替代独立的人类审阅，也不证明
+新颖性或优先权。
+
+\section{讨论与开放问题}
+
+该构造与排除定理回答了 Martin--Veldt 所提的数值问题：最终稳定值为 55。
+构造的不对称性对复合是有用的。虽然把 $28/28$ 的划分替换为 $28/27$ 并未
+改变主导渐近指数，但它改进了\cref{cor:discrete-bound}中的每个有限上界。
+
+七点核心类的结果对为什么不能只在原有核心大小内直接优化已发表族，给出了
+一种有限的结构性解释：七个核心点上的完整公共块分层模板类的最小值是 56。
+55 元族通过使用第八个核心点跳出了这一限制。这并不意味着每个更小的全局构造
+都必须使用八个核心点，甚至也不意味着它们必须能用齐次块描述。
+
+六层精确值填补了已发表 30 元构造留下的下界缺口。其 blocker 证明不依赖有限
+关联模式搜索；后者仅用于回归检查和反例搜索。
+
+Lean 内核验收不能替代对任意有限底集归约和证书接口的人类重构与审查。投稿前
+终检在记录范围内没有找到公开等价结果；该负面结果仍然有限，不能证明新颖性或
+优先权。
+
+另一个后续问题是猜想 $\sat(k)=\operatorname{A075529}(k)$，其中
+\texttt{A075529} 记录星型加法链终值的不同可能数目。该猜想目前标为
+\texttt{UNKNOWN}，本文既未证明也未证伪。前七项的数值吻合不构成通项公式的
+结构性证据；相关研究留待后续工作。
+
+\section*{可复现性与声明}
+
+\par\medskip\noindent\textbf{数据与代码可得性。}\quad
+本文为理论研究，不生成或分析经验数据。配套工件包包括证明、精确 blocker
+搜索、构造验证器、CNF 生成器、DRAT 证书与清单、Lean 源代码、测试及锁定的
+依赖。该工件包已按版本化 GitHub 发布和不可变 Zenodo 归档的要求整理；正式
+投稿前将在此补入公开发布地址和 DOI。
+
+\par\medskip\noindent\textbf{生成式 AI 与 AI 辅助技术声明。}\quad
+在准备本文期间，作者使用 OpenAI Codex 辅助文献检索式设计、证明与代码起草、
+验证编排和语言编辑。作者审阅并修改了所有生成内容，并对论文全部内容承担责任。
+数学主张依赖文中展示的论证、可独立重放的证书、直接验证器和 Lean 内核的接受，
+而不依赖模型输出。
+
+\par\medskip\noindent\textbf{资助。}\quad
+本研究未获得公共、商业或非营利部门资助机构的任何专项资助。
+
+\par\medskip\noindent\textbf{利益冲突声明。}\quad
+作者声明，不存在可能影响本文工作的已知竞争性经济利益或个人关系。
+
+\appendix
+
+\section{局部 blocker 参数的乘积不等式}
+\label{app:m24}
+
+\begin{proposition}
+\label{prop:m24-product}
+设 $\mathcal S,\mathcal C$ 是有限底集上的 mutual blockers，
+$\mathcal S$ 的每个成员大小至少为二，$\mathcal C$ 的每个成员大小至少为四。
+则
+\[
+  |\mathcal S||\mathcal C|\geq32.
+\]
+\end{proposition}
+
+\begin{proof}
+记 $a=|\mathcal S|$、$b=|\mathcal C|$。私有见证引理给出
+$a\geq4$ 与 $b\geq2$。下面证明六个下界：
+\[
+\begin{array}{c|c@{\qquad}c|c}
+b&a\text{ 的下界}&a&b\text{ 的下界}\\
+\hline
+2&16&4&16\\
+3&12&5&8\\
+4&8&6&6
+\end{array}
+\tag{2}
+\]
+
+若 $b=2$，$\mathcal C$ 的两个成员不交，逐边取点给出至少
+$4^2=16$ 个 blocker。若 $b=3$，使用\cref{thm:m23}证明中的六个 incidence
+类。式 (1) 仍成立，但行不等式变为
+$\alpha_i+\pi_j+\pi_k\geq4$。若某个 $\pi_i\geq3$，相关项至少贡献
+$3\cdot4=12$。否则令
+$0\leq\pi_1\leq\pi_2\leq\pi_3\leq2$，并把各 $\alpha_i$ 取到最小。
+十种情形依次给出
+\[
+  64,40,24,25,16,12,17,13,12,12,
+\]
+所以 $a\geq12$。若 $a=4$，$\mathcal S$ 的每个横截集大小至少为四。任意
+两行若相交，则该交点与其余两行各一点会构成至多三点的横截集。因此四行两两
+不交，逐行取点给出 $b\geq2^4=16$。
+
+下面证明 $b=4$ 的界。写
+$\mathcal C=\{C_1,C_2,C_3,C_4\}$，并取大小最小的成员 $E=C_1$，记
+$n=|E|\geq4$。对 $j=2,3,4$，令
+\[
+  O_j=E\setminus C_j,\qquad R_j=C_j\setminus E,\qquad
+  o_j=|O_j|,\quad q_j=|R_j|.
+\]
+Clutter 性说明所有 $O_j,R_j$ 非空；$E$ 的最小性给出 $q_j\geq o_j$；没有
+单点 blocker 给出 $O_2\cup O_3\cup O_4=E$。对 $x\in E$，定义
+\[
+  \mathcal J_x=\{R_j:x\in O_j\}.
+\]
+由私有见证，映射 $R\mapsto\{x\}\cup R$ 把
+$\blocker(\mathcal J_x)$ 双射到那些与 $E$ 的交为 $\{x\}$ 的
+$\blocker(\mathcal C)$ 成员。因此，若
+$w_x=\min_{j:x\in O_j}o_j$，则
+\[
+  |\blocker(\mathcal C)|\geq\sum_{x\in E}w_x.
+\tag{3}
+\]
+把每个 $x$ 分配给一个取到 $w_x$ 的下标，并记三个类大小为 $t_j$。由于
+$t_j\leq o_j$ 且 $\sum t_j=n$，有
+\[
+  \sum_{x\in E}w_x=\sum_{j=2}^4t_jo_j
+  \geq\sum_{j=2}^4t_j^2
+  \geq\left\lceil\frac{n^2}{3}\right\rceil.
+\tag{4}
+\]
+若 $n\geq5$，右端至少为九。以下设 $n=4$。式 (3) 的右端至少为六。若它
+等于七，四个非空迹
+$E,E\setminus O_2,E\setminus O_3,E\setminus O_4$ 有一个大小至少为二的
+极小横截集；它给出 singleton-intersection 类之外的另一个 blocker。若右端
+等于六，式 (4) 取等迫使三个 $O_j$ 按 $2,1,1$ 划分 $E$。两点块与两个单点
+块之间的四个 cross-pair，再加上两个单点组成的 pair，给出五个额外 blocker。
+所以所有情形都有 $|\blocker(\mathcal C)|\geq8$。
+
+若 $a=5$，$\mathcal S$ 的每个横截集大小至少为四。每个点至多属于两行。
+行交图的匹配数至多为一，否则两条不交边和第五行的一点会给出三点横截集。
+这种图只可能是空图、星或三角形，并允许添加孤立点。空图给出 $2^5$ 个 blocker。
+星中固定一个中心--叶交点，再从其他三条两两不交的行各取一点。三角形中固定
+一条边上的交点，再从第三条三角形行和各孤立行取点；incidence degree 至多为二，
+所以固定点仍有私有见证。两个非空情形都至少给出 $2^3=8$ 个 blocker。
+
+最后设 $a=6$。若一点属于三行，则其余三行两两不交；固定该点并从其余三行
+各取一点，得到至少八个 blocker。否则，按每个实际点属于一行或两行，把它编码
+为六个行标签上的 loop 或 edge；平行实际点保持区分。每个顶点的 incidence
+degree 至少为二，非 loop support 图的匹配数至多为二。
+
+若匹配数为零，loop choices 给出至少 $2^6$ 个极小 cover。若匹配数为一，
+nonloop support 由一个星形图或一个三角形及若干孤立顶点组成。星形情形中，固定一个
+center--leaf 实际点，再从其余四个顶点各取一个 incident point。这四个顶点间
+没有 nonloop support，所以所选点两两不同且各有 private vertex，至少得到
+$2^4$ 个 cover。三角形情形中，固定两条相邻边上的实际点；其余三个顶点在
+nonloop support 中孤立，且各有至少两个 loop choices，故至少得到 $2^3$ 个
+cover。
+
+以下设匹配数为二。固定两个不交 support $E_1,E_2$，其 multiplicity 为
+$m_1,m_2$；记未匹配顶点为 $u,v$。从每个 $E_i$ 取一个实际点，再分别取一个
+与 $u,v$ incident 的点，可得到
+\[
+  m_1m_2d(u)d(v)
+\]
+个不同的四点 cover。由于不存在三点横截集，它们都是极小的。除非
+$m_1=m_2=1$ 且 $d(u)=d(v)=2$，该数至少为六。
+
+在这个例外中，第二个实际二边匹配会产生至少四个同类 cover。两个生成族的交
+至多为二。若两个匹配不共享实际点，则共同 cover 只能是二者的四点并。若二者
+共享一个实际点，则余下两个 support 不可能不交；若它们交于一个顶点，第四点
+必须覆盖一个 degree 为二的固定未匹配顶点；若它们平行，则不存在共同的极小
+cover。因此两族的并至少含六个 cover。
+
+若固定匹配唯一，则 $u,v$ 的 incidence 都是 loop。令 $e_i$ 为 $E_i$ 上唯一的
+实际点。再写 $E_1=\{a,b\}$、$E_2=\{c,d\}$，并在 $a,b$ 处分别选取
+$r_a\neq e_1$、$r_b\neq e_1$。唯一性迫使 $r_a\neq r_b$，且二者的
+support 都位于四个已匹配顶点中，所以 $\{r_a,r_b,e_2\}$ 覆盖这四个顶点。
+从中取一个避开 $e_1$ 的包含极小子 cover $K$。把 $K$ 分别与 $u,v$ 处的两个
+loop choice 组合，得到四个避开 $e_1$ 的极小 cover；它们与原来包含 $e_1$
+的四个 cover 不交。因此 $b\geq6$。
+
+式 (2) 穷尽全部可能：
+\[
+\begin{array}{c|c}
+\text{情形}&ab\\
+\hline
+b=2&\geq32\\
+b=3&\geq36\\
+b=4&\geq32\\
+b\geq5,\ a=4&\geq64\\
+b\geq5,\ a=5&\geq40\\
+b\geq5,\ a=6&\geq36\\
+b\geq5,\ a\geq7&\geq35
+\end{array}
+\]
+命题得证。
+\end{proof}
+
+\section{分层前驱证书}
+\label{app:layering}
+
+在下表中，$B\leftarrow A$ 表示 $A$ 属于前一层且 $A\subsetneq B$。
+后缀 $H$ 表示与整个齐次块取并。
+
+\begin{description}[leftmargin=1.8em,style=nextline]
+\item[$\mathcal A_1\leftarrow\mathcal A_0$]
+$1\leftarrow\varnothing$;
+$2\leftarrow\varnothing$;
+$3\leftarrow\varnothing$;
+$6\leftarrow\varnothing$;
+$7\leftarrow\varnothing$;
+$458H\leftarrow\varnothing$.
+
+\item[$\mathcal A_2\leftarrow\mathcal A_1$]
+$24\leftarrow2$; $15\leftarrow1$; $35\leftarrow3$;
+$26\leftarrow2$; $47\leftarrow7$; $67\leftarrow6$;
+$18\leftarrow1$; $38\leftarrow3$; $1346H\leftarrow1$;
+$1237H\leftarrow1$; $4568H\leftarrow6$; $2578H\leftarrow2$.
+
+\item[$\mathcal A_3\leftarrow\mathcal A_2$]
+$124\leftarrow24$; $234\leftarrow24$; $145\leftarrow15$;
+$345\leftarrow35$; $156\leftarrow15$; $356\leftarrow35$;
+$267\leftarrow26$; $178\leftarrow18$; $378\leftarrow38$;
+$12357H\leftarrow15$; $13467H\leftarrow47$;
+$12358H\leftarrow15$; $12368H\leftarrow26$;
+$13468H\leftarrow18$; $24568H\leftarrow24$;
+$24578H\leftarrow24$; $45678H\leftarrow47$.
+
+\item[$\mathcal A_4\leftarrow\mathcal A_3$]
+$2345\leftarrow234$; $1247\leftarrow124$;
+$3568\leftarrow356$; $1678\leftarrow178$;
+$123567H\leftarrow156$; $134567H\leftarrow145$;
+$123468H\leftarrow124$; $124568H\leftarrow124$;
+$123578H\leftarrow178$; $134578H\leftarrow145$;
+$234678H\leftarrow234$; $245678H\leftarrow267$.
+
+\item[$\mathcal A_5\leftarrow\mathcal A_4$]
+$23457\leftarrow2345$; $1234568H\leftarrow2345$;
+$1234678H\leftarrow1247$; $1235678H\leftarrow3568$;
+$1245678H\leftarrow1247$; $1345678H\leftarrow3568$.
+
+\item[$\mathcal A_6\leftarrow\mathcal A_5$]
+$12345678H\leftarrow23457$.
+\end{description}
+
+{\small
+\bibliographystyle{plain}
+\bibliography{references}
+}
+
+\end{document}

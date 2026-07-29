@@ -1,0 +1,85 @@
+\begin{thebibliography}{8}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Misc
+\bibitem[{Charton et~al.(2024)Charton, Ellenberg, Wagner and
+  Williamson}]{patternboost}
+\bibinfo{author}{Charton, F.}, \bibinfo{author}{Ellenberg, J.S.},
+  \bibinfo{author}{Wagner, A.Z.}, \bibinfo{author}{Williamson, G.},
+  \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{{PatternBoost}: Constructions in mathematics with a
+  little help from {AI}}.
+\newblock \DOIprefix\doi{10.48550/arXiv.2411.00566},
+  \href{http://arxiv.org/abs/2411.00566}{\tt arXiv:2411.00566}.
+%Type = Article
+\bibitem[{Gerbner et~al.(2013)Gerbner, Keszegh, Lemons, Palmer,
+  P{\'a}lv{\"o}lgyi and Patk{\'o}s}]{gerbner2013}
+\bibinfo{author}{Gerbner, D.}, \bibinfo{author}{Keszegh, B.},
+  \bibinfo{author}{Lemons, N.}, \bibinfo{author}{Palmer, C.},
+  \bibinfo{author}{P{\'a}lv{\"o}lgyi, D.}, \bibinfo{author}{Patk{\'o}s, B.},
+  \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{Saturating {Sperner} families}.
+\newblock \bibinfo{journal}{Graphs and Combinatorics} \bibinfo{volume}{29},
+  \bibinfo{pages}{1355--1364}.
+\newblock \DOIprefix\doi{10.1007/s00373-012-1195-6}.
+%Type = Article
+\bibitem[{Martin and Veldt(2025)}]{martinveldt2025}
+\bibinfo{author}{Martin, R.R.}, \bibinfo{author}{Veldt, N.},
+  \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Saturation of {$k$}-chains in the {Boolean} lattice}.
+\newblock \bibinfo{journal}{The Electronic Journal of Combinatorics}
+  \bibinfo{volume}{32}, \bibinfo{pages}{P1.55}.
+\newblock \DOIprefix\doi{10.37236/12910}.
+%Type = Article
+\bibitem[{Morrison et~al.(2014)Morrison, Noel and Scott}]{mns2014}
+\bibinfo{author}{Morrison, N.}, \bibinfo{author}{Noel, J.A.},
+  \bibinfo{author}{Scott, A.}, \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{On saturated {$k$}-{Sperner} systems}.
+\newblock \bibinfo{journal}{The Electronic Journal of Combinatorics}
+  \bibinfo{volume}{21}, \bibinfo{pages}{P3.22}.
+\newblock \DOIprefix\doi{10.37236/4136}.
+%Type = Inproceedings
+\bibitem[{de~Moura and Ullrich(2021)}]{lean4}
+\bibinfo{author}{de~Moura, L.}, \bibinfo{author}{Ullrich, S.},
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{The {Lean} 4 theorem prover and programming
+  language}, in: \bibinfo{booktitle}{Automated Deduction---CADE-28},
+  \bibinfo{publisher}{Springer}. pp. \bibinfo{pages}{625--635}.
+\newblock \DOIprefix\doi{10.1007/978-3-030-79876-5_37}.
+%Type = Inproceedings
+\bibitem[{Sinz(2005)}]{sinz2005}
+\bibinfo{author}{Sinz, C.}, \bibinfo{year}{2005}.
+\newblock \bibinfo{title}{Towards an optimal {CNF} encoding of boolean
+  cardinality constraints}, in: \bibinfo{booktitle}{Principles and Practice of
+  Constraint Programming---CP 2005}, \bibinfo{publisher}{Springer}. pp.
+  \bibinfo{pages}{827--831}.
+\newblock \DOIprefix\doi{10.1007/11564751_73}.
+%Type = Inproceedings
+\bibitem[{{The mathlib Community}(2020)}]{mathlib2020}
+\bibinfo{author}{{The mathlib Community}}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{The {Lean} mathematical library}, in:
+  \bibinfo{booktitle}{Proceedings of the 9th ACM SIGPLAN International
+  Conference on Certified Programs and Proofs}, \bibinfo{publisher}{ACM}. pp.
+  \bibinfo{pages}{367--381}.
+\newblock \DOIprefix\doi{10.1145/3372885.3373824}.
+%Type = Inproceedings
+\bibitem[{Wetzler et~al.(2014)Wetzler, Heule and Hunt}]{wetzler2014}
+\bibinfo{author}{Wetzler, N.}, \bibinfo{author}{Heule, M.J.H.},
+  \bibinfo{author}{Hunt, Jr., W.A.}, \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{{DRAT}-trim: Efficient checking and trimming using
+  expressive clausal proofs}, in: \bibinfo{booktitle}{Theory and Applications
+  of Satisfiability Testing---SAT 2014}, \bibinfo{publisher}{Springer}. pp.
+  \bibinfo{pages}{422--429}.
+\newblock \DOIprefix\doi{10.1007/978-3-319-09284-3_31}.
+
+\end{thebibliography}

@@ -1,0 +1,106 @@
+{
+  "schema": "ai-math-lab.p0054.layered-sat7-calibration.v1",
+  "generated_at_utc": "2026-07-22T01:57:58.186577+00:00",
+  "epistemic_label": "COMPUTED",
+  "warning": "UNSAT without an external proof certificate is not a mathematical theorem.",
+  "semantic": {
+    "search_class": {
+      "layer_count": 7,
+      "member_templates": "A or A union H over a finite core C",
+      "requirements": [
+        "each layer is a saturated antichain",
+        "layers are pairwise disjoint",
+        "every member above layer 0 strictly contains a member of the preceding layer"
+      ],
+      "forbidden_assumptions": [
+        "complement symmetry",
+        "fixed layer sizes",
+        "one-deletion neighborhood"
+      ]
+    },
+    "target_size": 55,
+    "runs": [
+      {
+        "core_size": 4,
+        "target_size": 55,
+        "timeout_ms": 30000,
+        "variable_count": 224,
+        "assertion_count": 2038,
+        "runtime_seconds": 0.10781249997671694,
+        "solver_result": "UNSAT",
+        "epistemic_label": "COMPUTED",
+        "proof_status": "NO_EXTERNAL_CERTIFICATE_NOT_A_THEOREM"
+      },
+      {
+        "core_size": 5,
+        "target_size": 55,
+        "timeout_ms": 30000,
+        "variable_count": 448,
+        "assertion_count": 5776,
+        "runtime_seconds": 0.325213500065729,
+        "solver_result": "UNSAT",
+        "epistemic_label": "COMPUTED",
+        "proof_status": "NO_EXTERNAL_CERTIFICATE_NOT_A_THEOREM"
+      },
+      {
+        "core_size": 6,
+        "target_size": 55,
+        "timeout_ms": 30000,
+        "variable_count": 896,
+        "assertion_count": 16654,
+        "runtime_seconds": 30.943682832992636,
+        "solver_result": "UNKNOWN",
+        "epistemic_label": "COMPUTED",
+        "reason_unknown": "timeout"
+      },
+      {
+        "core_size": 7,
+        "target_size": 55,
+        "timeout_ms": 30000,
+        "variable_count": 1792,
+        "assertion_count": 48616,
+        "runtime_seconds": 32.867464833077975,
+        "solver_result": "UNKNOWN",
+        "epistemic_label": "COMPUTED",
+        "reason_unknown": "timeout"
+      }
+    ],
+    "known_56_control": {
+      "candidate_sha256": "cda84397557703d4270f09815122aaa9917e026e7614e0797ab0a3b8d708d5d8",
+      "signature_verifier": {
+        "valid": true,
+        "verifier": "signature_model",
+        "core_size": 7,
+        "family_size": 56,
+        "layer_sizes": [
+          1,
+          6,
+          14,
+          14,
+          14,
+          6,
+          1
+        ],
+        "signatures_checked": 2688
+      },
+      "expanded_verifier": {
+        "valid": true,
+        "verifier": "expanded_ground",
+        "atom_size": 3,
+        "ground_size": 10,
+        "family_size": 56,
+        "layer_sizes": [
+          1,
+          6,
+          14,
+          14,
+          14,
+          6,
+          1
+        ],
+        "external_sets_checked": 7112
+      }
+    }
+  },
+  "semantic_sha256": "4e35053640593ff44ec0d772c523f708ea852e378fb86cb215da097f37ed5850"
+}

@@ -1,0 +1,31 @@
+{
+  "cpp_source_sha256": "2328e48a82d298c03f2d8ed589505927170721fa2da6ad921626d660b2c99eca",
+  "epistemic_label": "COMPUTED",
+  "independent_replay_match": true,
+  "python_source_sha256": "1f3d8bb0100f97627bbd30fd65ec474f6183c7b4ed6c90b89ded3045b2819916",
+  "reference_path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-six-ten-results.txt",
+  "reference_sha256": "746ebb9670695bfcd0c6822b6cf48dba2c100788a7dcd35c12e33623760ae2eb",
+  "schema": "p0054.g4.12.middle-six-ten-verification.v1",
+  "summary": {
+    "active_masks_checked": 16383,
+    "blockers_5_pairs_5": 6,
+    "blockers_6_pairs_5": 12,
+    "blockers_6_pairs_6": 77,
+    "class_1": "1:1,2:1,4:1,11:1,13:1,14:1,",
+    "class_2": "1:1,2:1,5:1,10:1,13:1,14:1,",
+    "class_3": "1:1,3:1,5:1,10:1,12:1,14:1,",
+    "class_4": "1:1,6:1,11:1,13:1,14:1,",
+    "class_5": "3:1,5:1,10:1,13:1,14:1,",
+    "class_6": "3:1,5:1,7:1,10:1,12:2,",
+    "class_7": "3:1,5:2,10:2,12:1,",
+    "class_8": "3:1,5:2,10:2,12:2,",
+    "class_9": "7:1,11:1,13:1,14:1,",
+    "compatible_extensions": 0,
+    "minimal_support_covers": 48,
+    "multiplicity_vectors": 95,
+    "row_permutation_classes": 9,
+    "schema": "p0054.g4.12.middle-six-ten.v1",
+    "support_feasible_masks": 1064,
+    "supports": 14
+  }
+}

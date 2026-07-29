@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-07-23T02:02:08Z",
+  "created_at_local": "2026-07-22T19:02:08-0700",
+  "gate": "P0054_G4_3_EIGHT_MEMBER_LAYER_EXCLUSION",
+  "role": "COMPAT_ISOLATED_OFFLINE_EXPERIMENTALIST",
+  "epistemic_label": "COMPUTED",
+  "network": "OFFLINE",
+  "formalizer": "FORBIDDEN_NOT_USED",
+  "random_seed": "NONE_DETERMINISTIC_EXHAUSTIVE_ENUMERATION",
+  "command": "UV_OFFLINE=1 uv run --offline python Problems/P0054/experiments/g4.3-stronger-lower/search.py --totals 8 9 10",
+  "replay_command": "UV_OFFLINE=1 uv run --offline python Problems/P0054/experiments/g4.3-stronger-lower/search.py --totals 8 9 10 --verify-results Problems/P0054/experiments/g4.3-stronger-lower/results.json >/dev/null",
+  "replay_status": "STRUCTURAL_REPLAY_MATCH_COMPUTED",
+  "environment": {
+    "python": "3.12.13",
+    "uv": "0.11.29 (Homebrew 2026-07-15 aarch64-apple-darwin)",
+    "platform": "macOS-27.0-arm64-arm-64bit"
+  },
+  "coverage": {
+    "totals": [8, 9, 10],
+    "splits": [[6, 2], [5, 3], [4, 4], [7, 2], [6, 3], [5, 4], [4, 5], [8, 2], [7, 3], [6, 4], [5, 5], [4, 6]],
+    "statuses": {
+      "8": "UNSAT_COMPUTED",
+      "9": "UNSAT_COMPUTED",
+      "10": "UNSAT_COMPUTED"
+    },
+    "witness_count": 0,
+    "boundary": "arbitrary finite U reduced to bounded nonzero incidence-pattern multiplicities using private-witness row-size bounds; only exact totals 8, 9, 10",
+    "extrapolation": "FORBIDDEN_NONE_MADE"
+  },
+  "semantic_validation": {
+    "direct_powerset": "PASS_COMPUTED",
+    "edge_choice_union_minimization": "PASS_COMPUTED",
+    "clutters_checked_on_ground_sizes_0_through_4": 199,
+    "incidence_formula_cases_checked": 194,
+    "empty_boundaries_checked": true
+  },
+  "resources": {
+    "max_completed_case_seconds": 26.922554458025843,
+    "recorded_complete_run_seconds": 31.061589249991812,
+    "per_solver_limit_seconds": 3600,
+    "solver_used": "NONE_STDLIB_EXACT_ENUMERATION",
+    "generated_temporary_files": [],
+    "artifact_bytes_before_manifest": 35199,
+    "temporary_disk_limit_bytes": 20000000000,
+    "old_size54_cnf_used": false
+  },
+  "frozen_inputs": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 3848,
+      "sha256": "5ec4fe8a019a5c52efe2a382989d58782abfc6242240f77f9a0f5f8a7a39f4c1"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.3-stronger-lower/section0-freeze.md",
+      "bytes": 7735,
+      "sha256": "759e7b6a2bbad8853f2baa7424c8b19ac06e6ecaf07b3c3758a30d57a9a99aaf"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.3-stronger-lower/frozen-subproblem.md",
+      "bytes": 2617,
+      "sha256": "cc64e1e376196355b68266abcfdf228d38836b6fc05c170204397efc67a8ddaa"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "Problems/P0054/experiments/g4.3-stronger-lower/search.py",
+      "bytes": 20355,
+      "sha256": "ce1026519f6e9f7b3a90da6bd0ea7e1eb7fc6d6b0f7db2cadda05262488b7ec0"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.3-stronger-lower/results.json",
+      "bytes": 7906,
+      "sha256": "315a9daea8ab4c1f28e03fdc8d17c1478bdb1ac0a1a28b4ec5fe7bf65b51d095"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.3-stronger-lower/report.md",
+      "bytes": 6938,
+      "sha256": "93084dec2231b05d33fe4d66e585a809261961a0b6a9d10006796f42cfc387fb"
+    }
+  ]
+}

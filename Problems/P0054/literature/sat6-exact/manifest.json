@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "search_date": "2026-07-26",
+  "verdict": "NO_PUBLIC_EQUIVALENT_FOUND_IN_RECORDED_SCOPE",
+  "sources": [
+    {
+      "doi": "10.37236/4136",
+      "file_sha256": "c85aaa9e717de586f0f166d39a6cb64d0a514ab2dc60a62fab1911c127110581",
+      "file_size_bytes": 346912,
+      "role": "UPPER_BOUND_AND_CANONICAL_FRAMEWORK"
+    },
+    {
+      "doi": "10.37236/12910",
+      "file_sha256": "e5183031a356080e053ead0766373b4f62eed130e3020b72003617030d670cf2",
+      "file_size_bytes": 308469,
+      "role": "CANONICAL_LAYER_BOUNDS_AND_CURRENT_COMPARISON"
+    }
+  ],
+  "searched_indexes": [
+    "Crossref",
+    "OpenAlex",
+    "arXiv"
+  ],
+  "novelty_claim_allowed": false
+}

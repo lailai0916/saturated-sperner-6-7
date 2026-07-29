@@ -1,0 +1,79 @@
+# 饱和 6-与 7-Sperner 数的精确值
+
+本仓库收录 Jiazhi Chen 论文《The exact saturated 6- and 7-Sperner numbers》
+的数学证明、Lean 4 形式化和可复现工件。
+
+对固定正整数 `k`，令 `sat(k)` 表示充分大布尔格中饱和 `k`-Sperner 族的
+最终稳定最小大小。本文证明
+
+\[
+\operatorname{sat}(6)=30,
+\qquad
+\operatorname{sat}(7)=55.
+\]
+
+Lean 中对应的最终定理为：
+
+```lean
+AiMathLab.P0054.Sat6StableExact.sat_six_eq_thirty
+  : IsStableSaturationNumber 6 30
+AiMathLab.P0054.Sat7StableExact.sat_seven_eq_fifty_five
+  : IsStableSaturationNumber 7 55
+```
+
+`IsStableSaturationNumber k s` 的含义是：存在阈值 `N`，使每个 `n ≥ N`
+上都有大小为 `s` 的饱和 `k`-Sperner 族，且任意这样的族至少有 `s` 个
+成员。这是带全局量词的命题，并不是对名为 `sat` 的 Lean 数值函数求值。
+
+## 证据分级
+
+仓库严格区分三类证据：
+
+- **PROVED**：正文或证明笔记中给出了数学证明；
+- **COMPUTED**：有限计算或求解器结果只在记录的范围内成立；
+- **FORMALIZED**：Lean 在报告的公理依赖下接受相应定理。
+
+上述两个精确稳定值同时属于 **PROVED** 和 **FORMALIZED**。发现阶段的搜索、
+超时和历史计算仍按 **COMPUTED** 或 **UNKNOWN** 标注，不能替代证明。最终文献
+检索只说明在已记录范围内没有发现公开等价结果，不构成绝对的创新性或优先权声明。
+
+## 复现验证
+
+需要 Python 3.12、[uv](https://docs.astral.sh/uv/) 和由
+[elan](https://github.com/leanprover/elan) 管理的 Lean。锁定版本为 Lean
+`v4.33.0-rc1` 与 mathlib `v4.33.0-rc1`。
+
+```bash
+uv sync --locked --python 3.12
+uv run ruff check .
+uv run mypy
+uv run pytest
+lake build AiMathLab AiMathLab.P0054Sat7StableExact
+lake env lean Problems/P0054/formal/Main.lean
+```
+
+独立入口会打印两个最终定理的公理依赖；预期恰为 `propext`、
+`Classical.choice` 和 `Quot.sound`。Lean 源码不含 `sorry`、`admit`、
+`axiom`、`unsafe`、`native_decide` 或 `run_tac`。
+
+严格 mypy 门覆盖人工维护的验证器和测试层。机械式 Lean 代码生成器由确定性
+重放、生成结果比对、Python 测试和最终 Lean 内核构建检查；仓库不会把它们误写成
+已经完成全量类型标注。
+
+## 目录与归档
+
+- `AiMathLab/`：Lean 定义、证书、归约与最终定理；
+- `Problems/P0054/formal/`：独立入口、陈述对照表和形式化报告；
+- `Problems/P0054/paper/`：论文与投稿材料；
+- `Problems/P0054/proof/`：自然语言证明过程与审计；
+- `Problems/P0054/experiments/`：精确搜索输入、输出和紧凑证书；
+- `scripts/`、`tests/`：生成器、语义验证器和回归测试。
+
+超过 GitHub 普通文件上限的 DRAT 轨迹不进入源码 Git 历史。包含九组 CNF/DRAT
+文件的完整冻结包随 `v1.0.0` 发布，并附 SHA-256 校验文件，同时镜像到 Zenodo。
+完整性边界见 [`artifacts/README.md`](artifacts/README.md)。
+纯源码克隆中有五项逐字节归档测试会明确显示为跳过；将归档文件放回对应路径后，
+设置 `P0054_REQUIRE_ARCHIVE_ARTIFACTS=1`，任何缺失文件都会成为硬失败。
+
+引用信息见 [`CITATION.cff`](CITATION.cff)，代码与形式化源码采用 Apache-2.0
+许可证。

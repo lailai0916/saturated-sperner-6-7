@@ -1,0 +1,299 @@
+{
+  "schema": "ai-math-lab.p0054.cnf-certificate.v1",
+  "generated_at_utc": "2026-07-22T02:48:30.641960+00:00",
+  "epistemic_label": "COMPUTED",
+  "core_size": 8,
+  "target_size": 55,
+  "solver_kind": "cadical",
+  "solver": "external cadical solver 3.0.1",
+  "solver_command": [
+    "/tmp/ai-math-lab-cadical/build/cadical",
+    "-t",
+    "300",
+    "Problems/P0054/experiments/certificates/core-8-target-55-selfcontained.cnf",
+    "Problems/P0054/experiments/certificates/core-8-target-55-selfcontained-cadical.drat"
+  ],
+  "solver_binary_sha256": "7a695f3c3bd2fd8c8122dcf14d4ab1f6f2657ac82a4c6d773fc07276d0b88937",
+  "solver_result": "SAT",
+  "runtime_seconds": 134.0272347080754,
+  "primary_variable_count": 3584,
+  "auxiliary_variable_count": 197065,
+  "clause_count": 551001,
+  "cnf_path": "Problems/P0054/experiments/certificates/core-8-target-55-selfcontained.cnf",
+  "cnf_sha256": "74327a2822168ec19c1b1b2cfe25a9d237b12376f4d077e0e12ad4511a585b33",
+  "reduction_status": "HUMAN_PROOF_IN_PROOF_MODEL_REDUCTION_MD",
+  "candidate": {
+    "core_size": 8,
+    "total_size": 55,
+    "layers": [
+      [
+        {
+          "core_mask": 0,
+          "uses_atom": false
+        }
+      ],
+      [
+        {
+          "core_mask": 1,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 2,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 4,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 32,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 64,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 152,
+          "uses_atom": true
+        }
+      ],
+      [
+        {
+          "core_mask": 10,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 17,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 20,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 34,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 72,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 96,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 129,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 132,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 45,
+          "uses_atom": true
+        },
+        {
+          "core_mask": 71,
+          "uses_atom": true
+        },
+        {
+          "core_mask": 184,
+          "uses_atom": true
+        },
+        {
+          "core_mask": 210,
+          "uses_atom": true
+        }
+      ],
+      [
+        {
+          "core_mask": 11,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 14,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 25,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 28,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 49,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 52,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 98,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 193,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 196,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 87,
+          "uses_atom": true
+        },
+        {
+          "core_mask": 109,
+          "uses_atom": true
+        },
+        {
+          "core_mask": 151,
+          "uses_atom": true
+        },
+        {
+          "core_mask": 167,
+          "uses_atom": true
+        },
+        {
+          "core_mask": 173,
+          "uses_atom": true
+        },
+        {
+          "core_mask": 186,
+          "uses_atom": true
+        },
+        {
+          "core_mask": 218,
+          "uses_atom": true
+        },
+        {
+          "core_mask": 248,
+          "uses_atom": true
+        }
+      ],
+      [
+        {
+          "core_mask": 30,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 75,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 180,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 225,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 119,
+          "uses_atom": true
+        },
+        {
+          "core_mask": 125,
+          "uses_atom": true
+        },
+        {
+          "core_mask": 175,
+          "uses_atom": true
+        },
+        {
+          "core_mask": 187,
+          "uses_atom": true
+        },
+        {
+          "core_mask": 215,
+          "uses_atom": true
+        },
+        {
+          "core_mask": 221,
+          "uses_atom": true
+        },
+        {
+          "core_mask": 238,
+          "uses_atom": true
+        },
+        {
+          "core_mask": 250,
+          "uses_atom": true
+        }
+      ],
+      [
+        {
+          "core_mask": 94,
+          "uses_atom": false
+        },
+        {
+          "core_mask": 191,
+          "uses_atom": true
+        },
+        {
+          "core_mask": 239,
+          "uses_atom": true
+        },
+        {
+          "core_mask": 247,
+          "uses_atom": true
+        },
+        {
+          "core_mask": 251,
+          "uses_atom": true
+        },
+        {
+          "core_mask": 253,
+          "uses_atom": true
+        }
+      ],
+      [
+        {
+          "core_mask": 255,
+          "uses_atom": true
+        }
+      ]
+    ]
+  },
+  "candidate_sha256": "55d0a1e19a024efb944fc9a00ea466bdd6d5b11383f1bd86c1f772d8fb92acac",
+  "signature_verifier": {
+    "valid": true,
+    "verifier": "signature_model",
+    "core_size": 8,
+    "family_size": 55,
+    "layer_sizes": [
+      1,
+      6,
+      12,
+      17,
+      12,
+      6,
+      1
+    ],
+    "signatures_checked": 5376
+  },
+  "expanded_verifier": {
+    "valid": true,
+    "verifier": "expanded_ground",
+    "atom_size": 3,
+    "ground_size": 11,
+    "family_size": 55,
+    "layer_sizes": [
+      1,
+      6,
+      12,
+      17,
+      12,
+      6,
+      1
+    ],
+    "external_sets_checked": 14281
+  }
+}

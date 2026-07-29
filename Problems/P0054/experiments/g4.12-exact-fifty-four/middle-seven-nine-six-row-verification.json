@@ -1,0 +1,20 @@
+{
+  "epistemic_label": "COMPUTED",
+  "labelled_couplings": 90898,
+  "marginal_labelled_solutions": 19,
+  "marginal_row_permutation_classes": 6,
+  "minimum_pair_blockers": 4,
+  "pair_blocker_histogram": {
+    "4": 22485,
+    "5": 38832,
+    "6": 23313,
+    "7": 5614,
+    "8": 634,
+    "9": 20
+  },
+  "python_source_sha256": "240efb144827e397389bbb8a8c58ec1bc64899ff8c79de73871ef9e9854dc929",
+  "reference_match": true,
+  "reference_path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-seven-nine-six-row-results.txt",
+  "reference_sha256": "77187cf1618500b0c428c1440034bee5e6fc86036de039de2038358154163aab",
+  "schema": "p0054.g4.12.middle-seven-nine-six-row-verification.v1"
+}

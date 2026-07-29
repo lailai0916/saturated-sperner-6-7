@@ -1,0 +1,5 @@
+The eventual saturated 6-Sperner number is 30.
+The eventual saturated 7-Sperner number is 55.
+Arbitrary-finite blocker bounds yield the global lower bounds.
+A 55-set construction improves the composition split from 28/28 to 28/27.
+Lean 4 formalizes both eventual exact saturation numbers.

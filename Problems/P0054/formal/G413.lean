@@ -1,0 +1,65 @@
+import AiMathLab.P0054G413
+
+#check AiMathLab.P0054.G413.blocker_involution
+#check AiMathLab.P0054.G413.blocker_residual
+#check AiMathLab.P0054.G413.blocker_avoidPoint
+#check AiMathLab.P0054.G413.blocker_pairFamily
+#check AiMathLab.P0054.G413.threeRow_blocker_eq_three_rows_are_pairs
+#check AiMathLab.P0054.G413.threeRow_blocker_card_ge_eight_of_rows_cardAtLeast_three
+#check AiMathLab.P0054.G413.fourLargeRows_blocker_card_ge_nine
+#check AiMathLab.P0054.G413.fourRow_pair_residual_bound
+#check AiMathLab.P0054.G413.fourRow_residual_bound
+#check AiMathLab.P0054.G413.fiveRow_pair_residual_bound
+#check AiMathLab.P0054.G413.fiveRow_large_residual_bound
+#check AiMathLab.P0054.G413.fiveRow_residual_bound
+#check AiMathLab.P0054.G413.fiveRow_residual_bound_of_large_case
+#check AiMathLab.P0054.G413.residualLemma2
+#check AiMathLab.P0054.G413.residualLemma2_of_four_and_five_row_cases
+#check AiMathLab.P0054.G413.residualLemma2_of_four_pair_and_five_row_cases
+#check AiMathLab.P0054.G413.residualLemma2_of_five_row_case
+#check AiMathLab.P0054.G413.residualLemma2_of_five_large_row_case
+#check AiMathLab.P0054.G413.triangle_blocker_not_maxDegreeThree
+#check AiMathLab.P0054.G413.star_branch_impossible_of_residualLemma2
+#check AiMathLab.P0054.G413.star_branch_impossible
+#check AiMathLab.P0054.G413.p4_pairGraph_impossible
+#check AiMathLab.P0054.G413.p3k2_pairGraph_impossible
+#check AiMathLab.P0054.G413.threeK2_pairGraph_impossible
+#check AiMathLab.P0054.G413.fiveRow_eight_blocker_impossible
+#check AiMathLab.P0054.G413.kernelCompletion_blocker_maxDegree
+#check AiMathLab.P0054.G413.no_kernel_completion_of_locked_dependencies
+#check AiMathLab.P0054.G413.no_kernel_completion_of_four_five_endpoint_eight
+#check AiMathLab.P0054.G413.no_kernel_completion_of_four_pair_five_endpoint_eight
+#check AiMathLab.P0054.G413.no_kernel_completion_of_five_endpoint_eight
+#check AiMathLab.P0054.G413.no_kernel_completion_of_five_large_endpoint_eight
+#check AiMathLab.P0054.G413.no_kernel_completion_of_endpoint_eight
+#check AiMathLab.P0054.G413.no_kernel_completion_of_eight
+
+#print axioms AiMathLab.P0054.G413.blocker_involution
+#print axioms AiMathLab.P0054.G413.blocker_residual
+#print axioms AiMathLab.P0054.G413.blocker_pairFamily
+#print axioms AiMathLab.P0054.G413.threeRow_blocker_eq_three_rows_are_pairs
+#print axioms AiMathLab.P0054.G413.threeRow_blocker_card_ge_eight_of_rows_cardAtLeast_three
+#print axioms AiMathLab.P0054.G413.fourLargeRows_blocker_card_ge_nine
+#print axioms AiMathLab.P0054.G413.fourRow_pair_residual_bound
+#print axioms AiMathLab.P0054.G413.fourRow_residual_bound
+#print axioms AiMathLab.P0054.G413.fiveRow_pair_residual_bound
+#print axioms AiMathLab.P0054.G413.fiveRow_large_residual_bound
+#print axioms AiMathLab.P0054.G413.fiveRow_residual_bound
+#print axioms AiMathLab.P0054.G413.fiveRow_residual_bound_of_large_case
+#print axioms AiMathLab.P0054.G413.residualLemma2
+#print axioms AiMathLab.P0054.G413.residualLemma2_of_four_and_five_row_cases
+#print axioms AiMathLab.P0054.G413.residualLemma2_of_four_pair_and_five_row_cases
+#print axioms AiMathLab.P0054.G413.residualLemma2_of_five_row_case
+#print axioms AiMathLab.P0054.G413.residualLemma2_of_five_large_row_case
+#print axioms AiMathLab.P0054.G413.triangle_blocker_not_maxDegreeThree
+#print axioms AiMathLab.P0054.G413.p4_pairGraph_impossible
+#print axioms AiMathLab.P0054.G413.p3k2_pairGraph_impossible
+#print axioms AiMathLab.P0054.G413.threeK2_pairGraph_impossible
+#print axioms AiMathLab.P0054.G413.fiveRow_eight_blocker_impossible
+#print axioms AiMathLab.P0054.G413.no_kernel_completion_of_locked_dependencies
+#print axioms AiMathLab.P0054.G413.no_kernel_completion_of_four_five_endpoint_eight
+#print axioms AiMathLab.P0054.G413.no_kernel_completion_of_four_pair_five_endpoint_eight
+#print axioms AiMathLab.P0054.G413.no_kernel_completion_of_five_endpoint_eight
+#print axioms AiMathLab.P0054.G413.no_kernel_completion_of_five_large_endpoint_eight
+#print axioms AiMathLab.P0054.G413.no_kernel_completion_of_endpoint_eight
+#print axioms AiMathLab.P0054.G413.no_kernel_completion_of_eight

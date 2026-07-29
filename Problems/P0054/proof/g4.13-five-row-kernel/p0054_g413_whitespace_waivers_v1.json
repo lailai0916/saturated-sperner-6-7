@@ -1,0 +1,132 @@
+{
+  "schema": "ai-math-lab.p0054.g413.candidate-whitespace-waivers.v1",
+  "generated_at_utc": "2026-07-26T00:57:21Z",
+  "run_mode": "G413_CANDIDATE_DIFF_VALIDATION",
+  "gate": "P0054_G4_13_FORMALIZATION_CANDIDATE_DIFF",
+  "head": "58f005e2f0bde9103acd15d37a6a22ce16308ad9",
+  "git_version": "2.55.0",
+  "check_command": "git diff --cached --check",
+  "observed_output_sha256": "8f171675c02739776f11eae0e961d747ab4e85ccdfd1c72802211800a3195b4e",
+  "observed_exit_code": 2,
+  "match_policy": {
+    "mode": "EXACT_SET_EQUALITY",
+    "match_fields": [
+      "path",
+      "line",
+      "git_diagnostic",
+      "current_sha256"
+    ],
+    "allow_only_protected_g413_sources": true,
+    "unexpected_warning_verdict": "BLOCKED_UNEXPECTED_STAGED_DIFF",
+    "waiver_disposition": "Retain each protected G4.13 source blob byte-for-byte; do not edit mathematical or Referee content to silence Git."
+  },
+  "warning_count": 10,
+  "waiver_count": 10,
+  "warning_type_totals": {
+    "NEW_BLANK_LINE_AT_EOF": 10
+  },
+  "file_count": 10,
+  "coverage": "EXACT",
+  "waivers": [
+    {
+      "id": "P0054-G413-WS-001",
+      "path": "Problems/P0054/proof/g4.13-five-row-kernel/p0054_g413_3k2_remaining_graphs_referee_v1.md",
+      "line": 86,
+      "warning_type": "NEW_BLANK_LINE_AT_EOF",
+      "git_diagnostic": "new blank line at EOF.",
+      "current_sha256": "735a0f433a83c38b12ea0fe92081f7db98c83c31a41d2686bb890fadd106242c",
+      "protected_file": true,
+      "disposition": "WAIVED_EXACT_BLOB_NO_EDIT"
+    },
+    {
+      "id": "P0054-G413-WS-002",
+      "path": "Problems/P0054/proof/g4.13-five-row-kernel/p0054_g413_adversarial_referee_v1.md",
+      "line": 121,
+      "warning_type": "NEW_BLANK_LINE_AT_EOF",
+      "git_diagnostic": "new blank line at EOF.",
+      "current_sha256": "4a6ffe01b48ad7749436c828a82dab2906921e19074e93e8a5a6f9a6e5134711",
+      "protected_file": true,
+      "disposition": "WAIVED_EXACT_BLOB_NO_EDIT"
+    },
+    {
+      "id": "P0054-G413-WS-003",
+      "path": "Problems/P0054/proof/g4.13-five-row-kernel/p0054_g413_dependency_manifest_v1.md",
+      "line": 131,
+      "warning_type": "NEW_BLANK_LINE_AT_EOF",
+      "git_diagnostic": "new blank line at EOF.",
+      "current_sha256": "65f795cd20b5277d564593f29bdca76557994963cf5744b99bb5ce7623def2b0",
+      "protected_file": true,
+      "disposition": "WAIVED_EXACT_BLOB_NO_EDIT"
+    },
+    {
+      "id": "P0054-G413-WS-004",
+      "path": "Problems/P0054/proof/g4.13-five-row-kernel/p0054_g413_five_row_pair_referee_audit_v1.md",
+      "line": 153,
+      "warning_type": "NEW_BLANK_LINE_AT_EOF",
+      "git_diagnostic": "new blank line at EOF.",
+      "current_sha256": "79b4f058214a6c7972715c2f48e804159538e7082822288e695ed00b8fd53a6f",
+      "protected_file": true,
+      "disposition": "WAIVED_EXACT_BLOB_NO_EDIT"
+    },
+    {
+      "id": "P0054-G413-WS-005",
+      "path": "Problems/P0054/proof/g4.13-five-row-kernel/p0054_g413_lean_plan_and_gate_v1.md",
+      "line": 136,
+      "warning_type": "NEW_BLANK_LINE_AT_EOF",
+      "git_diagnostic": "new blank line at EOF.",
+      "current_sha256": "6e7151aeeaf89d449f02d06642ced303e29c80d5941d89894f5f9b592e0b08bb",
+      "protected_file": true,
+      "disposition": "WAIVED_EXACT_BLOB_NO_EDIT"
+    },
+    {
+      "id": "P0054-G413-WS-006",
+      "path": "Problems/P0054/proof/g4.13-five-row-kernel/p0054_g413_master_proof_v1.md",
+      "line": 187,
+      "warning_type": "NEW_BLANK_LINE_AT_EOF",
+      "git_diagnostic": "new blank line at EOF.",
+      "current_sha256": "d2f755fd6c14f271ac067d81ed73086693b960f19abb58f7fafa6a2ba819a77b",
+      "protected_file": true,
+      "disposition": "WAIVED_EXACT_BLOB_NO_EDIT"
+    },
+    {
+      "id": "P0054-G413-WS-007",
+      "path": "Problems/P0054/proof/g4.13-five-row-kernel/p0054_g413_p3k2_projection_orbit_audit_v1.md",
+      "line": 185,
+      "warning_type": "NEW_BLANK_LINE_AT_EOF",
+      "git_diagnostic": "new blank line at EOF.",
+      "current_sha256": "4673ecdce8bc9f986048786161d552fd05aabd292265c25916fbe4fdf7f095ff",
+      "protected_file": true,
+      "disposition": "WAIVED_EXACT_BLOB_NO_EDIT"
+    },
+    {
+      "id": "P0054-G413-WS-008",
+      "path": "Problems/P0054/proof/g4.13-five-row-kernel/p0054_g413_p3k2_referee_closure_v1.md",
+      "line": 103,
+      "warning_type": "NEW_BLANK_LINE_AT_EOF",
+      "git_diagnostic": "new blank line at EOF.",
+      "current_sha256": "01fececf1f4de64272bc157c3a4228918dbf24d358f0ec5e155736f998b00d2a",
+      "protected_file": true,
+      "disposition": "WAIVED_EXACT_BLOB_NO_EDIT"
+    },
+    {
+      "id": "P0054-G413-WS-009",
+      "path": "Problems/P0054/proof/g4.13-five-row-kernel/p0054_g413_p4_referee_closure_v2.md",
+      "line": 79,
+      "warning_type": "NEW_BLANK_LINE_AT_EOF",
+      "git_diagnostic": "new blank line at EOF.",
+      "current_sha256": "5249bb3f8bce3629be84d687ccf7fc9f9d54856b9711fb8051882cb608101cdf",
+      "protected_file": true,
+      "disposition": "WAIVED_EXACT_BLOB_NO_EDIT"
+    },
+    {
+      "id": "P0054-G413-WS-010",
+      "path": "Problems/P0054/proof/g4.13-five-row-kernel/p0054_g413_pair_endpoint_referee_audit_v1.md",
+      "line": 124,
+      "warning_type": "NEW_BLANK_LINE_AT_EOF",
+      "git_diagnostic": "new blank line at EOF.",
+      "current_sha256": "2aebcce7a562b5ddb3793f20e533cf552428ac260de323945b73395e0339bfed",
+      "protected_file": true,
+      "disposition": "WAIVED_EXACT_BLOB_NO_EDIT"
+    }
+  ]
+}

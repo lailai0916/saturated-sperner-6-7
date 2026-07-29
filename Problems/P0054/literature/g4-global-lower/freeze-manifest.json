@@ -1,0 +1,66 @@
+{
+  "schema": "ai-math-lab.p0054.g4-literature-freeze.v1",
+  "generated_at": "2026-07-22T08:55:25-07:00",
+  "run_mode": "GLOBAL_LOWER_BOUND_DISCOVERY",
+  "current_gate": "P0054_G4_GLOBAL_LOWER_BOUND_FOR_sat7",
+  "search_cutoff": "2026-07-22T08:55:25-07:00",
+  "scout_count": 2,
+  "scouts_isolated": true,
+  "main_agent_primary_source_recheck": true,
+  "network_after_freeze": "FORBIDDEN_FOR_MAIN_PROVERS_EXPERIMENTALIST_REFEREES",
+  "negative_search_classification": "NO_PUBLIC_EQUIVALENT_FOUND_IN_RECORDED_SCOPE",
+  "status_classification": "STATUS_UNVERIFIED",
+  "strongest_checked_published_global_bound": "sat(7)>=10",
+  "candidate_bound": "sat(7)>=37",
+  "candidate_epistemic_label_at_freeze": "CONJECTURED",
+  "source_text_mismatches": [
+    {
+      "id": "SOURCE_TEXT_MISMATCH_HOMOGENEOUS_THRESHOLD",
+      "binding_vor_text": "homogeneous atom has cardinality at least 2",
+      "older_local_text": "homogeneous atom has cardinality greater than 2",
+      "resolution": "use the VOR threshold in G4; preserve older files unchanged"
+    }
+  ],
+  "files": [
+    {
+      "path": "Problems/P0054/literature/g4-global-lower/literature-pack.md",
+      "bytes": 7804,
+      "sha256": "dc4a5258ce5fc4b4d2d2ffa5aeb6d96b51d467b2cf013c1655ca44486d22497c"
+    },
+    {
+      "path": "Problems/P0054/literature/g4-global-lower/search-log.md",
+      "bytes": 5880,
+      "sha256": "92eef5bf137c16ec5ce66d652ae421935afe0b3c9b380c4ab2aff4781bf0bc00"
+    },
+    {
+      "path": "Problems/P0054/literature/g4-global-lower/source-theorem-matrix.md",
+      "bytes": 5286,
+      "sha256": "fee4fddb9bc0f25cc017e23b2bd7366db9687307c2686270ffa6ff408a20ede0"
+    }
+  ],
+  "primary_source_snapshots": [
+    {
+      "citation": "Martin--Veldt 2025 VOR",
+      "url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v32i1p55/pdf/",
+      "sha256": "e5183031a356080e053ead0766373b4f62eed130e3020b72003617030d670cf2"
+    },
+    {
+      "citation": "Morrison--Noel--Scott 2014 VOR",
+      "url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v21i3p22/pdf/",
+      "sha256": "c85aaa9e717de586f0f166d39a6cb64d0a514ab2dc60a62fab1911c127110581"
+    },
+    {
+      "citation": "Gerbner et al. arXiv:1105.4453",
+      "url": "https://arxiv.org/pdf/1105.4453",
+      "sha256": "eaf3ce7f53045ff6fc8d810e7b1b469468e198510f6c4985e39c946c5790d89e"
+    }
+  ],
+  "section0_baseline": {
+    "path": "Problems/P0054/experiments/g4-global-lower/section0-baseline.json",
+    "bytes": 37526,
+    "sha256": "6985924a2f54cc845b7415e5023c6b84dc80747770ea5d8624beae6c780b57ae",
+    "pre_g4_p0054_file_count": 162,
+    "pre_g4_p0054_total_bytes": 682943569,
+    "pre_g4_sha256_lines_digest": "e5c7cd57dad8062e00376046da3e0ad056f9d746df2e7f059ed1a39826a339c9"
+  }
+}

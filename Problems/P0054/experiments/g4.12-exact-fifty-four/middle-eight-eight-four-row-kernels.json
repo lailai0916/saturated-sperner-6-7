@@ -1,0 +1,25 @@
+{
+  "active_masks_checked": 16383,
+  "blocker_histogram": {
+    "blockers_7_pairs_3": 1,
+    "blockers_8_pairs_4": 48
+  },
+  "classes": [
+    "1:1,2:1,3:1,4:1,9:1,12:1,14:1|b:8|p:4",
+    "1:1,3:1,5:1,10:2,12:2|b:8|p:4",
+    "1:1,3:1,6:1,10:1,12:1,13:1|b:8|p:4",
+    "3:1,5:1,6:1,9:1,10:1,12:1|b:7|p:3"
+  ],
+  "epistemic_label": "COMPUTED",
+  "minimal_support_covers": 48,
+  "multiplicity_vectors": 49,
+  "parameters": {
+    "max_blockers": 8,
+    "max_pair_blockers": 4,
+    "max_row_size": 8
+  },
+  "row_permutation_classes": 4,
+  "schema": "p0054.g4.12.middle-four-row-kernels.v1",
+  "support_feasible_masks": 1448,
+  "supports": 14
+}

@@ -1,0 +1,70 @@
+{
+  "cases": [
+    {
+      "a": 5,
+      "b": 5,
+      "coverage_counters": {
+        "blocker_count_evaluations": 0,
+        "canonical_representatives": 0,
+        "clutter_representatives": 0,
+        "complete_degree_vectors": 0,
+        "dfs_nodes": 6938170,
+        "partial_blocker_count_prunes": 5029245
+      },
+      "orientation": "S",
+      "primary_member_size_range": [
+        3,
+        5
+      ],
+      "primary_rows": 5,
+      "required_blocker_count": 5,
+      "required_blocker_min_size": 3,
+      "status": "UNSAT_COMPUTED",
+      "total": 10,
+      "witnesses": []
+    },
+    {
+      "a": 5,
+      "b": 6,
+      "coverage_counters": {
+        "blocker_count_evaluations": 0,
+        "canonical_representatives": 0,
+        "clutter_representatives": 0,
+        "complete_degree_vectors": 0,
+        "dfs_nodes": 30357960,
+        "partial_blocker_count_prunes": 25898630
+      },
+      "orientation": "S",
+      "primary_member_size_range": [
+        3,
+        6
+      ],
+      "primary_rows": 5,
+      "required_blocker_count": 6,
+      "required_blocker_min_size": 3,
+      "status": "UNSAT_COMPUTED",
+      "total": 11,
+      "witnesses": []
+    }
+  ],
+  "epistemic_label": "COMPUTED",
+  "python_version": "3.12.13",
+  "random_seed": "NONE_DETERMINISTIC_EXHAUSTIVE_ENUMERATION",
+  "schema_version": 1,
+  "scope": "all incidence multiplicities after the proved private-witness member-size cap, modulo row permutations",
+  "semantic_validation": {
+    "clutters_checked": 199,
+    "empty_family_convention_checked": true,
+    "incidence_formula_cases_checked": 194,
+    "max_ground_size": 4,
+    "singleton_empty_edge_family_checked": true,
+    "status": "PASS_COMPUTED",
+    "validators": [
+      "direct_powerset",
+      "edge_choice_union_minimization"
+    ]
+  },
+  "source_engine": "Problems/P0054/experiments/g4.3-stronger-lower/search.py",
+  "source_engine_sha256": "ce1026519f6e9f7b3a90da6bd0ea7e1eb7fc6d6b0f7db2cadda05262488b7ec0",
+  "theorem_not_inferred": true
+}

@@ -1,0 +1,909 @@
+{
+  "algorithm": "exact nonzero incidence-pattern multiplicities, row-permutation canonicalization, and exact weighted minimal pattern covers",
+  "assertions": {
+    "all_totals_at_most_8_completely_exhausted": true,
+    "all_totals_at_most_8_unsat_computed": true,
+    "explicit_total_9_witness_verified": true,
+    "incidence_search_found_total_9": true
+  },
+  "base_engine_sha256": "50a1016029f1b57138a9209adbe6cd1d22a1a759cc802a9df3e6dc3ebf78fe58",
+  "cases": [
+    {
+      "a": 3,
+      "b": 2,
+      "complete_exhaustion": true,
+      "coverage_counters": {
+        "blocker_count_evaluations": 0,
+        "canonical_representatives": 0,
+        "clutter_representatives": 0,
+        "complete_degree_vectors": 0,
+        "deadline_checks": 1,
+        "dfs_nodes": 17,
+        "partial_blocker_count_prunes": 4,
+        "partial_small_cover_prunes": 0,
+        "partial_structural_cover_count_prunes": 0,
+        "sat_canonical_vectors": 0
+      },
+      "elapsed_seconds": 4.7083012759685516e-05,
+      "first_witness": null,
+      "orientation": "C",
+      "orientation_reason": "searched the side with fewer rows; S is used at a tie",
+      "primary_member_size_range": [
+        3,
+        3
+      ],
+      "primary_rows": 2,
+      "required_blocker_count": 3,
+      "required_blocker_min_size": 2,
+      "status": "UNSAT_COMPUTED",
+      "total": 5
+    },
+    {
+      "a": 3,
+      "b": 3,
+      "complete_exhaustion": true,
+      "coverage_counters": {
+        "blocker_count_evaluations": 0,
+        "canonical_representatives": 0,
+        "clutter_representatives": 0,
+        "complete_degree_vectors": 0,
+        "deadline_checks": 1,
+        "dfs_nodes": 169,
+        "partial_blocker_count_prunes": 20,
+        "partial_small_cover_prunes": 29,
+        "partial_structural_cover_count_prunes": 0,
+        "sat_canonical_vectors": 0
+      },
+      "elapsed_seconds": 0.00019408398657105863,
+      "first_witness": null,
+      "orientation": "S",
+      "orientation_reason": "searched the side with fewer rows; S is used at a tie",
+      "primary_member_size_range": [
+        2,
+        3
+      ],
+      "primary_rows": 3,
+      "required_blocker_count": 3,
+      "required_blocker_min_size": 3,
+      "status": "UNSAT_COMPUTED",
+      "total": 6
+    },
+    {
+      "a": 4,
+      "b": 2,
+      "complete_exhaustion": true,
+      "coverage_counters": {
+        "blocker_count_evaluations": 0,
+        "canonical_representatives": 0,
+        "clutter_representatives": 0,
+        "complete_degree_vectors": 0,
+        "deadline_checks": 1,
+        "dfs_nodes": 23,
+        "partial_blocker_count_prunes": 8,
+        "partial_small_cover_prunes": 0,
+        "partial_structural_cover_count_prunes": 0,
+        "sat_canonical_vectors": 0
+      },
+      "elapsed_seconds": 2.9291986720636487e-05,
+      "first_witness": null,
+      "orientation": "C",
+      "orientation_reason": "searched the side with fewer rows; S is used at a tie",
+      "primary_member_size_range": [
+        3,
+        4
+      ],
+      "primary_rows": 2,
+      "required_blocker_count": 4,
+      "required_blocker_min_size": 2,
+      "status": "UNSAT_COMPUTED",
+      "total": 6
+    },
+    {
+      "a": 3,
+      "b": 4,
+      "complete_exhaustion": true,
+      "coverage_counters": {
+        "blocker_count_evaluations": 0,
+        "canonical_representatives": 0,
+        "clutter_representatives": 0,
+        "complete_degree_vectors": 0,
+        "deadline_checks": 1,
+        "dfs_nodes": 296,
+        "partial_blocker_count_prunes": 51,
+        "partial_small_cover_prunes": 53,
+        "partial_structural_cover_count_prunes": 0,
+        "sat_canonical_vectors": 0
+      },
+      "elapsed_seconds": 0.0003015830006916076,
+      "first_witness": null,
+      "orientation": "S",
+      "orientation_reason": "searched the side with fewer rows; S is used at a tie",
+      "primary_member_size_range": [
+        2,
+        4
+      ],
+      "primary_rows": 3,
+      "required_blocker_count": 4,
+      "required_blocker_min_size": 3,
+      "status": "UNSAT_COMPUTED",
+      "total": 7
+    },
+    {
+      "a": 4,
+      "b": 3,
+      "complete_exhaustion": true,
+      "coverage_counters": {
+        "blocker_count_evaluations": 0,
+        "canonical_representatives": 0,
+        "clutter_representatives": 0,
+        "complete_degree_vectors": 0,
+        "deadline_checks": 1,
+        "dfs_nodes": 793,
+        "partial_blocker_count_prunes": 379,
+        "partial_small_cover_prunes": 0,
+        "partial_structural_cover_count_prunes": 3,
+        "sat_canonical_vectors": 0
+      },
+      "elapsed_seconds": 0.0013502909860108048,
+      "first_witness": null,
+      "orientation": "C",
+      "orientation_reason": "searched the side with fewer rows; S is used at a tie",
+      "primary_member_size_range": [
+        3,
+        4
+      ],
+      "primary_rows": 3,
+      "required_blocker_count": 4,
+      "required_blocker_min_size": 2,
+      "status": "UNSAT_COMPUTED",
+      "total": 7
+    },
+    {
+      "a": 5,
+      "b": 2,
+      "complete_exhaustion": true,
+      "coverage_counters": {
+        "blocker_count_evaluations": 0,
+        "canonical_representatives": 0,
+        "clutter_representatives": 0,
+        "complete_degree_vectors": 0,
+        "deadline_checks": 1,
+        "dfs_nodes": 28,
+        "partial_blocker_count_prunes": 15,
+        "partial_small_cover_prunes": 0,
+        "partial_structural_cover_count_prunes": 0,
+        "sat_canonical_vectors": 0
+      },
+      "elapsed_seconds": 3.500000457279384e-05,
+      "first_witness": null,
+      "orientation": "C",
+      "orientation_reason": "searched the side with fewer rows; S is used at a tie",
+      "primary_member_size_range": [
+        3,
+        5
+      ],
+      "primary_rows": 2,
+      "required_blocker_count": 5,
+      "required_blocker_min_size": 2,
+      "status": "UNSAT_COMPUTED",
+      "total": 7
+    },
+    {
+      "a": 3,
+      "b": 5,
+      "complete_exhaustion": true,
+      "coverage_counters": {
+        "blocker_count_evaluations": 0,
+        "canonical_representatives": 0,
+        "clutter_representatives": 0,
+        "complete_degree_vectors": 0,
+        "deadline_checks": 1,
+        "dfs_nodes": 468,
+        "partial_blocker_count_prunes": 109,
+        "partial_small_cover_prunes": 87,
+        "partial_structural_cover_count_prunes": 0,
+        "sat_canonical_vectors": 0
+      },
+      "elapsed_seconds": 0.00045724998926743865,
+      "first_witness": null,
+      "orientation": "S",
+      "orientation_reason": "searched the side with fewer rows; S is used at a tie",
+      "primary_member_size_range": [
+        2,
+        5
+      ],
+      "primary_rows": 3,
+      "required_blocker_count": 5,
+      "required_blocker_min_size": 3,
+      "status": "UNSAT_COMPUTED",
+      "total": 8
+    },
+    {
+      "a": 4,
+      "b": 4,
+      "complete_exhaustion": true,
+      "coverage_counters": {
+        "blocker_count_evaluations": 0,
+        "canonical_representatives": 0,
+        "clutter_representatives": 0,
+        "complete_degree_vectors": 0,
+        "deadline_checks": 1,
+        "dfs_nodes": 13553,
+        "partial_blocker_count_prunes": 5322,
+        "partial_small_cover_prunes": 1018,
+        "partial_structural_cover_count_prunes": 69,
+        "sat_canonical_vectors": 0
+      },
+      "elapsed_seconds": 0.02244983401033096,
+      "first_witness": null,
+      "orientation": "S",
+      "orientation_reason": "searched the side with fewer rows; S is used at a tie",
+      "primary_member_size_range": [
+        2,
+        4
+      ],
+      "primary_rows": 4,
+      "required_blocker_count": 4,
+      "required_blocker_min_size": 3,
+      "status": "UNSAT_COMPUTED",
+      "total": 8
+    },
+    {
+      "a": 5,
+      "b": 3,
+      "complete_exhaustion": true,
+      "coverage_counters": {
+        "blocker_count_evaluations": 0,
+        "canonical_representatives": 0,
+        "clutter_representatives": 0,
+        "complete_degree_vectors": 0,
+        "deadline_checks": 1,
+        "dfs_nodes": 1356,
+        "partial_blocker_count_prunes": 995,
+        "partial_small_cover_prunes": 0,
+        "partial_structural_cover_count_prunes": 1,
+        "sat_canonical_vectors": 0
+      },
+      "elapsed_seconds": 0.002110667002853006,
+      "first_witness": null,
+      "orientation": "C",
+      "orientation_reason": "searched the side with fewer rows; S is used at a tie",
+      "primary_member_size_range": [
+        3,
+        5
+      ],
+      "primary_rows": 3,
+      "required_blocker_count": 5,
+      "required_blocker_min_size": 2,
+      "status": "UNSAT_COMPUTED",
+      "total": 8
+    },
+    {
+      "a": 6,
+      "b": 2,
+      "complete_exhaustion": true,
+      "coverage_counters": {
+        "blocker_count_evaluations": 0,
+        "canonical_representatives": 0,
+        "clutter_representatives": 0,
+        "complete_degree_vectors": 0,
+        "deadline_checks": 1,
+        "dfs_nodes": 35,
+        "partial_blocker_count_prunes": 22,
+        "partial_small_cover_prunes": 0,
+        "partial_structural_cover_count_prunes": 0,
+        "sat_canonical_vectors": 0
+      },
+      "elapsed_seconds": 4.4665997847914696e-05,
+      "first_witness": null,
+      "orientation": "C",
+      "orientation_reason": "searched the side with fewer rows; S is used at a tie",
+      "primary_member_size_range": [
+        3,
+        6
+      ],
+      "primary_rows": 2,
+      "required_blocker_count": 6,
+      "required_blocker_min_size": 2,
+      "status": "UNSAT_COMPUTED",
+      "total": 8
+    },
+    {
+      "a": 3,
+      "b": 6,
+      "complete_exhaustion": true,
+      "coverage_counters": {
+        "blocker_count_evaluations": 0,
+        "canonical_representatives": 0,
+        "clutter_representatives": 0,
+        "complete_degree_vectors": 0,
+        "deadline_checks": 1,
+        "dfs_nodes": 702,
+        "partial_blocker_count_prunes": 191,
+        "partial_small_cover_prunes": 133,
+        "partial_structural_cover_count_prunes": 0,
+        "sat_canonical_vectors": 0
+      },
+      "elapsed_seconds": 0.0007559579971712083,
+      "first_witness": null,
+      "orientation": "S",
+      "orientation_reason": "searched the side with fewer rows; S is used at a tie",
+      "primary_member_size_range": [
+        2,
+        6
+      ],
+      "primary_rows": 3,
+      "required_blocker_count": 6,
+      "required_blocker_min_size": 3,
+      "status": "UNSAT_COMPUTED",
+      "total": 9
+    },
+    {
+      "a": 4,
+      "b": 5,
+      "complete_exhaustion": true,
+      "coverage_counters": {
+        "blocker_count_evaluations": 0,
+        "canonical_representatives": 0,
+        "clutter_representatives": 0,
+        "complete_degree_vectors": 0,
+        "deadline_checks": 1,
+        "dfs_nodes": 33697,
+        "partial_blocker_count_prunes": 17983,
+        "partial_small_cover_prunes": 2799,
+        "partial_structural_cover_count_prunes": 98,
+        "sat_canonical_vectors": 0
+      },
+      "elapsed_seconds": 0.05580950001603924,
+      "first_witness": null,
+      "orientation": "S",
+      "orientation_reason": "searched the side with fewer rows; S is used at a tie",
+      "primary_member_size_range": [
+        2,
+        5
+      ],
+      "primary_rows": 4,
+      "required_blocker_count": 5,
+      "required_blocker_min_size": 3,
+      "status": "UNSAT_COMPUTED",
+      "total": 9
+    },
+    {
+      "a": 5,
+      "b": 4,
+      "complete_exhaustion": true,
+      "coverage_counters": {
+        "blocker_count_evaluations": 1,
+        "canonical_representatives": 1,
+        "clutter_representatives": 1,
+        "complete_degree_vectors": 6,
+        "deadline_checks": 2,
+        "dfs_nodes": 129443,
+        "partial_blocker_count_prunes": 85481,
+        "partial_small_cover_prunes": 0,
+        "partial_structural_cover_count_prunes": 5975,
+        "sat_canonical_vectors": 1
+      },
+      "elapsed_seconds": 0.43628662498667836,
+      "first_witness": {
+        "canonical_multiplicity_vector_patterns_1_to_2^r_minus_1": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          0,
+          0,
+          2,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "minimal_pattern_covers": [
+          [
+            6,
+            9
+          ],
+          [
+            5,
+            10
+          ]
+        ],
+        "validation": {
+          "C": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              3,
+              4
+            ],
+            [
+              1,
+              2,
+              5
+            ],
+            [
+              3,
+              4,
+              5
+            ]
+          ],
+          "S": [
+            [
+              0,
+              5
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "U": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "mutual_blocker_equalities": {
+            "C_equals_B_S": true,
+            "S_equals_B_C": true
+          },
+          "size_constraints": {
+            "C_min_at_least_3": true,
+            "S_min_at_least_2": true
+          },
+          "validator_choice_minimization": {
+            "B_B_primary": [
+              [
+                0,
+                1,
+                2
+              ],
+              [
+                0,
+                3,
+                4
+              ],
+              [
+                1,
+                2,
+                5
+              ],
+              [
+                3,
+                4,
+                5
+              ]
+            ],
+            "B_B_primary_equals_primary": true,
+            "B_primary": [
+              [
+                0,
+                5
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                4
+              ]
+            ]
+          },
+          "validator_powerset": {
+            "B_B_primary": [
+              [
+                0,
+                1,
+                2
+              ],
+              [
+                0,
+                3,
+                4
+              ],
+              [
+                1,
+                2,
+                5
+              ],
+              [
+                3,
+                4,
+                5
+              ]
+            ],
+            "B_B_primary_equals_primary": true,
+            "B_primary": [
+              [
+                0,
+                5
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                4
+              ]
+            ]
+          },
+          "validators_agree_both_directions": true,
+          "vertex_incidence_patterns": [
+            5,
+            6,
+            6,
+            9,
+            9,
+            10
+          ]
+        },
+        "weighted_blocker_count": 5
+      },
+      "orientation": "C",
+      "orientation_reason": "searched the side with fewer rows; S is used at a tie",
+      "primary_member_size_range": [
+        3,
+        5
+      ],
+      "primary_rows": 4,
+      "required_blocker_count": 5,
+      "required_blocker_min_size": 2,
+      "status": "SAT_COMPUTED",
+      "total": 9
+    },
+    {
+      "a": 6,
+      "b": 3,
+      "complete_exhaustion": true,
+      "coverage_counters": {
+        "blocker_count_evaluations": 0,
+        "canonical_representatives": 0,
+        "clutter_representatives": 0,
+        "complete_degree_vectors": 0,
+        "deadline_checks": 1,
+        "dfs_nodes": 2329,
+        "partial_blocker_count_prunes": 2167,
+        "partial_small_cover_prunes": 0,
+        "partial_structural_cover_count_prunes": 3,
+        "sat_canonical_vectors": 0
+      },
+      "elapsed_seconds": 0.0037836670235265046,
+      "first_witness": null,
+      "orientation": "C",
+      "orientation_reason": "searched the side with fewer rows; S is used at a tie",
+      "primary_member_size_range": [
+        3,
+        6
+      ],
+      "primary_rows": 3,
+      "required_blocker_count": 6,
+      "required_blocker_min_size": 2,
+      "status": "UNSAT_COMPUTED",
+      "total": 9
+    },
+    {
+      "a": 7,
+      "b": 2,
+      "complete_exhaustion": true,
+      "coverage_counters": {
+        "blocker_count_evaluations": 0,
+        "canonical_representatives": 0,
+        "clutter_representatives": 0,
+        "complete_degree_vectors": 0,
+        "deadline_checks": 1,
+        "dfs_nodes": 40,
+        "partial_blocker_count_prunes": 33,
+        "partial_small_cover_prunes": 0,
+        "partial_structural_cover_count_prunes": 0,
+        "sat_canonical_vectors": 0
+      },
+      "elapsed_seconds": 8.733299910090864e-05,
+      "first_witness": null,
+      "orientation": "C",
+      "orientation_reason": "searched the side with fewer rows; S is used at a tie",
+      "primary_member_size_range": [
+        3,
+        7
+      ],
+      "primary_rows": 2,
+      "required_blocker_count": 7,
+      "required_blocker_min_size": 2,
+      "status": "UNSAT_COMPUTED",
+      "total": 9
+    }
+  ],
+  "coverage_boundary": {
+    "C_member_size_minimum": 3,
+    "S_member_size_minimum": 2,
+    "active_element_bound": "the private-witness injection bounds each primary row size by the cardinality of the opposite blocker family",
+    "ground_set": "arbitrary finite U after deletion of inactive points",
+    "ordered_splits": [
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        7,
+        2
+      ]
+    ]
+  },
+  "environment": {
+    "command": "UV_OFFLINE=1 uv run --offline python Problems/P0054/experiments/sat6-exact/search.py",
+    "elapsed_seconds": 0.6179627089877613,
+    "network": "OFFLINE",
+    "per_case_seconds_limit": 900.0,
+    "platform": "macOS-27.0-arm64-arm-64bit",
+    "python_executable": "/Users/lailai/Projects/mathesis-workspaces/runs/P0054/.venv/bin/python3",
+    "python_version": "3.12.13"
+  },
+  "epistemic_label": "COMPUTED",
+  "explicit_nine_member_witness": {
+    "C": [
+      [
+        0,
+        1,
+        4
+      ],
+      [
+        0,
+        1,
+        5
+      ],
+      [
+        2,
+        3,
+        4
+      ],
+      [
+        2,
+        3,
+        5
+      ]
+    ],
+    "S": [
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        4,
+        5
+      ]
+    ],
+    "U": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "mutual_blocker_equalities": {
+      "C_equals_B_S": true,
+      "S_equals_B_C": true
+    },
+    "size_constraints": {
+      "C_min_at_least_3": true,
+      "S_min_at_least_2": true
+    },
+    "status": "PASS_COMPUTED",
+    "total_members": 9,
+    "validator_choice_minimization": {
+      "B_B_primary": [
+        [
+          0,
+          1,
+          4
+        ],
+        [
+          0,
+          1,
+          5
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          3,
+          5
+        ]
+      ],
+      "B_B_primary_equals_primary": true,
+      "B_primary": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    "validator_powerset": {
+      "B_B_primary": [
+        [
+          0,
+          1,
+          4
+        ],
+        [
+          0,
+          1,
+          5
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          3,
+          5
+        ]
+      ],
+      "B_B_primary_equals_primary": true,
+      "B_primary": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    "validators_agree_both_directions": true
+  },
+  "schema_version": 1,
+  "semantic_validation": {
+    "clutters_checked": 199,
+    "empty_family_convention_checked": true,
+    "incidence_formula_cases_checked": 194,
+    "incremental_cover_cases_checked": 194,
+    "max_ground_size": 4,
+    "singleton_empty_edge_family_checked": true,
+    "status": "PASS_COMPUTED",
+    "validators": [
+      "direct_powerset",
+      "edge_choice_union_minimization"
+    ],
+    "weighted_cover_count_three_argument_api_checked": true
+  },
+  "source_sha256": "c413440e70f6e5073a6d63e0e1e3d77716d9d268457da3601187cec9ed2a0eda"
+}

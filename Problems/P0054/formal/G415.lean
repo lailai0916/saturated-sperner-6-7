@@ -1,0 +1,7 @@
+import AiMathLab.P0054G415
+
+#check AiMathLab.P0054.G415.degreeThree_blockers_containing_card_ge_nine
+#check AiMathLab.P0054.G415.fiveEleven_degreeThree_impossible
+
+#print axioms AiMathLab.P0054.G415.degreeThree_blockers_containing_card_ge_nine
+#print axioms AiMathLab.P0054.G415.fiveEleven_degreeThree_impossible

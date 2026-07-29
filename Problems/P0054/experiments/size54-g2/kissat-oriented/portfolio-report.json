@@ -1,0 +1,112 @@
+{
+  "schema": "ai-math-lab.p0054.size54-portfolio.v1",
+  "generated_at_utc": "2026-07-22T09:51:46.351203+00:00",
+  "run_mode": "BOUNDED_DISCOVERY",
+  "epistemic_label": "COMPUTED",
+  "search_class": "complete eight-core common-block layered template class",
+  "encoding": "oriented_partial-signature_exact_with_small_count_duality_breaker",
+  "target_size": 54,
+  "global_lower_bound_claimed": false,
+  "solver": "kissat 4.0.4",
+  "solver_kind": "kissat",
+  "solver_path": "/opt/homebrew/bin/kissat",
+  "solver_sha256": "05d6f3e9c402a1fe8853b0746e384e1b3d1c4a550e255f11daa2461d279aa848",
+  "timeout_seconds_per_configuration": 600,
+  "cnf_path": "Problems/P0054/experiments/size54-g2/kissat-oriented/core-8-target-54-oriented-small-le-27.cnf",
+  "cnf_sha256": "975d47af99af174850301de76dbe89bdab488b1cb31372417c5a9dce9cf1d078",
+  "primary_variable_count": 3584,
+  "auxiliary_variable_count": 241839,
+  "clause_count": 638705,
+  "reference_candidate_sha256": "55d0a1e19a024efb944fc9a00ea466bdd6d5b11383f1bd86c1f772d8fb92acac",
+  "runs": [
+    {
+      "configuration": "default",
+      "options": [
+        "--default"
+      ],
+      "command": [
+        "/opt/homebrew/bin/kissat",
+        "--default",
+        "--time=600",
+        "Problems/P0054/experiments/size54-g2/kissat-oriented/core-8-target-54-oriented-small-le-27.cnf"
+      ],
+      "returncode": 0,
+      "runtime_seconds": 600.0167022499954,
+      "solver_result": "UNKNOWN_OR_TIMEOUT",
+      "epistemic_label": "COMPUTED",
+      "model_path": null,
+      "log_path": "Problems/P0054/experiments/size54-g2/kissat-oriented/portfolio-default.log",
+      "log_sha256": "622d3b19219dfe05549b5a6c100407a2c8b3ac360af2d8b70156113fa9b506cb",
+      "proof_status": "NO_PROOF_REQUESTED_DISCOVERY_ONLY"
+    },
+    {
+      "configuration": "sat",
+      "options": [
+        "--sat"
+      ],
+      "command": [
+        "/opt/homebrew/bin/kissat",
+        "--sat",
+        "--time=600",
+        "Problems/P0054/experiments/size54-g2/kissat-oriented/core-8-target-54-oriented-small-le-27.cnf"
+      ],
+      "returncode": 0,
+      "runtime_seconds": 600.0161455409834,
+      "solver_result": "UNKNOWN_OR_TIMEOUT",
+      "epistemic_label": "COMPUTED",
+      "model_path": null,
+      "log_path": "Problems/P0054/experiments/size54-g2/kissat-oriented/portfolio-sat.log",
+      "log_sha256": "a0fa7a2eb4e2caf0643b2e1c2df19fb0046cede114164020b91bd606266138b8",
+      "proof_status": "NO_PROOF_REQUESTED_DISCOVERY_ONLY"
+    },
+    {
+      "configuration": "sat-seed1",
+      "options": [
+        "--sat",
+        "--seed=1"
+      ],
+      "command": [
+        "/opt/homebrew/bin/kissat",
+        "--sat",
+        "--seed=1",
+        "--time=600",
+        "Problems/P0054/experiments/size54-g2/kissat-oriented/core-8-target-54-oriented-small-le-27.cnf"
+      ],
+      "returncode": 0,
+      "runtime_seconds": 600.0134717499604,
+      "solver_result": "UNKNOWN_OR_TIMEOUT",
+      "epistemic_label": "COMPUTED",
+      "model_path": null,
+      "log_path": "Problems/P0054/experiments/size54-g2/kissat-oriented/portfolio-sat-seed1.log",
+      "log_sha256": "d31f5059986c7634e7556180e58160a99f5b86926bae18b1c1bd3eba8721773c",
+      "proof_status": "NO_PROOF_REQUESTED_DISCOVERY_ONLY"
+    },
+    {
+      "configuration": "sat-seed2-negative-phase",
+      "options": [
+        "--sat",
+        "--seed=2",
+        "--phase=false"
+      ],
+      "command": [
+        "/opt/homebrew/bin/kissat",
+        "--sat",
+        "--seed=2",
+        "--phase=false",
+        "--time=600",
+        "Problems/P0054/experiments/size54-g2/kissat-oriented/core-8-target-54-oriented-small-le-27.cnf"
+      ],
+      "returncode": 0,
+      "runtime_seconds": 600.0253132079961,
+      "solver_result": "UNKNOWN_OR_TIMEOUT",
+      "epistemic_label": "COMPUTED",
+      "model_path": null,
+      "log_path": "Problems/P0054/experiments/size54-g2/kissat-oriented/portfolio-sat-seed2-negative-phase.log",
+      "log_sha256": "099c60ee539d80e007bfbd2570f5cdd1ed4a00095317f03a2bb12daa48fe6ae7",
+      "proof_status": "NO_PROOF_REQUESTED_DISCOVERY_ONLY"
+    }
+  ],
+  "candidate_found": false,
+  "candidates": [],
+  "mathematical_consequence": "NONE_INCOMPLETE_DISCOVERY_SEARCH_ONLY"
+}

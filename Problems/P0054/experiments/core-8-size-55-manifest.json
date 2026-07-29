@@ -1,0 +1,24 @@
+{
+  "schema": "ai-math-lab.p0054.size55-artifacts.v1",
+  "epistemic_label": "COMPUTED",
+  "mathematical_consequence": "EXPLICIT_WITNESS_PROVES_sat7_LE_55",
+  "candidate_semantic_sha256": "55d0a1e19a024efb944fc9a00ea466bdd6d5b11383f1bd86c1f772d8fb92acac",
+  "expanded_family_sha256": "8277267a7a9cbc6040432a9d6ffc3f16c540a6013b78bedbd85e6b1e27adde0f",
+  "artifacts": [
+    {
+      "path": "Problems/P0054/experiments/certificates/core-8-target-55-selfcontained.json",
+      "bytes": 6074,
+      "sha256": "026d0f8e15a8028603ac04457cb7a3b42a8847a36368ce17b9ce75490b291fdb"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-8-target-55-selfcontained.cnf",
+      "bytes": 11641100,
+      "sha256": "74327a2822168ec19c1b1b2cfe25a9d237b12376f4d077e0e12ad4511a585b33"
+    },
+    {
+      "path": "Problems/P0054/experiments/core-8-size-55-dual-verification.json",
+      "bytes": 2393,
+      "sha256": "f1637e0219bb9ae3fd720083fba480fe9a1fba2fcd4bd1628c47a54d93ccd80c"
+    }
+  ]
+}

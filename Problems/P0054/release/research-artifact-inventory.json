@@ -1,0 +1,2143 @@
+{
+  "schema": "ai-math-lab.p0054.research-artifact-inventory.v1",
+  "generated_at_utc": "2026-07-23T06:23:27Z",
+  "run_mode": "ARCHIVE_BASELINE_RECONCILIATION_ONLY",
+  "gate": "P0054_G4_4B_1_STAGED_DIFF_RECONCILIATION",
+  "head": "d2c8e3eb81466a3743c736319ef1874920590abc",
+  "scope": "All regular files under Problems/P0054 plus canonical repository-level P0054 Lean sources, Python sources, tests, historical summaries/audits, generated P0054 PDFs, this gate's root summary, and the P0054-specific root .gitignore configuration.",
+  "scope_exclusions": "Dependency trees and volatile global caches are not stable research artifacts. Their current P0054-related footprint is summarized separately without per-file hashes.",
+  "inventory_file_count": 296,
+  "inventory_total_bytes": 684751204,
+  "category_totals": {
+    "TRACKED_SOURCE": {
+      "file_count": 178,
+      "bytes": 1498682
+    },
+    "RELEASE_LATER": {
+      "file_count": 9,
+      "bytes": 431808917
+    },
+    "LOCAL_LOGS": {
+      "file_count": 66,
+      "bytes": 4745569
+    },
+    "GENERATED_LARGE": {
+      "file_count": 43,
+      "bytes": 246698036
+    }
+  },
+  "tracked_source_path_list_sha256": "d71ffd849cddc7d29e01838e49f599bb135dc58aa7107137d3f5639eea08f16f",
+  "original_p0054_snapshot": {
+    "file_count": 223,
+    "bytes": 683564827,
+    "sha256_lines_digest": "92224238a51538f0fffa7b83d498cad39097b52a6ba2791406fbb76c33b19e04"
+  },
+  "large_artifact_manifest": {
+    "path": "Problems/P0054/release/large-artifact-manifest.json",
+    "bytes": 155789,
+    "sha256": "7e59e1da3ae7d7230888cec783a90d5ca3a2c22268c7fe515276eaa664911e0f",
+    "artifact_count": 118,
+    "total_bytes": 683252522
+  },
+  "excluded_preexisting_global_caches": [
+    {
+      "label": "Lean build outputs whose path contains P0054",
+      "category": "LOCAL_LOGS",
+      "pattern": "/.lake/**",
+      "file_count": 288,
+      "bytes": 272671599,
+      "disposition": "Excluded from stable artifact records; covered by a pre-existing global cache ignore rule and expected to change during required validation."
+    },
+    {
+      "label": "P0054 Python bytecode caches",
+      "category": "LOCAL_LOGS",
+      "pattern": "**/__pycache__/*p0054*",
+      "file_count": 16,
+      "bytes": 283773,
+      "disposition": "Excluded from stable artifact records; covered by a pre-existing global cache ignore rule and expected to change during required validation."
+    },
+    {
+      "label": "Hypothesis cache files whose current content mentions P0054",
+      "category": "LOCAL_LOGS",
+      "pattern": "/.hypothesis/**",
+      "file_count": 13,
+      "bytes": 12080,
+      "disposition": "Excluded from stable artifact records; covered by a pre-existing global cache ignore rule and expected to change during required validation."
+    }
+  ],
+  "self_integrity_note": "All non-self records bind exact bytes and SHA-256. This inventory's own byte count is stable; validate its SHA-256 externally.",
+  "records": [
+    {
+      "path": ".gitignore",
+      "bytes": 9707,
+      "sha256": "455d9a6a0587014b7dc980e2bb5f9c0d7ef41514536ba20ed8fd10a79b8db612",
+      "category": "TRACKED_SOURCE",
+      "rationale": "Repository configuration with exact P0054 artifact paths only."
+    },
+    {
+      "path": "AiMathLab/P0054Size55.lean",
+      "bytes": 6554,
+      "sha256": "63316fc53f545330189be2a0dc3ab5b64b35ed898c4d18a1f277654e3ffa47dc",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55Core.lean",
+      "bytes": 6979,
+      "sha256": "dcbca94ceb54060785560bc41f60309ba699b2ff4ce935a975bd8ab7fc26fb8c",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks.lean",
+      "bytes": 1674,
+      "sha256": "b6ba80154a792325ee0aa2c702c2e5875050b64eb381c9701854b6c94e71eaf5",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block00.lean",
+      "bytes": 3165,
+      "sha256": "b4fde2ba0e95eee793a77363b816be8fc6ce3cbe949c26d5f55c47ef43997c4c",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block01.lean",
+      "bytes": 3503,
+      "sha256": "f6cd76bf5ad5a234650eeed2d16e636248257a0b5ae9e2c4c56a77f11206b983",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block02.lean",
+      "bytes": 3682,
+      "sha256": "b5d1b16d94e46e83593a6ab22550c5a3495c8295d0da4e145058b95b3d7fe68e",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block03.lean",
+      "bytes": 3614,
+      "sha256": "ee39c810ad350da73c9e9892340b435cbb06a02cf284597a5d8d2059742b1347",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block04.lean",
+      "bytes": 3813,
+      "sha256": "151d9bcb9c43fe397cdc0ddeafb466853b2d903a3d9e057ebeacd40b44e9bdaf",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block05.lean",
+      "bytes": 3750,
+      "sha256": "e9f4723d01f2f2739da628732ae25ac563f294b15e8c1c3d0313c304c54a53b2",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block06.lean",
+      "bytes": 3792,
+      "sha256": "f222a46568f29e72cd11c0c637c702821da72e4a5a6932cac509851edc546b33",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block07.lean",
+      "bytes": 3724,
+      "sha256": "1543b66fb381b69354d295d396e2695a8e13658d0e0c28dd7aa07c289d49e7a6",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block08.lean",
+      "bytes": 3813,
+      "sha256": "f96e7ef1711e852972482f5d2f15b5c7a78624b35155578f5a993087db0a7686",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block09.lean",
+      "bytes": 3750,
+      "sha256": "cfcf6528ba8e1003d087f500653a975d3ab9508796bfe8700758ec286e5b5040",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block10.lean",
+      "bytes": 3792,
+      "sha256": "3809b7b271e413067f9fa40cb8fa990d71752792114557f1381059f4e5f5d94a",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block11.lean",
+      "bytes": 3724,
+      "sha256": "dcfaba94fa91bf862f63993d75d69cc9373b336b6b1b21772e11c62ce0b0b673",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block12.lean",
+      "bytes": 3813,
+      "sha256": "ebaa17a452e248b7eb44c3e3aa8f307a7fb27b33c1cefc15f0a1f362544b37da",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block13.lean",
+      "bytes": 3750,
+      "sha256": "a77b975e69d66aed2c85a8f8883f50a773e678e38375b70146b2800136e7125c",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block14.lean",
+      "bytes": 3792,
+      "sha256": "d29e90521e750a33a82fba10011ce6d785bc8c94e27b9d7ce7738f5bb09ae428",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block15.lean",
+      "bytes": 3748,
+      "sha256": "e245836f5781e8dc9d1392420916204c47c1c620e317cb31cf705d7ac51a5526",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block16.lean",
+      "bytes": 3879,
+      "sha256": "c187af445d4babb2182ce5b1f84c04b641586da9251660cfffc17f08effe4eba",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block17.lean",
+      "bytes": 3816,
+      "sha256": "2352fe679cd73366dc02c329c47cf6de06fe3778fdd410c7a7e8ec4fcecb9074",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block18.lean",
+      "bytes": 3858,
+      "sha256": "a88929ce82b4642831bffd7a49d96e030c9df9a1b5cace9cdddbd4738cc0f020",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block19.lean",
+      "bytes": 3790,
+      "sha256": "f6803f7574ee63d034ecc1e5ee1c6eed7cf6b76cec7dc09b6d2e4aa6dab42e0d",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block20.lean",
+      "bytes": 3879,
+      "sha256": "fa805878b20fad8bc3c40448f24da4327b8b663c244e2b2521b4f9e17875d6e6",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block21.lean",
+      "bytes": 3816,
+      "sha256": "5fac5a9c65c4a98c838886faa9918ecff28352162da228c15c346bfe351309af",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block22.lean",
+      "bytes": 3858,
+      "sha256": "892eea1188224d3ee04af8cda11bfea41ed7dc162e0456e1ffc813c644770623",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block23.lean",
+      "bytes": 3790,
+      "sha256": "506dd8d5c375ec7974a171b372c6976c6dc8302e66f9cbda0fadcd326c9756cb",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block24.lean",
+      "bytes": 3879,
+      "sha256": "53a53d3d3e6f562683af0f140ddd87937cd06f1493305543dccaa4060bc028c4",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block25.lean",
+      "bytes": 3816,
+      "sha256": "8ded59c751eee26bdc9de6480b4e613bfb180a5371400097789381dbdf12ec6d",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block26.lean",
+      "bytes": 3858,
+      "sha256": "527939372f529f0561c64f93ebcde0c770e905053da59828c932745e49524402",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block27.lean",
+      "bytes": 3790,
+      "sha256": "6d0d38e7a2c8eeee14180e8b45f4d0d9f937bc3d0aef2d6c449edfe8c2997617",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block28.lean",
+      "bytes": 3839,
+      "sha256": "f037f1d54e22619059acf37def49ab3887b3baa1d5284b4e06426c2fa0fad72c",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block29.lean",
+      "bytes": 3627,
+      "sha256": "8eb96e1e5e70e1b1eb32386d27db4f50ffb4cab3e41ed46ed26e2944941a7539",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block30.lean",
+      "bytes": 3515,
+      "sha256": "f6c12581673b7ed6904e0bf00cc752be8f32051f40f2b1bf16b04821386e2385",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "AiMathLab/P0054Size55WitnessBlocks/Block31.lean",
+      "bytes": 3357,
+      "sha256": "4f6fa2f5e76606fd3de12e13e7ca17c9ae299a2c2fbaa6520bd473f5aca4c7d3",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/claims.yaml",
+      "bytes": 5463,
+      "sha256": "14835deb1514002d1e5368419dd4636bfeb164c343ef853f5692cb0c7f0142e5",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/README.md",
+      "bytes": 1193,
+      "sha256": "09fb88af9ae28db0c88eb1598980ee1f514853ba7cc2628b6bc069f543e5eeff",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/calibration-results.json",
+      "bytes": 2978,
+      "sha256": "e0dc6106a0cb590c0b3f1e11d2e754c80f494291290b274a5cad5328744e8f68",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-4-target-55-selfcontained-kissat.drat",
+      "bytes": 93005,
+      "sha256": "ea4f9e2d6f6853fb17c7fc16844d78e62975dea3ddcc14dac90de0c16dd5a68b",
+      "category": "RELEASE_LATER",
+      "rationale": "DRAT proof certificate; retain locally and bind by manifest for later artifact archive"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-4-target-55-selfcontained-kissat.drat.verify.log",
+      "bytes": 428,
+      "sha256": "e610b499b79ef6b9e68a33f1ad3a3d165ef606f714669a79eec1f9ccd3328325",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-4-target-55-selfcontained.cnf",
+      "bytes": 426005,
+      "sha256": "885c65912c12a4d200c299feb971e39d7f3112a9e87f436902e09db248ae7e4b",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-4-target-55-selfcontained.json",
+      "bytes": 1226,
+      "sha256": "0e73ceca4cbaf71a453c3f5f8e07ae308f42fa091a94e919b6f04147d17b84e0",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-5-target-55-selfcontained-kissat.drat",
+      "bytes": 473860,
+      "sha256": "df35eaf5358cc4f20d8f10249f8ddd6129a4aad06fbd656fe5c89557a50a371d",
+      "category": "RELEASE_LATER",
+      "rationale": "DRAT proof certificate; retain locally and bind by manifest for later artifact archive"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-5-target-55-selfcontained-kissat.drat.verify.log",
+      "bytes": 431,
+      "sha256": "8832851fdb71d48d3cdb47e8767267ad03d2e9c39b1464f794070d7bd015c4a1",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-5-target-55-selfcontained.cnf",
+      "bytes": 952497,
+      "sha256": "325e51a5c351ce8625cfe19c967a08882c1fbc93d19be6c831e5034247ba5509",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-5-target-55-selfcontained.json",
+      "bytes": 1228,
+      "sha256": "a5129fadf4015d7013bcb719448551e898114f5ddc2a948b1d53853179daea5b",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-6-target-55-selfcontained-kissat.drat",
+      "bytes": 4505506,
+      "sha256": "338fb49b273e0b4ada1f427be484bc32a2ced94890820b723dcf9268dc0db15b",
+      "category": "RELEASE_LATER",
+      "rationale": "DRAT proof certificate; retain locally and bind by manifest for later artifact archive"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-6-target-55-selfcontained-kissat.drat.verify.log",
+      "bytes": 464,
+      "sha256": "f68e37911c610fa6ed86fd955e4e62043797948b0bed7933251f42a911435ba7",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-6-target-55-selfcontained.cnf",
+      "bytes": 2095628,
+      "sha256": "c3ca49a18d874c6e4068749ec3e8c70dac4193129ed9e82d0b3f6a59264ba31a",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-6-target-55-selfcontained.json",
+      "bytes": 1226,
+      "sha256": "b0c2dff32dc3c6a5742de51fbbc04cf6d41718ec5d28623e2bf9517ee33418f2",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-7-target-55-selfcontained-kissat.drat",
+      "bytes": 253731315,
+      "sha256": "cf6eb02a217c9b0eb790f8321bd8f77a7b9fd42f5829c50d6410a4383b2ef0fa",
+      "category": "RELEASE_LATER",
+      "rationale": "DRAT proof certificate; retain locally and bind by manifest for later artifact archive"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-7-target-55-selfcontained-kissat.drat.verify.log",
+      "bytes": 477,
+      "sha256": "19c30821d4091df4e757f0f005d6032aca651e7933e3d0c9e26e90ff9ab9d6d9",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-7-target-55-selfcontained.cnf",
+      "bytes": 4801642,
+      "sha256": "5f7db3865fe3a1438370fe107de64bbdf4e921aa52b7f2553f88f62075cbdb89",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-7-target-55-selfcontained.json",
+      "bytes": 1230,
+      "sha256": "684c6000b3da4384bbd50e1d4d088f25ce02e4173810e0966c53b531cf9ee44d",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-8-target-55-selfcontained.cnf",
+      "bytes": 11641100,
+      "sha256": "74327a2822168ec19c1b1b2cfe25a9d237b12376f4d077e0e12ad4511a585b33",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/core-8-target-55-selfcontained.json",
+      "bytes": 6074,
+      "sha256": "026d0f8e15a8028603ac04457cb7a3b42a8847a36368ce17b9ce75490b291fdb",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/certificates/verification-manifest.json",
+      "bytes": 3534,
+      "sha256": "090f80066cd3b157f6e29032211ebe4a138e9617dcc785e1ad5687d3548696a5",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/core-8-size-55-dual-verification.json",
+      "bytes": 2393,
+      "sha256": "f1637e0219bb9ae3fd720083fba480fe9a1fba2fcd4bd1628c47a54d93ccd80c",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/core-8-size-55-manifest.json",
+      "bytes": 995,
+      "sha256": "de814a661c5f8f78bf00bdaffc3ed9804e94076637bb3ce4f342374e4a73dc7a",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4-global-lower/exact_layer_search.py",
+      "bytes": 12954,
+      "sha256": "589a90bd629a73daf3fa70d1edd87e08a0141dcf15c1f0b64015162c354901d0",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4-global-lower/manifest.json",
+      "bytes": 845,
+      "sha256": "a64c6bc7017ba0eddad6709f36e19267194ba3d458c9c5defb92d22a5d562501",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4-global-lower/report.md",
+      "bytes": 6232,
+      "sha256": "543561c2313001b82846a0a67e30dd711b57664d72a200271b18840eccb3a09d",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4-global-lower/results.json",
+      "bytes": 5699,
+      "sha256": "62fd54f10dca28694b8d5c0d7e9e7fd6ede54636437fe301595be6d1bd247516",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4-global-lower/section0-baseline.json",
+      "bytes": 37526,
+      "sha256": "6985924a2f54cc845b7415e5023c6b84dc80747770ea5d8624beae6c780b57ae",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.2-stronger-lower/exact_a2_search.py",
+      "bytes": 18503,
+      "sha256": "5b3c695340658d63ebf067e812ff45a6f9127d022aef1aa056653f3a83b6bc1e",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.2-stronger-lower/manifest.json",
+      "bytes": 717,
+      "sha256": "67a90d6b9a614f608d3251b9c1d3b86b8b50f96aab9152a04d12c52580c55db6",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.2-stronger-lower/report.md",
+      "bytes": 7921,
+      "sha256": "9ff4ad0ee0063b306f203597ffe1fd068f03a879510d9b5b86e13dad2f95688f",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.2-stronger-lower/results.json",
+      "bytes": 14477,
+      "sha256": "4f98f709706f5baed1cca3b8fede43e4c68dbf555f19216cf5f0c80893662b9c",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.2-stronger-lower/section0-freeze.md",
+      "bytes": 7043,
+      "sha256": "6551eda020048d809f5cd9f8d85908cc821a1adc2c9d8c026960354533d9d5d4",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.3-stronger-lower/gate-manifest.json",
+      "bytes": 4632,
+      "sha256": "6401c98913474973f58db00b0633c8da28b00c16dd2300ff1582437eee3efec8",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.3-stronger-lower/manifest.json",
+      "bytes": 3258,
+      "sha256": "2f9c604e0c3a7f2bff505acd97f7c1866db44676c1a4a874f62683b386b4b89c",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.3-stronger-lower/report.md",
+      "bytes": 6938,
+      "sha256": "93084dec2231b05d33fe4d66e585a809261961a0b6a9d10006796f42cfc387fb",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.3-stronger-lower/results.json",
+      "bytes": 7906,
+      "sha256": "315a9daea8ab4c1f28e03fdc8d17c1478bdb1ac0a1a28b4ec5fe7bf65b51d095",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.3-stronger-lower/search.py",
+      "bytes": 20355,
+      "sha256": "ce1026519f6e9f7b3a90da6bd0ea7e1eb7fc6d6b0f7db2cadda05262488b7ec0",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.3-stronger-lower/section0-freeze.md",
+      "bytes": 7735,
+      "sha256": "759e7b6a2bbad8853f2baa7424c8b19ac06e6ecaf07b3c3758a30d57a9a99aaf",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.4-exact-local/gate-manifest.json",
+      "bytes": 7803,
+      "sha256": "8eeae348b7b96d19a6cdcc5cbd74e93780e60ce3a957692689e58cc4aefa111d",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.4-exact-local/manifest.json",
+      "bytes": 4754,
+      "sha256": "da2ef88911228df8a41f7d596e708d826199a00410128ba895bbba6ffb838b2f",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.4-exact-local/report.md",
+      "bytes": 11701,
+      "sha256": "8371f89731f88709804639139cebd7d5560a9524f5dd5c3c9e537af79148065c",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.4-exact-local/results.json",
+      "bytes": 17204,
+      "sha256": "6a8bda57208fd9648d350732d7a72fd97c10d304fa50dd62590ddcf66afe1a5c",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.4-exact-local/search.py",
+      "bytes": 29730,
+      "sha256": "50a1016029f1b57138a9209adbe6cd1d22a1a759cc802a9df3e6dc3ebf78fe58",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.4-exact-local/section0-freeze.md",
+      "bytes": 9386,
+      "sha256": "b06600a748f39f1a5d09b0a7980e90cd717a8878d1059d9a86deb7700dacdd3d",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/README.md",
+      "bytes": 1949,
+      "sha256": "ea8ce63eddf7ef662386a0e51c0c541ddb26735780c0c15f88a7c51ae61274f1",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/core-8-target-54-complete.cnf",
+      "bytes": 11498920,
+      "sha256": "e284ec2828793e26b591c7153b6366e8f44e4c7b928854f4e45c965f465f833a",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/kissat-oriented/core-8-target-54-oriented-small-le-27.cnf",
+      "bytes": 12147316,
+      "sha256": "975d47af99af174850301de76dbe89bdab488b1cb31372417c5a9dce9cf1d078",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/kissat-oriented/portfolio-default.log",
+      "bytes": 261606,
+      "sha256": "622d3b19219dfe05549b5a6c100407a2c8b3ac360af2d8b70156113fa9b506cb",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/kissat-oriented/portfolio-report.json",
+      "bytes": 4194,
+      "sha256": "9a9172a139b9f35f666f5f0e73902be05c9a1e94d3af06c5db2d0cd9c5a1c370",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/kissat-oriented/portfolio-sat-seed1.log",
+      "bytes": 253362,
+      "sha256": "d31f5059986c7634e7556180e58160a99f5b86926bae18b1c1bd3eba8721773c",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/kissat-oriented/portfolio-sat-seed2-negative-phase.log",
+      "bytes": 250564,
+      "sha256": "099c60ee539d80e007bfbd2570f5cdd1ed4a00095317f03a2bb12daa48fe6ae7",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/kissat-oriented/portfolio-sat.log",
+      "bytes": 253635,
+      "sha256": "a0fa7a2eb4e2caf0643b2e1c2df19fb0046cede114164020b91bd606266138b8",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/neighborhood-report.json",
+      "bytes": 2788,
+      "sha256": "3ffc246ec592fa2e3dba8f55ce754c2a90cf523d17f5a150d1134ca4abc4cf3d",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/oriented/core-8-target-54-oriented-small-le-27.cnf",
+      "bytes": 12147316,
+      "sha256": "975d47af99af174850301de76dbe89bdab488b1cb31372417c5a9dce9cf1d078",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/oriented/portfolio-default.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/oriented/portfolio-default.model",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver sidecar placeholder; current content is exactly s UNKNOWN newline"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/oriented/portfolio-report.json",
+      "bytes": 5040,
+      "sha256": "6f4faf61bb9dfcf2d2edb58bd3e85ee2632478c51aa234b21187ff3d9ceec924",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/oriented/portfolio-sat-shuffle-seed1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/oriented/portfolio-sat-shuffle-seed1.model",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver sidecar placeholder; current content is exactly s UNKNOWN newline"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/oriented/portfolio-sat-shuffle-seed2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/oriented/portfolio-sat-shuffle-seed2.model",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver sidecar placeholder; current content is exactly s UNKNOWN newline"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/oriented/portfolio-sat.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/oriented/portfolio-sat.model",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver sidecar placeholder; current content is exactly s UNKNOWN newline"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/portfolio-default.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/portfolio-default.model",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver sidecar placeholder; current content is exactly s UNKNOWN newline"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/portfolio-report.json",
+      "bytes": 4744,
+      "sha256": "444342ff4d440b2e3eb8d2d3216a8b20d36831adf43d46f8180a1631f054fbe4",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/portfolio-sat-shuffle-seed1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/portfolio-sat-shuffle-seed1.model",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver sidecar placeholder; current content is exactly s UNKNOWN newline"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/portfolio-sat-shuffle-seed2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/portfolio-sat-shuffle-seed2.model",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver sidecar placeholder; current content is exactly s UNKNOWN newline"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/portfolio-sat.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g2/portfolio-sat.model",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver sidecar placeholder; current content is exactly s UNKNOWN newline"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-README.md",
+      "bytes": 1790,
+      "sha256": "61c1d3131b4f0bd309a18143074bbcf3dca30dbcdea7547ae6af22490ad7afec",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer0-at-most-0.cnf",
+      "bytes": 22398,
+      "sha256": "c049ce5942934833085dfffec30d8dda560e3f6baeac6acb59dfd9884d2ba34d",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer0-at-most-0.drat",
+      "bytes": 33,
+      "sha256": "5748951bb5da1314516af7a631b1ab3f237e3129b24ceaf5553d5b679ef9afb5",
+      "category": "RELEASE_LATER",
+      "rationale": "DRAT proof certificate; retain locally and bind by manifest for later artifact archive"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer0-at-most-0.drat-trim.log",
+      "bytes": 418,
+      "sha256": "919d2c417c56baec0082798a46bcaf8b71fe13ccb89d10227a031be3e054ffd8",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer0-at-most-0.kissat.log",
+      "bytes": 2513,
+      "sha256": "4a1f06c8330eb094ad7e446cf25a34da70e2e925a2038dd50635fff7f8573f04",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer1-at-most-5.cnf",
+      "bytes": 83610,
+      "sha256": "56ad6277fffba0245160d61919c0da6e85fd58a9258cf8fd9a8483c4f15c1b60",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer1-at-most-5.drat",
+      "bytes": 85572,
+      "sha256": "e2ef0dd0c927c9d23c470bff6f95cd3a0ba9d73beea607d96bf391ce73ceebbb",
+      "category": "RELEASE_LATER",
+      "rationale": "DRAT proof certificate; retain locally and bind by manifest for later artifact archive"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer1-at-most-5.drat-trim.log",
+      "bytes": 452,
+      "sha256": "3cdee612a4e1b892f1f9a66ee5083b163e46a7bee837c8c9fae5bea1cb1c9f87",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer1-at-most-5.kissat.log",
+      "bytes": 4837,
+      "sha256": "80a2afebeafcb1e11f60b521a886fcbb0c55c374dc4e94a34003dabb50ff2d17",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer2-at-most-11.cnf",
+      "bytes": 201998,
+      "sha256": "acefa74a1ea24393091245eb2f25562447a37e8a33c7e768a33579d7724a5129",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer2-at-most-11.drat",
+      "bytes": 22440659,
+      "sha256": "9fcbf6b00baac8f18e0c31f3cbd6b0bfb4ba0dbae4bcbd2a0493482882a25936",
+      "category": "RELEASE_LATER",
+      "rationale": "DRAT proof certificate; retain locally and bind by manifest for later artifact archive"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer2-at-most-11.drat-trim.log",
+      "bytes": 467,
+      "sha256": "c0b79c3fc0c1f7bd57084704e70e41a49cf14cc983b05cb5bb4988652a9424ed",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer2-at-most-11.kissat.log",
+      "bytes": 32281,
+      "sha256": "fb1b7d9573345047c7d15f56c201e7f2dd6f9f04dfd5b5ad37d6c68228474a9e",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer3-at-most-13.cnf",
+      "bytes": 260673,
+      "sha256": "995c798516c5dafb6507350de1a04ee7b5e4cc9836f6b76b0f3cb5dc23f54e26",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer3-at-most-13.drat",
+      "bytes": 107527685,
+      "sha256": "99e79dea28f1256b0586a66c223bf321facdc06b13af88409bbee3113b186ce6",
+      "category": "RELEASE_LATER",
+      "rationale": "DRAT proof certificate; retain locally and bind by manifest for later artifact archive"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer3-at-most-13.drat-trim.log",
+      "bytes": 471,
+      "sha256": "654b7c45e75395b8b9f6cf931667466dc6ceac4b28e03599e85c7097ce89b885",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer3-at-most-13.kissat.log",
+      "bytes": 57146,
+      "sha256": "44d86065d6faf0370389e14224c3f98812ea8414bd976fc0e0bef50cc3aa3bcf",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer3-at-most-16.cnf",
+      "bytes": 299235,
+      "sha256": "5736096c53413bc6fbb87b50e0dd388773b720f9f34e7359265dcf6f6da49857",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/core8-layer3-at-most-16.kissat.log",
+      "bytes": 73702,
+      "sha256": "acc975240d829ae924cbfb4cb46ebb22946d62cb5f7116f5bbedb3ce70bc1fb0",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-layer-bounds/verification-manifest.json",
+      "bytes": 8204,
+      "sha256": "15eb4ec0cb2ae00d0612db087bb3e768ab17743b2c0d2eb3a3f5b200515c743a",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-12-6-3.cnf",
+      "bytes": 6317179,
+      "sha256": "f1f55800489fc386d2d939ed9325b1e69a700e2d0653012df39b06e394b39a7d",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-12-6-3.kissat.log",
+      "bytes": 85802,
+      "sha256": "0e0170bf1063eeb139675e3114a1020ac28de7c8fba7d7e3d1dfbdcdf68a7b80",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-12-7-2.cnf",
+      "bytes": 6322179,
+      "sha256": "8b610fd91d761069ff1c8e5c59dbf25361c0db213475aaac7366eee0975ee653",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-12-7-2.kissat.log",
+      "bytes": 88032,
+      "sha256": "b2237bb7cfeb92147f24dba152ed52cbb267e1287d1cfecc4574b0ddea7009f7",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-12-8-1.cnf",
+      "bytes": 6327179,
+      "sha256": "5cae19a5543bec49d0d560392d6ae8b8b775e6e526b2147d88d18ed4133ed1dc",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-12-8-1.kissat.log",
+      "bytes": 89722,
+      "sha256": "3a2a4d185a32e6891fc278dbc9f509f551a581b1a92f00746b80dd015a44210c",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-13-6-2.cnf",
+      "bytes": 6326859,
+      "sha256": "0299affdbab761f879ea44b12f7812d97d964353f3fe99c3eae4636aeaac099b",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-13-6-2.kissat.log",
+      "bytes": 84808,
+      "sha256": "4918c650c6be1010f1519cb0074d19877fc856330bf4146b5428eda232bdc54f",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-13-7-1.cnf",
+      "bytes": 6331859,
+      "sha256": "1372d8c62fdd11d078b099641a30d7cb47f3f40efbd3db8513b6e7fa1b257c32",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-13-7-1.kissat.log",
+      "bytes": 88247,
+      "sha256": "10dde779536e72f32262090a7d4673680ee0df551749a85474cda3c138abed57",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-14-6-1.cnf",
+      "bytes": 6336539,
+      "sha256": "889ea9cb40e304e5f9ed633532f26737eb9adf4af7d9ac3f17c9dac5e77d7964",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-14-14-6-1.kissat.log",
+      "bytes": 89324,
+      "sha256": "4bb4f28e806a49add2a1440baaf58c747ab3e69162583a3225ba99773a853967",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-15-12-6-2.cnf",
+      "bytes": 6328538,
+      "sha256": "2a95863f18304179d256f847494bf4af8b49a2b5713887777f85eae946a75f1a",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-15-12-6-2.kissat.log",
+      "bytes": 96270,
+      "sha256": "2812f9cecd3af37945ce4903c0c6019d56f546be668ced84131cc9d02113e2d3",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-15-12-7-1.cnf",
+      "bytes": 6333538,
+      "sha256": "d14c1ef01f6675ca7ba6aec32741bbf977a4f16cfebbb28184b9a602933f8e52",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-15-12-7-1.kissat.log",
+      "bytes": 88372,
+      "sha256": "a464ee7bbdb305abe01432c1597dbafb6af40dcc3e6ca08e6597ec30e5ccbca4",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-15-13-6-1.cnf",
+      "bytes": 6338218,
+      "sha256": "563807e75c0b70d1878235be0afb4c65d882b7d627e55b489a88d79a8fe06402",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-15-13-6-1.kissat.log",
+      "bytes": 90538,
+      "sha256": "c1b6ad3086e23c1e506134bcd2461f4a8c8492b629de95544bba419df7d7fb63",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-16-12-6-1.cnf",
+      "bytes": 6339897,
+      "sha256": "d9191be52530e4dd174c85f8e2e76384b037a0cc722f9b89a4dd1355d6a47f0a",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-12-16-12-6-1.kissat.log",
+      "bytes": 91558,
+      "sha256": "b645e309cbde992254ac4cf359a290dd11bdf8d586ab31b42c81aa6d332946ee",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-13-14-12-6-2.cnf",
+      "bytes": 6326489,
+      "sha256": "93ee6e2162d75b32db238929facd4048b5309b87fc20881bfbb61ea17f0604c0",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-13-14-12-6-2.kissat.log",
+      "bytes": 92250,
+      "sha256": "b8dabafef7fc79f651a4909800fe93e9b621fc9241acc9db8f587183aef3c65d",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-13-14-12-7-1.cnf",
+      "bytes": 6331489,
+      "sha256": "2a890f3c7c584c279e489106a75121f1a8e91a4a004a64f9b0e08233952916d6",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-13-14-12-7-1.kissat.log",
+      "bytes": 96622,
+      "sha256": "cda4d1795a73b3c0800bb023b308ba7ec2b18c28bcfbf302fde452b9f8109bd0",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-13-14-13-6-1.cnf",
+      "bytes": 6336169,
+      "sha256": "6e2af43ee96bd30d2b94e61f07dfb8bd6f895dc79debde5095de37b46e827689",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-13-14-13-6-1.kissat.log",
+      "bytes": 90276,
+      "sha256": "8d6063437669c5ae1a46d75a2e2f2507360c58bc489a5074e18ef87590ef69e5",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-13-15-12-6-1.cnf",
+      "bytes": 6337848,
+      "sha256": "dbcebc611dda4054379434f0a3b347f84f92c4ca51cd324940bb3dd75a0f1aee",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-13-15-12-6-1.kissat.log",
+      "bytes": 86059,
+      "sha256": "6f825e4679eec5bf0bc310e821cb9397ccf5970ef538c80c929698fc84bf36a8",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-14-14-12-6-1.cnf",
+      "bytes": 6335799,
+      "sha256": "df10bcf6deb35c19c2ef5deb107ebbdaf3682a6a495b4f1b8788c8cf2df8ebea",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-6-14-14-12-6-1.kissat.log",
+      "bytes": 90352,
+      "sha256": "b0dd3a1b9d51104612249168c72c24519d1efe5998e066a6bb60cbf3c56dc5ad",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-12-14-12-6-2.cnf",
+      "bytes": 6321926,
+      "sha256": "6880a8864b16cc6250542efe90c20406be107a779c05f7275a2bb3bffb91773e",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-12-14-12-6-2.kissat.log",
+      "bytes": 86848,
+      "sha256": "19b12342f87268dcc25e1507150429b7e46fb633ec6672bf82668ba43d97d1ac",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-12-14-12-7-1.cnf",
+      "bytes": 6326926,
+      "sha256": "877e92c6954256e33268f2ec1f265df74bdccb8528bcea69c18ae09411f7db04",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-12-14-12-7-1.kissat.log",
+      "bytes": 91826,
+      "sha256": "cf2ebd23573d791ec9024f08b7372ae533b668ca4aeb19544bb5589db44c3889",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-12-14-13-6-1.cnf",
+      "bytes": 6331606,
+      "sha256": "e7ecf126868151e51ea56e06a02f434c11f4806b2b5d074676d3d50b2c3ec005",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-12-14-13-6-1.kissat.log",
+      "bytes": 97689,
+      "sha256": "7ee054d8919e32fc9dca46958e46261bebaaa2b26beb376743be2488ef666848",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-12-15-12-6-1.cnf",
+      "bytes": 6333285,
+      "sha256": "6373c2d11d9e20181af4e7a9623a403f45bbf04cd6724cd184b65185c343a864",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-12-15-12-6-1.kissat.log",
+      "bytes": 95927,
+      "sha256": "a571bfac81ec765b5cef776add84f3fa9dcc3d40b7d58c3d1a5add383c9438c7",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-13-14-12-6-1.cnf",
+      "bytes": 6331236,
+      "sha256": "8e35dfcca8ae632f96fbb724a9987b94b2eca5d334bde881689c84cbdb8dd641",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-7-13-14-12-6-1.kissat.log",
+      "bytes": 88644,
+      "sha256": "d0177616dd265658c12f5e1ed62715704a731a035c98748b04bd2529ddd18311",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-8-12-14-12-6-1.cnf",
+      "bytes": 6326673,
+      "sha256": "130e9676295eced885bb5119d0c9cff2f9997c25d26a27e26cd626e655dc5131",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-1-8-12-14-12-6-1.kissat.log",
+      "bytes": 92691,
+      "sha256": "e4d4ce3c0053a2056236f5ee63b4c4256240abb77e08ba2ae3ca6cc46b224513",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-12-14-12-6-2.cnf",
+      "bytes": 6316945,
+      "sha256": "0517a56ac60847d174ce953d8e0548c0b72a62a61be3a1560ad797669eb6190b",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-12-14-12-6-2.kissat.log",
+      "bytes": 95717,
+      "sha256": "b9664ee531191f7540da414aada5ffaf8f6ba7bb269c36584294657d102ab2e4",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-12-14-12-7-1.cnf",
+      "bytes": 6321945,
+      "sha256": "9b3bbc20eb1c2d4b6597b196d16d1d16b08dd023753737e09b69d1718c16167d",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-12-14-12-7-1.kissat.log",
+      "bytes": 91703,
+      "sha256": "65e471ee24976df74f078ea6f08febe13070af89286bdd027d9ebcd00dcfba72",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-12-14-13-6-1.cnf",
+      "bytes": 6326625,
+      "sha256": "d87cd4d8421b6bde69d99dff1edb50b27087c90514d297f9728cdd0fb1beab17",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-12-14-13-6-1.kissat.log",
+      "bytes": 94262,
+      "sha256": "ec587482170fa2cfa930a225ae626656216933db93b570948c0e0f2db5f86fee",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-12-15-12-6-1.cnf",
+      "bytes": 6328304,
+      "sha256": "ef74aaeb2bc8991c7705a9426ac7cff2df3377a11a4a8033f3c7c554787fcf9a",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-12-15-12-6-1.kissat.log",
+      "bytes": 84781,
+      "sha256": "664deac763a295fee99025e4d50d66197060cc124b1d5720d5222f9834c74936",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-13-14-12-6-1.cnf",
+      "bytes": 6326255,
+      "sha256": "de94956722db417e94e040dc0088f5b8be85d0c3e69a4d109c19270d70b6c87b",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-6-13-14-12-6-1.kissat.log",
+      "bytes": 85896,
+      "sha256": "420e191ccbb4ac2fc4df3ed5d1963ae1ccb0cc9174b8cc2102e8d0346543c9b5",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-7-12-14-12-6-1.cnf",
+      "bytes": 6321692,
+      "sha256": "250b5aa4d7ee74c7a41d47cfa09a1c303585ce3314ff8366f22f05fdfab92d9f",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-2-7-12-14-12-6-1.kissat.log",
+      "bytes": 90837,
+      "sha256": "5ca511087dbb2a0122593e632195a494447edb914428dbbc273dfb6491e8801c",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-3-6-12-14-12-6-1.cnf",
+      "bytes": 6316711,
+      "sha256": "7c00386599d8e9ff0d0c0bfe268d8a4f7e5dd9494156ec351870bef0de8c840b",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-3-6-12-14-12-6-1.kissat.log",
+      "bytes": 94156,
+      "sha256": "24d121a68f29e85a9771826de847a7cd1ce0472e95d9ff18019d7521a4c02396",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-profiles/profile-search-manifest.json",
+      "bytes": 27148,
+      "sha256": "d4be923bf052a19b3292b36118ff063491442803317a6e90b17d509ef4427b53",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-system/complete/core8-target54-rank-window.cnf",
+      "bytes": 6458343,
+      "sha256": "058b66d00935ee7cb610173f2de7629d1f97ba2c70cc6e9a2de5ccb3dd4e5511",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-system/complete/core8-target54-rank-window.kissat.log",
+      "bytes": 453282,
+      "sha256": "0f1c6576d8b85611c6f029f184c9af6bed0d9ae8bcc996848eca2462f1d0821a",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-system/complete/verification-manifest.json",
+      "bytes": 2246,
+      "sha256": "e101d46c4fab748956056266a3029bd3dbb839c6b692c8e6bd33fd476a4623c8",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-system/fixed-middle14/core8-target54-rank-window-fixed-middle14.cnf",
+      "bytes": 6461447,
+      "sha256": "4788e55ffd51c81e0639611d9e25e2ff103af5838b0ef08ce13c6bb697f74412",
+      "category": "GENERATED_LARGE",
+      "rationale": "deterministic DIMACS solver input; regenerate from tracked P0054 Python source"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-system/fixed-middle14/core8-target54-rank-window-fixed-middle14.drat",
+      "bytes": 42951282,
+      "sha256": "72570874c2fc0a30ae80fc243cc60d2110e282beadb87096f718c0567cbf63db",
+      "category": "RELEASE_LATER",
+      "rationale": "DRAT proof certificate; retain locally and bind by manifest for later artifact archive"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-system/fixed-middle14/core8-target54-rank-window-fixed-middle14.drat-trim.log",
+      "bytes": 472,
+      "sha256": "4df3d69add8ebf6d835d11cf6bde6536db07dc73c87271dec3d2ff41aeeaf7f1",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-system/fixed-middle14/core8-target54-rank-window-fixed-middle14.kissat.log",
+      "bytes": 44205,
+      "sha256": "62ccd24bc1cda740c7425246402450779f400121b8ef919ab9936e7381baa71a",
+      "category": "LOCAL_LOGS",
+      "rationale": "solver/checker run log; retain locally when needed and bind by manifest"
+    },
+    {
+      "path": "Problems/P0054/experiments/size54-g3-system/fixed-middle14/verification-manifest.json",
+      "bytes": 2884,
+      "sha256": "1ca447a68e90d13cc60a10af99316acfd7681f60c2cd5c00aeee2d92baa73ebc",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/formal/Main.lean",
+      "bytes": 481,
+      "sha256": "0b6ab2a4350d58e0e39677472be78782de6aa64f7a4bd2a2eed2ac8ecd6352bb",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/formal/formalization-report.md",
+      "bytes": 2190,
+      "sha256": "d141018b2e75a51f1bd4cf83341eefad5eaf80326552d7dd6866e6b3f6ad7af1",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/formal/statement-crosswalk.md",
+      "bytes": 1652,
+      "sha256": "4de5c2157c701be409a22753bfbd251b48982d32abf47b421b1788e8e2c9c35e",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/formal/witness-table-manifest.json",
+      "bytes": 5982,
+      "sha256": "3b726c30669e07e777e4508ddd38015d1fe979c792cd78b32fb0f9f8c5ee09b2",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/literature-search-log.md",
+      "bytes": 2401,
+      "sha256": "4b6668842186970c49d8a4c3400f7e0e6b7ebd952f1c95bb7af0f99cf55a1af2",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/literature/extremal-poset-theory-2026/access-resolution.md",
+      "bytes": 1685,
+      "sha256": "947d25ee0d8b3746b1949c96914b39313fd812e43e3749290d634cdbba26b5d9",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/literature/extremal-poset-theory-2026/manifest.json",
+      "bytes": 1179,
+      "sha256": "19ef28e11941bc524089c6cdbcd4fb8809bcd2a53f5c99be4d05d8bbbcd34cf5",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/literature/final-prior-art-audit.md",
+      "bytes": 4031,
+      "sha256": "5c8383bc138193af80a07de737bad18ec55ac54d0825d3daa03e038fdcdf18d4",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/literature/g4-global-lower/freeze-manifest.json",
+      "bytes": 2760,
+      "sha256": "62313da89a38e1a773954956c8252bf7afcd2e841842bc7686a8fd39cae4a62d",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/literature/g4-global-lower/literature-pack.md",
+      "bytes": 7804,
+      "sha256": "dc4a5258ce5fc4b4d2d2ffa5aeb6d96b51d467b2cf013c1655ca44486d22497c",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/literature/g4-global-lower/search-log.md",
+      "bytes": 5880,
+      "sha256": "92eef5bf137c16ec5ce66d652ae421935afe0b3c9b380c4ab2aff4781bf0bc00",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/literature/g4-global-lower/source-theorem-matrix.md",
+      "bytes": 5286,
+      "sha256": "fee4fddb9bc0f25cc017e23b2bd7366db9687307c2686270ffa6ff408a20ede0",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/literature/g4.4-exact-local/freeze-manifest.json",
+      "bytes": 3338,
+      "sha256": "765b79a3832c03e03903045286be1fa8f05f714dee1381e6a5d34a2b067954e5",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/literature/g4.4-exact-local/literature-pack.md",
+      "bytes": 12026,
+      "sha256": "6d184ee722d183c57a6ef69fb0ff85595759871df621b236ad755aa2e0a940bf",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/literature/g4.4-exact-local/search-log.md",
+      "bytes": 8792,
+      "sha256": "5112491f36753f0227b8f5365be846d17051d9f75a3de57249ae4b6ab59affd2",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/literature/g4.4-exact-local/theorem-crosswalk.md",
+      "bytes": 4741,
+      "sha256": "526777d81a88510bfd787285288d8fba296e0d0c07e1dd6c3b2207e3f2c6acb5",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/literature/reference-verification.md",
+      "bytes": 1987,
+      "sha256": "3c4989c3b4fd9cbf2a4c266fce33c3190fb269a3cad36bb16576e35d786bf8e9",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/paper/argument-map.md",
+      "bytes": 1903,
+      "sha256": "52e706410fe576678acb42ce45e23605609a149e850c1f80a253931a4e7b5215",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/paper/audits/mock-review-revision-log.md",
+      "bytes": 1552,
+      "sha256": "92bb52c6bbc8b60081778cb76a060b24709ad15c670a6cabc0a33a78bb724cc8",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/paper/audits/mock-review.md",
+      "bytes": 13306,
+      "sha256": "88b88ba498cbcaaf9623c5e25a96f8f760950bc48649b2b712257c865f124c75",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/paper/manuscript/README.md",
+      "bytes": 2085,
+      "sha256": "0880cbaa6c85a62f7c77a7e90d132e715398742148b298b93ea85ac94c6ed601",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/paper/manuscript/main.tex",
+      "bytes": 23187,
+      "sha256": "dc860eb2722edc2d06cc8a17965fc3606d6d701abe40980b6f0cc5ef7623c3b6",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/paper/manuscript/main.zh-Hans.tex",
+      "bytes": 22206,
+      "sha256": "8731e0ea6d2228ca3d7217afe9d8d99d973f58bf571d682b0d35f2fe9e1598bd",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/paper/manuscript/references.bib",
+      "bytes": 3013,
+      "sha256": "16fa03231b9a800a06e639798bbf3bf8035f5b831249396992e59dc171854119",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/paper/supplement/computational-certificate.md",
+      "bytes": 1768,
+      "sha256": "51131ab156453f213d1078a40d09fc812c55d27b29c7f4002d810c2ba75f5cc1",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/paper/terminology-ledger.md",
+      "bytes": 1740,
+      "sha256": "04f5dc034cd91959a534ecd95b40d18f07478b99a789ba2c59e49b8af167eed8",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/audits/f1-formalization-audit.md",
+      "bytes": 1117,
+      "sha256": "d37ea385d45b342dd5cc722a38d75ed3c21f7162af231dee6855ed816633f7e9",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/audits/g4-global-lower/referee-a.md",
+      "bytes": 12461,
+      "sha256": "0996bc5bd64941554f3b0e6d36f3d29ffc36a5c1c32e203802092dc81c6acba4",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/audits/g4-global-lower/referee-b.md",
+      "bytes": 8643,
+      "sha256": "b1a40729e21ce51e52739cd5e06cb4417fb7cb399cb43edeffbfdc142852b57a",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/audits/g4.2-stronger-lower/referee-a.md",
+      "bytes": 11235,
+      "sha256": "664bdb20b8b9c86fac80a2d2fac654b4b91e95eed2d50512534ea45c88d627a0",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/audits/g4.2-stronger-lower/referee-b.md",
+      "bytes": 11680,
+      "sha256": "5a4866c494d123f6478b2164a314749e5b66f2b92f1ec80db4fb52fca5f79bfc",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/audits/g4.3-stronger-lower/referee-a.md",
+      "bytes": 13364,
+      "sha256": "6e11b6a925c50e9d84f06c53987fb6c527f4fb0567edad5c0602da1d85aba807",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/audits/g4.3-stronger-lower/referee-b.md",
+      "bytes": 9295,
+      "sha256": "22f191ada7e91d9cc00b41eb4011cd0f5a4ad23168aad8b1341c11b4a53c0c84",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/audits/g4.4-exact-local/final-validation.md",
+      "bytes": 4808,
+      "sha256": "0ba8d4b4d1b364c5e0e92643d906f847062475b70e32e29bb31eb2209c91ba48",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/audits/g4.4-exact-local/referee-a.md",
+      "bytes": 5174,
+      "sha256": "aa49082f8b5db78556c26f182a41a1736fd85789ed4a708aff60606302f2d2a2",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/audits/g4.4-exact-local/referee-b.md",
+      "bytes": 5780,
+      "sha256": "9f8de2a7d01485baa9e992993017df41098c166689c361c21c761dde92bb5598",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/audits/g4.4-exact-local/review-freeze.json",
+      "bytes": 4433,
+      "sha256": "25a89f111a4a5b1487bbea0a40ca0f738cfacd8dd3b2f55f107f178ab9153149",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4-global-lower/attempt-001-canonical.md",
+      "bytes": 15825,
+      "sha256": "1f18344f6e8fbcb4197358436b82a7e8d900d6124581aed5405f55deffa27f87",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4-global-lower/attempt-002-probabilistic.md",
+      "bytes": 11988,
+      "sha256": "4964ae70412463513f7bfba8db43077f091d38e8683f78076d1eddb1c8cc9219",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4-global-lower/attempt-003-independent.md",
+      "bytes": 14682,
+      "sha256": "ca6b13b38da593e8723ac76502f72ce0a42476148ec8e98aab230bdbdb55c371",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4-global-lower/candidate-proof.md",
+      "bytes": 14070,
+      "sha256": "9e0821e821458ee390d809d03e5fd927ae661222b4712c2c679b02a26d6ed448",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4-global-lower/gap-list.md",
+      "bytes": 4259,
+      "sha256": "386fbf6ab554432239fa7b8a8c1250ae9411bd3faac184f6c4fbb26e90396d08",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.2-stronger-lower/candidate-proof.md",
+      "bytes": 13364,
+      "sha256": "ef87bce75e3db5a8a46d99318c6b4c5e8bc769f33ef61be4e6adee55372c5a1e",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.2-stronger-lower/frozen-subproblem.md",
+      "bytes": 1389,
+      "sha256": "2149cbed8621e7643307e8c508301d898e25e3a661bc2b1f05910354f2ba2a42",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.2-stronger-lower/prover-a-count-classification.md",
+      "bytes": 8250,
+      "sha256": "24414500063e4711b97a9c4e83bb068b891a38590cf55ccaed075631048005bb",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.2-stronger-lower/prover-b-hypergraph-transversal.md",
+      "bytes": 10364,
+      "sha256": "8449e6cfac35afe736404a41a22788e8b0537b80cfd2bc24cf7ab3e0534f64ad",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.2-stronger-lower/prover-c-independent.md",
+      "bytes": 12460,
+      "sha256": "45acf9658d2e4371adcdb7e633fafa902e615ded4f359a65baa17f043731fc88",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.3-stronger-lower/candidate-proof.md",
+      "bytes": 15870,
+      "sha256": "ff1271a9552f5eaf82f6d44ac19edfa0e5f550d383d2157e0d16b0eac591a684",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.3-stronger-lower/frozen-subproblem.md",
+      "bytes": 2617,
+      "sha256": "cc64e1e376196355b68266abcfdf228d38836b6fc05c170204397efc67a8ddaa",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.3-stronger-lower/prover-a-split-exclusion.md",
+      "bytes": 13531,
+      "sha256": "c0f8a78a886d9f1f37657378902cd92d16886ce6069376136af4fdcc5092a0b0",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.3-stronger-lower/prover-b-parameter-search.md",
+      "bytes": 12549,
+      "sha256": "f4d30518966d65bc6d363f29221579fcfbf3341564f018e8bd21c976425d54b4",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.3-stronger-lower/prover-c-adversarial.md",
+      "bytes": 14118,
+      "sha256": "e34c3650abc4cf34de35bb257bbe376f642e810b52e42c6be7e20169cace7b57",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.3-stronger-lower/stronger-local-parameter.md",
+      "bytes": 6502,
+      "sha256": "69bdc4575e825e1b49c3de35696e306889cf901d2f2136252033c5c4694e58c9",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.4-exact-local/candidate-proof.md",
+      "bytes": 23291,
+      "sha256": "5bacfe8e319ce76ac1c8e8e9efa35fe1454cf896ace8c6ee5c10d8f04b2d9832",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.4-exact-local/frozen-subproblem.md",
+      "bytes": 3607,
+      "sha256": "e0dd5370eb639cd678bff60e7b17e0d025758a99c2648bc99d95d197924b78c7",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.4-exact-local/prover-a-report.md",
+      "bytes": 8315,
+      "sha256": "afb11b7887bda08537cc5830d8d94ed562e58d36739c1fa06d9a4a5b19cff703",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.4-exact-local/prover-b-report.md",
+      "bytes": 14508,
+      "sha256": "dac0f17731f8de229c50a357e7ca3002a7e5c391529f42e706b8a78909b8bed0",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.4-exact-local/prover-c-finite-reduction.md",
+      "bytes": 9057,
+      "sha256": "7091bed29152e2e3d7ee79f8e67d678e4b55330e3ae3f44d4afe35c258846bfc",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/model-reduction.md",
+      "bytes": 3888,
+      "sha256": "fb567b46242843685836ae2b28d013141df46664cb3547a1d538e09152ad2cc5",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/size-55-construction.md",
+      "bytes": 3605,
+      "sha256": "2b4a41b1af63468875f6c27a479cff02e9094ee1d2da820b1b48a8889742e782",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/size54-layer-structure.md",
+      "bytes": 5358,
+      "sha256": "bd54295ded0ac7e71a25291ba729970a1c6b7ca1444b78f2c8d5a6286bfe0d59",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/proof/size54-oriented-reduction.md",
+      "bytes": 3910,
+      "sha256": "063f27c85c5981c54ca0ac373739a48be866f291b38c46cc46b7192655a6aeba",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/release/large-artifact-manifest.json",
+      "bytes": 155789,
+      "sha256": "7e59e1da3ae7d7230888cec783a90d5ca3a2c22268c7fe515276eaa664911e0f",
+      "category": "TRACKED_SOURCE",
+      "rationale": "Small checksum/provenance manifest retained in normal Git."
+    },
+    {
+      "path": "Problems/P0054/release/reproducible-baseline-report.md",
+      "bytes": 24411,
+      "sha256": "2d9cac9f6c1805a98c771110644b801586dfa2def429d678ca1afbdc0d922e1f",
+      "category": "TRACKED_SOURCE",
+      "rationale": "G4.4B staged-diff reconciliation audit and exact user-only commit instructions."
+    },
+    {
+      "path": "Problems/P0054/release/research-artifact-inventory.json",
+      "bytes": 100258,
+      "sha256": null,
+      "category": "TRACKED_SOURCE",
+      "rationale": "Self-referential inventory: byte count is fixed-point stable; SHA-256 is intentionally null because a file cannot contain its own cryptographic digest."
+    },
+    {
+      "path": "Problems/P0054/release/tracked-whitespace-waivers.json",
+      "bytes": 19355,
+      "sha256": "8f0c91f69ad7cbb470ac5d50a5aee4a4f231963419582e2fb352fb757620fc12",
+      "category": "TRACKED_SOURCE",
+      "rationale": "Exact per-warning waivers for historical or protected TRACKED_SOURCE blobs in the candidate cached diff."
+    },
+    {
+      "path": "Problems/P0054/statement.md",
+      "bytes": 2263,
+      "sha256": "c09275667570ef827939625d7e82560ad8eeb5a448efca3ba251af3208d57990",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "Problems/P0054/status.md",
+      "bytes": 14921,
+      "sha256": "b8f04391eefc9a39e10a9d4825d377f7f55283c5ee56a279f04e9715612090a6",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "novelty-crosswalk.md",
+      "bytes": 6108,
+      "sha256": "4c8a352314a96a7afa6d4b90d767adfaabf1072fbbea49255f06e4c885984a96",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "output/pdf/P0054-55-member-saturated-7-Sperner-draft.pdf",
+      "bytes": 288401,
+      "sha256": "74c34e1b9b7cbe7d5f6cb85adf0857fd5085392e86b12e40a9dd5c635f1dafae",
+      "category": "LOCAL_LOGS",
+      "rationale": "generated manuscript preview; source TeX is tracked"
+    },
+    {
+      "path": "output/pdf/P0054-55-member-saturated-7-Sperner-zh-Hans.pdf",
+      "bytes": 226666,
+      "sha256": "a4ee9ca7e8670cbb8c34ba9952f09d71e44467b71ab974f62a29b48358eb4bae",
+      "category": "LOCAL_LOGS",
+      "rationale": "generated manuscript preview; source TeX is tracked"
+    },
+    {
+      "path": "p0054-f1-size55-formalization-summary.md",
+      "bytes": 1541,
+      "sha256": "87bf6379b1546724c95d92eb0c73e955452c721ed4a0d68c855d2a86954bf5c6",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "p0054-f2-manuscript-readiness-summary.md",
+      "bytes": 2917,
+      "sha256": "517d8e79834028892d92bd8f5979f233cbd090eb77258c9560a1caa792251c7f",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "p0054-g0-class-optimality-summary.md",
+      "bytes": 2508,
+      "sha256": "6bad6ce3a53e6881f3ecfab31d86dcc51a4ea14d47ea1e3264abe63d896c4a00",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "p0054-g1-size55-construction-summary.md",
+      "bytes": 2982,
+      "sha256": "329627ee7cca96768769d6f4143341237ad9425ef95327cf107570ec2ae2f33a",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "p0054-g2-size54-discovery-summary.md",
+      "bytes": 2350,
+      "sha256": "e6c2440935ecf16c3c54a071a52894924df8832ca0a216b7b7daca6314349aa3",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "p0054-g3-structural-lower-bound-summary.md",
+      "bytes": 2258,
+      "sha256": "da1f4fefc3790f427e7077bae15157c091ea0755042bec3d9c486629b8f101be",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "p0054-g4-global-lower-bound-summary.md",
+      "bytes": 10774,
+      "sha256": "9a5dea3ea97d98a8c35a67ef41b3fcaf4737d0521527f4f8ff7c811dd3bdae84",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "p0054-g4.2-stronger-lower-summary.md",
+      "bytes": 8183,
+      "sha256": "c198caaad17057cbdd2bc03b0cd0422c9badced70896e326b7aaaf55bb046c02",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "p0054-g4.3-stronger-lower-summary.md",
+      "bytes": 8516,
+      "sha256": "d7ccb3bfbe6ee06ad795fead19033031449e5deb1963601a0803da8d2e51f562",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "p0054-g4.4-exact-local-summary.md",
+      "bytes": 5616,
+      "sha256": "d6e73aa3d7db622db309a4aa6b5dcc52c9128c9e2f0749159e7ec1a282693e7f",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "p0054-g4.4b-baseline-prep-summary.md",
+      "bytes": 2625,
+      "sha256": "3127133f60acf1c1b2af95dc0e898880cd19a57602884424cdd8ebc435904495",
+      "category": "TRACKED_SOURCE",
+      "rationale": "Root control-panel summary for the bounded staged-diff reconciliation gate."
+    },
+    {
+      "path": "prior-art-search-log.md",
+      "bytes": 10489,
+      "sha256": "064436321cfe5610ed5cd1d57b5db7574a3bc549874fe5a9fdf76ab7e74eac74",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "proof-audit-summary.md",
+      "bytes": 14911,
+      "sha256": "107fc300a2c75459156d2b52fd823da049e4c6d780b98c3735ae68ee355f3dfb",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "scripts/p0054_generate_lean_witnesses.py",
+      "bytes": 9682,
+      "sha256": "f77322155c0da0caceea8199fb1ff2f3341f7bc8c6aaa5d843f5bb22dec529ba",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "scripts/p0054_layered_sat7.py",
+      "bytes": 29824,
+      "sha256": "0791c95018ea46f2a25825a262ab75d4d36a8bae85c5b6c330fc8bfccebd6f87",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "scripts/p0054_size54_discovery.py",
+      "bytes": 23083,
+      "sha256": "0abd5ef22bce399dd7e3c5164c58d26c3227d524d839da23e83099b726f3857f",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "scripts/p0054_size54_profile_search.py",
+      "bytes": 7950,
+      "sha256": "0c8cd5e6828614150ea476da3eb6de869da923997469e45ea1f7dd4484832ed7",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "scripts/p0054_size54_structural.py",
+      "bytes": 21370,
+      "sha256": "8f8ecaa18a259ac01cd26c30efce7d7f244905c927aabbcb88c7bad57e25709d",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "scripts/p0054_size54_system_search.py",
+      "bytes": 8367,
+      "sha256": "b303eb84f5eb20ed9ded5c27708da4b4487181859bad53f1bc41a28dab980a54",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "scripts/p0054_verify_candidate.py",
+      "bytes": 6409,
+      "sha256": "67b8534df33f1540522468319f863985ae9a8c19806a98b90b01bfaf24c14f07",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "scripts/p0054_verify_drat.py",
+      "bytes": 3801,
+      "sha256": "bc76024a49846a7a46cce42624e7f14ed1a3b687b522f9785df98c3ace6c1a3e",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "submission-readiness-verdict.md",
+      "bytes": 4909,
+      "sha256": "1c6ad1df926d9643a1129122488e99dc44d853aeb78b4e5487976bb30f9e4f49",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "tests/test_p0054_drat_manifest.py",
+      "bytes": 2256,
+      "sha256": "195771978dbff7e4e9f2b52b5e116e6a3ca7f8cc706b1aed3938a73ccbfb1ea9",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "tests/test_p0054_formalization.py",
+      "bytes": 4166,
+      "sha256": "0761410928f37bad3f3c0a8500e562cd044bd09acbca86e8ebbb5e65edff63c3",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "tests/test_p0054_layered_sat7.py",
+      "bytes": 9243,
+      "sha256": "d081623a7c472b98a3d6aa1ac1bb2fe47c220fbbda16fb0d924cfcba7128021a",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "tests/test_p0054_size54_discovery.py",
+      "bytes": 3926,
+      "sha256": "23dfa4b85971fa92b2ca2a4289d2a9d609d727e652301cfa5d810c06151d5367",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "tests/test_p0054_size54_g3_artifacts.py",
+      "bytes": 3703,
+      "sha256": "339e3e1183ed0a1b9cf0c0898e3183a5a389cca082a75f5e6c0cc33d9654a3a9",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "tests/test_p0054_size54_profile_search.py",
+      "bytes": 999,
+      "sha256": "608729eee3ab4e8288ceba2f4e70c2508e50ad1088342b87c1134cd6fb5d3c99",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "tests/test_p0054_size54_structural.py",
+      "bytes": 5167,
+      "sha256": "22196e0d2d86cb34fa1dc971558977c52a040706dd3451636bbeceec986ce252",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    },
+    {
+      "path": "tests/test_p0054_size54_system_search.py",
+      "bytes": 358,
+      "sha256": "3aa9032d1e068a6ddb4b3cfe835752c2b4203550c41832a857fbbf1a4886fd23",
+      "category": "TRACKED_SOURCE",
+      "rationale": "proof/source/test/prompt/report/literature/small certificate or manifest"
+    }
+  ]
+}

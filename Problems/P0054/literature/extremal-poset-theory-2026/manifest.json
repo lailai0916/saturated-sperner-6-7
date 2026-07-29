@@ -1,0 +1,50 @@
+{
+  "version": 2,
+  "generated_at": "2026-07-22T08:33:36.373Z",
+  "request": {
+    "topic": "",
+    "title": "Extremal Poset Theory",
+    "dois": [],
+    "pdf_url": "",
+    "si_requested": true,
+    "language_override": "",
+    "route_override": "open_access",
+    "source_url": "",
+    "api_fallback_web": null,
+    "api_fallback_web_for": [],
+    "no_api_fallback_web_for": []
+  },
+  "summary": {
+    "total": 1,
+    "downloaded": 0,
+    "seconds": 10.7
+  },
+  "results": [
+    {
+      "doi": "10.1017/9781009766012.003",
+      "title": "Extremal Poset Theory",
+      "language": "",
+      "publisher": "Cambridge University Press",
+      "route": "open_access",
+      "route_reason": "explicit_override",
+      "si_requested": true,
+      "status": "oa_not_found",
+      "provider": "open_access",
+      "oaAssessment": "confirmed_oa",
+      "oaChecks": {
+        "pmc": {
+          "checked": true,
+          "pmcid": "",
+          "error": ""
+        },
+        "unpaywall": {
+          "checked": false,
+          "error": "",
+          "is_oa": null
+        },
+        "crossref_license": "https://www.cambridge.org/core/terms"
+      },
+      "oaAttempts": []
+    }
+  ]
+}

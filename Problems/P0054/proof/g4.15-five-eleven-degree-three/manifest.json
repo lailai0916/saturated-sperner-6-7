@@ -1,0 +1,48 @@
+{
+  "schema": "p0054-g415-stage-manifest-v1",
+  "gate": "G4.15_FIVE_ELEVEN_DEGREE_THREE_FORMALIZATION",
+  "base_commit": "58f005e2f0bde9103acd15d37a6a22ce16308ad9",
+  "scope": "degree-three branch of the G4.12 (5,11) exclusion",
+  "files": [
+    {
+      "path": "AiMathLab/P0054G415/DegreeThree.lean",
+      "sha256": "5ceea052c5a7949a62bd7a3d44687f2036044f864f2ea850bd380f1a628bd32b",
+      "role": "formal_proof"
+    },
+    {
+      "path": "AiMathLab/P0054G415.lean",
+      "sha256": "eb2be569c1ecb8770bf9b0eef27925587863d96c5b7b87e5f14582ec8c7aef38",
+      "role": "module_entrypoint"
+    },
+    {
+      "path": "Problems/P0054/formal/G415.lean",
+      "sha256": "4c2e6eb52ff86c5cf7bf54588a912423502aef2e213ddbf4e07140de6246e1f3",
+      "role": "axiom_audit"
+    },
+    {
+      "path": "Problems/P0054/formal/g415-statement-crosswalk.md",
+      "sha256": "f897e85e201d2649ffc23a28c99ba3d4415b947303e6440de72cf87901ff299e",
+      "role": "statement_crosswalk"
+    },
+    {
+      "path": "Problems/P0054/formal/g415-formalization-report.md",
+      "sha256": "c83f5d0b13707b45813104fe47d9ab9381f761f272894924e3fb4e36a665f134",
+      "role": "formalization_report"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.15-five-eleven-degree-three/formalization-status.md",
+      "sha256": "27ee1f8544c3faa9df6da1ba4c8305f8cfbbe6204fb9e7fe9068e0e04f15f8b0",
+      "role": "stage_status"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.15-five-eleven-degree-three/post-validation.md",
+      "sha256": "cf1b715584273f4af9e10a39ba0de6f67558614e4164c7aab1e919b435125090",
+      "role": "validation_record"
+    }
+  ],
+  "evidence": {
+    "local_branch": "FORMALIZED",
+    "full_five_eleven_split": "NOT_FULLY_FORMALIZED",
+    "global_exact_value_lean": "NOT_FULLY_FORMALIZED"
+  }
+}

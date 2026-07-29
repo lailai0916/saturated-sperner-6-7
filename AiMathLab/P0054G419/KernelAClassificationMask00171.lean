@@ -1,0 +1,160 @@
+import AiMathLab.P0054G419.KernelAClassificationPrefix0017111
+import AiMathLab.P0054G419.KernelAClassificationPrefix0017112
+import AiMathLab.P0054G419.KernelAClassificationPrefix0017113
+import AiMathLab.P0054G419.KernelAClassificationPrefix0017114
+import AiMathLab.P0054G419.KernelAClassificationPrefix0017115
+import AiMathLab.P0054G419.KernelAClassificationPrefix0017121
+import AiMathLab.P0054G419.KernelAClassificationPrefix0017122
+import AiMathLab.P0054G419.KernelAClassificationPrefix0017131
+
+namespace AiMathLab.P0054.G419
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+-- Two fixed digits split a wide multiplicity tree into kernel-reducible branches.
+theorem four_kernel_a_classification_mask_00171 :
+    fourKernelAClassificationMaskCheck 171 = true := by
+  apply fourKernelAClassificationMaskCheck_of_two_prefixes
+    171 0 1 [3, 5, 7] rfl rfl
+  intro k hk l hl
+  have hAdmissible : fourKernelATwoPrefixAdmissible 171 k l = true := by
+    simp only [fourKernelATwoPrefixAdmissible]
+    rw [show fourMaskSupports 171 = [0, 1, 3, 5, 7] by rfl]
+    exact Bool.and_eq_true_iff.mpr ⟨decide_eq_true hk, decide_eq_true hl⟩
+  have hkBounds : 1 ≤ k ∧ k ≤ 6 := by
+    have hkRange := (List.mem_filter.mp hk).1
+    simp only [List.mem_map, List.mem_range] at hkRange
+    obtain ⟨n, hn, rfl⟩ := hkRange
+    omega
+  have hlBounds : 1 ≤ l ∧ l ≤ 6 := by
+    have hlRange := (List.mem_filter.mp hl).1
+    simp only [List.mem_map, List.mem_range] at hlRange
+    obtain ⟨n, hn, rfl⟩ := hlRange
+    omega
+  have hkLower := hkBounds.1
+  have hkUpper := hkBounds.2
+  have hlLower := hlBounds.1
+  have hlUpper := hlBounds.2
+  interval_cases k <;> interval_cases l
+  · exact four_kernel_a_classification_prefix_00171_1_1
+  · exact four_kernel_a_classification_prefix_00171_1_2
+  · exact four_kernel_a_classification_prefix_00171_1_3
+  · exact four_kernel_a_classification_prefix_00171_1_4
+  · exact four_kernel_a_classification_prefix_00171_1_5
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 1 6 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · exact four_kernel_a_classification_prefix_00171_2_1
+  · exact four_kernel_a_classification_prefix_00171_2_2
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 2 3 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 2 4 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 2 5 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 2 6 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · exact four_kernel_a_classification_prefix_00171_3_1
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 3 2 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 3 3 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 3 4 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 3 5 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 3 6 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 4 1 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 4 2 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 4 3 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 4 4 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 4 5 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 4 6 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 5 1 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 5 2 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 5 3 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 5 4 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 5 5 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 5 6 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 6 1 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 6 2 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 6 3 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 6 4 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 6 5 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+  · have hFalse :
+      fourKernelATwoPrefixAdmissible 171 6 6 = false := by rfl
+    rw [hFalse] at hAdmissible
+    contradiction
+
+end AiMathLab.P0054.G419

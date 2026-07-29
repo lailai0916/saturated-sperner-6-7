@@ -1,0 +1,204 @@
+{
+  "schema": "p0054.g4.12.candidate-manifest.v3",
+  "base_commit": "58f005e2f0bde9103acd15d37a6a22ce16308ad9",
+  "epistemic_status": "PROVED_CANDIDATE",
+  "network": "MATHEMATICS_OFFLINE",
+  "toolchain": {
+    "clang": "Apple clang 21.0.0",
+    "python": "3.12.13",
+    "uv": "0.11.29"
+  },
+  "files": [
+    {
+      "path": "Problems/P0054/proof/g4.12-exact-fifty-four/frozen-subproblem.md",
+      "sha256": "d3dc887cc95136d5eeecc58ddf09f8cd589d49486867a55fa7b1c20f57248957",
+      "role": "frozen_input"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.12-exact-fifty-four/partial-proof.md",
+      "sha256": "34523d981c6f32e03dff873bc488c7b3832341db9459716a1d7058db495ed1ce",
+      "role": "candidate_proof"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/fano-adjacency.cpp",
+      "sha256": "f1c9a1382f2a82279b0a2eb0cf7911483ed83ff00bb96a100f534a35799b3db6",
+      "role": "fano_primary_enumerator"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/fano-adjacency-results.txt",
+      "sha256": "8d1ab1f13cf9038843b244529a1eefe3f991d35e9c7146af0ec5467a5ae1bae8",
+      "role": "fano_primary_output"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/verify.py",
+      "sha256": "9abc0ef54bc5ca10aacd2e25fbcdb618c0360a49c255a3eb8de709da337e6833",
+      "role": "fano_independent_verifier"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/verification.json",
+      "sha256": "ff1121486a91d45b7c3d5838ff9b421c62a0c87c27e006c70892180699931edb",
+      "role": "fano_independent_output"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-six-ten.cpp",
+      "sha256": "2328e48a82d298c03f2d8ed589505927170721fa2da6ad921626d660b2c99eca",
+      "role": "six_ten_degree_three_enumerator"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-six-ten-results.txt",
+      "sha256": "746ebb9670695bfcd0c6822b6cf48dba2c100788a7dcd35c12e33623760ae2eb",
+      "role": "six_ten_degree_three_output"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/verify-middle-six-ten.py",
+      "sha256": "1f3d8bb0100f97627bbd30fd65ec474f6183c7b4ed6c90b89ded3045b2819916",
+      "role": "six_ten_degree_three_independent_verifier"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-six-ten-verification.json",
+      "sha256": "d60c77a9f85591f76d3b0bc34b9d8cbb6f0f27d30b063b2bcede75962e7a80f7",
+      "role": "six_ten_degree_three_independent_output"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-six-ten-low-degree.cpp",
+      "sha256": "f8045b79e340ecee191f4e22c5ff6cea8f08393f8d062c48602a3bd0a872ffcd",
+      "role": "six_ten_low_degree_enumerator"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-six-ten-low-degree-results.txt",
+      "sha256": "32d2ab68932aca32e5eb6fee99ca0fb98cd10354f7809f271e50d3c25b167764",
+      "role": "six_ten_low_degree_output"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-six-ten-low-degree.py",
+      "sha256": "b44bb5f65d3a457df5e0e38297bdaa55dd4c9e46c7d3f5a384aac51dc55b9257",
+      "role": "six_ten_low_degree_independent_verifier"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-six-ten-low-degree-verification.json",
+      "sha256": "a4acdb27714853e99d1c882e86a7fa524b03d7b2b315be1d534d6556eb7cef90",
+      "role": "six_ten_low_degree_independent_output"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-four-row-kernels.py",
+      "sha256": "a5a0ac9886649cc3058ccbfccebb60e37d5cbfbc224e6aba88dacf05eeadc3a8",
+      "role": "shared_four_row_enumerator"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-eight-eight-four-row-kernels.json",
+      "sha256": "40148a48b28daab32f1d3a3d70bad4db72f510e8d60eb7ed78582da5ac351661",
+      "role": "eight_eight_four_row_output"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-eight-eight-five-row.cpp",
+      "sha256": "16afb882c7cd44a42f3e84c821c2ddf0df9a6fff316de883710beee8831bca9e",
+      "role": "eight_eight_five_row_enumerator"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-eight-eight-five-row-results.txt",
+      "sha256": "73b71673114b6ec82c73bc2a16cc7a23a6b10919deaf608fdb41527325de2400",
+      "role": "eight_eight_five_row_output"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-eight-eight-extension.py",
+      "sha256": "a1e6bca9356134ece250eb7c339ea3b61afb0366f3c75ab9b53773ad0247ab4b",
+      "role": "eight_eight_semantic_verifier"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-eight-eight-extension-verification.json",
+      "sha256": "b919d10997d1a61a420a68a4441b82365dca518c40292fd8125888b42b975356",
+      "role": "eight_eight_semantic_output"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-seven-nine-four-row.cpp",
+      "sha256": "4d6385c85d55dadc84a4d98e41b1562b47210478b2ba7a64bd55c17836431ace",
+      "role": "seven_nine_four_row_primary_enumerator"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-seven-nine-four-row-results.txt",
+      "sha256": "5796cbb4062358f6679e1d73ab431bf7dafdd2a5c80607c702ddf3bf2f51d67f",
+      "role": "seven_nine_four_row_primary_output"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-seven-nine-four-row-kernels.json",
+      "sha256": "59532aede4cb7071af1eeb658796b6c72567739c0abbddec32c52f465f3526f9",
+      "role": "seven_nine_four_row_independent_output"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-seven-nine-extension.cpp",
+      "sha256": "ec9509452813c0a2a68c385fc0e7bf725b1c08ad17c00ed6c0496fbf36edfd83",
+      "role": "seven_nine_extension_primary_verifier"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-seven-nine-extension-results.txt",
+      "sha256": "f836fa15552da512e51f4128787d13007d466247b9c6d66576d4ad12fc61c696",
+      "role": "seven_nine_extension_primary_output"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-seven-nine-extension.py",
+      "sha256": "49bca56eae808b767e79f85826a726c88d30a64e244faab513c962b63a41dcd5",
+      "role": "seven_nine_extension_independent_verifier"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-seven-nine-extension-verification.json",
+      "sha256": "8f54ab48a916ee8801fc7fa62c1c886b522b681d1e8d9f98c3c3b2c83f4cca63",
+      "role": "seven_nine_extension_independent_output"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-seven-nine-five-row.py",
+      "sha256": "61e8601cbd78b39c2b0fc52bf34b6e3b76fe9914bf1031b4e12c0c4768f50d99",
+      "role": "seven_nine_five_row_frozen_replay"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-seven-nine-five-row-verification.json",
+      "sha256": "b7b8818bedb31187f335aea4397c32b228e7ad59d48e4f1dd56d51d113fac67d",
+      "role": "seven_nine_five_row_frozen_output"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-seven-nine-six-row.cpp",
+      "sha256": "712a834fb014b1babc5e6eed75044a1b8460b44e9549b03253fae3e9887a3e32",
+      "role": "seven_nine_six_row_primary_enumerator"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-seven-nine-six-row-results.txt",
+      "sha256": "77187cf1618500b0c428c1440034bee5e6fc86036de039de2038358154163aab",
+      "role": "seven_nine_six_row_primary_output"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-seven-nine-six-row.py",
+      "sha256": "240efb144827e397389bbb8a8c58ec1bc64899ff8c79de73871ef9e9854dc929",
+      "role": "seven_nine_six_row_independent_verifier"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-seven-nine-six-row-verification.json",
+      "sha256": "bae6bb2acdc1a6b2a1b7a77f9256d68e66b1b6b3590659cbb0327cd4138f8df8",
+      "role": "seven_nine_six_row_independent_output"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/verify-middle-seven-nine.py",
+      "sha256": "f58e93d8fd7548c96a3150e9d400f5366f57590522772db9e0784331ba7cdffb",
+      "role": "seven_nine_cross_verifier"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-seven-nine-cross-verification.json",
+      "sha256": "2b63667fbd3000cfb1e8f0c5ff93421370544045f4583142811a1239c165bd32",
+      "role": "seven_nine_cross_verification_output"
+    },
+    {
+      "path": "Problems/P0054/experiments/g4.12-exact-fifty-four/report.md",
+      "sha256": "157d214951e2459a724d80a7726f140deea5a016a61d7015bff84feff30867ef",
+      "role": "experiment_report"
+    }
+  ],
+  "results": {
+    "fano_profile": "PROVED_CANDIDATE_IMPOSSIBLE",
+    "middle_5_11": "PROVED_CANDIDATE_IMPOSSIBLE",
+    "middle_11_5": "PROVED_CANDIDATE_IMPOSSIBLE",
+    "middle_6_10": "PROVED_CANDIDATE_IMPOSSIBLE",
+    "middle_10_6": "PROVED_CANDIDATE_IMPOSSIBLE",
+    "middle_8_8": "PROVED_CANDIDATE_IMPOSSIBLE",
+    "middle_7_9": "PROVED_CANDIDATE_IMPOSSIBLE",
+    "middle_9_7": "PROVED_CANDIDATE_IMPOSSIBLE",
+    "exact_sat_7": "PROVED_CANDIDATE_55_PENDING_REFEREE"
+  }
+}

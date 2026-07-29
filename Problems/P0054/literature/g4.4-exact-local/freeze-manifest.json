@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "gate": "P0054_G4_4_EXACT_m_2_4",
+  "generated_at_utc": "2026-07-23T03:18:49Z",
+  "generated_at_local": "2026-07-22T20:18:49-0700",
+  "search_cutoff_utc": "2026-07-23",
+  "search_date_local": "2026-07-22 America/Los_Angeles",
+  "scouts": {
+    "count": 2,
+    "isolated": true,
+    "read_only": true,
+    "network_authorized": true,
+    "attempted_proof": false,
+    "repository_writes": false
+  },
+  "main_agent_network_used": false,
+  "network_after_freeze": "FORBIDDEN",
+  "status_classification": "STATUS_UNVERIFIED",
+  "negative_search_classification": "NO_PUBLIC_EQUIVALENT_FOUND_IN_RECORDED_SCOPE",
+  "novelty_or_priority_inference_allowed": false,
+  "frozen_conclusions": {
+    "blocker_involution": "LITERATURE",
+    "product_inequality_32": "UNKNOWN_CONJECTURED_NOT_LITERATURE",
+    "four_set_blocker_at_least_8": "UNKNOWN",
+    "exact_m_2_4": "STATUS_UNVERIFIED",
+    "standard_parameter_name_m_r_s": "STATUS_UNVERIFIED",
+    "external_problem_source": "STATUS_UNVERIFIED"
+  },
+  "coverage": {
+    "source_types": [
+      "original papers",
+      "author manuscripts",
+      "arXiv",
+      "books and publisher records",
+      "DBLP",
+      "Crossref",
+      "zbMATH",
+      "MathSciNet",
+      "Google Scholar",
+      "Google Books",
+      "journal and author-hosted PDFs"
+    ],
+    "known_gaps": [
+      "Lehman 1979 primary full text inaccessible",
+      "Berge 1989 full book not completely searchable",
+      "Cornuejols 2001 full book not completely searchable",
+      "database snippets and access were incomplete",
+      "unindexed theses, non-English sources, and alternate terminology may be missing"
+    ]
+  },
+  "section0_baseline": {
+    "head": "d2c8e3eb81466a3743c736319ef1874920590abc",
+    "protected_file_count": 210,
+    "protected_total_bytes": 683397414,
+    "protected_sha256_lines_digest": "cc17227ca98c557f42d3f19eb0a085d6cc7d8f4ed282ebd68ec1dd31331c8f81",
+    "g0_through_g4_3_manifest_count": 13,
+    "g0_through_g4_3_manifest_total_bytes": 64384,
+    "g0_through_g4_3_manifest_digest": "b90cb7ee7fa41f2bfebf42e30e72c1be0bc78fa35f12b456cc224de705198f2b"
+  },
+  "artifact_aggregate": {
+    "file_count": 5,
+    "total_bytes": 38552,
+    "sha256_lines_digest": "7b00d14ad2c960698e8d5f36fbff9967cab5fa287336effa4f84d12ed20f7fa6",
+    "ordering": "lexicographic path order"
+  },
+  "artifacts": [
+    {
+      "path": "Problems/P0054/experiments/g4.4-exact-local/section0-freeze.md",
+      "bytes": 9386,
+      "sha256": "b06600a748f39f1a5d09b0a7980e90cd717a8878d1059d9a86deb7700dacdd3d"
+    },
+    {
+      "path": "Problems/P0054/literature/g4.4-exact-local/literature-pack.md",
+      "bytes": 12026,
+      "sha256": "6d184ee722d183c57a6ef69fb0ff85595759871df621b236ad755aa2e0a940bf"
+    },
+    {
+      "path": "Problems/P0054/literature/g4.4-exact-local/search-log.md",
+      "bytes": 8792,
+      "sha256": "5112491f36753f0227b8f5365be846d17051d9f75a3de57249ae4b6ab59affd2"
+    },
+    {
+      "path": "Problems/P0054/literature/g4.4-exact-local/theorem-crosswalk.md",
+      "bytes": 4741,
+      "sha256": "526777d81a88510bfd787285288d8fba296e0d0c07e1dd6c3b2207e3f2c6acb5"
+    },
+    {
+      "path": "Problems/P0054/proof/g4.4-exact-local/frozen-subproblem.md",
+      "bytes": 3607,
+      "sha256": "e0dd5370eb639cd678bff60e7b17e0d025758a99c2648bc99d95d197924b78c7"
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "schema": "ai-math-lab.p0054.size54-portfolio.v1",
+  "generated_at_utc": "2026-07-22T09:25:02.759584+00:00",
+  "run_mode": "BOUNDED_DISCOVERY",
+  "epistemic_label": "COMPUTED",
+  "search_class": "complete eight-core common-block layered template class",
+  "target_size": 54,
+  "global_lower_bound_claimed": false,
+  "solver": "CaDiCaL 3.0.1",
+  "solver_path": "/tmp/ai-math-lab-cadical/build/cadical",
+  "solver_sha256": "7a695f3c3bd2fd8c8122dcf14d4ab1f6f2657ac82a4c6d773fc07276d0b88937",
+  "timeout_seconds_per_configuration": 600,
+  "cnf_path": "Problems/P0054/experiments/size54-g2/core-8-target-54-complete.cnf",
+  "cnf_sha256": "e284ec2828793e26b591c7153b6366e8f44e4c7b928854f4e45c965f465f833a",
+  "primary_variable_count": 3584,
+  "auxiliary_variable_count": 193482,
+  "clause_count": 543837,
+  "reference_candidate_sha256": "55d0a1e19a024efb944fc9a00ea466bdd6d5b11383f1bd86c1f772d8fb92acac",
+  "runs": [
+    {
+      "configuration": "default",
+      "options": [
+        "--default"
+      ],
+      "command": [
+        "/tmp/ai-math-lab-cadical/build/cadical",
+        "--default",
+        "-t",
+        "600",
+        "-w",
+        "Problems/P0054/experiments/size54-g2/portfolio-default.model",
+        "Problems/P0054/experiments/size54-g2/core-8-target-54-complete.cnf"
+      ],
+      "returncode": 0,
+      "runtime_seconds": 600.034766750061,
+      "solver_result": "UNKNOWN_OR_TIMEOUT",
+      "epistemic_label": "COMPUTED",
+      "model_path": "Problems/P0054/experiments/size54-g2/portfolio-default.model",
+      "log_path": "Problems/P0054/experiments/size54-g2/portfolio-default.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof_status": "NO_PROOF_REQUESTED_DISCOVERY_ONLY"
+    },
+    {
+      "configuration": "sat",
+      "options": [
+        "--sat"
+      ],
+      "command": [
+        "/tmp/ai-math-lab-cadical/build/cadical",
+        "--sat",
+        "-t",
+        "600",
+        "-w",
+        "Problems/P0054/experiments/size54-g2/portfolio-sat.model",
+        "Problems/P0054/experiments/size54-g2/core-8-target-54-complete.cnf"
+      ],
+      "returncode": 0,
+      "runtime_seconds": 600.0282965829829,
+      "solver_result": "UNKNOWN_OR_TIMEOUT",
+      "epistemic_label": "COMPUTED",
+      "model_path": "Problems/P0054/experiments/size54-g2/portfolio-sat.model",
+      "log_path": "Problems/P0054/experiments/size54-g2/portfolio-sat.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof_status": "NO_PROOF_REQUESTED_DISCOVERY_ONLY"
+    },
+    {
+      "configuration": "sat-shuffle-seed1",
+      "options": [
+        "--sat",
+        "--seed=1",
+        "--shuffle=true",
+        "--randec=true"
+      ],
+      "command": [
+        "/tmp/ai-math-lab-cadical/build/cadical",
+        "--sat",
+        "--seed=1",
+        "--shuffle=true",
+        "--randec=true",
+        "-t",
+        "600",
+        "-w",
+        "Problems/P0054/experiments/size54-g2/portfolio-sat-shuffle-seed1.model",
+        "Problems/P0054/experiments/size54-g2/core-8-target-54-complete.cnf"
+      ],
+      "returncode": 0,
+      "runtime_seconds": 600.0279295840301,
+      "solver_result": "UNKNOWN_OR_TIMEOUT",
+      "epistemic_label": "COMPUTED",
+      "model_path": "Problems/P0054/experiments/size54-g2/portfolio-sat-shuffle-seed1.model",
+      "log_path": "Problems/P0054/experiments/size54-g2/portfolio-sat-shuffle-seed1.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof_status": "NO_PROOF_REQUESTED_DISCOVERY_ONLY"
+    },
+    {
+      "configuration": "sat-shuffle-seed2",
+      "options": [
+        "--sat",
+        "--seed=2",
+        "--shuffle=true",
+        "--reverse=true"
+      ],
+      "command": [
+        "/tmp/ai-math-lab-cadical/build/cadical",
+        "--sat",
+        "--seed=2",
+        "--shuffle=true",
+        "--reverse=true",
+        "-t",
+        "600",
+        "-w",
+        "Problems/P0054/experiments/size54-g2/portfolio-sat-shuffle-seed2.model",
+        "Problems/P0054/experiments/size54-g2/core-8-target-54-complete.cnf"
+      ],
+      "returncode": 0,
+      "runtime_seconds": 600.0268242079765,
+      "solver_result": "UNKNOWN_OR_TIMEOUT",
+      "epistemic_label": "COMPUTED",
+      "model_path": "Problems/P0054/experiments/size54-g2/portfolio-sat-shuffle-seed2.model",
+      "log_path": "Problems/P0054/experiments/size54-g2/portfolio-sat-shuffle-seed2.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof_status": "NO_PROOF_REQUESTED_DISCOVERY_ONLY"
+    }
+  ],
+  "candidate_found": false,
+  "candidates": [],
+  "mathematical_consequence": "NONE_INCOMPLETE_DISCOVERY_SEARCH_ONLY"
+}

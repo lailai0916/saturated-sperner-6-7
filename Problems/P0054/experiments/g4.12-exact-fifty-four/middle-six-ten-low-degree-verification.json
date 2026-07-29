@@ -1,0 +1,95 @@
+{
+  "cpp_source_sha256": "f8045b79e340ecee191f4e22c5ff6cea8f08393f8d062c48602a3bd0a872ffcd",
+  "epistemic_label": "COMPUTED",
+  "independent_replay_match": true,
+  "python_source_sha256": "b44bb5f65d3a457df5e0e38297bdaa55dd4c9e46c7d3f5a384aac51dc55b9257",
+  "reference_path": "Problems/P0054/experiments/g4.12-exact-fifty-four/middle-six-ten-low-degree-results.txt",
+  "reference_sha256": "32d2ab68932aca32e5eb6fee99ca0fb98cd10354f7809f271e50d3c25b167764",
+  "schema": "p0054.g4.12.middle-six-ten-low-degree-verification.v1",
+  "summary": {
+    "branches_by_degree_three_vertices": {
+      "4": {
+        "clutter_matching_number_histogram": {
+          "2": 853,
+          "3": 1389
+        },
+        "clutter_minimum_blockers_by_matching_number": {
+          "2": 54,
+          "3": 27
+        },
+        "clutter_vectors": 2242,
+        "core_matching_number_histogram": {
+          "2": 2643,
+          "3": 2601
+        },
+        "core_minimum_blockers_by_matching_number": {
+          "2": 54,
+          "3": 24
+        },
+        "degree_vectors": 5244,
+        "target_ten_blocker_kernels": 0
+      },
+      "5": {
+        "clutter_matching_number_histogram": {
+          "1": 202,
+          "2": 11570,
+          "3": 23192
+        },
+        "clutter_minimum_blockers_by_matching_number": {
+          "1": 195,
+          "2": 48,
+          "3": 21
+        },
+        "clutter_vectors": 34964,
+        "core_matching_number_histogram": {
+          "1": 978,
+          "2": 24330,
+          "3": 31772
+        },
+        "core_minimum_blockers_by_matching_number": {
+          "1": 195,
+          "2": 48,
+          "3": 21
+        },
+        "degree_vectors": 57080,
+        "target_ten_blocker_kernels": 0
+      },
+      "6": {
+        "clutter_matching_number_histogram": {
+          "0": 1,
+          "1": 350,
+          "2": 15532,
+          "3": 25360
+        },
+        "clutter_minimum_blockers_by_matching_number": {
+          "0": 729,
+          "1": 171,
+          "2": 45,
+          "3": 15
+        },
+        "clutter_vectors": 41243,
+        "core_matching_number_histogram": {
+          "0": 1,
+          "1": 365,
+          "2": 16597,
+          "3": 27325
+        },
+        "core_minimum_blockers_by_matching_number": {
+          "0": 729,
+          "1": 171,
+          "2": 45,
+          "3": 15
+        },
+        "degree_vectors": 44288,
+        "target_ten_blocker_kernels": 0
+      }
+    },
+    "classes": [],
+    "epistemic_label": "COMPUTED",
+    "minimal_support_covers": 562,
+    "row_permutation_classes": 0,
+    "schema": "p0054.g4.12.middle-six-ten-low-degree.v1",
+    "supports": 21,
+    "vertices": 6
+  }
+}

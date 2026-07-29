@@ -1,0 +1,260 @@
+{
+  "boundary_witnesses": {
+    "cross_overlap_if_antichain_is_removed": {
+      "core_size": 6,
+      "large_mask": 7,
+      "overlap_core_mask": 7,
+      "small_mask": 7,
+      "violates_required_antichain": true
+    },
+    "middle_large_pair_overlap": {
+      "core_size": 4,
+      "large_masks": [
+        1,
+        2
+      ],
+      "overlap_core_mask": 0
+    },
+    "middle_small_pair_overlap": {
+      "core_size": 4,
+      "overlap_core_mask": 15,
+      "small_masks": [
+        7,
+        11
+      ]
+    }
+  },
+  "epistemic_label": "COMPUTED",
+  "equality_eight_audit": {
+    "all_assertions_passed": true,
+    "checked_core_sizes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "core_sizes": [
+      0,
+      7
+    ],
+    "eight_event_partition_possible": false,
+    "forced_event_probability": {
+      "denominator": 8,
+      "numerator": 1
+    },
+    "maximum_events_compatible_with_same_side_disjointness": 2,
+    "pointwise_multiplicity_required": 1
+  },
+  "event_audit": {
+    "all_assertions_passed": true,
+    "core_sizes": [
+      0,
+      7
+    ],
+    "cross_overlap_iff_subset_checks": 30049,
+    "cross_pairs_checked": 30049,
+    "empty_small_is_ineligible": true,
+    "full_large_is_ineligible": true,
+    "large_same_side_pair_intersection_checks": 17226,
+    "large_side_empty_fails_at_empty_core": true,
+    "member_own_core_checks": 950,
+    "small_same_side_pair_intersection_checks": 17226,
+    "small_side_empty_fails_at_full_core": true,
+    "weighted_event_identities_checked": 2850
+  },
+  "parameters": {
+    "experiment_random_seed": "NONE",
+    "q_max": 7,
+    "q_min": 0,
+    "solver_timeout_ms_per_test": 5000,
+    "z3_random_seed": 0
+  },
+  "probability_bounds": [
+    {
+      "exact_ceiling_of_reciprocal_cap": 7,
+      "large_event_cap": {
+        "denominator": 625,
+        "numerator": 81
+      },
+      "layer": 2,
+      "max_event_cap": {
+        "denominator": 25,
+        "numerator": 4
+      },
+      "p": {
+        "denominator": 5,
+        "numerator": 2
+      },
+      "seven_event_max_sum": {
+        "denominator": 25,
+        "numerator": 28
+      },
+      "six_event_max_sum": {
+        "denominator": 25,
+        "numerator": 24
+      },
+      "small_event_cap": {
+        "denominator": 25,
+        "numerator": 4
+      }
+    },
+    {
+      "exact_ceiling_of_reciprocal_cap": 8,
+      "large_event_cap": {
+        "denominator": 8,
+        "numerator": 1
+      },
+      "layer": 3,
+      "max_event_cap": {
+        "denominator": 8,
+        "numerator": 1
+      },
+      "p": {
+        "denominator": 2,
+        "numerator": 1
+      },
+      "seven_event_max_sum": {
+        "denominator": 8,
+        "numerator": 7
+      },
+      "six_event_max_sum": {
+        "denominator": 4,
+        "numerator": 3
+      },
+      "small_event_cap": {
+        "denominator": 8,
+        "numerator": 1
+      }
+    },
+    {
+      "exact_ceiling_of_reciprocal_cap": 7,
+      "large_event_cap": {
+        "denominator": 25,
+        "numerator": 4
+      },
+      "layer": 4,
+      "max_event_cap": {
+        "denominator": 25,
+        "numerator": 4
+      },
+      "p": {
+        "denominator": 5,
+        "numerator": 3
+      },
+      "seven_event_max_sum": {
+        "denominator": 25,
+        "numerator": 28
+      },
+      "six_event_max_sum": {
+        "denominator": 25,
+        "numerator": 24
+      },
+      "small_event_cap": {
+        "denominator": 625,
+        "numerator": 81
+      }
+    }
+  ],
+  "schema": "ai-math-lab.p0054.g4-experimentalist.v1",
+  "scope_warning": "Finite exact checks only; no global theorem follows from SMT outcomes.",
+  "smt_searches": [
+    {
+      "layer": 2,
+      "non_unsat_details": [],
+      "results_by_core_size": {
+        "0": "UNSAT",
+        "1": "UNSAT",
+        "2": "UNSAT",
+        "3": "UNSAT",
+        "4": "UNSAT",
+        "5": "UNSAT",
+        "6": "UNSAT",
+        "7": "UNSAT"
+      },
+      "target_at_most": 6
+    },
+    {
+      "layer": 2,
+      "non_unsat_details": [],
+      "results_by_core_size": {
+        "0": "UNSAT",
+        "1": "UNSAT",
+        "2": "UNSAT",
+        "3": "UNSAT",
+        "4": "UNSAT",
+        "5": "UNSAT",
+        "6": "UNSAT",
+        "7": "UNSAT"
+      },
+      "target_at_most": 7
+    },
+    {
+      "layer": 3,
+      "non_unsat_details": [
+        {
+          "antichain_constraints": 1890,
+          "core_size": 7,
+          "coverage_constraints": 128,
+          "eligible_large_variables": 99,
+          "eligible_small_variables": 99,
+          "layer": 3,
+          "reason_unknown": "timeout",
+          "result": "UNKNOWN",
+          "target_at_most": 8,
+          "timeout_ms": 5000
+        }
+      ],
+      "results_by_core_size": {
+        "0": "UNSAT",
+        "1": "UNSAT",
+        "2": "UNSAT",
+        "3": "UNSAT",
+        "4": "UNSAT",
+        "5": "UNSAT",
+        "6": "UNSAT",
+        "7": "UNKNOWN"
+      },
+      "target_at_most": 8
+    },
+    {
+      "layer": 4,
+      "non_unsat_details": [],
+      "results_by_core_size": {
+        "0": "UNSAT",
+        "1": "UNSAT",
+        "2": "UNSAT",
+        "3": "UNSAT",
+        "4": "UNSAT",
+        "5": "UNSAT",
+        "6": "UNSAT",
+        "7": "UNSAT"
+      },
+      "target_at_most": 6
+    },
+    {
+      "layer": 4,
+      "non_unsat_details": [],
+      "results_by_core_size": {
+        "0": "UNSAT",
+        "1": "UNSAT",
+        "2": "UNSAT",
+        "3": "UNSAT",
+        "4": "UNSAT",
+        "5": "UNSAT",
+        "6": "UNSAT",
+        "7": "UNSAT"
+      },
+      "target_at_most": 7
+    }
+  ],
+  "versions": {
+    "platform": "macOS-27.0-arm64-arm-64bit",
+    "python": "3.12.13",
+    "python_implementation": "CPython",
+    "z3": "4.16.0"
+  }
+}
