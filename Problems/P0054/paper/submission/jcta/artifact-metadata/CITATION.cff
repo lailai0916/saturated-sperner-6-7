@@ -4,8 +4,12 @@ title: "Artifacts for The exact saturated 6- and 7-Sperner numbers"
 type: software
 version: 1.0.0
 date-released: 2026-07-29
+doi: "10.5281/zenodo.21679078"
 repository-code: "https://github.com/lailai0916/saturated-sperner-6-7"
-url: "https://github.com/lailai0916/saturated-sperner-6-7"
+url: "https://doi.org/10.5281/zenodo.21679078"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.21679078"
 authors:
   - given-names: Jiazhi
     family-names: Chen

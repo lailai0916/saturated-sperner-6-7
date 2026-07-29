@@ -17,5 +17,6 @@ The archive README distinguishes mathematical proofs, computed discovery
 results, and Lean-formalized statements.  Run `verify-integrity.sh` first,
 then `verify-core.sh`; use `verify-drat.sh` for the archived DRAT certificates.
 
-The release asset and checksum must be attached together.  Insert the final
-Zenodo DOI here only after the Zenodo record has been published.
+The release asset and checksum must be attached together.  The matching
+Zenodo record has reserved DOI
+[`10.5281/zenodo.21679078`](https://doi.org/10.5281/zenodo.21679078).

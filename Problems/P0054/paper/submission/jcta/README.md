@@ -1,6 +1,6 @@
 # JCTA submission package
 
-Status: `LOCAL_PREPUBLICATION_PACKAGE`
+Status: `PUBLICATION_IDENTIFIERS_RESERVED`
 
 This directory contains the editable Journal of Combinatorial Theory,
 Series A submission source and the author-facing submission materials for
@@ -19,7 +19,7 @@ article or its artifacts have been submitted or made public.
   public files and should be entered directly in the private submission form.
 - `data-and-code-availability.md`: finalization checklist for repository and
   archive identifiers.
-- `artifact-metadata/`: draft GitHub and Zenodo metadata.
+- `artifact-metadata/`: GitHub and Zenodo release metadata.
 - `submission-output.sha256`: checksums of the five rendered PDF/DOCX outputs.
 - `submission-file-map.md`: exact JCTA upload map and exclusions.
 - `output/doc/P0054-declaration-of-competing-interests.docx`: separate
@@ -27,11 +27,11 @@ article or its artifacts have been submitted or made public.
 
 ## Submission blockers
 
-The following items remain intentionally unresolved:
+The following items remain unresolved:
 
-- publish the curated artifact source on GitHub and create release `v1.0.0`;
-- archive the same version on Zenodo and reserve or publish its DOI;
-- replace both placeholders in the data-and-code availability statement;
+- create GitHub release `v1.0.0` and attach the archive and checksum;
+- finish the Zenodo archive upload and publish reserved DOI
+  `10.5281/zenodo.21679078` after a final metadata and checksum check;
 - if Elsevier's submission system requires its declarations tool, complete
   that tool and upload its generated Word document in place of, or together
   with, the locally prepared declaration;
@@ -45,8 +45,8 @@ report is archived here, and this is not represented as journal peer review.
 The final bibliography and novelty audit is recorded in
 `Problems/P0054/literature/final-prepublication-audit-2026-07-29.md`.
 
-Do not submit the package while any URL or DOI placeholder remains in the
-manuscript.
+Do not submit the package until the GitHub release and Zenodo DOI both resolve
+publicly and the attached archive bytes match.
 
 ## Local build
 

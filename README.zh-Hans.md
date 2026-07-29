@@ -70,10 +70,13 @@ lake env lean Problems/P0054/formal/Main.lean
 - `scripts/`、`tests/`：生成器、语义验证器和回归测试。
 
 超过 GitHub 普通文件上限的 DRAT 轨迹不进入源码 Git 历史。包含九组 CNF/DRAT
-文件的完整冻结包随 `v1.0.0` 发布，并附 SHA-256 校验文件，同时镜像到 Zenodo。
+文件的完整冻结包随 [版本 `v1.0.0`](https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.0.0)
+发布，并附 SHA-256 校验文件，同时归档到
+[Zenodo](https://doi.org/10.5281/zenodo.21679078)。
 完整性边界见 [`artifacts/README.md`](artifacts/README.md)。
 纯源码克隆中有五项逐字节归档测试会明确显示为跳过；将归档文件放回对应路径后，
 设置 `P0054_REQUIRE_ARCHIVE_ARTIFACTS=1`，任何缺失文件都会成为硬失败。
 
-引用信息见 [`CITATION.cff`](CITATION.cff)，代码与形式化源码采用 Apache-2.0
-许可证。
+引用信息见 [`CITATION.cff`](CITATION.cff)。本版本的 DOI 为
+[`10.5281/zenodo.21679078`](https://doi.org/10.5281/zenodo.21679078)。代码与
+形式化源码采用 Apache-2.0 许可证。

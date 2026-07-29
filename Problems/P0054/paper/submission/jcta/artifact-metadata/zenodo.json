@@ -28,5 +28,5 @@
       "scheme": "url"
     }
   ],
-  "notes": "Version 1.0.0 of the reproducibility artifacts for the associated manuscript. The large archive is byte-identical to the GitHub release asset."
+  "notes": "Version 1.0.0 of the reproducibility artifacts for the associated manuscript. Reserved DOI: 10.5281/zenodo.21679078. The large archive is byte-identical to the GitHub release asset."
 }

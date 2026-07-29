@@ -13,6 +13,9 @@
 - Funding: No specific grant from public, commercial, or not-for-profit
   funding agencies
 - Competing interests: None declared
+- GitHub repository: https://github.com/lailai0916/saturated-sperner-6-7
+- GitHub release: https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.0.0
+- Artifact DOI: 10.5281/zenodo.21679078
 
 ## Author
 

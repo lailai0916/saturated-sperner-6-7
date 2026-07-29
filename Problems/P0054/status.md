@@ -120,7 +120,7 @@ the seven-core class certificate boundary; and the exact scope of the Lean
 formalizations.
 
 The manuscript is `FINAL_INTERNAL_REVIEW_READY`, and the local JCTA package is
-`LOCAL_PREPUBLICATION_PACKAGE`; neither status means that a submission has
+`PUBLICATION_IDENTIFIERS_RESERVED`; neither status means that a submission has
 occurred. Author affiliation, ORCID, funding, and competing-interest fields
 are complete. On 29 July 2026, the author confirmed that the manuscript had
 not been published and was not under consideration elsewhere. The author also
@@ -128,9 +128,11 @@ reported completion of an external specialist review; no private report is
 archived here, and this is not represented as journal peer review. The final
 pre-submission search is recorded in
 `literature/final-prepublication-audit-2026-07-29.md` and found no public
-equivalent in its bounded scope. Remaining public actions are a versioned
-GitHub release and an immutable Zenodo archive. P0054-C5, P0054-C9, P0054-C24,
-and P0054-C29 remain `UNKNOWN`; no novelty or priority wording is authorized.
+equivalent in its bounded scope. The public source repository is available at
+`https://github.com/lailai0916/saturated-sperner-6-7`, and Zenodo reserved DOI
+`10.5281/zenodo.21679078`. Remaining public actions are the GitHub `v1.0.0`
+release and final Zenodo publication. P0054-C5, P0054-C9, P0054-C24, and
+P0054-C29 remain `UNKNOWN`; no novelty or priority wording is authorized.
 
 The 29 July 2026 local submission replay completed successfully for
 `lake build` (8,662 jobs), the independent `Main.lean` entry point, the

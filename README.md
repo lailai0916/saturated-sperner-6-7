@@ -86,7 +86,9 @@ they are intentionally not represented as fully type-annotated modules.
 
 The source repository omits large DRAT traces that exceed ordinary GitHub file
 limits. The complete frozen archive, including nine CNF/DRAT pairs, is attached
-to release `v1.0.0` together with its SHA-256 sidecar and is mirrored on Zenodo.
+to [release `v1.0.0`](https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.0.0)
+together with its SHA-256 sidecar and is archived on
+[Zenodo](https://doi.org/10.5281/zenodo.21679078).
 See [`artifacts/README.md`](artifacts/README.md) for the integrity boundary.
 In a source-only clone, five archive-byte tests are reported as skipped. After
 placing the archived paths into the working tree, set
@@ -97,6 +99,5 @@ hard test failure.
 
 Machine-readable citation metadata is in [`CITATION.cff`](CITATION.cff). The
 software and formalization sources are released under the Apache License 2.0;
-see [`LICENSE`](LICENSE). The manuscript and mathematical statements should be
-cited to the associated article and archival record once their identifiers are
-available.
+see [`LICENSE`](LICENSE). Cite this release using DOI
+[`10.5281/zenodo.21679078`](https://doi.org/10.5281/zenodo.21679078).

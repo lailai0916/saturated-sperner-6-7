@@ -25,8 +25,8 @@ page by page before approval.
   the submission system requests that exact form.
 - Author metadata: enter the fields from `submission-metadata.md`; enter the
   telephone number directly in the private system.
-- Data and code availability: replace the GitHub and Zenodo placeholders only
-  after both public records resolve to release `v1.0.0`.
+- Data and code availability: use the fixed GitHub release and Zenodo DOI
+  already recorded in the manuscript; verify that both resolve publicly.
 
 ## Do not upload as manuscript source
 
@@ -34,5 +34,5 @@ page by page before approval.
   `*.out`, `*.blg`, `*.abs`);
 - the Simplified-Chinese review translation;
 - internal review logs and status files;
-- the 447 MB artifact archive as a manuscript-source file.  Host it on the
+- the 196168454-byte artifact archive as a manuscript-source file. Host it on the
   GitHub release and Zenodo record, then cite those identifiers in the paper.

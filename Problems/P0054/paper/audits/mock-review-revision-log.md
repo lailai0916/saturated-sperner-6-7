@@ -76,3 +76,12 @@ exact value in the recorded scope. The report is
 `Problems/P0054/literature/final-prepublication-audit-2026-07-29.md`.
 Novelty and priority remain `UNKNOWN` because a bounded negative search does
 not prove absence from all public or nonpublic sources.
+
+## Addendum: 2026-07-29 artifact identifiers
+
+The curated source repository is public at
+`https://github.com/lailai0916/saturated-sperner-6-7`. Zenodo reserved DOI
+`10.5281/zenodo.21679078` for record `21679078`. The manuscript and submission
+metadata now contain the fixed GitHub release URL and DOI. Concern R1-M1 /
+R3-M1 remains open only until release `v1.0.0` and the Zenodo record are
+published with byte-identical archive assets.
