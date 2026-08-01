@@ -61,6 +61,13 @@ lake build AiMathLab AiMathLab.P0054Sat7StableExact
 lake env lean Problems/P0054/formal/Main.lean
 ```
 
+The revision also provides a single replay entry point that preserves full
+logs and writes machine-readable summaries:
+
+```bash
+Problems/P0054/release/verify-core.sh
+```
+
 The independent Lean entry point prints the axioms of both final theorems.
 The expected list is exactly `propext`, `Classical.choice`, and `Quot.sound`.
 The Lean source contains none of the prohibited proof bypasses `sorry`,
@@ -85,10 +92,12 @@ they are intentionally not represented as fully type-annotated modules.
   tests.
 
 The source repository omits large DRAT traces that exceed ordinary GitHub file
-limits. The complete frozen archive, including nine CNF/DRAT pairs, is attached
-to [release `v1.0.0`](https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.0.0)
-together with its SHA-256 sidecar and is archived on
-[Zenodo](https://doi.org/10.5281/zenodo.21679078).
+limits. The current public baseline is
+[release `v1.0.0`](https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.0.0)
+and [Zenodo record `21679078`](https://doi.org/10.5281/zenodo.21679078).
+Those identifiers predate the revised manuscript and Supplement. A local
+`v1.1.0` candidate freezes the revision-synchronized source, PDFs, and nine
+CNF/DRAT pairs; its GitHub release and Zenodo version DOI remain pending.
 See [`artifacts/README.md`](artifacts/README.md) for the integrity boundary.
 In a source-only clone, five archive-byte tests are reported as skipped. After
 placing the archived paths into the working tree, set
@@ -99,5 +108,5 @@ hard test failure.
 
 Machine-readable citation metadata is in [`CITATION.cff`](CITATION.cff). The
 software and formalization sources are released under the Apache License 2.0;
-see [`LICENSE`](LICENSE). Cite this release using DOI
-[`10.5281/zenodo.21679078`](https://doi.org/10.5281/zenodo.21679078).
+see [`LICENSE`](LICENSE). DOI `10.5281/zenodo.21679078` identifies the public
+`v1.0.0` baseline, not the pending revision.

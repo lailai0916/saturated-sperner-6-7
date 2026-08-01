@@ -1,6 +1,6 @@
-# Cover letter — draft for author review
+# Cover letter — superseded draft
 
-29 July 2026
+30 July 2026
 
 Editors  
 Journal of Combinatorial Theory, Series A
@@ -25,18 +25,18 @@ The article is intended for JCTA because its main contribution is an exact
 extremal result in set systems, with structural blocker arguments forming the
 mathematical core.  The supporting artifacts include construction verifiers,
 exact-search programs, CNF instances, DRAT certificates, manifests, tests,
-and a Lean 4 formalization of both eventual equalities.  The article is
-self-contained at the mathematical level; these artifacts provide
-independent reproducibility and formal verification layers.
+and a Lean 4 formalization of both eventual equalities.  The article states
+the mathematical architecture and exact trust boundary; for the largest
+finite classifications, the named Lean declarations are the primary proof
+objects, with the programs supplying independent reproducibility checks.
 
 The author declares no competing interests.  This research received no
 specific grant from funding agencies in the public, commercial, or
 not-for-profit sectors.  A versioned GitHub release and an immutable Zenodo
 archive will be cited in the final submission package.
 
-**Author confirmation required before use:** the manuscript is original, has
-not been published previously, and is not under consideration for publication
-elsewhere.
+**Superseded:** use `cover-letter.md`, which records the author's confirmation
+and the current fourth-pre-review trust-boundary revision.
 
 Thank you for considering the manuscript.
 

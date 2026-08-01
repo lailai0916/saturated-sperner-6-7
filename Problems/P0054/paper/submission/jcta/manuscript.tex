@@ -72,17 +72,18 @@ Investigation, Validation, Writing -- original draft, Writing -- review and edit
 \cortext[1]{Corresponding author}
 
 \begin{abstract}
-We determine the eventual saturated 6- and 7-Sperner numbers.  At six layers,
-the exact value is $\sat(6)=30$.  Its lower bound reduces the two middle
-canonical layers to the finite-clutter parameter $m(2,3)$, for which we prove
-$m(2,3)=9$ on arbitrary finite ground sets.  At seven layers, a stronger
-blocker inequality first gives $m(2,4)=12$ and $\sat(7)\geq47$.  Successive
-arbitrary-finite reductions then exclude the equality profiles of sizes 52
-and 53 and reduce size 54 to two profiles.  Exact branch arguments and
-independently replayed finite kernel enumerations exclude the Fano profile and
-all middle splits $(5,11)$, $(6,10)$, $(7,9)$, and $(8,8)$, together with
-their blocker duals.  Hence $\sat(7)\geq55$.  An explicit 55-member family
-over an eight-element core and a disjoint homogeneous atom gives equality.
+We determine the eventual saturated 6- and 7-Sperner numbers.  A finite
+canonical-reduction theorem makes the homogeneous-atom threshold and every
+ground-set hypothesis explicit.  It reduces the lower bounds to mutual
+blocker pairs on arbitrary finite ground sets.  We prove the exact local
+values $m(2,3)=9$, $m(2,4)=12$, and $m(3,3)=14$.  The first gives
+$\sat(6)=30$.  At seven layers, the equality classification for $m(3,3)$ and
+the adjacent-layer interfaces exclude totals 52 and 53 and reduce total 54 to
+two profiles.  Exact branch arguments and independently replayed finite
+kernel enumerations exclude the Fano profile and all middle splits $(5,11)$,
+$(6,10)$, $(7,9)$, and $(8,8)$, together with their blocker duals.  Hence
+$\sat(7)\geq55$.  An explicit 55-member family over an eight-element core and
+a disjoint homogeneous atom gives equality.
 Its small/large split is $28/27$, so composition also yields
 \[
   \sat(5j+2+s)\leq 2^s(28^j+27^j)
@@ -140,13 +141,50 @@ machine-learning search later produced a 108-member saturated 8-Sperner
 family~\cite{patternboost}; that result changes the leading asymptotic bound
 but does not answer the question at $k=7$.
 
-There are four main results.  First, \cref{thm:sat6} proves
-$\sat(6)=30$, matching the upper construction of Morrison--Noel--Scott.  The
-new ingredient is the exact finite-clutter theorem $m(2,3)=9$.  Second,
-\cref{thm:sat7-lower} proves $\sat(7)\geq47$ from the stronger local theorem
-$m(2,4)=12$.  Third, \cref{sec:exact-seven} excludes every 54-member profile.
-Fourth, \cref{sec:construction} gives a 55-member construction.  Together,
-these results prove $\sat(7)=55$.
+\Cref{tab:prior-work} separates the published inputs from the present
+contributions.  The exact-value proofs use the earlier stability, layering,
+and composition theorems, but none of the finite blocker classifications is
+inferred from the previously known upper bounds.
+
+\begin{table}[htbp]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.13}
+\begin{tabular}{p{0.21\textwidth} p{0.31\textwidth} p{0.39\textwidth}}
+\toprule
+Work & Result used here & Boundary relative to this paper \\
+\midrule
+Gerbner et al.~\cite{gerbner2013} & Eventual stability and homogeneous-set
+structure & Does not determine the values at six or seven layers. \\
+Morrison--Noel--Scott~\cite{mns2014} & Layered saturated antichains,
+composition, and a 30-member six-layer construction & Supplies the upper
+bound at six layers, but not the matching lower bound. \\
+Martin--Veldt~\cite{martinveldt2025} & A 56-member seven-layer construction
+and the $28/28$ composition factor & Leaves open whether 56 is optimal. \\
+PatternBoost~\cite{patternboost} & A 108-member eight-layer construction &
+Concerns $k=8$ and supplies no lower bound at $k=7$. \\
+This work & Exact values 30 and 55; arbitrary-finite blocker reductions; a
+55-member construction with split $28/27$; Lean 4 verification & Makes no
+claim about a general formula for $\sat(k)$ or about $k\geq8$. \\
+\bottomrule
+\end{tabular}
+\caption{Prior results and the scope of the present contribution.}
+\label{tab:prior-work}
+\end{table}
+
+A bounded pre-submission search, last refreshed on 30 July 2026, found no
+public equivalent of either exact value in the recorded bibliographic
+databases, citation graph, directly relevant full texts, or public code
+search.  This negative search is not a proof of novelty or priority.
+
+The mathematical argument has four stages.  First, \cref{thm:canonical-reduction}
+states the finite canonical reduction with its exact incidence threshold.
+Second, \cref{thm:m23,thm:m24,thm:m33} establish the local blocker bounds.
+They give $\sat(6)=30$ and the seven-layer baseline
+$(1,6,12,14,12,6,1)$.  Third, \cref{sec:exact-seven} excludes totals
+52, 53, and 54.  Fourth, \cref{sec:construction} gives a 55-member
+construction.  Together these results prove $\sat(7)=55$.
 
 The upper-bound construction has two short, inspectable certificates.  For
 each layer, the large core sets are precisely the inclusion-maximal sets that
@@ -156,12 +194,9 @@ and Lean 4 check its concrete eleven-point realization.  The Lean development
 also formalizes the arbitrary-ground lower-bound chain and exports the two
 eventual exact statements.  Separately, a DRAT-certified encoding proves that
 56 is optimal inside the seven-core version of the same template class.  That
-class result is not a global lower bound.
-
-A final pre-submission search on 29 July 2026 found no public equivalent of
-either exact value in Crossref, arXiv, OpenAlex, Google Scholar, the indexed
-citation graph, or the directly relevant full texts.  This bounded negative
-search does not establish novelty or priority.
+class result is a separate structural check, not a global lower bound.  The
+Supplement gives the arbitrary-finite interfaces, every finite search domain,
+one complete worked reduction path, and a theorem--program--Lean crosswalk.
 
 \section{Preliminaries}
 \label{sec:preliminaries}
@@ -204,6 +239,12 @@ $\smallcores\subseteq\powerset(C)$.
 Following Morrison--Noel--Scott, an \emph{atom} of a family is an
 inclusion-maximal set $H$ such that every family member either contains $H$
 or is disjoint from $H$.  An atom is \emph{homogeneous} when $|H|>2$.
+
+For a finite family $\family$, its \emph{canonical layers} are obtained by
+successively deleting inclusion-minimal members.  More precisely, put
+$\mathcal R_0=\family$, let $\mathcal A_i$ be the inclusion-minimal members
+of $\mathcal R_i$, and put
+$\mathcal R_{i+1}=\mathcal R_i\setminus\mathcal A_i$.
 
 \begin{lemma}[Maximal-small-free certificate]
 \label{lem:maximal-free}
@@ -276,39 +317,122 @@ member of the latter blocker contains a member of $\mathcal H$, and
 minimality forces equality.
 \end{proof}
 
-The next lemma isolates the interface between canonical layers and blockers.
-
-\begin{lemma}[Canonical blocker interface]
-\label{lem:canonical-blocker}
-Let $\mathcal A_i$ be an internal canonical layer of a minimum saturated
-$k$-Sperner family with homogeneous atom $H$, and put $U=X\setminus H$.
-Let $\mathcal S_i$ be the small members of $\mathcal A_i$, and write each
-large member as $K\cup H$ with $K\subseteq U$.  Define
-\[
-  \mathcal C_i=\{U\setminus K:K\cup H\in\mathcal A_i\}.
-\]
-Then
-\[
-  \mathcal S_i=\blocker(\mathcal C_i),\qquad
-  \mathcal C_i=\blocker(\mathcal S_i).
-\]
-Every member of $\mathcal S_i$ has size at least $i$, and every member of
-$\mathcal C_i$ has size at least $k-1-i$.
+\begin{lemma}[Upward step through layered antichains]
+\label{lem:upward-step}
+Let $\mathcal A_0,\ldots,\mathcal A_{k-1}$ be pairwise disjoint layered
+saturated antichains.  If $D\in\mathcal A_i$ and $i<k-1$, then some
+$E\in\mathcal A_{i+1}$ satisfies $D\subsetneq E$.  Consequently, $D$ begins
+a strict chain with one member in each layer from $i$ through $k-1$.
 \end{lemma}
 
 \begin{proof}
-The size statements are Proposition 14 of Martin--Veldt
-\cite{martinveldt2025}.  Choose a nonempty proper subset $Q\subset H$.  For
-each $R\subseteq U$, the mixed set $R\cup Q$ is outside the layer.  Saturation
-of $\mathcal A_i$ gives either $S\subseteq R$ for some
-$S\in\mathcal S_i$, or $R\subseteq K$ for some large trace $K$.  The
-antichain property says that every $S$ meets every $U\setminus K$.
+Disjointness gives $D\notin\mathcal A_{i+1}$.  Since
+$\mathcal A_{i+1}$ is a saturated antichain, some
+$E\in\mathcal A_{i+1}$ is strictly comparable with $D$.  Suppose that
+$E\subsetneq D$.  Layering supplies $C\in\mathcal A_i$ with
+$C\subsetneq E$.  Then $C\subsetneq D$, contrary to the antichain property
+of $\mathcal A_i$.  Hence $D\subsetneq E$.  Iterating this one-step argument
+gives the stated chain.
+\end{proof}
 
-If $T$ is a transversal of $\mathcal C_i$, it is contained in no large trace,
-so the cover condition gives some $S\subseteq T$.  Minimal transversals are
-therefore precisely the members of $\mathcal S_i$.  Applying the same argument
-to $U\setminus T$ gives the reverse blocker equality.  Alternatively, it
-follows from \cref{lem:blocker-basic}, since both sides are clutters.
+The next theorem is the precise interface used in both global lower bounds.
+It includes the numerical threshold that guarantees at least three points in
+one incidence class.
+
+\begin{theorem}[Finite canonical reduction]
+\label{thm:canonical-reduction}
+Let $k\geq2$, and let $\family\subseteq\powerset(X)$ be a saturated
+$k$-Sperner family on a finite set $X$.  Suppose
+\[
+  |\family|<2^{|X|}
+  \qquad\text{and}\qquad
+  3\cdot2^{|\family|}\leq |X|.
+  \tag{CR1}
+\]
+Then $\family$ has a homogeneous atom $H$ and exactly $k$ nonempty canonical
+layers $\mathcal A_0,\ldots,\mathcal A_{k-1}$.  These layers are pairwise
+disjoint, layered saturated antichains, and their union is $\family$.
+
+Put $U=X\setminus H$.  For $0\leq i<k$, define
+\[
+  \mathcal S_i=\{A\in\mathcal A_i:A\cap H=\varnothing\},
+\]
+\[
+  \mathcal C_i=
+  \{U\setminus(A\setminus H):A\in\mathcal A_i,\ H\subseteq A\}.
+\]
+For every internal index $1\leq i\leq k-2$,
+\[
+  \mathcal S_i=\blocker(\mathcal C_i),\qquad
+  \mathcal C_i=\blocker(\mathcal S_i),
+  \tag{CR2}
+\]
+every member of $\mathcal S_i$ has size at least $i$, every member of
+$\mathcal C_i$ has size at least $k-1-i$, and
+\[
+  |\mathcal A_i|=|\mathcal S_i|+|\mathcal C_i|.
+  \tag{CR3}
+\]
+\end{theorem}
+
+\begin{proof}
+Give each point $x\in X$ its incidence signature
+\[
+  \sigma(x)=\{F\in\family:x\in F\}.
+\]
+There are at most $2^{|\family|}$ signatures.  The second inequality in (CR1)
+and the pigeonhole principle give a signature class $H$ with $|H|\geq3$.
+Every family member contains all or none of this class.  A point outside the
+class has a different signature, so adjoining it destroys the all-or-none
+property.  Hence $H$ is an inclusion-maximal atom and is homogeneous.
+
+The iterative-minimum construction makes the canonical layers disjoint
+antichains and layered.  A $k$-Sperner family has no member above the first
+$k$ layers, so their union is $\family$.  The first inequality in (CR1) gives
+an external set $T$.  Saturation supplies a strict $(k+1)$-chain through
+$T$ in $\family\cup\{T\}$.  Removing $T$ leaves a strict $k$-chain in
+$\family$, with one member in every canonical layer.  Thus all $k$ layers
+are nonempty.
+
+It remains to prove that each layer is saturated.  Fix $i$ and a set
+$D\notin\mathcal A_i$.  Choose distinct $x,y\in H$ and put
+\[
+  D'=(D\setminus H)\cup\{x\}.
+\]
+The set $D'$ meets $H$ without containing it, so $D'\notin\family$.
+Take a strict $(k+1)$-chain through $D'$ and delete $D'$.  Its member
+$A\in\mathcal A_i$ is comparable with $D'$.  If $A\subsetneq D'$, the atom
+property forces $A\cap H=\varnothing$, whence $A\subseteq D$.  Equality would
+give $D\in\mathcal A_i$, so $A\subsetneq D$.  If $D'\subsetneq A$, the atom
+property and $x\in A$ force $H\subseteq A$, whence $D\subseteq A$; equality
+is again impossible.  Thus every external set is strictly comparable with a
+layer member, proving that $\mathcal A_i$ is a saturated antichain.
+
+Fix an internal $i$ and choose a nonempty proper set $Q\subset H$.  For every
+$R\subseteq U$, the mixed set $R\cup Q$ is outside $\mathcal A_i$.
+Layer saturation and the atom property give the dichotomy
+\[
+  \text{some }S\in\mathcal S_i\text{ satisfies }S\subseteq R,
+  \quad\text{or}\quad
+  R\subseteq A\setminus H\text{ for some large }A\in\mathcal A_i.
+  \tag{CR4}
+\]
+The antichain property implies that every $S\in\mathcal S_i$ meets every
+$C\in\mathcal C_i$.  If $T$ is a transversal of $\mathcal C_i$, it is
+contained in no large trace.  The first alternative in (CR4) therefore gives
+some $S\subseteq T$.  Hence the inclusion-minimal transversals of
+$\mathcal C_i$ are exactly $\mathcal S_i$.  Blocker involution gives the
+reverse equality in (CR2).
+
+Finally, a member of $\mathcal A_i$ has a strict chain of $i$ predecessors,
+so every small trace has at least $i$ points.  By
+\cref{lem:upward-step}, a large member begins a chain of $k-i$ members through
+the remaining layers.  Choose one new point at each of its $k-1-i$ strict
+extensions.  The chosen points are distinct and lie outside $H$, because the
+initial large member already contains all of $H$.  They also lie outside its
+core trace, so every corresponding complement in $\mathcal C_i$ has at least
+$k-1-i$ points.  The atom partitions each layer into its small and large
+members, and complementation is injective, proving (CR3).
 \end{proof}
 
 \begin{theorem}
@@ -408,17 +532,19 @@ Morrison--Noel--Scott constructed a 30-member saturated 6-Sperner family on
 every ground set of size at least eight
 \cite[Proposition~20]{mns2014}, so $\sat(6)\leq30$.
 
-Choose $n$ in the stable range with $n\geq8$ and $n>2^{30}$, and choose an
-endpoint-normal minimum family $\family$ on an $n$-element set.  Since
-$|\family|\leq30$, the homogeneous-atom theorem applies.  The canonical
-decomposition gives six nonempty saturated-antichain layers
-$\mathcal A_0,\ldots,\mathcal A_5$.  The endpoint result and
-\cite[Lemma~15]{martinveldt2025} give
+Choose $n$ in the stable range with $n\geq3\cdot2^{30}$, and choose a minimum
+family $\family$ on an $n$-element set.  The construction gives
+$|\family|\leq30$, so
+$3\cdot2^{|\family|}\leq3\cdot2^{30}\leq n$.  Also
+$|\family|<2^n$.  Hence \cref{thm:canonical-reduction} gives six nonempty
+canonical layers $\mathcal A_0,\ldots,\mathcal A_5$.  The endpoint layers
+are nonempty, and the private-witness bound applied to the trace pairs at
+indices one and four gives
 \[
-  |\mathcal A_0|=|\mathcal A_5|=1,\qquad
+  |\mathcal A_0|,|\mathcal A_5|\geq1,\qquad
   |\mathcal A_1|,|\mathcal A_4|\geq5.
 \]
-By \cref{lem:canonical-blocker}, the second layer is an admissible
+By \cref{thm:canonical-reduction}, the second layer is an admissible
 $(2,3)$ blocker pair, and the third becomes one after exchanging the two
 sides.  Thus \cref{thm:m23} gives
 $|\mathcal A_2|,|\mathcal A_3|\geq9$.  Therefore
@@ -463,7 +589,7 @@ family, the middle layer satisfies $|\mathcal A_3|\geq9$.
 \end{lemma}
 
 \begin{proof}
-Use the notation of \cref{lem:canonical-blocker}.  Every member of
+Use the notation of \cref{thm:canonical-reduction}.  Every member of
 $\mathcal S_3$ and $\mathcal C_3$ has size at least three.  Choose
 $R\subseteq U$ uniformly.  The canonical cover says that at least one event
 $S\subseteq R$ or $R\cap C=\varnothing$ occurs.  Each event has probability
@@ -486,15 +612,15 @@ The eventual saturated 7-Sperner number satisfies
 \end{theorem}
 
 \begin{proof}
-Choose a stable ground set with $n>2^{55}$.  The construction in
-\cref{thm:size55} ensures that a minimum family has at most 55 members, so a
-homogeneous atom and the canonical decomposition are available.  The endpoint
-and adjacent-layer bounds give
+Choose a ground set in the stable range with $n\geq3\cdot2^{55}$.  The
+construction in \cref{thm:size55} ensures that a minimum family has at most
+55 members.  Thus the two inequalities in \cref{thm:canonical-reduction}
+hold.  The theorem and the private-witness bound give
 \[
   (|\mathcal A_0|,|\mathcal A_1|,|\mathcal A_5|,
   |\mathcal A_6|)\geq(1,6,6,1).
 \]
-The canonical blocker interface and \cref{thm:m24} give
+The canonical trace pairs and \cref{thm:m24} give
 $|\mathcal A_2|,|\mathcal A_4|\geq12$, while
 \cref{lem:middle-nine} gives $|\mathcal A_3|\geq9$.  Summing the seven layers
 gives
@@ -634,7 +760,41 @@ We now refine the lower bound.  Let
 $\mathcal A_0,\ldots,\mathcal A_6$ be the canonical layers of a minimum
 family on a stable ground set with a homogeneous atom.  For an internal layer,
 write $\mathcal S_i$ for its small traces and $\mathcal C_i$ for the
-complements of its large traces, as in \cref{lem:canonical-blocker}.
+complements of its large traces, as in \cref{thm:canonical-reduction}.
+The accompanying file \emph{Supplementary proofs and verification dossier}
+is cited below as the Supplement.  It states the arbitrary-finite interfaces,
+defines the finite search domains, works through one complete reduction path,
+and gives the theorem--program--Lean crosswalk.
+
+\begin{theorem}[Middle blocker classification below sixteen]
+\label{thm:m33}
+The exact local blocker parameter is $m(3,3)=14$.  Every admissible pair of
+total cardinality 14 is, after deleting inactive points and relabelling the
+active ground set, the Fano line clutter paired with itself.  No admissible
+pair has total cardinality 15.
+\end{theorem}
+
+\begin{proof}
+The arbitrary-finite proof is given in Sections S2--S3 of the Supplement; we
+record its reduction here.  Private witnesses bound every row by the number
+of rows on the opposite side.  The first degree and residual reductions give
+a lower bound of 13.  Under equality, the possible ordered splits reduce, up
+to blocker duality, to $(4,9)$, $(5,8)$, and $(6,7)$.
+Residual blockers exclude high point degrees.  When every point has degree at
+most two, the actual points form a loop-multigraph on the row labels;
+parallel points remain distinct.  Inclusion-minimal support cores have
+bounded vertex degrees, so their support and multiplicity domains are finite.
+The resulting exact classifications exclude all three splits and prove the
+lower bound 14.
+
+The seven Fano lines form a self-blocking clutter and attain 14.  In the
+equality analysis, the asymmetric splits are excluded by the same residual
+and support reductions.  The central $(7,7)$ split has the Fano incidence
+pattern; blocker involution fixes the opposite side.  Repeating the reduction
+with one slack row excludes every split of total 15.  The supplement states
+each finite domain and its independent replay, and the corresponding Lean
+theorems quantify over the original arbitrary finite ground type.
+\end{proof}
 
 \begin{proposition}[Canonical profile reduction]
 \label{prop:canonical-profiles}
@@ -649,26 +809,18 @@ second profile the middle blocker pair has total cardinality 16.
 \end{proposition}
 
 \begin{proof}
-The endpoint, adjacent-layer, and blocker bounds give
+The finite canonical reduction, the private-witness bound,
+\cref{thm:m24}, and \cref{thm:m33} give
 \[
   (|\mathcal A_0|,\ldots,|\mathcal A_6|)
   \geq(1,6,12,14,12,6,1).
   \tag{2}
 \]
-The middle bound follows by applying private witnesses, residual blockers,
-and the three-row incidence formula to every blocker split of total at most
-13.  When every point has degree at most two, the active points form an actual
-loop-multigraph on the fixed row labels.  Inclusion-minimality forces every
-positive support to meet a minimum-degree row, so the row-size bounds leave a
-finite exhaustive support problem.  Independent implementations agree on all
-saved classifications.
-
 Equality in (2) forces the middle pair to be the Fano plane.  Its lower or
 upper adjacent 12-member equality interface is impossible, so total 52 is
 excluded.  With one slack member, either the same Fano exclusion applies or
-the middle pair has total 15.  The splits $(5,10)$, $(6,9)$, $(7,8)$ and their
-duals are excluded by the same arbitrary-finite degree and residual
-reductions, so total 53 is excluded.
+the middle pair has total 15, which \cref{thm:m33} excludes.  Thus total 53
+is excluded.
 
 For total 54, write the five internal slacks over (2) as nonnegative integers
 with sum two.  A 14-member middle pair is Fano and forces both adjacent layers
@@ -712,11 +864,15 @@ $\mathcal G$ have size at least four and intersect pairwise.  A residual trace
 argument gives at least ten blockers, contradicting $|\mathcal F|=9$.
 Thus the Fano profile and its upper dual are impossible.
 
-For $P_{16}$, a uniformly random subset gives an exhaustive disjoint cover by
-the events $D\subseteq R$ and $E\subseteq U\setminus R$ for the two middle
-blocker sides.  If all 16 rows had size at least four, the union bound would be
-an equality, but two events on one side overlap with positive probability.
-Hence some middle row has size three.
+For $P_{16}$, a uniformly random subset gives an exhaustive cover by the
+events $D\subseteq R$ and $E\subseteq U\setminus R$ for the two middle
+blocker sides.  Events of opposite orientations are disjoint because every
+$D$ meets every $E$; events on the same side need not be disjoint.  If all 16
+rows had size at least four, the union bound would be an equality and would
+force all 16 events to be pairwise disjoint.  The private-witness bound gives
+at least three rows on each side, while two events on the same side have a
+positive-probability intersection.  This contradiction forces a three-point
+middle row.
 
 Up to exchanging blocker sides, the middle split is $(5,11)$, $(6,10)$,
 $(7,9)$, or $(8,8)$.  The following table records the exhaustive reductions.
@@ -757,10 +913,14 @@ second branch have at least four pair blockers, contradicting the bound three.
 
 Each finite domain in \cref{tab:exact-splits} follows from row count, private
 witnesses, point-degree bounds, and support minimization; no finite bound on
-the original trace ground set is assumed.  C++ enumerators and independent
-Python implementations reproduce the saved outputs byte for byte.  Thus all
-four splits and their blocker duals are impossible.  The forced three-point
-row has nowhere to occur, excluding $P_{16}$.
+the original trace ground set is assumed.  Sections S5--S10 of the Supplement
+prove these reductions and specify how a finite output implies the stated
+arbitrary-ground conclusion.  C++ enumerators and independent Python
+implementations reproduce the saved outputs byte for byte.  Lean proves the
+soundness and realization lemmas that connect the executable checks to the
+original clutters.  Thus all four splits and their blocker duals are
+impossible.  The forced three-point row has nowhere to occur, excluding
+$P_{16}$.
 \end{proof}
 
 \begin{theorem}
@@ -772,10 +932,11 @@ The eventual saturated 7-Sperner number is
 \end{theorem}
 
 \begin{proof}
-Choose a minimum family in the stable range.  The 55-member construction
-ensures that the homogeneous-atom reduction applies.  The total-52 and
-total-53 exclusions give $\sat(7)\geq54$, and
-\cref{prop:exclude54} excludes equality.  Hence $\sat(7)\geq55$.
+Choose a minimum family on a stable ground set with
+$n\geq3\cdot2^{55}$.  The 55-member construction bounds its size by 55, so
+\cref{thm:canonical-reduction} applies.  The total-52 and total-53 exclusions
+give $\sat(7)\geq54$, and \cref{prop:exclude54} excludes equality.  Hence
+$\sat(7)\geq55$.
 The reverse inequality is \cref{cor:main-bound}.
 \end{proof}
 
@@ -932,19 +1093,31 @@ canonical profile reduction, the Fano-adjacent exclusion, and every middle
 split of total 16.  In particular, the Fano, $(5,11)$, $(6,10)$, $(7,9)$,
 and $(8,8)$ branches and their blocker duals now occur in the dependency graph
 of the exported exact theorem.  The earlier local theorem
-\texttt{no\_kernel\_completion\_of\_eight} remains the arbitrary-finite
-five-row component of the $(8,8)$ branch.
+\texttt{no\_kernel\_completion\_of\_eight} is the arbitrary-finite five-row
+component of the total-fifteen $(7,8)$ branch used before the total-sixteen
+classification.
 
 The finite branches in \cref{prop:canonical-profiles,prop:exclude54} retain a
-separate manifest-bound trust chain.  The G4.10, G4.11, and G4.12 manifests
-bind 8, 23, and 36 proof, source, and output objects, respectively.  Every
-saved enumeration was replayed, and independent implementations agreed on
-the semantic counts.  In Lean, executable checks are connected to the
-mathematical statements by proved soundness and realization lemmas; a raw
-search result is never used as an unproved theorem.
+separate manifest-bound trust chain.  The three manifests for the 52-, 53-,
+and 54-member reductions bind every proof, source, and output object by
+SHA-256.  Every saved enumeration was replayed, and independent
+implementations agreed on the semantic counts.  In Lean, executable checks
+are connected to the mathematical statements by proved soundness and
+realization lemmas; a raw search result is never used as an unproved theorem.
 
-The final formalization audit was completed on 27 July 2026.  The full Lake
-build reported successful completion of 17,488 jobs, and the independent
+For the larger finite classifications, the prose in the main text and
+Supplement is a proof architecture rather than a line-by-line standalone
+enumeration proof.  The primary proof objects are the Lean declarations named
+in the Supplement crosswalk.  They formalize the reduction from arbitrary
+finite clutters, the finite support domains, the inverse realization maps, and
+the branch exclusions.  The C++ and Python replays are independent
+\texttt{COMPUTED} checks of the same finite domains; they do not supply the
+universal conclusions by themselves.  The Supplement gives one complete
+worked path through this interface.
+
+The complete exact-value chain first closed on 27 July 2026 and was
+revalidated after the present revision on 30 July 2026.  The full Lake build
+reported successful completion of 17,488 jobs, and the independent
 entry point \nolinkurl{Problems/P0054/formal/Main.lean} checked both exact
 theorems successfully.  For the exported exact statements,
 \texttt{\#print axioms} reports only \texttt{propext},
@@ -955,13 +1128,14 @@ the Lean files found zero occurrences of \texttt{sorry}, \texttt{admit}, an
 
 We use three evidence labels throughout the project.  \texttt{COMPUTED}
 denotes discovery searches and redundant semantic replays that are not, by
-themselves, proof dependencies.  \texttt{PROVED} denotes the mathematical
-arguments and independently checked certificate reductions in this
-manuscript.  \texttt{FORMALIZED} denotes statements accepted by the Lean
-kernel, including $m(2,3)=9$, $m(2,4)=12$, the concrete 55-member
-certificate, the branch exclusions, and the two eventual exact values.  These
-labels concern logical support; none establishes novelty, priority, or
-independent peer review.
+themselves, proof dependencies.  \texttt{PROVED} denotes arguments written out
+in the article or independently checked proof certificates for their stated
+finite encodings.  A compressed enumeration summary is not thereby a
+standalone \texttt{PROVED} arbitrary-finite theorem.  \texttt{FORMALIZED}
+denotes statements accepted by the Lean kernel, including $m(2,3)=9$,
+$m(2,4)=12$, the concrete 55-member certificate, the branch exclusions, and
+the two eventual exact values.  These labels concern logical support; none
+establishes novelty, priority, or independent peer review.
 
 \section{Discussion and open problems}
 
@@ -983,17 +1157,20 @@ construction.  Its blocker proof is independent of the finite
 incidence-pattern search, which serves only as a regression and
 counterexample check.
 
-Kernel acceptance complements rather than replaces human reconstruction of
-the arbitrary-finite reductions and scrutiny of the certificate interfaces.
-The final pre-submission search found no public equivalent in its recorded
-scope.  This negative result remains bounded and does not establish novelty
-or priority.
+For the largest classifications, the named Lean declarations are the primary
+proof objects, while the paper supplies the mathematical reduction and a path
+for reconstructing their interfaces.  Kernel acceptance does not replace
+human scrutiny of those reductions and interfaces.
+The first unresolved numerical case is $\sat(8)$.  The methods here supply
+reusable blocker reductions but do not determine that value or a general
+formula for $\sat(k)$.
 
-Another open direction is the proposed identity
-$\sat(k)=\operatorname{A075529}(k)$, where A075529 counts distinct terminal
-values of star addition chains.  This conjecture remains \texttt{UNKNOWN}:
-the agreement of the first seven values neither proves a general formula nor
-supplies a structural correspondence.  We defer its study to future work.
+\section*{Supplementary material}
+
+The separately submitted PDF \emph{Supplementary proofs and verification
+dossier} supplies the arbitrary-finite blocker interfaces, a worked
+finite-domain reduction, independent replay counts, and a
+theorem--proof--program--Lean crosswalk.
 
 \section*{Data and code availability}
 
@@ -1001,22 +1178,27 @@ This work is theoretical and does not generate or analyse empirical datasets.
 The supporting artifact package contains the Lean 4 formalization, exact
 search programs, construction verifiers, certificate generators, CNF
 instances, DRAT proofs, verification scripts, manifests, checksums, tests, and
-locked dependency metadata.  The package is available from the versioned
+locked dependency metadata.  The current public baseline is the versioned
 GitHub release
 \href{https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.0.0}
 {v1.0.0} and is archived on Zenodo under DOI
-\href{https://doi.org/10.5281/zenodo.21679078}{10.5281/zenodo.21679078}.
+\href{https://doi.org/10.5281/zenodo.21679078}{10.5281/zenodo.21679078}.  It
+predates the present revision.  The revised sources and PDFs will be deposited
+as a new immutable GitHub/Zenodo version, and its version DOI must replace this
+baseline citation before the submission is finalized.
+The accompanying Supplement gives a compact map from each theorem to its
+human proof, executable certificate, and Lean declaration.
 
 \section*{Declaration of generative AI and AI-assisted technologies in the
 manuscript preparation process}
 
 During the preparation of this work, the author used OpenAI Codex for
 literature-query design, proof and code drafting, verification orchestration,
-and language editing.  The author reviewed and edited all generated content
-and takes full responsibility for the content of the article.  The
-mathematical claims rely on the displayed arguments, independently replayable
-certificates, direct verifiers, and Lean kernel acceptance rather than on
-model output.
+and language editing.  After using this tool, the author reviewed and edited
+the content as needed and takes full responsibility for the content of the
+article.  The mathematical claims rely on the displayed arguments,
+independently replayable certificates, direct verifiers, and Lean kernel
+acceptance rather than on model output.
 
 \section*{Funding}
 

@@ -1,0 +1,1128 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,longtable,array}
+\usepackage{enumitem}
+\usepackage{pdflscape}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+\hypersetup{
+  pdftitle={Supplementary proofs and verification dossier for The exact saturated 6- and 7-Sperner numbers},
+  pdfauthor={Jiazhi Chen},
+  pdfsubject={Arbitrary-finite blocker reductions, finite classifications, and Lean 4 verification}
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\powerset}{2^{}}
+\newcommand{\blocker}{B}
+\newcommand{\sat}{\operatorname{sat}}
+\newcommand{\family}{\mathcal F}
+\newcommand{\minrows}{\operatorname{min}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\proved}{\textsc{Proved}}
+\newcommand{\computed}{\textsc{Computed}}
+\newcommand{\formalized}{\textsc{Formalized}}
+\renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\makeatletter
+\renewcommand*\l@section{\@dottedtocline{1}{1.5em}{4em}}
+\renewcommand*\l@subsection{\@dottedtocline{2}{2.5em}{4.5em}}
+\makeatother
+
+\title{Supplementary proofs and verification dossier for\\
+\emph{The exact saturated 6- and 7-Sperner numbers}}
+\author{Jiazhi Chen\\
+\small Hangzhou No.2 High School of Zhejiang Province\\
+\small \href{mailto:lailai0x394@gmail.com}{lailai0x394@gmail.com}\quad
+\href{https://orcid.org/0009-0008-9790-9881}{ORCID 0009-0008-9790-9881}}
+\date{July 30, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This supplement records the arbitrary-finite reductions and the exact finite
+classification interfaces used in the proof that
+$\sat(6)=30$ and $\sat(7)=55$.  Its purpose is auditability.  In particular,
+it explains why the finite searches do not impose a bound on the original
+ground set, states every residual search domain, records independent replay
+counts, and maps the natural-language statements to their Lean 4
+declarations.  Inactive points, parallel actual points, repeated incidence
+patterns, nonuniform rows, and empty optional incidence classes are retained
+throughout.  For the larger classifications, the named Lean declarations are
+the primary proof objects; the prose below records their mathematical
+interfaces and an audit path rather than reproducing every kernel reduction
+line by line.
+\end{abstract}
+
+\tableofcontents
+
+\section{Evidence labels and common blocker lemmas}
+\label{sec:evidence}
+
+All hypergraphs below are finite clutters on an arbitrary finite set $U$.
+For a clutter $\mathcal H$, $\blocker(\mathcal H)$ is the clutter of its
+inclusion-minimal transversals.  Three evidence labels are used strictly:
+
+\begin{description}[style=nextline,leftmargin=29mm,font=\normalfont]
+\item[\proved]
+an argument written out from the displayed definitions and lemmas, or an
+independently checked proof certificate for its stated finite encoding;
+\item[\computed]
+an output of a finite executable enumeration, independently replayed but not
+by itself a theorem about arbitrary finite clutters;
+\item[\formalized]
+a proposition accepted by the Lean kernel from the checked sources.
+\end{description}
+
+The C++ and Python programs are discovery and replay tools.  The final exact
+claims do not trust their output directly: the arbitrary-finite reductions
+are formalized, and the residual finite classifications are represented by
+kernel-checked Lean proofs.  The executable replays remain useful because
+they provide a second implementation and make the classification domains
+easy to inspect.  A compressed numerical summary is not assigned the
+\proved\ label merely because a replay accepts it; its arbitrary-finite
+conclusion receives the \formalized\ label only through the named Lean
+soundness and realization declarations.
+
+\begin{lemma}[Private rows]
+\label{lem:private}
+If $T\in\blocker(\mathcal H)$ and $x\in T$, then some
+$H_x\in\mathcal H$ satisfies $T\cap H_x=\{x\}$.  Distinct points of $T$
+have distinct private rows, and hence $|T|\leq|\mathcal H|$.
+\end{lemma}
+
+\begin{proof}
+The set $T\setminus\{x\}$ is not a transversal, so it misses a row $H_x$.
+Since $T$ is a transversal, $T\cap H_x=\{x\}$.  One row cannot be private
+for two different points.
+\end{proof}
+
+\begin{lemma}[Residual blockers]
+\label{lem:residual}
+Fix $x\in U$.  Delete $x$ from every row of $\mathcal H$ and retain only
+the inclusion-minimal residual rows, obtaining $\mathcal R_x$.  Then
+\[
+  \blocker(\mathcal R_x)
+  =\{T\in\blocker(\mathcal H):x\notin T\}.
+\]
+If every residual row has size at least two, the right-hand side has at least
+two members.
+\end{lemma}
+
+\begin{proof}
+A set avoiding $x$ meets every row of $\mathcal H$ precisely when it meets
+every residual row.  Minimality is unchanged after redundant residual rows
+are deleted.  If $\blocker(\mathcal R_x)=\{Q\}$, blocker involution makes
+$\mathcal R_x$ the family of singleton rows $\{\{q\}:q\in Q\}$, contrary
+to the assumed row-size bound.
+\end{proof}
+
+\begin{lemma}[Injection through a point]
+\label{lem:injection}
+Let $\mathcal H_0$ be the rows of $\mathcal H$ avoiding $x$.  For each
+$T\in\blocker(\mathcal H_0)$, use $T$ if it already meets every row of
+$\mathcal H$ and otherwise minimize $T\cup\{x\}$ while retaining $T$.
+This gives an injection
+\[
+  \blocker(\mathcal H_0)\hookrightarrow\blocker(\mathcal H).
+\]
+Every pair blocker of $\mathcal H_0$ must acquire $x$ if all blockers of
+$\mathcal H$ have size at least three.
+\end{lemma}
+
+\begin{proof}
+Rows in $\mathcal H_0$ supply private witnesses for the points of $T$.  In
+the second case, a row missed by $T$ supplies a private witness for $x$.
+The intersection with $U\setminus\{x\}$ recovers $T$, so the map is
+injective.
+\end{proof}
+
+\begin{lemma}[Three-row formula]
+\label{lem:three-row}
+Let $\mathcal K=\{K_1,K_2,K_3\}$ have row sizes at least three and
+$\tau(\mathcal K)\geq2$.  Write $p,q,r$ for the multiplicities of the
+three private incidence classes and $x,y,z$ for the three pairwise classes.
+Then
+\[
+ |\blocker(\mathcal K)|
+ =xy+xz+yz+xr+yq+zp+pqr.                 \tag{S1.1}
+\]
+The first six terms count pair blockers and $pqr$ counts triple blockers.
+In particular $|\blocker(\mathcal K)|\geq7$, and equality permits at most
+one triple blocker.
+\end{lemma}
+
+\begin{proof}
+The triple intersection is empty.  A minimal transversal either selects two
+compatible pairwise/private incidence classes or one point from every
+private class; private rows exclude every other type.  This gives (S1.1).
+The six row-size inequalities then give the lower bound.  If $pqr\geq2$,
+classification by the number of nonzero variables among $x,y,z$ gives at
+least nine terms, so equality seven has $pqr\leq1$.
+\end{proof}
+
+\section{The arbitrary-finite lower bound \texorpdfstring{$m(3,3)\geq14$}{m(3,3)>=14}}
+\label{sec:m33-lower}
+
+Let $\mathcal S=\blocker(\mathcal C)$ and
+$\mathcal C=\blocker(\mathcal S)$, and suppose every row on both sides has
+size at least three.  The preceding private-row and residual arguments first
+give $|\mathcal S|+|\mathcal C|\geq13$.  If equality held, blocker duality
+would allow us to orient the pair so that
+\[
+ (|\mathcal S|,|\mathcal C|)\in\{(4,9),(5,8),(6,7)\}.       \tag{S2.1}
+\]
+We record the sharpened bounds that exclude these three cases.
+
+The paragraphs below give the mathematical reduction used to organize these
+branches.  They are not intended as a line-by-line replacement for the larger
+case analyses in the formal development.  The arbitrary-finite proof object
+for the assembled conclusion is
+\path{MiddleLower.mutual_blocker_total_card_ge_fourteen}; its hypotheses retain
+the original finite type, both blocker equalities, clutter minimality, and the
+two row-size bounds.
+
+\begin{lemma}[Four rows]
+\label{lem:four-nineteen}
+If a four-row clutter $\mathcal H$ has row sizes and transversal number at
+least three, then $|\blocker(\mathcal H)|\geq19$.
+\end{lemma}
+
+\begin{proof}
+The row-intersection graph has matching number at most one.  With two
+isolated vertices, blocker factorization gives at least $3^3=27$ blockers.
+With one isolated row, \cref{lem:three-row} gives at least $3\cdot7=21$.
+With no isolated row the graph is a three-leaf star.  If $C$ is its center,
+$L_i$ its leaves, $X_i=C\cap L_i$, $Y_i=L_i\setminus C$, and
+$Z=C\setminus\bigcup_iL_i$, put $x_i=|X_i|$, $y_i=|Y_i|$,
+$z=|Z|$, and $n_i=x_i+y_i\geq3$.  Directly listing the minimal
+transversals gives
+\[
+ |\blocker(\mathcal H)|
+ =n_1n_2n_3+(z-1)y_1y_2y_3.
+\]
+For $z\geq1$ this is at least 27.  For $z=0$ it is at least
+$n_1n_2n_3-(n_1-1)(n_2-1)(n_3-1)\geq19$.
+\end{proof}
+
+\begin{lemma}[Five rows]
+\label{lem:five-nine}
+If a five-row clutter $\mathcal H$ has row sizes and transversal number at
+least three, then $|\blocker(\mathcal H)|\geq9$.
+\end{lemma}
+
+\begin{proof}
+For each point $e$, \cref{lem:residual} and blocker involution show that at
+least four blockers avoid $e$: one or two residual blockers force singleton
+or too many residual rows, while three invoke \cref{lem:three-row} and force
+at least seven residual rows.  In the only tight row-intersection branch,
+two actual matching edges share $e$.  The standard private-row construction
+gives at least five blockers containing $e$ (six when the two remaining
+endpoints are parallel actual points).  The four avoiding blockers are
+distinct from them.  All other intersection-graph branches already give
+at least nine by factorization or independent choices.
+\end{proof}
+
+\begin{lemma}[Six rows]
+\label{lem:six-eight}
+If a six-row clutter $\mathcal H$ has row sizes and transversal number at
+least three, then $|\blocker(\mathcal H)|\geq8$.
+\end{lemma}
+
+\begin{proof}
+A point in at least four rows gives at least nine blockers by private choices
+from the avoiding rows and \cref{lem:residual}.  If a point $x$ has degree
+three, \cref{lem:injection} applied to the three avoiding rows gives seven
+blockers.  When equality holds, \cref{lem:three-row} says at most one of
+these can avoid $x$, while \cref{lem:residual} gives two avoiding blockers;
+one is new, giving eight.
+
+It remains that all degrees are at most two.  Encode every actual point as a
+loop or nonloop edge on the six row labels; parallel actual points are not
+identified.  The matching-number zero, one, and two cases give at least nine
+minimal edge covers.  For a perfect matching $M$, delete its three actual
+points and minimize the residual rows.  There are at least four blockers
+avoiding $M$.  If the original blocker had at most seven rows, at most two
+additional rows $N_j$ would meet $M$.  Write
+$I_j=N_j\cap M$ and $P_j=N_j\setminus M$.  For $e\in M$, the blocker of
+\[
+ \minrows\bigl(\mathcal D\cup\{P_j:e\notin I_j\}\bigr)
+\]
+injects into rows whose intersection with $M$ is $\{e\}$.  With at most one
+residual row it has at least three members; with two residual rows of size at
+least two it has at least two.  Summing over the three points of $M$ gives at
+least seven rows in the double blocker, contradicting that it is the
+six-row clutter $\mathcal H$.  Thus the original blocker has at least eight
+rows.
+\end{proof}
+
+\begin{theorem}
+\label{thm:m33-lower}
+Every mutual-blocker pair with minimum row size three on both sides has total
+cardinality at least fourteen.
+\end{theorem}
+
+\begin{proof}
+The three cases in (S2.1) contradict, respectively,
+\cref{lem:four-nineteen,lem:five-nine,lem:six-eight}.
+\end{proof}
+
+The argument is arbitrary-finite.  Inactive points never enter a minimal
+transversal; the loop-multigraph representation retains every parallel
+actual point; and minimizing residual rows permits repeated supports and
+nonuniform rows.
+
+\section{Equality fourteen, the Fano plane, and exclusion of total fifteen}
+\label{sec:m33-classification}
+
+The seven lines of the Fano plane form a self-blocking clutter, so
+\cref{thm:m33-lower} is sharp and $m(3,3)=14$.  What is needed globally is
+the stronger equality classification and the exclusion of one unit of
+slack.
+
+For total fourteen, the asymmetric ordered splits are
+$(5,9)$ and $(6,8)$ and their duals.  The five-row case has no point of degree
+three or more: such a point produces at least nine blockers containing it
+and another avoiding it.  At maximum degree two, choose an inclusion-minimal
+actual loop-multigraph core in which every row degree is at least three.
+Every support touches a degree-three vertex.  If $l$ is the number of such
+vertices, $4(5-l)\leq3l$, so $l\in\{3,4,5\}$.  Exact enumeration of all
+multiplicities on the 15 loop/edge supports gives minimum numbers of actual
+minimal edge covers $19,16,15$, respectively.  Thus $(5,9)$ is impossible.
+
+For $(6,8)$, degree at least four gives nine blockers.  A degree-three point
+leaves a three-row kernel.  Formula (S1.1), the residual blocker lemma, and
+the required blocker sizes exclude all low-count kernels; the unique
+borderline vector is
+\[
+ (p,q,r;x,y,z)=(1,1,1;1,1,1),
+\]
+with six pair blockers and one triple blocker, and its two-row residual would
+have either a singleton or at least nine cross-pairs.  At maximum degree two,
+the exact six-row loop-multigraph classification has at least nine minimal
+edge covers.  Hence $(6,8)$ is also impossible.
+
+In the remaining $(7,7)$ case, a three-point row is forced by the Bernoulli
+cover inequality.  Degree and residual reductions leave 41 four-row support
+kernels.  Only the six-edge incidence clutter of $K_4$ has at most three
+pair blockers; injecting those three pairs through the removed point turns
+its four stars and three matchings into the seven Fano lines.  Blocker
+involution fixes the opposite side.  Consequently equality fourteen is,
+after deleting inactive points and relabelling active points, precisely the
+Fano line clutter paired with itself.
+
+For total fifteen, blocker duality leaves splits $(5,10)$, $(6,9)$, and
+$(7,8)$.  The five-row loop-multigraph bound above is at least fifteen, so it
+excludes $(5,10)$.  For $(6,9)$, high degrees are excluded by injections and
+residual blockers; the only degree-three three-row kernel satisfying
+$b_2\leq5$ and $b_2+b_3\leq9$ is
+\[
+ (p,q,r;x,y,z)=(1,2,2;1,1,0),\qquad(b_2,b_3)=(5,4).
+\]
+The five pair images and four triple images exhaust the nine blockers and
+force a two-point row in the double blocker, a contradiction.  At maximum
+degree two, actual minimal edge covers already give at least ten blockers.
+
+Finally consider $(7,8)$.  Degree bounds give maximum degree three on both
+sides.  The Bernoulli cover inequality forces a three-point row.  If it lies
+on the eight-row side, deleting a degree-three point leaves the unique
+$K_4$ kernel; its seven images are Fano, and the eighth row is disjoint from
+the Fano support, giving at least $7\cdot3$ double-blocker rows.  If it lies
+on the seven-row side, the remaining five-row kernel uses the 25 nonempty
+supports of rank at most three.  The complete domain contains 490
+multiplicity vectors in eight row-permutation classes, all with exactly
+three pair blockers.  The 55 possible one-row extensions all fail direct
+blocker reconstruction.  Thus total fifteen is impossible.
+
+\begin{theorem}[Middle classification below sixteen]
+\label{thm:m33-classification}
+One has $m(3,3)=14$; equality is uniquely Fano up to inactive points and
+relabeling; and no admissible pair has total cardinality fifteen.
+\end{theorem}
+
+The numerical classifications in this section are \computed\ when read as
+the C++/Python replay.  The arbitrary-finite conclusions, including the
+support and realization interfaces, are also \formalized; their exact Lean
+declarations are listed in \cref{sec:crosswalk}.
+
+\section{Canonical slack profiles 52, 53, and 54}
+\label{sec:profiles}
+
+The canonical reduction in the main article gives the layerwise baseline
+\[
+ (|\mathcal A_0|,\ldots,|\mathcal A_6|)
+ \geq(1,6,12,14,12,6,1).                \tag{S4.1}
+\]
+Equality in the middle position is Fano by
+\cref{thm:m33-classification}.  The adjacent equality interface says that
+each Fano line strictly contains a distinct two-point row in the neighboring
+small trace clutter.  The possible adjacent splits are $(6,6)$, $(7,5)$,
+and $(8,4)$.  The first lacks the seven required distinct pairs.  For
+$(7,5)$ the selected pairs form a seven-edge graph on the Fano points; every
+minimal vertex cover has size at least four, and the exact graph argument
+gives at least six covers.  For $(8,4)$, the four opposite rows are
+pairwise intersecting, have size at least four, and have no singleton
+transversal; the four-row trace argument gives at least nine blockers.  All
+three splits are impossible.  This excludes total 52.
+
+At total 53, if the middle total remains fourteen, the unique slack lies in
+one adjacent layer and the equality layer on the other side is excluded by
+the preceding Fano interface.  The only other profile would have middle
+total fifteen, excluded by \cref{thm:m33-classification}.  Hence total 53 is
+impossible.
+
+At total 54, distribute two units of slack over the five internal layers.
+A fourteen-member middle pair is Fano and forces both adjacent layers above
+equality.  A fifteen-member middle pair is impossible.  A larger middle
+pair must therefore have total sixteen and leaves both adjacent layers at
+equality.  The only profiles are
+\[
+ P_{\rm F}=(1,6,13,14,13,6,1),\qquad
+ P_{16}=(1,6,12,16,12,6,1).             \tag{S4.2}
+\]
+
+\section{The Fano profile}
+\label{sec:fano-profile}
+
+Let $X$ be the seven active Fano points and $\mathcal L$ its line clutter.
+For the lower adjacent pair write $\mathcal F=\mathcal S_2$ and
+$\mathcal G=\mathcal C_2$.  Each Fano line strictly contains a distinct pair
+from $\mathcal F$.  Up to blocker duality, the possible splits are
+$(7,6)$, $(8,5)$, and $(9,4)$.
+
+\subsection{The split \texorpdfstring{$(7,6)$}{(7,6)}}
+
+The seven rows of $\mathcal F$ select one of the three pairs on each Fano
+line, so they form a simple graph $Q$ on $X$.  Points outside $X$ occur in no
+row and cannot enter a minimal transversal.  This is an exact reduction to
+$3^7=2187$ graphs.  The independently replayed blocker histogram among the
+1011 graphs whose minimal vertex covers all have size at least four is
+\[
+ |\blocker(E(Q))|=7:24,\qquad8:903,\qquad9:84.             \tag{S5.1}
+\]
+No graph has six such covers, excluding $(7,6)$.
+
+\subsection{The split \texorpdfstring{$(8,5)$}{(8,5)}}
+
+Write $\mathcal F=E(Q)\cup\{R\}$,
+$A=R\cap X$, $Z=R\setminus X$, and $t=|Z|$.  The clutter condition makes
+$A$ independent in $Q$, and \cref{lem:private} gives
+\[
+ 2\leq|A|+t=|R|\leq5.                   \tag{S5.2}
+\]
+Thus the arbitrary outside set is retained exactly by its multiplicity $t$,
+which is proved bounded; no ground-set bound is assumed.  If
+$\mathcal V=\blocker(E(Q))$, the blockers of $\mathcal F$ are the minimal
+members of
+\[
+\begin{split}
+ \mathcal W(Q,A,Z)={}&\{C\in\mathcal V:C\cap A\ne\varnothing\}\\
+ &\cup\{C\cup\{a\}:C\in\mathcal V, C\cap A=\varnothing, a\in A\}\\
+ &\cup\{C\cup\{z\}:C\in\mathcal V, C\cap A=\varnothing, z\in Z\}.
+\end{split}                                                  \tag{S5.3}
+\]
+Indeed, minimize a transversal first against $E(Q)$; if its minimal cover
+misses $A$, exactly one point of $A\cup Z$ remains.
+
+Equations (S5.2)--(S5.3) give exactly 249576 triples $(Q,A,t)$.  Of these,
+8400 have five blockers, but every such case has a three-point blocker.
+After imposing minimum blocker size four, 173304 triples remain and the
+minimum blocker count is six.  Hence $(8,5)$ is impossible.
+
+\subsection{The split \texorpdfstring{$(9,4)$}{(9,4)}}
+
+We use the following purely combinatorial bound.
+
+\begin{lemma}
+\label{lem:four-ten}
+If $\mathcal D=\{D_1,D_2,D_3,D_4\}$ is a clutter whose rows have size at
+least four, every two rows intersect, and $\tau(\mathcal D)\geq2$, then
+$|\blocker(\mathcal D)|\geq10$.
+\end{lemma}
+
+\begin{proof}
+Choose a smallest row $E=D_1$, $n=|E|$, put
+$O_j=E\setminus D_j$, and for $x\in E$ set
+$w_x=\min_{j:x\in O_j}|O_j|$ and $W=\sum_xw_x$.  Private rows give $W$
+blockers meeting $E$ exactly in one point, while an assignment of every
+$x$ to a minimizing omission gives
+\[
+ W\geq\left\lceil\frac{n^2}{3}\right\rceil.               \tag{S5.4}
+\]
+The blocker of the trace clutter
+$\{E,E\cap D_2,E\cap D_3,E\cap D_4\}$ supplies further blockers lying
+inside $E$, disjoint from the $W$ classes.  For $n\geq5$, (S5.4) gives nine
+and one trace blocker suffices.  For $n=4$, the possible values
+$W=6,7,8$ force respectively at least five, three, or two trace blockers;
+these follow by blocker involution on one or two trace rows and the omission
+partition $2+1+1$.  Thus the total is at least ten.
+\end{proof}
+
+Every row of $\mathcal G$ strictly contains a Fano line, so the four rows are
+pairwise intersecting, have size at least four, and have transversal number
+at least two.  \Cref{lem:four-ten} gives
+$|\mathcal F|\geq10$, contradicting the split.  Blocker duality excludes the
+upper adjacent orientations, so $P_{\rm F}$ is impossible.
+
+\section{A three-point row and the split \texorpdfstring{$(5,11)$}{(5,11)}}
+\label{sec:five-eleven}
+
+Let $\mathcal D$ and $\mathcal E=\blocker(\mathcal D)$ be the two sides of
+the middle layer, with
+\[
+ |\mathcal D|+|\mathcal E|=16,\qquad
+ \min_{D\in\mathcal D}|D|,
+ \min_{E\in\mathcal E}|E|\geq3.          \tag{S6.1}
+\]
+For a uniformly random $R\subseteq U$, the events
+\[
+ D\subseteq R\quad(D\in\mathcal D),\qquad
+ E\subseteq U\setminus R\quad(E\in\mathcal E)             \tag{S6.2}
+\]
+form an exhaustive cover.  An event of the first orientation is disjoint
+from an event of the second because every $D$ meets every $E$.  Events on
+the same side can overlap.  If all sixteen rows had size at least four, the
+union bound would give equality in
+\[
+ 1\leq\sum_D2^{-|D|}+\sum_E2^{-|E|}\leq1.                 \tag{S6.3}
+\]
+Equality would force every event in (S6.2) to be pairwise disjoint.  Each
+side has at least three rows by \cref{lem:private}, whereas two same-side
+events have positive-probability intersection.  This contradiction proves
+that some middle row has size three.
+
+Now suppose $(|\mathcal D|,|\mathcal E|)=(5,11)$.  No point belongs to four
+rows of $\mathcal D$, because it could be extended with one point from the
+remaining row to a transversal of size at most two.  If all point degrees
+were at most two, the inclusion-minimal actual loop-multigraph core used in
+\cref{sec:m33-classification} would already have at least fifteen minimal
+edge covers.  Hence some $x$ has degree three.
+
+Let $P,Q$ be the two rows avoiding $x$.  They are disjoint.  Each
+$\{x,p,q\}$, $p\in P$, $q\in Q$, is a minimal blocker, so at least nine
+blockers contain $x$.  The residual-blocker lemma gives at least two blockers
+avoiding $x$.  Equality is forced throughout.  If these two residual
+blockers $E_0,E_1$ intersected, a common point together with $x$ would be a
+two-point transversal of $\mathcal E$.  Thus they are disjoint and both have
+size at least three.  Blocker involution gives
+\[
+ \mathcal R=\blocker(\{E_0,E_1\})
+ =\{\{u,v\}:u\in E_0, v\in E_1\},
+\]
+so $|\mathcal R|\geq9$.  But $\mathcal R$ was obtained by minimizing only
+five residual rows.  This contradiction excludes $(5,11)$ and, by blocker
+duality, $(11,5)$.
+
+\section{The split \texorpdfstring{$(6,10)$}{(6,10)}}
+\label{sec:six-ten}
+
+Assume $|\mathcal D|=6$ and $|\mathcal E|=10$.  Every point has
+$\mathcal D$-degree at most three.  Degrees five and six immediately give a
+transversal of size at most two.  At degree four, the two avoiding rows are
+disjoint and give at least nine blockers containing the point; the residual
+blocker lemma gives two more avoiding it.
+
+\subsection{The degree-three branch}
+
+Let $x$ have degree three and let $\mathcal D_0$ be the three rows avoiding
+$x$.  Put $L_j=X_j\setminus\{x\}$ for the three rows containing $x$ and
+\[
+ \mathcal R=\minrows(\mathcal D_0\cup\{L_1,L_2,L_3\}),
+ \qquad
+ \mathcal T=\blocker(\mathcal R)
+ =\{E\in\mathcal E:x\notin E\}.          \tag{S7.1}
+\]
+The three-row formula and point-degree bounds on the opposite side imply
+that the number $b_2$ of pair blockers of $\mathcal D_0$ is at most six and
+$b_2+b_3\leq10$.  Up to row permutation, the only incidence vectors are
+\[
+\begin{array}{c@{\qquad}c@{\qquad}c}
+(1,1,1;1,1,1)&b_2=6&b_3=1,\\
+(1,2,2;1,1,0)&b_2=5&b_3=4,\\
+(1,1,3;2,0,0)&b_2=6&b_3=3.
+\end{array}                                                   \tag{S7.2}
+\]
+This follows by classifying the number of positive pair classes in
+(S1.1): zero gives $pqr\geq27$; one forces the last vector; two force unit
+pair multiplicities and the middle vector; three force all six
+multiplicities to be one.
+
+The last two kernels are excluded algebraically.  For
+$(1,1,3;2,0,0)$ the six pair images use all possible occurrences of $x$.
+The three triple blockers and a fourth row $Q$ make up $\mathcal T$.
+The row $Q$ must avoid the two common private points; each $q\in Q$ then
+creates two distinct two-point blockers, and the remaining three-point class
+creates a further blocker, forcing $|\mathcal R|>6$.
+
+For $(1,2,2;1,1,0)$, the five pair images leave at most one triple image
+containing $x$.  If none does, the four triples and one row $Q$ force five or
+six pair blockers of $\mathcal T$.  If one does, the remaining three triples
+form a four-vertex path after deleting their common point, and its three
+minimal vertex covers again force $|\mathcal R|=6$.  In either case all rows
+of $\mathcal R$ are pairs, so none of the three length-three rows of
+$\mathcal D_0$ survives in (S7.1).  Only $L_1,L_2,L_3$ remain available,
+giving $|\mathcal R|\leq3$, a contradiction.
+
+The first vector in (S7.2) has realization
+\[
+ \{\{a,u,v\},\{b,u,w\},\{c,v,w\}\}.      \tag{S7.3}
+\]
+Its six pair images contain $x$ and its unique triple blocker
+$\{a,b,c\}$ avoids $x$.  Hence
+\[
+ \mathcal T=\{\{a,b,c\},Q_1,Q_2,Q_3\}.  \tag{S7.4}
+\]
+Every row in (S7.4) has size between three and six.  No point has full
+four-row support, so there are fourteen nonempty proper supports.  The
+finite domain consists of all $2^{14}-1=16383$ active support masks and all
+positive multiplicities satisfying the four row-size bounds.  The exact
+results are
+\[
+\begin{array}{c|c|r}
+|\mathcal R|&\text{pair rows in }\mathcal R&\text{vectors}\\
+\hline
+5&5&6\\
+6&5&12\\
+6&6&77
+\end{array}                                                   \tag{S7.5}
+\]
+Thus there are 95 vectors in nine row-permutation classes.  For each one,
+the semantic check reconstructs $\mathcal R=\blocker(\mathcal T)$ and
+exhausts every embedding of (S7.3): if $|\mathcal R|=6$, all three rows in
+(S7.3) must survive; if it is five, at least two must survive.  There are no
+compatible extensions.
+
+\subsection{The maximum-degree-two branch}
+
+Represent each actual point as a loop or edge on the six row labels, keeping
+parallel points distinct.  Choose an inclusion-minimal actual core $J$ in
+which every row degree is at least three.  Every support touches a
+degree-three vertex.  If $l$ is the number of degree-three vertices, then
+\[
+ 4(6-l)\leq3l,
+\]
+so $l\in\{4,5,6\}$.  All positive supports touch one of these vertices and
+their actual multiplicities are bounded by its exact degree three.  This is
+a finite domain on the 21 loop/edge supports, with 562 minimal support
+covers.  For multiplicity vector $m$, the exact number of actual minimal edge
+covers is
+\[
+ N(m)=\sum_M\prod_{s\in M}m_s.                              \tag{S7.6}
+\]
+The independently replayed minima, refined by nonloop-support matching
+number $\nu$, are
+\[
+\begin{array}{c|r|rrrr}
+l&\text{vectors}&\nu=0&\nu=1&\nu=2&\nu=3\\
+\hline
+4&5244&--&--&54&24\\
+5&57080&--&195&48&21\\
+6&44288&729&171&45&15
+\end{array}                                                   \tag{S7.7}
+\]
+Thus every core has at least fifteen blockers, contradicting ten.  Together
+with the degree-three branch this excludes $(6,10)$ and $(10,6)$.
+
+\section{The split \texorpdfstring{$(8,8)$}{(8,8)}}
+\label{sec:eight-eight}
+
+Let $|\mathcal D|=|\mathcal E|=8$.  Point degrees at least seven give a
+transversal of size at most two; degree six leaves two rows whose private
+choices give at least nine blockers.  If a point had degree five, the three
+avoiding rows would have at most eight blockers and at most five pair
+blockers.  Formula (S1.1) has no such integer solution.  Hence degrees are at
+most four.
+
+At degree four, the four avoiding rows have sizes three through eight, at
+most eight blockers, and at most four pair blockers.  Their points use the
+fourteen nonempty proper supports.  Among all 16383 active support masks and
+all bounded multiplicities, the exact domain has
+\[
+\begin{array}{c|c|r}
+|\blocker|&\text{pair blockers}&\text{vectors}\\
+\hline
+7&3&1\\
+8&4&48.
+\end{array}                                                   \tag{S8.1}
+\]
+The semantic extension checker permits every incidence of existing points
+consistent with the degree bound and every multiplicity of new singleton-
+support points.  It checks 1432 candidates and finds none.  Degree four is
+therefore impossible on either side.
+
+By \cref{sec:five-eleven}, some row $T$ has size three.  Put
+$T\in\mathcal D$.  It covers all eight rows of $\mathcal E$, and at least two
+points of $T$ have $\mathcal E$-degree three.  Delete the three rows through
+one such point $x$.  The remaining five-row kernel has sizes three through
+eight, at most eight blockers, at most three pair blockers, and supports of
+rank at most three.  There are 25 such nonempty supports.  The complete
+enumeration of $2^{25}-1=33554431$ active masks gives
+\[
+\begin{array}{lr}
+\text{support-feasible masks}&96148\\
+\text{multiplicity vectors}&1890\\
+\text{row-permutation classes}&24\\
+\text{vectors with 6/7/8 blockers}&20/470/1400.
+\end{array}                                                   \tag{S8.2}
+\]
+Every vector has exactly three pair blockers; all three acquire $x$.  If the
+kernel has six, seven, or eight blockers, two, one, or no additional
+$x$-free rows remain.  New actual points may have either singleton support
+or the shared support of two new rows; all allowed multiplicities are
+bounded by row size eight.  Direct choice-union minimization checks 2514
+extensions across the 24 classes and finds none.  This excludes $(8,8)$.
+
+\section{The split \texorpdfstring{$(7,9)$}{(7,9)}}
+\label{sec:seven-nine}
+
+Let $|\mathcal D|=7$ and $|\mathcal E|=9$.  Injection and residual
+arguments give maximum $\mathcal D$-degree three and maximum
+$\mathcal E$-degree four.  In brief, degrees leaving one or two rows yield
+a transversal of size at most two or at least nine private-choice blockers.
+A point of $\mathcal E$-degree five leaves the unique low-count four-row
+$K_4$ kernel; adding the point to zero or one of its star blockers gives,
+respectively, seven or ten double-blocker rows, never nine.  A point of
+$\mathcal D$-degree four would leave a three-row kernel violating (S1.1).
+
+\subsection{A three-point row on the nine-row side}
+
+Let $T\in\mathcal E$ have size three.  It covers all seven rows of
+$\mathcal D$, so some $x\in T$ has $\mathcal D$-degree three.  The four rows
+avoiding $x$ have sizes three through nine, at most nine blockers, at most
+four pair blockers, and fourteen nonempty proper supports.  The 16383 active
+support masks give
+\[
+\begin{array}{c|c|r}
+\text{blockers}&\text{pair blockers}&\text{vectors}\\
+\hline
+7&3&1\\
+8&4&48\\
+9&3&12\\
+9&4&75
+\end{array}                                                   \tag{S9.1}
+\]
+or 136 vectors in eleven row-permutation classes.  Every pair blocker
+acquires $x$; every other blocker may remain unchanged or acquire $x$, and
+at most two further rows are added.  The extension domain retains every
+admissible incidence of old points, fresh private and shared points, parallel
+actual points, and all row-size-bounded multiplicities.  Independent C++ and
+Python reconstructions agree on 138161 candidates and zero valid extensions.
+
+\subsection{A three-point row only on the seven-row side}
+
+Let $T=\{x,a,b\}\in\mathcal D$ and suppose every row of $\mathcal E$ has
+size at least four.  If one point of $T$ has $\mathcal E$-degree four, the
+five rows avoiding it have at most seven blockers and at most three pair
+blockers.  Their point degrees are at most three.  The complete five-row
+domain contains 490 vectors in eight classes, and every class has a
+three-point row, contradicting the row-size assumption.
+
+Thus all three points of $T$ have $\mathcal E$-degree three, and each of the
+nine rows meets $T$ exactly once.  After deleting the three rows containing
+$x$, write the remaining six as
+\[
+ \mathcal K=\{A_1,A_2,A_3,B_1,B_2,B_3\},
+ \quad a\in A_i,\quad b\in B_i.
+\]
+The blocker bounds are
+\[
+ |\blocker(\mathcal K)|\leq7,\qquad
+ |\{Q\in\blocker(\mathcal K):|Q|=2\}|\leq3.                \tag{S9.2}
+\]
+The three residual $A$-rows must have a unique common point $c$, and the
+$B$-rows a unique common point $d$; otherwise (S1.1) gives too many total or
+pair blockers.  Delete $c,d$.  Each remaining three-row residual has row
+sizes two through five, no common point, and at most four blockers.  Formula
+(S1.1) gives nineteen labelled multiplicity vectors in six row-permutation
+classes.
+
+A global actual point either remains on one side or matches one copy from
+each side.  The degree-four bound allows exactly the matches whose local
+support ranks sum to at most four.  The exhaustive coupling domain has 90898
+labelled cases.  Its independently replayed pair-blocker histogram is
+\[
+\begin{array}{c|rrrrrr}
+\text{pair blockers}&4&5&6&7&8&9\\
+\hline
+\text{couplings}&22485&38832&23313&5614&634&20.
+\end{array}                                                   \tag{S9.3}
+\]
+Every coupling has at least four pair blockers, contradicting (S9.2).
+Therefore neither side can contain the three-point row forced by
+\cref{sec:five-eleven}; $(7,9)$ and $(9,7)$ are impossible.
+
+\begin{theorem}[Exclusion of total sixteen]
+\label{thm:middle-sixteen}
+No mutual-blocker pair with minimum row size three on both sides has total
+cardinality sixteen.
+\end{theorem}
+
+\begin{proof}
+Blocker duality leaves the four splits handled in
+\cref{sec:five-eleven,sec:six-ten,sec:eight-eight,sec:seven-nine}.
+\end{proof}
+
+\section{Why the residual searches are finite and sound}
+\label{sec:finite-interface}
+
+This section isolates the interface common to every enumeration above.
+Suppose a residual clutter has $r$ labelled rows.  Map each active actual
+point $u$ to its nonempty incidence support
+\[
+ I(u)=\{i\in[r]:u\text{ belongs to row }i\}.                \tag{S10.1}
+\]
+Points with the same support are not merged: their number is stored as a
+positive integer multiplicity $m_I$.  Inactive points are omitted because
+they occur in no row and can occur in no minimal transversal.
+
+The reduction is finite for the following proved reasons.
+
+\begin{enumerate}[label=(F\arabic*),leftmargin=12mm]
+\item The number of possible nonempty supports is $2^r-1$; rank and
+  no-full-support conclusions reduce it further in the five-row branches.
+\item Every row has a proved upper bound from \cref{lem:private}.  Therefore
+  every multiplicity $m_I$ is bounded by a row size containing $I$.
+\item Support minimization retains only incidence masks compatible with
+  clutter minimality, row-size bounds, transversal-number bounds, and the
+  previously proved limits on pair blockers and point degrees.
+\item A minimal transversal never uses two parallel copies of the same
+  support.  For each minimal support cover $M$, the number of actual choices
+  is exactly $\prod_{I\in M}m_I$.  Summing over the support covers gives the
+  weighted count used in (S7.6).
+\item Extension checks explicitly add all permitted incidences of existing
+  points and all nonempty incidence supports of new points.  Their
+  multiplicities are again bounded by row sizes.  The semantic verifier then
+  expands actual labelled copies and recomputes both blockers by
+  inclusion-minimal choice-union enumeration.
+\end{enumerate}
+
+Conversely, every arbitrary-finite instance maps to one enumerated
+multiplicity vector by (S10.1), and expanding that vector realizes the same
+row family up to inactive points and relabelling of parallel actual points.
+Thus the search domain is a quotient with an explicit inverse realization,
+not an assumption that $|U|$ is small.  Empty optional incidence classes,
+repeated residual supports, and nonuniform rows are all present in this
+description.
+
+\subsection{Worked interface: the five-row kernel in the
+\texorpdfstring{$(7,8)$}{(7,8)} split}
+
+We trace one nontrivial branch from the natural clutter to the final Lean
+contradiction.  Let $\mathcal H$ be the seven-row side of a mutual-blocker
+pair, with $|\blocker(\mathcal H)|=8$.  Both sides have minimum row size three
+and maximum point degree three.  Suppose a point $x$ has degree two in
+$\mathcal H$, and let
+\[
+ \mathcal K=\{E\in\mathcal H:x\notin E\}.
+ \tag{S10.2}
+\]
+Then $\mathcal K$ is a five-row clutter, its rows have size at least three,
+and its maximum point degree is at most three.  All blocker rows in this
+passage remain inclusion-minimal: whenever a pointwise minimality step is
+used, \cref{lem:private} supplies a private row for that point.  Residual
+blocker identities
+give
+\[
+ \min_{Q\in\blocker(\mathcal K)}|Q|\geq2,
+ \qquad |\blocker(\mathcal K)|\leq8,
+ \qquad |\{Q\in\blocker(\mathcal K):|Q|=2\}|\leq3.
+ \tag{S10.3}
+\]
+The exact five-row principle strengthens the last inequality to equality.
+
+For $Q\in\blocker(\mathcal K)$, define its forced lift by
+\[
+ L_x(Q)=
+ \begin{cases}
+  Q\cup\{x\},&|Q|=2,\\
+  Q,&|Q|>2.
+ \end{cases}
+ \tag{S10.4}
+\]
+The three pair blockers exhaust the degree available at $x$ on the eight-row
+side.  Residual minimality shows that every $L_x(Q)$ belongs to
+$\blocker(\mathcal H)$.  Blocker involution also gives
+$\mathcal K\subseteq\blocker(\blocker(\mathcal H))$.  Therefore
+$\blocker(\mathcal H)$ satisfies
+\code{IsKernelCompletion K x (blocker H)}: it is an eight-row clutter with
+minimum row size three and maximum degree three, contains every forced lift,
+and has every row of $\mathcal K$ in its blocker.
+
+The Lean theorem \path{G413.no_kernel_completion_of_eight} excludes exactly
+this completion interface on an arbitrary finite type.  Its internal finite
+case separates $|\blocker(\mathcal K)|=6,7,8$.  The first two cases use the
+proved residual bound and pair-endpoint lemma.  In the eight-row case, the
+three pair rows have one of the five graphs
+$P_4$, $P_3\mathbin{+}K_2$, $3K_2$, $K_3$, or $K_{1,3}$; the declarations
+assembled in \path{G413.fiveRow_eight_blocker_impossible} exclude all five.
+The $3K_2$ branch uses the support quotient (S10.1) together with a proved
+lift back to arbitrary actual points, so parallel points are not identified.
+More explicitly, its canonical finite domain is a triple of
+\code{ValidFiveSupportPair} values (50 choices per pair) satisfying
+\code{ThreeK2FiveSupportsCompatible}; \code{threeK2FiniteGood} is the
+enumerated predicate.  The theorem
+\path{G413.threeK2_finite_support_classification} proves the finite split, while
+\path{G413.threeK2_actual_support_classification} constructs those three support
+pairs from arbitrary actual rows and transfers the result.  The decoder and
+certificate semantics are recorded in the following declarations:
+\begin{center}
+\small
+\begin{tabular}{l}
+\path{G413.threeK2Decode},\\
+\path{G413.finitePrivateBlockerCertificate_eq_true_iff},\\
+\path{G413.finiteBlocker_eq_blocker}.
+\end{tabular}
+\end{center}
+The arbitrary-finite contradiction is
+\path{G413.threeK2_pairGraph_impossible}.
+
+The fully qualified name of the final declaration is
+\begin{center}
+\small
+\path{MiddleSevenEightFiveKernelBranch.}\allowbreak%
+\path{sevenRows_degreeTwo_impossible}.
+\end{center}
+This declaration constructs the interface (S10.2)--(S10.4) from the natural
+seven-row family and applies
+\path{G413.no_kernel_completion_of_eight}.  Thus this branch does not
+deduce an arbitrary-ground conclusion from the executable counts.  The
+programs replay the finite support classification; the Lean bridge proves
+that every arbitrary-finite realization enters it and that every decoded
+case has the required semantics.
+
+The executable sources and their saved outputs are organized as follows.
+Every displayed path is relative to
+\path{Problems/P0054/experiments/} inside the artifact root.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.19\textwidth}
+                  >{\raggedright\arraybackslash}p{0.35\textwidth}
+                  >{\raggedright\arraybackslash}p{0.36\textwidth}}
+\toprule
+Claim & Primary enumeration & Independent replay or semantic check \\
+\midrule
+\endfirsthead
+\toprule
+Claim & Primary enumeration & Independent replay or semantic check \\
+\midrule
+\endhead
+Fano adjacency
+& \path{g4.12-exact-fifty-four/fano-adjacency.cpp}
+& \path{g4.12-exact-fifty-four/verify.py} \\
+$(6,10)$, degree three
+& \path{g4.12-exact-fifty-four/middle-six-ten.cpp}
+& \path{g4.12-exact-fifty-four/verify-middle-six-ten.py} \\
+$(6,10)$, low degree
+& \path{g4.12-exact-fifty-four/middle-six-ten-low-degree.cpp}
+& \path{g4.12-exact-fifty-four/middle-six-ten-low-degree.py} \\
+$(8,8)$, four rows
+& \path{g4.12-exact-fifty-four/middle-four-row-kernels.py}
+& saved JSON is rechecked by the extension verifier \\
+$(8,8)$, five rows
+& \path{g4.12-exact-fifty-four/middle-eight-eight-five-row.cpp}
+& \path{g4.12-exact-fifty-four/middle-eight-eight-extension.py} \\
+$(7,9)$, four rows
+& \path{g4.12-exact-fifty-four/middle-seven-nine-four-row.cpp}
+& \path{g4.12-exact-fifty-four/middle-four-row-kernels.py} \\
+$(7,9)$, extensions
+& \path{g4.12-exact-fifty-four/middle-seven-nine-extension.cpp}
+& \path{g4.12-exact-fifty-four/middle-seven-nine-extension.py} \\
+$(7,9)$, couplings
+& \path{g4.12-exact-fifty-four/middle-seven-nine-six-row.cpp}
+& \path{g4.12-exact-fifty-four/middle-seven-nine-six-row.py} \\
+52-profile kernels
+& \path{g4.10-coupled-fifty-two/four-row-kernel.cpp}
+& \path{g4.10-coupled-fifty-two/support-multigraph-checker.py} \\
+53-profile kernels
+& \path{g4.11-coupled-fifty-three/five-row-kernel.cpp}
+& \path{g4.11-coupled-fifty-three/verify.py} \\
+\bottomrule
+\end{longtable}
+
+Each experiment directory contains a manifest with toolchain information and
+SHA-256 digests.  The saved numeric output is \computed.  The conclusion
+about arbitrary finite clutters follows only after the proved interface
+(F1)--(F5); in the final artifact this interface and the classifications are
+also checked in Lean.
+
+\clearpage
+\begin{landscape}
+\section{Theorem--proof--program--Lean crosswalk}
+\label{sec:crosswalk}
+
+The table below gives the shortest review path.  Every P0054 name is complete
+after the common prefix \code{AiMathLab.P0054.}  For the first infrastructure
+entry, prepend \code{AiMathLab} and a period instead.  Names never inherit a
+namespace from the preceding entry.  Source files are at the repository root.
+
+\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.18\textwidth}
+                  >{\raggedright\arraybackslash}p{0.24\textwidth}
+                  >{\raggedright\arraybackslash}p{0.49\textwidth}}
+\toprule
+Natural statement & Human proof / executable evidence & Lean declaration \\
+\midrule
+\endfirsthead
+\toprule
+Natural statement & Human proof / executable evidence & Lean declaration \\
+\midrule
+\endhead
+Homogeneous atom from signatures
+& Main theorem ``Finite canonical reduction''
+& \path{SaturatedSperner.HomogeneousAtomExistence.exists_homogeneousAtom_of_signature_bound} \\
+Canonical trace blocker equality and row bounds
+& Main canonical-reduction theorem
+& \path{CanonicalProfiles.canonicalLayer_mutual_blockers};
+  \path{CanonicalProfiles.smallTrace_rows_cardAtLeast};
+  \path{CanonicalProfiles.largeComplementTrace_rows_cardAtLeast} \\
+Layer trace cardinality and total sum
+& Main equations (CR3) and the canonical partition
+& \path{CanonicalProfiles.canonicalLayer_trace_card_sum};
+  \path{CanonicalProfiles.sum_canonicalLayer_cards_eq} \\
+$m(2,3)=9$
+& Main proof of the local blocker theorem
+& \path{Sat6.local_lower}, together with
+  \path{Sat6.witness_blocker_large}, \path{Sat6.witness_blocker_small}, and
+  \path{Sat6.witness_total_card} \\
+$m(2,4)=12$
+& Main theorem and its product-bound appendix
+& \path{AdjacentExact.mutual_blocker_total_card_ge_twelve};
+  \path{AdjacentExact.witness_blocker_two};
+  \path{AdjacentExact.witness_blocker_four};
+  \path{AdjacentExact.adjacent_local_parameter_exact} \\
+Parameterized 30-member construction
+& Main six-layer upper bound
+& \path{Sat6Parameterized30.family_card};
+  \path{Sat6Parameterized30.family_saturated};
+  \path{Sat6Parameterized30.full_certificate} \\
+Finite-ground lower bound 30
+& Canonical reduction plus $m(2,3)=9$
+& \path{Sat6Exact.family_card_lower} \\
+$\sat(6)=30$
+& Main exact theorem
+& \path{Sat6StableExact.sat_six_eq_thirty} \\
+$m(3,3)\geq14$
+& \Cref{sec:m33-lower}
+& \path{MiddleLower.mutual_blocker_total_card_ge_fourteen} \\
+Equality 14 is Fano
+& \Cref{sec:m33-classification}; G4.10 replay
+& \path{MiddleFourteenFano.middle_fourteen_is_fano} \\
+No middle total 15
+& \Cref{sec:m33-classification}; G4.11 replay
+& \path{MiddleFifteen.middle_fifteen_impossible} \\
+Five-row completion in the $(7,8)$ split
+& \Cref{sec:finite-interface}, worked interface
+& \path{G413.no_kernel_completion_of_eight};
+  \path{MiddleSevenEightFiveKernelBranch.sevenRows_degreeTwo_impossible} \\
+$(5,11)$ endpoint
+& \Cref{sec:five-eleven}
+& \path{MiddleFive.blocker_card_ge_twelve} \\
+$(6,10)$ impossible
+& \Cref{sec:six-ten}; two independent replays
+& \path{G419.sixTen_impossible} \\
+$(8,8)$ impossible
+& \Cref{sec:eight-eight}; four- and five-row replays
+& \path{G420.eightEight_impossible} \\
+$(7,9)$ impossible
+& \Cref{sec:seven-nine}; extension and coupling replays
+& \path{MiddleSevenNineClosed.sevenNine_impossible} \\
+No middle total 16
+& \Cref{thm:middle-sixteen}
+& \path{MiddleSixteenClosed.middle_sixteen_impossible} \\
+Fano $(7,6)$ and $(8,5)$
+& \Cref{sec:fano-profile}; Fano adjacency replay
+& \path{FanoAdjacentSevenSixActual.fano_seven_six_impossible};
+  \path{FanoAdjacentEightFiveActual.fano_eight_five_impossible} \\
+Fano $(9,4)$
+& \Cref{lem:four-ten}
+& \path{AdjacentFourIntersecting.four_pairwise_intersecting_blocker_card_ge_ten} \\
+All Fano-adjacent splits
+& \Cref{sec:fano-profile}
+& \path{FanoAdjacentClosed.fano_adjacent_impossible} \\
+Canonical lower bridge
+& Main profiles and both exact exclusions
+& \path{SevenFanoBridge.family_card_lower_of_fano_adjacent} \\
+Parameterized 55-member construction
+& Main construction table and saturation proof
+& \path{Parameterized55.family_card};
+  \path{Parameterized55.family_saturated};
+  \path{Parameterized55.full_certificate} \\
+$\sat(7)=55$
+& Main exact theorem
+& \path{Sat7StableExact.sat_seven_eq_fifty_five} \\
+\bottomrule
+\end{longtable}
+\end{landscape}
+\clearpage
+
+The stable declarations have the proposition types
+\[
+ \code{IsStableSaturationNumber 6 30},\qquad
+ \code{IsStableSaturationNumber 7 55}.
+\]
+This predicate asserts the existence of a threshold beyond which both an
+attaining saturated family and a universal lower bound hold on every
+labelled finite ground set.  The explicit witness thresholds in the two Lean
+proofs are $3\cdot2^{30}$ and $3\cdot2^{55}$.  These are existence thresholds,
+not claims of optimal stabilization.
+
+\section{Reproduction and trust boundary}
+\label{sec:reproduction}
+
+The versioned artifact is available from
+\href{https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.0.0}
+{GitHub release v1.0.0} and
+\href{https://doi.org/10.5281/zenodo.21679078}{Zenodo DOI
+10.5281/zenodo.21679078}.  That immutable record is the public baseline and
+predates the present revision.  The revised sources and PDFs must be deposited
+as a new GitHub/Zenodo version rather than replacing v1.0.0; until its version
+DOI is inserted into the submission files, the public artifact and this
+revision are not version-synchronized.
+
+From the artifact root, the two principal Lean checks are
+\begin{verbatim}
+lake build AiMathLab AiMathLab.P0054Sat7StableExact
+lake env lean Problems/P0054/formal/Main.lean
+\end{verbatim}
+The complete recorded build checks 17488 jobs.  The formal entry point prints
+the axioms of the two final declarations; the accepted list is exactly
+\code{propext}, \code{Classical.choice}, and \code{Quot.sound}.  A source
+scan rejects \code{sorry}, \code{admit}, \code{axiom}, \code{unsafe},
+\code{native\_decide}, and \code{run\_tac}.
+
+The explicit 55-member construction is checked independently in three ways:
+direct expansion on the eleven-point realization, a semantic Python
+verifier, and a Lean certificate.  In Lean, all $2^{11}=2048$ subsets are
+covered by a frozen saturation table; the 1993 external subsets carry an
+eight-member strict chain after insertion.  The generator is untrusted:
+Lean checks the length, membership, strict containment, and occurrence
+conditions of every emitted row.
+
+The status boundary is therefore:
+\begin{itemize}[leftmargin=8mm]
+\item the executable tables and counts in this supplement are \computed;
+\item the self-contained arguments displayed in full are \proved;
+\item compressed finite-classification narratives are audit maps, not
+  standalone arbitrary-finite proofs;
+\item the final stable values and all classification dependencies are
+  \mbox{\formalized};
+\item novelty, priority, editorial suitability, and any claim beyond the two
+  exact stable values are not mathematical consequences of these checks.
+\end{itemize}
+
+\end{document}

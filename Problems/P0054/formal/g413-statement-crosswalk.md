@@ -1,5 +1,13 @@
 # G4.13 Lean statement crosswalk
 
+> Historical checkpoint note (updated 2026-07-30): this file records the
+> local G4.13 theorem at the time it was first isolated.  The current
+> exact-value dependency graph uses it through
+> `MiddleSevenEightFiveKernelBranch.sevenRows_degreeTwo_impossible` in the
+> total-fifteen `(7,8)` branch; the total-sixteen `(8,8)` branch is closed by
+> `G420.eightEight_impossible`.  See `formalization-report.md` for the current
+> global status.
+
 ## Natural target
 
 The G4.13 natural-language theorem excludes an admissible eight-row completion of the five-row
@@ -77,8 +85,13 @@ finite support classification with an arbitrary-ground-set lifting and persisten
 existing `K3` and `K1,3` theorems close the remaining shapes. Their exhaustive assembly is
 `fiveRow_eight_blocker_impossible`.
 
-## Global boundary
+## Historical global boundary
 
 No declaration defines the eventual stable number `sat(7)`, excludes every 54-member family, or
 connects all G4.12 branches to the existing `Fin 11` construction. The Lean work in this checkpoint
 does not prove `sat(7)=55`.
+
+That boundary was later closed.  As revalidated on 2026-07-30, the exported
+theorem `Sat7StableExact.sat_seven_eq_fifty_five` has type
+`IsStableSaturationNumber 7 55` and includes every required branch in its
+dependency graph.

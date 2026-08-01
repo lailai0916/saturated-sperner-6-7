@@ -1,6 +1,6 @@
 # Cover letter
 
-July 29, 2026
+July 30, 2026
 
 Editors  
 Journal of Combinatorial Theory, Series A
@@ -21,20 +21,25 @@ certificate reductions. An explicit 55-member construction gives the
 matching upper bound and improves the associated composition split from
 28/28 to 28/27.
 
+A separately submitted supplementary proof dossier records the
+arbitrary-finite blocker interfaces, one complete worked reduction,
+independent replay counts, and a theorem–proof–program–Lean crosswalk.
+
 The article is intended for JCTA because its main contribution is an exact
 extremal result in set systems, with structural blocker arguments forming the
 mathematical core. The supporting artifacts include construction verifiers,
 exact-search programs, CNF instances, DRAT certificates, manifests, tests,
-and a Lean 4 formalization of both eventual equalities. The article is
-self-contained at the mathematical level; these artifacts provide separate
-reproducibility and formal-verification layers.
+and a Lean 4 formalization of both eventual equalities. The article states the
+mathematical architecture and exact trust boundary; for the largest finite
+classifications, the named Lean declarations are the primary proof objects,
+with the programs supplying independent reproducibility checks.
 
 The manuscript is original, has not been published previously, and is not
 under consideration for publication elsewhere. The author declares no
 competing interests. This research received no specific grant from funding
-agencies in the public, commercial, or not-for-profit sectors. A versioned
-GitHub release and an immutable Zenodo archive are cited in the final
-submission package.
+agencies in the public, commercial, or not-for-profit sectors. The final
+submission will cite a versioned GitHub release and an immutable Zenodo record
+that contain this exact revision.
 
 Thank you for considering the manuscript.
 

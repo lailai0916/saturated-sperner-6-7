@@ -2,6 +2,15 @@
 
 All notable public artifact releases are recorded here.
 
+## 1.1.0 - Unreleased
+
+- Synchronize the revised manuscript and new Supplement with the complete
+  Lean formalization.
+- Add the fourth-pre-review crosswalk corrections and bounded-search refresh.
+- Add a replay entry point with preserved logs and machine-readable results.
+- Prepare a revision-matched archive for a new GitHub release and Zenodo
+  version.
+
 ## 1.0.0 — 2026-07-29
 
 - Publish the mathematical proof sources for the exact eventual values
@@ -11,4 +20,3 @@ All notable public artifact releases are recorded here.
   generators, regression tests, and locked dependency metadata.
 - Link the byte-frozen large-artifact archive containing the nine CNF/DRAT
   certificate pairs.
-

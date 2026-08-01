@@ -1,5 +1,12 @@
 # G4.13 local formalization report
 
+> Historical checkpoint note (updated 2026-07-30): the status block below
+> describes the moment the local theorem first closed.  The complete stable
+> exact value subsequently closed and was revalidated on 2026-07-30; see
+> `formalization-report.md`.  In the current dependency graph this local
+> theorem is used in the total-fifteen `(7,8)` branch, while
+> `G420.eightEight_impossible` closes `(8,8)`.
+
 ```text
 STATUS: FORMALIZED_LOCAL_THEOREM
 G413_LOCAL_THEOREM: FORMALIZED
@@ -47,5 +54,7 @@ completion. The 8-row branch classifies the three pair rows into `P4`, `P3+K2`, 
 `K1,3`, then excludes every shape. No proof placeholder, new axiom, `sorry`, `admit`, `unsafe`,
 `native_decide`, or `run_tac` is used.
 
-This local theorem does not formalize the other G4.12 branches or the global canonical reduction.
-It therefore does not give `sat(7)=55` the `FORMALIZED` label.
+At this historical checkpoint, the local theorem did not formalize the other
+G4.12 branches or the global canonical reduction and therefore did not yet
+give `sat(7)=55` the `FORMALIZED` label.  Those dependencies are now closed by
+the final stable-exact development.

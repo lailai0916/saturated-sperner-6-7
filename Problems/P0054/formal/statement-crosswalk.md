@@ -1,6 +1,7 @@
 # P0054 exact-value formalization crosswalk
 
-Evidence date: 2026-07-27.
+Evidence date: 2026-07-30.  The complete exact-value chain first closed on
+2026-07-27 and was revalidated after the fourth pre-review revision.
 
 ## Frozen mathematical input
 
@@ -58,18 +59,18 @@ evaluation.
 | every row has size at least `r` | `AiMathLab.P0054.G413.RowsCardAtLeast` |
 | explicit five-member size-two side | `AiMathLab.P0054.Sat6.witnessSmall` |
 | explicit four-member size-three side | `AiMathLab.P0054.Sat6.witnessLarge` |
-| both witness blocker equalities | `witness_blocker_large`, `witness_blocker_small` |
-| witness total cardinality nine | `witness_total_card` |
-| three-row blocker lower bound seven | `threeRow_blocker_card_ge_seven` |
-| four-row blocker lower bound six | `fourRow_blocker_card_ge_six` |
-| arbitrary-finite-ground total lower bound nine | `local_lower` |
+| both witness blocker equalities | `AiMathLab.P0054.Sat6.witness_blocker_large`, `AiMathLab.P0054.Sat6.witness_blocker_small` |
+| witness total cardinality nine | `AiMathLab.P0054.Sat6.witness_total_card` |
+| three-row blocker lower bound seven | `AiMathLab.P0054.G413.threeRow_blocker_card_ge_seven` |
+| four-row blocker lower bound six | `AiMathLab.P0054.G413.fourRow_blocker_card_ge_six` |
+| arbitrary-finite-ground total lower bound nine | `AiMathLab.P0054.Sat6.local_lower` |
 | parameterized 30-member family | `AiMathLab.P0054.Sat6Parameterized30.family` |
 | parameterized cardinality and saturation | `AiMathLab.P0054.Sat6Parameterized30.family_card`, `AiMathLab.P0054.Sat6Parameterized30.family_saturated` |
 | finite-ground lower bound 30 | `AiMathLab.P0054.Sat6Exact.family_card_lower` |
 | transported construction on `Fin n` | `AiMathLab.P0054.Sat6StableExact.construction_certificate` |
 | exact eventual value | `AiMathLab.P0054.Sat6StableExact.sat_six_eq_thirty` |
 
-`local_lower` assumes both input families are clutters, both blocker
+`AiMathLab.P0054.Sat6.local_lower` assumes both input families are clutters, both blocker
 equalities, and the two member-size minima. These are exactly the natural
 admissibility hypotheses. Combined with the explicit witness declarations,
 it is a kernel-checked representation of `m(2,3)=9`.
@@ -77,6 +78,22 @@ it is a kernel-checked representation of `m(2,3)=9`.
 The final declaration has type `IsStableSaturationNumber 6 30`. Its witness
 threshold is `3*2^30`. Hence it formalizes attainment and optimality on every
 labelled finite ground past that threshold.
+
+## Exact $m(2,4)=12$ theorem
+
+| Natural object or claim | Lean declaration |
+|---|---|
+| arbitrary-finite-ground lower bound twelve | `AiMathLab.P0054.AdjacentExact.mutual_blocker_total_card_ge_twelve` |
+| explicit eight-edge side | `AiMathLab.P0054.AdjacentExact.witnessTwoRows` |
+| explicit four-member size-four side | `AiMathLab.P0054.AdjacentExact.witnessFourRows` |
+| both witness blocker equalities | `AiMathLab.P0054.AdjacentExact.witness_blocker_two`, `AiMathLab.P0054.AdjacentExact.witness_blocker_four` |
+| exact lower-and-upper package | `AiMathLab.P0054.AdjacentExact.adjacent_local_parameter_exact` |
+
+The lower theorem quantifies over an arbitrary finite type and assumes only
+clutter minimality, minimum row size two, and minimum blocker-row size four.
+The witness consists of two disjoint four-cycles and their four choices of
+opposite bipartition classes.  Thus the natural theorem $m(2,4)=12$ is
+kernel-checked rather than inferred from a fixed-ground computation.
 
 ## Exact sat(7) theorem
 
@@ -104,9 +121,12 @@ canonical reduction and all remaining middle and Fano-adjacent exclusions.
 | exclusion of all five pair-graph shapes | `AiMathLab.P0054.G413.fiveRow_eight_blocker_impossible` |
 | no admissible eight-row completion | `AiMathLab.P0054.G413.no_kernel_completion_of_eight` |
 
-The final declaration matches the local five-row degree-three subproblem in
-the G4.12 `(8,8)` branch. It quantifies over an arbitrary finite ground set
-and does not impose a finite-core bound.
+The declaration is the local five-row degree-three no-completion theorem. In
+the current exact-value dependency graph it is invoked by
+`MiddleSevenEightFiveKernelBranch.sevenRows_degreeTwo_impossible` in the
+total-fifteen `(7,8)` branch. It quantifies over an arbitrary finite ground
+set and does not impose a finite-core bound. The total-sixteen `(8,8)` branch
+is closed separately by `G420.eightEight_impossible`.
 
 G4.13 was a local formalization milestone. The later exact-value modules
 formalize the remaining branches and connect them to the stable predicate.
@@ -115,6 +135,8 @@ formalize the remaining branches and connect them to the stable predicate.
 
 - `lake build AiMathLab AiMathLab.P0054Sat7StableExact` passed 17488 jobs.
 - `lake env lean Problems/P0054/formal/Main.lean` passed.
+- The independent entry point explicitly checks the exact $m(2,4)$ package and
+  the worked five-row completion bridge.
 - Both final theorems use only `propext`, `Classical.choice`, and `Quot.sound`.
 - The forbidden token and bypass scan over Lean sources returned zero hits.
 

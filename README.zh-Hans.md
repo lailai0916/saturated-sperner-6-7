@@ -52,6 +52,12 @@ lake build AiMathLab AiMathLab.P0054Sat7StableExact
 lake env lean Problems/P0054/formal/Main.lean
 ```
 
+本轮修订还提供统一重放入口。脚本会保存完整日志，并输出机器可读摘要：
+
+```bash
+Problems/P0054/release/verify-core.sh
+```
+
 独立入口会打印两个最终定理的公理依赖；预期恰为 `propext`、
 `Classical.choice` 和 `Quot.sound`。Lean 源码不含 `sorry`、`admit`、
 `axiom`、`unsafe`、`native_decide` 或 `run_tac`。
@@ -69,14 +75,18 @@ lake env lean Problems/P0054/formal/Main.lean
 - `Problems/P0054/experiments/`：精确搜索输入、输出和紧凑证书；
 - `scripts/`、`tests/`：生成器、语义验证器和回归测试。
 
-超过 GitHub 普通文件上限的 DRAT 轨迹不进入源码 Git 历史。包含九组 CNF/DRAT
-文件的完整冻结包随 [版本 `v1.0.0`](https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.0.0)
-发布，并附 SHA-256 校验文件，同时归档到
-[Zenodo](https://doi.org/10.5281/zenodo.21679078)。
+超过 GitHub 普通文件上限的 DRAT 轨迹不进入源码 Git 历史。当前公开基线是
+[版本 `v1.0.0`](https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.0.0)
+和 [Zenodo 记录 `21679078`](https://doi.org/10.5281/zenodo.21679078)。
+两者早于本轮论文与 Supplement 修订。本地 `v1.1.0` 候选已冻结对应源码、PDF
+和九组 CNF/DRAT 文件；GitHub Release 与 Zenodo 新版本 DOI 尚未发布。
 完整性边界见 [`artifacts/README.md`](artifacts/README.md)。
 纯源码克隆中有五项逐字节归档测试会明确显示为跳过；将归档文件放回对应路径后，
 设置 `P0054_REQUIRE_ARCHIVE_ARTIFACTS=1`，任何缺失文件都会成为硬失败。
 
-引用信息见 [`CITATION.cff`](CITATION.cff)。本版本的 DOI 为
-[`10.5281/zenodo.21679078`](https://doi.org/10.5281/zenodo.21679078)。代码与
-形式化源码采用 Apache-2.0 许可证。
+## 引用与许可证
+
+引用信息见 [`CITATION.cff`](CITATION.cff)。DOI
+[`10.5281/zenodo.21679078`](https://doi.org/10.5281/zenodo.21679078)
+仅标识公开的 `v1.0.0` 基线，不标识待发布修订。代码与形式化源码采用
+Apache-2.0 许可证。

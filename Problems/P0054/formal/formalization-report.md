@@ -2,7 +2,8 @@
 
 ## Result
 
-Evidence date: 2026-07-27.
+Evidence date: 2026-07-30.  The exact-value declarations first closed on
+2026-07-27 and were revalidated after the fourth pre-review revision.
 
 Lean accepts the two final public theorems:
 
@@ -97,10 +98,10 @@ The repository-wide validation results are recorded in
 
 Lean also accepts the following public theorems:
 
-- `witness_blocker_large : blocker witnessLarge = witnessSmall`;
-- `witness_blocker_small : blocker witnessSmall = witnessLarge`;
-- `witness_total_card : witnessSmall.card + witnessLarge.card = 9`;
-- `local_lower : 9 <= S.card + C.card` under the arbitrary-finite-ground
+- `AiMathLab.P0054.Sat6.witness_blocker_large : blocker witnessLarge = witnessSmall`;
+- `AiMathLab.P0054.Sat6.witness_blocker_small : blocker witnessSmall = witnessLarge`;
+- `AiMathLab.P0054.Sat6.witness_total_card : witnessSmall.card + witnessLarge.card = 9`;
+- `AiMathLab.P0054.Sat6.local_lower : 9 <= S.card + C.card` under the arbitrary-finite-ground
   mutual-blocker and row-size hypotheses.
 
 The lower theorem includes the two-row, three-row, and four-row cases used in
@@ -118,11 +119,28 @@ large `Fin n`, and the final theorem
 The sat(6) modules contain no `sorry`, `admit`, `axiom`, `unsafe`, or
 `native_decide`.
 
+## Exact $m(2,4)$ chain
+
+`AiMathLab.P0054.AdjacentExact` formalizes both directions of the local
+identity $m(2,4)=12$:
+
+- `AiMathLab.P0054.AdjacentExact.mutual_blocker_total_card_ge_twelve` proves the lower bound on every finite
+  type under the natural clutter and row-size hypotheses;
+- `AiMathLab.P0054.AdjacentExact.witness_blocker_two` and
+  `AiMathLab.P0054.AdjacentExact.witness_blocker_four` prove the two blocker
+  equalities for the two-disjoint-four-cycles witness;
+- `AiMathLab.P0054.AdjacentExact.witness_total_card` proves total cardinality twelve;
+- `AiMathLab.P0054.AdjacentExact.adjacent_local_parameter_exact` packages the arbitrary-finite lower theorem
+  and the explicit upper witness.
+
+The independent `Main.lean` entry point now checks this exact package directly.
+No fixed-ground UNSAT result is used to obtain the universal lower bound.
+
 ## G4.13 five-row kernel
 
 Lean accepts `AiMathLab.P0054.G413.no_kernel_completion_of_eight` on an
 arbitrary finite ground set. The theorem excludes the five-row degree-three
-kernel completion used in the G4.12 `(8,8)` branch. Its supporting modules
+kernel completion used in the total-fifteen `(7,8)` branch. Its supporting modules
 formalize blocker involution, residual identities, private witnesses, the
 small-row bounds, the five-row residual cases, and all five pair-graph
 branches.
