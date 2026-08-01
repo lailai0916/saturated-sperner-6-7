@@ -6,7 +6,7 @@ CURRENT_GATE: P0054_G4_14_EXACT_VALUE_PROMOTION
 GATE_VERDICT: EXACT_STABLE_VALUES_FORMALIZED
 WORKFLOW_STATUS: SOLVED_CANDIDATE
 EPISTEMIC_STATUS: FORMALIZED_EXACT_STABLE_VALUES
-FORMAL_VERIFICATION_DATE: 2026-07-27
+FORMAL_VERIFICATION_DATE: 2026-07-30
 TARGET: IsStableSaturationNumber 6 30; IsStableSaturationNumber 7 55
 CORE_SIZES: ARBITRARY_FINITE_U_IN_GLOBAL_CANONICAL_DECOMPOSITION
 KNOWN_CONTROL: PUBLISHED_56_CONSTRUCTION
@@ -71,8 +71,9 @@ sat(7) = 55.
 
 ## Lean formalization
 
-As of 2026-07-27, both exact eventual statements are `FORMALIZED`. Lean
-accepts the public theorems
+The complete exact-value chain first closed on 2026-07-27 and was revalidated
+after the fourth pre-review revision on 2026-07-30. Both exact eventual
+statements are `FORMALIZED`. Lean accepts the public theorems
 
 ```text
 AiMathLab.P0054.Sat6StableExact.sat_six_eq_thirty
@@ -119,30 +120,36 @@ exclusion; the explicit 55-member construction and composition consequence;
 the seven-core class certificate boundary; and the exact scope of the Lean
 formalizations.
 
-The manuscript is `FINAL_INTERNAL_REVIEW_READY`, and the local JCTA package is
-`PUBLIC_ARTIFACTS_RELEASED`; neither status means that a submission has
-occurred. Author affiliation, ORCID, funding, and competing-interest fields
-are complete. On 29 July 2026, the author confirmed that the manuscript had
+The manuscript and local JCTA package are
+`LOCAL_V1.1_ARTIFACT_VERIFIED_PUBLICATION_PENDING`; this does not mean that a
+submission has occurred. Author affiliation, ORCID, funding, and
+competing-interest fields are complete. On 29 July 2026, the author confirmed that the manuscript had
 not been published and was not under consideration elsewhere. The author also
 reported completion of an external specialist review; no private report is
 archived here, and this is not represented as journal peer review. The final
 pre-submission search is recorded in
 `literature/final-prepublication-audit-2026-07-29.md` and found no public
-equivalent in its bounded scope. GitHub release `v1.0.0` and Zenodo DOI
-`10.5281/zenodo.21679078` are public. The two records contain the same fixed
-archive. JCTA submission remains a separate author-controlled action.
-P0054-C5, P0054-C9, P0054-C24, and P0054-C29 remain `UNKNOWN`; no novelty or
-priority wording is authorized.
+equivalent in its bounded scope. Remaining public actions are a GitHub
+v1.1.0 release and a new immutable Zenodo version for this exact revision.
+P0054-C5, P0054-C9, P0054-C24, and P0054-C29 remain `UNKNOWN`; no unqualified
+novelty or priority wording is authorized.
 
-The 29 July 2026 local submission replay completed successfully for
-`lake build` (8,662 jobs), the independent `Main.lean` entry point, the
-forbidden-construct scan, all 178 Python tests, all three LaTeX builds, and
-both review-package integrity checks.  The JCTA, English, and Chinese PDFs
-have 14, 15, and 16 pages, respectively, and were visually inspected page by
-page.  Repository-wide Ruff and Mypy remain nonzero only in pre-existing,
-untracked certificate-generator scripts (with Ruff additionally rescanning
-their fixed review-package copies); those diagnostics were preserved rather
-than altering user-owned generators during submission preparation.
+On 30 July 2026, the fourth-pre-review revalidation passed the single-process,
+two-target full Lake build (17,488 jobs), the independent `Main.lean` entry
+point, and the forbidden-construct scan.  The JCTA, ordinary English, Chinese,
+and Supplement PDFs have 16, 17, 17, and 15 pages, respectively.  PDF text
+extraction and page-by-page visual inspection passed, including the worked
+interface, corrected crosswalk, revised bounded-search date, and corrected
+common-prefix punctuation. The authoritative `release/verify-core.sh` passes
+the core replay and 42 P0054 tests, preserves full logs, and emits a JSON
+summary with commands, exit codes, 4,530 nonfatal Lake warnings, theorem
+types, and the expected axiom boundary. Its controlled failure test returned
+42 and reported `FAIL`. The revision-synchronized local v1.1.0 package passes
+its integrity check; its core script is byte-identical, but a new default-path
+empty-cache package replay was not repeated after this document-only change.
+The 29 July supporting gate remains the most recent replay of all 178
+repository tests; those program and certificate sources were not changed in
+this document-facing revision.
 
 ## G2 size-54 evidence boundary
 
@@ -441,7 +448,9 @@ sat(7) = 55.
 ## G4.13 local Lean strengthening
 
 `FORMALIZED`: Lean proves the five-row degree-three kernel no-completion
-theorem used inside the G4.12 `(8,8)` branch. It includes unconditional
+theorem. In the current dependency graph it is used in the total-fifteen
+`(7,8)` branch; the total-sixteen `(8,8)` branch is closed separately by
+`G420.eightEight_impossible`. The local theorem includes unconditional
 residual bounds and all five pair-graph shapes. No placeholder, unsafe
 shortcut, or new axiom occurs.
 

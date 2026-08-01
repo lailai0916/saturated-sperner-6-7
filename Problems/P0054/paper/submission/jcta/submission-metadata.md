@@ -10,12 +10,16 @@
 - Keywords: saturated Sperner family; Boolean lattice; blocker; extremal set
   theory; SAT certificate; Lean 4
 - Highlights: `highlights.txt`
+- Supplementary material: `supplement.tex` and
+  `output/pdf/P0054-sat6-sat7-supplement.pdf`; description: “Arbitrary-finite
+  blocker interfaces, a worked finite-domain reduction, independent replay
+  counts, and a theorem–proof–program–Lean crosswalk.”
+- GitHub release:
+  `https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.0`
+- Zenodo version DOI: `10.5281/zenodo.21730916`
 - Funding: No specific grant from public, commercial, or not-for-profit
   funding agencies
 - Competing interests: None declared
-- GitHub repository: https://github.com/lailai0916/saturated-sperner-6-7
-- GitHub release: https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.0.0
-- Artifact DOI: 10.5281/zenodo.21679078
 
 ## Author
 
@@ -46,7 +50,7 @@ Validation; Writing — original draft; Writing — review and editing.
 
 ## Submission-system checks
 
-- The public GitHub URL and Zenodo DOI in the manuscript resolve to the exact
-  archived release.
+- The public GitHub `v1.1.0` URL and Zenodo version DOI resolve to the exact
+  revision archive and matching SHA-256 sidecar.
 - The final AI-assisted-technologies declaration accurately describes the
   services and purposes used.

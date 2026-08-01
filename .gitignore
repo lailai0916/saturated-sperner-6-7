@@ -5,6 +5,7 @@ __pycache__/
 .hypothesis/
 .mypy_cache/
 .ruff_cache/
+/replay-logs/
 *.py[cod]
 .DS_Store
 

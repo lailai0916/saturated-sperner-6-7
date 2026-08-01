@@ -1,17 +1,14 @@
 # Public artifact inventory
 
-The full artifact payload is the fixed, already verified review archive:
+Status: `PUBLIC_V1.1.0_PAYLOAD_VERIFIED`
 
-- local path: `output/review/P0054-review-package-2026-07-29.tar.gz`
-- exact size: 196,168,454 bytes
-- SHA-256: `6c1a0227510e903cbf0230574e4e5f89c758e46f7deaa4ffd4dce95ee01ec1cd`
-- Zenodo MD5: `7d08a030d64e8e1ea008f334c15d57c7`
+The v1.1.0 payload was regenerated from the fourth-pre-review revised
+snapshot.  The release archive is:
+
+- local path: `output/release/P0054-artifacts-v1.1.0.tar.gz`
+- SHA-256: recorded in the adjacent `.sha256` sidecar after archive creation;
 - integrity sidecar:
-  `output/review/P0054-review-package-2026-07-29.tar.gz.sha256`
-- GitHub release:
-  `https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.0.0`
-- archival DOI: `10.5281/zenodo.21679078`
-- publication date: 29 July 2026
+  `output/release/P0054-artifacts-v1.1.0.tar.gz.sha256`
 
 Its top-level verification interface consists of:
 
@@ -23,8 +20,19 @@ Its top-level verification interface consists of:
 - `review-checklist.md`;
 - the `repository/` snapshot and its certificate payload.
 
-The GitHub asset reports the SHA-256 above, and Zenodo reports the MD5 above.
-The archive sidecar and internal manifest were both verified on 29 July 2026.
-The three final PDFs were rebuilt and visually inspected page by page against
-the DOI-bearing sources. If any byte in the archive payload changes, mint a new
-archive and replace the size and checksum above before publishing a new record.
+The directory payload passes `verify-integrity.sh`. Its top-level
+`verify-core.sh` is copied byte-for-byte from
+`Problems/P0054/release/verify-core.sh`; that authoritative script passed the
+current worktree replay and writes complete logs, `steps.ndjson`, and
+`result.json` under a fresh `replay-logs/run.XXXXXX/` directory. The normal
+run reported `PASS`; a controlled Lake failure returned 42 and reported
+`FAIL`. A new default-path empty-cache replay inside the frozen directory was
+not repeated after the fourth-round document-only changes.
+`verify-drat.sh` requires an external executable at DRAT-trim commit
+`2e3b2dc0ecf938addbd779d42877b6ed69d9a985`; if that checker is unavailable,
+the package records this limitation and retains the nine earlier independent
+acceptance logs without describing them as a new replay.
+
+The archive and sidecar are published unchanged on GitHub release `v1.1.0`
+and Zenodo DOI `10.5281/zenodo.21730916`. If any payload byte changes, it must
+be released under a new version rather than replacing these immutable files.

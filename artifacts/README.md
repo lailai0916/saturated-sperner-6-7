@@ -31,3 +31,14 @@ the moment of the review-package freeze; later publication metadata does not
 alter those bytes. The same two files must be used for the GitHub release and
 the Zenodo record.
 
+## 1.1.0 revision
+
+The revision-synchronized release uses these asset names:
+
+- `P0054-artifacts-v1.1.0.tar.gz`;
+- `P0054-artifacts-v1.1.0.tar.gz.sha256`.
+
+The archive and sidecar are attached to GitHub release `v1.1.0` and deposited
+unchanged under Zenodo DOI `10.5281/zenodo.21730916`. The package contains the
+revision-synchronized manuscripts, formal sources, verification entry points,
+and archived certificate evidence.

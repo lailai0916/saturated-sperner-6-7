@@ -8,9 +8,12 @@ cleared for public novelty wording.
 
 ## Manuscript files
 
-- `main.tex` — canonical English submission source.
+- `main.tex` — canonical English scholarly source.
 - `main.zh-Hans.tex` — faithful Simplified-Chinese reading translation.
 - `references.bib` — shared bibliography.
+- `../submission/jcta/` — self-contained Elsevier CAS submission source,
+  highlights, cover letter, author metadata, declarations, and draft
+  GitHub/Zenodo release metadata.
 
 The translation preserves the theorem scope, equations, construction table,
 labels, citations, and bibliography of the English source.
@@ -34,8 +37,9 @@ latexmk -xelatex -interaction=nonstopmode -halt-on-error main.zh-Hans.tex
 The reviewed outputs are installed as:
 
 ```text
-output/pdf/P0054-sat6-sat7-manuscript.pdf
-output/pdf/P0054-sat6-sat7-manuscript-zh-Hans.pdf
+output/pdf/P0054-sat6-sat7-English.pdf
+output/pdf/P0054-sat6-sat7-zh-Hans.pdf
+output/pdf/P0054-sat6-sat7-JCTA-submission-draft.pdf
 ```
 
 ## Reproduce the Lean formalization
@@ -48,8 +52,10 @@ lake build AiMathLab AiMathLab.P0054Sat7StableExact
 lake env lean Problems/P0054/formal/Main.lean
 ```
 
-The final audit completed on 27 July 2026. The full-library build reported
-17,488 successful jobs, and `Main.lean` accepted both exported theorems:
+The complete exact-value chain first closed on 27 July 2026 and was
+revalidated after the fourth pre-review revision on 30 July 2026. The
+full-library build reported 17,488 successful jobs, and `Main.lean` accepted
+both exported theorems:
 
 ```text
 AiMathLab.P0054.Sat6StableExact.sat_six_eq_thirty
@@ -81,6 +87,19 @@ if rg -n --glob '*.lean' \
   exit 1
 fi
 ```
+
+For a single replay entry point with persistent logs and a machine-readable
+summary, run:
+
+```bash
+Problems/P0054/release/verify-core.sh
+```
+
+Each run creates a fresh `replay-logs/run.XXXXXX/` directory containing the
+complete console transcript, per-step logs, `steps.ndjson`, and `result.json`.
+The summary records commands, exit codes, Lake warning count, final theorem
+types, and the expected axiom boundary. A deliberately failed Lake command was
+also checked to return its nonzero exit code and emit `"status": "FAIL"`.
 
 ## Reproduce supporting certificates
 
@@ -134,6 +153,10 @@ the manuscript makes no claim about the first unknown case `k=8`.
 - Obtain independent human combinatorics review.
 - Confirm prior-art status directly with a field expert or the authors of the
   56-member paper.
-- Confirm funding and competing-interest statements.
-- Publish an immutable artifact URL, release tag, and archival identifier.
-- Migrate to the target journal's current template and repeat its policy check.
+- Confirm that the manuscript is not under consideration elsewhere and
+  approve the cover letter as an author statement.
+- Publish the curated source and release on GitHub, archive the same version
+  on Zenodo, and insert the public release URL and DOI.
+- If required by the submission system, complete Elsevier's declarations tool
+  and upload its generated Word document.
+- Repeat the bibliography and novelty search immediately before submission.

@@ -7,6 +7,7 @@
 \usepackage{array}
 \usepackage{enumitem}
 \usepackage{xcolor}
+\usepackage{xurl}
 \usepackage{hyperref}
 \usepackage[nameinlink,noabbrev]{cleveref}
 
@@ -50,7 +51,7 @@
 \small 中国浙江省杭州市滨江区东信大道 76 号，310053\\
 \small \href{mailto:lailai0x394@gmail.com}{lailai0x394@gmail.com}\quad
 \href{https://orcid.org/0009-0008-9790-9881}{ORCID: 0009-0008-9790-9881}}
-\date{内部审阅中文对照稿，2026 年 7 月 29 日}
+\date{内部审阅中文对照稿，2026 年 7 月 30 日}
 
 \begin{document}
 
@@ -58,10 +59,10 @@
 \maketitle
 
 \begin{abstract}
-本文确定最终稳定的饱和 6-Sperner 数与 7-Sperner 数。六层情形的精确值为
-$\sat(6)=30$。下界归结为两个中间 canonical 层对应的有限 clutter 参数
-$m(2,3)$；本文对任意有限底集证明 $m(2,3)=9$。七层情形中，一个更强的
-blocker 不等式先给出 $m(2,4)=12$ 与 $\sat(7)\geq47$。连续的任意有限归约
+本文确定最终稳定的饱和 6-Sperner 数与 7-Sperner 数。一个有限典范归约定理
+明确给出齐次原子阈值及全部底集假设，并把下界化为任意有限底集上的互 blocker
+pair。本文证明精确局部值 $m(2,3)=9$、$m(2,4)=12$ 与 $m(3,3)=14$；其中
+第一个给出 $\sat(6)=30$。七层情形中的连续任意有限归约
 排除 52 元与 53 元的等号轮廓，并把 54 元情形归结为两个轮廓。精确分支论证与
 可独立重放的有限核枚举排除了 Fano 轮廓、中间拆分 $(5,11)$、$(6,10)$、
 $(7,9)$、$(8,8)$ 及其 blocker 对偶。因此 $\sat(7)\geq55$。另一方面，本文
@@ -119,9 +120,9 @@ $\sat(7)=55$。
 独立的 Lean 证明还核验了两个最终稳定值；其精确定义与构建门见
 \cref{sec:verification}。
 
-2026 年 7 月 29 日完成的投稿前终检覆盖 Crossref、arXiv、OpenAlex、
+截至 2026 年 7 月 30 日的有界投稿前检索覆盖 Crossref、arXiv、OpenAlex、
 Google Scholar、已索引引用链及直接相关全文。在记录范围内，检索没有找到
-两个精确值的公开等价结果。这项有限负面检索不能证明新颖性或优先权。
+两个精确值的公开等价结果。这项负面检索不能证明新颖性或优先权。
 
 \section{预备知识}
 \label{sec:preliminaries}
@@ -161,6 +162,10 @@ $\smallcores\subseteq\powerset(C)$ 的任何成员，则称 $L$ 是
 按照 Morrison--Noel--Scott 的定义，族的一个\emph{原子}是满足下述性质的
 包含极大集合 $H$：族中的每个成员要么包含 $H$，要么与 $H$ 不交。当
 $|H|>2$ 时，称该原子是\emph{齐次的}。
+
+有限族 $\family$ 的\emph{典范层}由逐次删除包含极小成员得到。具体地，令
+$\mathcal R_0=\family$，令 $\mathcal A_i$ 为 $\mathcal R_i$ 的全部包含极小
+成员，并令 $\mathcal R_{i+1}=\mathcal R_i\setminus\mathcal A_i$。
 
 \begin{lemma}[极大无小核证书]
 \label{lem:maximal-free}
@@ -225,37 +230,92 @@ $\mathcal H\subseteq\blocker(\blocker(\mathcal H))$。反向包含中，后一
 blocker 的每个成员都包含 $\mathcal H$ 的某个成员，极小性迫使二者相等。
 \end{proof}
 
-下面的引理给出 canonical 层与 blocker 之间的接口。
-
-\begin{lemma}[Canonical blocker 接口]
-\label{lem:canonical-blocker}
-设 $\mathcal A_i$ 是一个极小饱和 $k$-Sperner 族的内部 canonical 层，
-$H$ 为其齐次原子，并令 $U=X\setminus H$。令 $\mathcal S_i$ 为
-$\mathcal A_i$ 的小成员。把每个大成员写成 $K\cup H$，其中 $K\subseteq U$，
-再定义
-\[
-  \mathcal C_i=\{U\setminus K:K\cup H\in\mathcal A_i\}.
-\]
-则
-\[
-  \mathcal S_i=\blocker(\mathcal C_i),\qquad
-  \mathcal C_i=\blocker(\mathcal S_i).
-\]
-$\mathcal S_i$ 的每个成员大小至少为 $i$，$\mathcal C_i$ 的每个成员大小
-至少为 $k-1-i$。
+\begin{lemma}[分层反链的向上步进]
+\label{lem:upward-step}
+设 $\mathcal A_0,\ldots,\mathcal A_{k-1}$ 是两两不交、满足分层条件的
+饱和反链。若 $D\in\mathcal A_i$ 且 $i<k-1$，则存在
+$E\in\mathcal A_{i+1}$ 使 $D\subsetneq E$。因此，从 $D$ 出发可得到一条
+严格链，它在第 $i$ 层至第 $k-1$ 层各取一个成员。
 \end{lemma}
 
 \begin{proof}
-大小结论来自 Martin--Veldt 的命题 14~\cite{martinveldt2025}。取非空真子集
-$Q\subset H$。对每个 $R\subseteq U$，混合集 $R\cup Q$ 不属于该层。
-$\mathcal A_i$ 的饱和性说明：存在 $S\in\mathcal S_i$ 使 $S\subseteq R$，
-或者存在大迹 $K$ 使 $R\subseteq K$。反链性质说明，每个 $S$ 都与每个
-$U\setminus K$ 相交。
+两层不交给出 $D\notin\mathcal A_{i+1}$。由 $\mathcal A_{i+1}$ 的饱和性，
+存在 $E\in\mathcal A_{i+1}$ 与 $D$ 严格可比。若 $E\subsetneq D$，分层条件
+给出 $C\in\mathcal A_i$ 使 $C\subsetneq E$。于是
+$C\subsetneq D$，与 $\mathcal A_i$ 为反链矛盾。因此
+$D\subsetneq E$。逐层重复该论证即可得到所需严格链。
+\end{proof}
 
-若 $T$ 是 $\mathcal C_i$ 的横截集，则 $T$ 不包含于任何大迹。上述覆盖条件
-给出某个 $S\subseteq T$。所以极小横截集恰为 $\mathcal S_i$ 的成员。对
-$U\setminus T$ 使用同一论证得到反向 blocker 等式；也可由
-\cref{lem:blocker-basic}和两侧的 clutter 性直接得到。
+下面的定理给出两个全局下界实际使用的精确接口，并明确保证某个关联类至少含
+三个点所需的数值阈值。
+
+\begin{theorem}[有限典范归约]
+\label{thm:canonical-reduction}
+设 $k\geq2$，且 $\family\subseteq\powerset(X)$ 是有限底集 $X$ 上的饱和
+$k$-Sperner 族。若
+\[
+  |\family|<2^{|X|},\qquad 3\cdot2^{|\family|}\leq|X|,       \tag{CR1}
+\]
+则 $\family$ 有一个齐次原子 $H$，并恰有 $k$ 个非空典范层
+$\mathcal A_0,\ldots,\mathcal A_{k-1}$。这些层两两不交，是分层的饱和反链，
+且其并为 $\family$。
+
+令 $U=X\setminus H$。对 $0\leq i<k$，定义
+\[
+ \mathcal S_i=\{A\in\mathcal A_i:A\cap H=\varnothing\},
+\]
+\[
+ \mathcal C_i=
+ \{U\setminus(A\setminus H):A\in\mathcal A_i,\ H\subseteq A\}.
+\]
+对每个内部指标 $1\leq i\leq k-2$，有
+\[
+ \mathcal S_i=\blocker(\mathcal C_i),\qquad
+ \mathcal C_i=\blocker(\mathcal S_i),                       \tag{CR2}
+\]
+$\mathcal S_i$ 的每个成员大小至少为 $i$，$\mathcal C_i$ 的每个成员大小
+至少为 $k-1-i$，并且
+\[
+ |\mathcal A_i|=|\mathcal S_i|+|\mathcal C_i|.              \tag{CR3}
+\]
+\end{theorem}
+
+\begin{proof}
+给每个点 $x\in X$ 赋关联签名
+$\sigma(x)=\{F\in\family:x\in F\}$。签名至多有 $2^{|\family|}$ 种。
+由 (CR1) 和抽屉原理，某个签名类 $H$ 至少有三个点。族中每个成员要么包含整个
+$H$，要么与 $H$ 不交；任何类外点都有不同签名，故都不能加入 $H$ 而保持这一
+性质。因此 $H$ 是齐次原子。
+
+逐次取极小成员使典范层两两不交、各自成反链并满足分层条件。$k$-Sperner 性
+说明第 $k$ 层以上没有成员，所以前 $k$ 层的并为 $\family$。由 (CR1) 存在
+外部集合 $T$。饱和性给出一条经过 $T$ 的 $(k+1)$ 项严格链；删去 $T$ 后得到
+$\family$ 中的一条 $k$ 项严格链，它在每个典范层恰有一个成员。因此这 $k$ 层
+均非空。
+
+还需证明每层饱和。固定 $i$ 与 $D\notin\mathcal A_i$。取不同的
+$x,y\in H$，令 $D'=(D\setminus H)\cup\{x\}$。集合 $D'$ 与 $H$ 相交但不
+包含 $H$，故不属于 $\family$。取经过 $D'$ 的严格链并删去 $D'$；其中第 $i$
+层成员 $A$ 与 $D'$ 可比。若 $A\subsetneq D'$，原子性质迫使
+$A\cap H=\varnothing$，从而 $A\subseteq D$；等号会给出
+$D\in\mathcal A_i$，故包含严格。若 $D'\subsetneq A$，则 $H\subseteq A$，
+从而 $D\subseteq A$，且等号同样不可能。因此每个层外集合都与该层某成员严格
+可比，$\mathcal A_i$ 是饱和反链。
+
+固定内部指标 $i$，并取非空真子集 $Q\subset H$。对每个 $R\subseteq U$，
+混合集 $R\cup Q$ 不属于 $\mathcal A_i$。层的饱和性与原子性质给出二择一：
+存在 $S\in\mathcal S_i$ 使 $S\subseteq R$，或者存在大成员
+$A\in\mathcal A_i$ 使 $R\subseteq A\setminus H$。反链性质说明每个
+$S\in\mathcal S_i$ 与每个 $C\in\mathcal C_i$ 相交。若 $T$ 是
+$\mathcal C_i$ 的横截集，它不包含于任何大迹，故第一种情形给出某个
+$S\subseteq T$。于是 $\mathcal C_i$ 的极小横截集恰为 $\mathcal S_i$；
+blocker 对合给出 (CR2) 的反向等式。
+
+最后，$\mathcal A_i$ 的成员有一条含 $i$ 个严格前驱的链，所以小迹大小至少
+为 $i$。由\cref{lem:upward-step}，每个大成员可向上延伸到最后一层。对
+$k-1-i$ 次严格扩张各取一个新增点。这些点两两不同；初始大成员已经包含整个
+$H$，所以新增点均在 $H$ 外，也均在初始核心迹之外。故相应补集大小至少为
+$k-1-i$。原子把该层划分为小、大两部分，取补是单射，故 (CR3) 成立。
 \end{proof}
 
 \begin{theorem}
@@ -343,15 +403,17 @@ $\blocker(\mathcal S)=\mathcal C$，两侧总大小为九。
 Morrison--Noel--Scott 对每个至少含八个点的底集构造了一个 30 元饱和
 6-Sperner 族~\cite[Proposition~20]{mns2014}，故 $\sat(6)\leq30$。
 
-在稳定区间内选取满足 $n\geq8$ 且 $n>2^{30}$ 的底集，并在其上选取端点正规
-的极小族 $\family$。由于 $|\family|\leq30$，齐次原子定理适用。Canonical
-分解给出六个非空饱和反链层 $\mathcal A_0,\ldots,\mathcal A_5$。端点结论与
-Martin--Veldt 的引理 15~\cite{martinveldt2025}给出
+在稳定区间内选取满足 $n\geq3\cdot2^{30}$ 的底集，并在其上选取极小族
+$\family$。由上界构造，$|\family|\leq30$，所以
+$3\cdot2^{|\family|}\leq3\cdot2^{30}\leq n$，且
+$|\family|<2^n$。因此\cref{thm:canonical-reduction}给出六个非空典范层
+$\mathcal A_0,\ldots,\mathcal A_5$。端点层非空；对指标一和四的迹 blocker
+pair 使用私有见证，得到
 \[
-  |\mathcal A_0|=|\mathcal A_5|=1,\qquad
+  |\mathcal A_0|,|\mathcal A_5|\geq1,\qquad
   |\mathcal A_1|,|\mathcal A_4|\geq5.
 \]
-由\cref{lem:canonical-blocker}，第二层构成满足条件的 $(2,3)$ blocker pair；
+由\cref{thm:canonical-reduction}，第二层构成满足条件的 $(2,3)$ blocker pair；
 第三层交换两侧后也满足同一条件。\cref{thm:m23}因此给出
 $|\mathcal A_2|,|\mathcal A_3|\geq9$。所以
 \[
@@ -391,7 +453,7 @@ $|\mathcal A_3|\geq9$。
 \end{lemma}
 
 \begin{proof}
-使用\cref{lem:canonical-blocker}的记号。$\mathcal S_3$ 与
+使用\cref{thm:canonical-reduction}的记号。$\mathcal S_3$ 与
 $\mathcal C_3$ 的每个成员大小至少为三。从 $U$ 的所有子集中等概率选取 $R$。
 Canonical 覆盖说明，至少一个事件 $S\subseteq R$ 或
 $R\cap C=\varnothing$ 发生。每个事件的概率至多为 $2^{-3}$。并集界给出
@@ -412,13 +474,14 @@ $|\mathcal A_3|\geq9$。
 \end{theorem}
 
 \begin{proof}
-选取满足 $n>2^{55}$ 的稳定底集。\cref{thm:size55}的构造说明极小族至多有
-55 个成员，所以齐次原子与 canonical 分解均存在。端点和相邻层下界给出
+选取满足 $n\geq3\cdot2^{55}$ 的稳定底集。\cref{thm:size55}的构造说明极小
+族至多有 55 个成员，所以\cref{thm:canonical-reduction}的两个数值条件均成立。
+该定理与私有见证给出
 \[
   (|\mathcal A_0|,|\mathcal A_1|,|\mathcal A_5|,
   |\mathcal A_6|)\geq(1,6,6,1).
 \]
-Canonical blocker 接口与\cref{thm:m24}给出
+典范迹 blocker pair 与\cref{thm:m24}给出
 $|\mathcal A_2|,|\mathcal A_4|\geq12$；
 \cref{lem:middle-nine}给出 $|\mathcal A_3|\geq9$。七层求和可得
 \[
@@ -544,7 +607,29 @@ $1+4+8+8+5+1=27$。
 
 下面改进下界。设 $\mathcal A_0,\ldots,\mathcal A_6$ 是稳定底集上某个极小族
 的 canonical 层，并取一个齐次原子。对每个内部层，记 $\mathcal S_i$ 为其小迹，
-记 $\mathcal C_i$ 为大迹的补族，定义同\cref{lem:canonical-blocker}。
+记 $\mathcal C_i$ 为大迹的补族，定义同\cref{thm:canonical-reduction}。随稿提交的
+《补充证明与验证档案》给出任意有限接口、每个有限搜索域、一条完整的归约路径，
+以及定理--程序--Lean 对照表。
+
+\begin{theorem}[小于十六的中间 blocker 分类]
+\label{thm:m33}
+精确局部参数为 $m(3,3)=14$。总基数为 14 的任意合格 pair，在删除非活跃点并
+重标活跃底集后，都是 Fano 直线 clutter 与自身组成的 pair。不存在总基数为
+15 的合格 pair。
+\end{theorem}
+
+\begin{proof}
+补充材料 S2--S3 节给出任意有限证明。私有见证把每行大小限制在对侧行数以内；
+最初的度数与残余归约先给出下界 13。若取等，不计 blocker 对偶时只剩
+$(4,9)$、$(5,8)$、$(6,7)$。残余 blocker 排除高点度；当每点度至多为二时，
+实际点形成行标签上的自环多重图，并保留所有平行实际点。包含极小支撑核具有
+有界顶点度，因此支撑与重数域有限。精确分类排除三个拆分，得到下界 14。
+
+七条 Fano 直线构成自 blocker clutter，达到总数 14。等号分类用同样的残余与
+支撑归约排除非对称拆分；中央 $(7,7)$ 拆分具有 Fano 关联模式，blocker 对合
+固定另一侧。加入一个松弛行后重复归约，可排除全部总数 15 拆分。补充材料列出
+每个有限域及独立重放；对应 Lean 定理量化原始的任意有限底集类型。
+\end{proof}
 
 \begin{proposition}[Canonical 轮廓归约]
 \label{prop:canonical-profiles}
@@ -559,21 +644,16 @@ $1+4+8+8+5+1=27$。
 \end{proposition}
 
 \begin{proof}
-端点、相邻层与 blocker 下界给出
+有限典范归约、私有见证、\cref{thm:m24}与\cref{thm:m33}给出
 \[
   (|\mathcal A_0|,\ldots,|\mathcal A_6|)
   \geq(1,6,12,14,12,6,1).
   \tag{2}
 \]
-中间层下界来自私有见证、残余 blocker 和三行关联公式。证明检查 blocker 总数
-不超过 13 时的每个拆分。若每个点的度至多为二，则活跃点构成固定行标签上的实际
-自环多重图。包含极小性迫使每个正支撑接触一个最小度行；行大小界把问题归结为
-有限且穷尽的支撑分类。两个独立实现对全部保存分类给出相同结果。
-
 式 (2) 取等时，中间 blocker 对只能是 Fano 平面。它无法与下方或上方的 12 元
 等号相邻层兼容，所以总数 52 不可能。若仅增加一个成员，则仍落入 Fano 排除，
-或使中间 blocker 对的总数为 15。拆分 $(5,10)$、$(6,9)$、$(7,8)$ 及其对偶
-均被同一类任意有限度数与残余归约排除，所以总数 53 也不可能。
+或使中间 blocker 对的总数为 15；后者由\cref{thm:m33}排除。所以总数 53
+也不可能。
 
 对总数 54，在式 (2) 的五个内部层上引入非负松弛量，其和为二。若中间层有
 14 个成员，则它是 Fano 对，并迫使两个相邻层都严格大于等号。15 元中间对不
@@ -612,9 +692,10 @@ $\mathcal K\cap\mathcal Q=\varnothing$。
 $|\mathcal F|=9$ 矛盾。因此 Fano 轮廓及其上方对偶均不可能。
 
 再考虑 $P_{16}$。对有限底集均匀随机取子集。两个中间 blocker 侧对应事件
-$D\subseteq R$ 与 $E\subseteq U\setminus R$ 构成穷尽且不交的覆盖。若 16 行
-大小都至少为四，则并合界必须取等；但同一侧的两个事件以正概率相交，产生矛盾。
-所以至少有一条中间行大小为三。
+$D\subseteq R$ 与 $E\subseteq U\setminus R$ 构成穷尽覆盖。相反方向的两个
+事件不交，因为每个 $D$ 都与每个 $E$ 相交；同一侧事件未必不交。若 16 行大小
+都至少为四，则并合界必须取等，并迫使全部事件两两不交。私有见证说明每侧至少
+有三行，而同一侧任意两个事件以正概率相交，矛盾。因此至少有一条中间行大小为三。
 
 不计交换 blocker 两侧时，中间拆分为 $(5,11)$、$(6,10)$、$(7,9)$ 或
 $(8,8)$。下表记录全部归约。所有重数都按实际点计数，所以平行支撑和重复关联
@@ -648,9 +729,10 @@ $(7,9)$ & 两侧最大度分别为三和四。若九行侧有三元行，则留�
 
 
 \cref{tab:exact-splits}中的每个有限域都来自行数、私有见证、点度界和支撑极小化；
-证明没有限制原始迹底集的大小。C++ 枚举器与独立 Python 实现逐字节重放保存的
-输出。因此四个拆分及其 blocker 对偶均不可能。被强制存在的三元行无处可放，
-从而排除 $P_{16}$。
+证明没有限制原始迹底集的大小。补充材料 S5--S10 节证明这些归约，并说明有限
+输出如何推出任意底集结论。C++ 枚举器与独立 Python 实现逐字节重放保存输出；
+Lean 证明把可执行检查连接到原始 clutter 的可靠性与实现引理。因此四个拆分及
+其 blocker 对偶均不可能。被强制存在的三元行无处可放，从而排除 $P_{16}$。
 \end{proof}
 
 \begin{theorem}
@@ -662,8 +744,9 @@ $(7,9)$ & 两侧最大度分别为三和四。若九行侧有三元行，则留�
 \end{theorem}
 
 \begin{proof}
-在稳定范围内选择一个极小族。55 元构造保证齐次原子归约可用。52 元与 53 元
-排除给出 $\sat(7)\geq54$，而\cref{prop:exclude54}排除等号。因此
+在满足 $n\geq3\cdot2^{55}$ 的稳定底集上选择一个极小族。55 元构造把其大小
+限制为 55，故\cref{thm:canonical-reduction}适用。52 元与 53 元排除给出
+$\sat(7)\geq54$，而\cref{prop:exclude54}排除等号。因此
 $\sat(7)\geq55$。反向不等式由\cref{cor:main-bound}给出。
 \end{proof}
 
@@ -785,11 +868,17 @@ $2^{11}=2048$ 个掩码的冻结表进行检查：其中有 55 个成员行，�
 同一个稳定值证明。因此，$\sat(6)=30$ 的完整稳定值陈述已经形式化。
 
 \cref{prop:canonical-profiles,prop:exclude54}中的有限分支具有单独的清单绑定信任链。
-G4.10、G4.11、G4.12 清单分别绑定 8、23、36 个证明、源文件和输出对象。全部保存
-枚举均已重放，独立实现对语义计数给出一致结果。有限计算仅在所展示的任意有限
-归约之后成为证明依赖。
+52、53、54 元归约的三个清单以 SHA-256 绑定全部证明、源文件和输出对象。全部
+保存枚举均已重放，独立实现对语义计数给出一致结果。有限计算仅在所展示的任意
+有限归约之后成为证明依赖。
 
-Lean 形式化首先覆盖了 $(8,8)$ 分支中的局部五行三度核；定理
+对规模较大的有限分类，正文与 Supplement 给出的是证明架构，而不是逐行展开的
+独立枚举证明。主要证明对象是 Supplement 对照表列出的 Lean 声明。它们形式化
+任意有限 clutter 到有限 support 域的归约、反向实现映射及全部分支排除。C++ 与
+Python 重放仅作为同一有限域上的独立 \texttt{COMPUTED} 检查，不单独推出普遍
+结论；Supplement 另给出一条完整的接口示例。
+
+Lean 形式化首先覆盖了总数十五的 $(7,8)$ 分支中的局部五行核；定理
 \path{no_kernel_completion_of_eight} 量化任意有限底集，并排除所有五行
 残余与配对图情形。后续模块继续形式化 Fano 相邻层、$(5,11)$、$(6,10)$、
 $(7,9)$、$(8,8)$ 及其对偶分支，并把它们接入齐次原子与 canonical 层归约。
@@ -799,8 +888,9 @@ $(7,9)$、$(8,8)$ 及其对偶分支，并把它们接入齐次原子与 canonic
 证书均位于已经证明的任意有限归约之后；独立求解器实验仍按各自边界标为
 \texttt{COMPUTED}，不会仅凭求解器输出提升为普遍结论。
 
-2026 年 7 月 27 日的最终门完成了整个 \texttt{AiMathLab} 库的构建，共处理
-17488 个构建任务；\path{Problems/P0054/formal/Main.lean} 的独立检查也成功。
+完整精确值链于 2026 年 7 月 27 日首次闭环，并在本轮修改后于 7 月 30 日重新
+通过最终门。整个 \texttt{AiMathLab} 库共处理 17488 个构建任务；
+\path{Problems/P0054/formal/Main.lean} 的独立检查也成功。
 \texttt{\#print axioms} 对最终精确值定理仅报告 \texttt{propext}、
 \texttt{Classical.choice} 和 \texttt{Quot.sound}。源代码扫描对
 \texttt{sorry}、\texttt{admit}、\texttt{axiom} 声明、\texttt{unsafe}、
@@ -822,31 +912,31 @@ $(7,9)$、$(8,8)$ 及其对偶分支，并把它们接入齐次原子与 canonic
 六层精确值填补了已发表 30 元构造留下的下界缺口。其 blocker 证明不依赖有限
 关联模式搜索；后者仅用于回归检查和反例搜索。
 
-Lean 内核验收不能替代对任意有限底集归约和证书接口的人类重构与审查。投稿前
-终检在记录范围内没有找到公开等价结果；该负面结果仍然有限，不能证明新颖性或
-优先权。
+对规模最大的分类，具名 Lean 声明是主要证明对象；论文给出数学归约及接口重构
+路径。内核验收仍不能替代对这些归约和接口的人类审查。第一个尚未解决的数值
+情形是 $\sat(8)$；本文方法给出可复用的 blocker 归约，但既未确定该值，也未
+给出 $\sat(k)$ 的通项公式。
 
-另一个后续问题是猜想 $\sat(k)=\operatorname{A075529}(k)$，其中
-\texttt{A075529} 记录星型加法链终值的不同可能数目。该猜想目前标为
-\texttt{UNKNOWN}，本文既未证明也未证伪。前七项的数值吻合不构成通项公式的
-结构性证据；相关研究留待后续工作。
+\par\medskip\noindent\textbf{补充材料。}\quad
+随稿单独提交的《补充证明与验证档案》给出任意有限 blocker 接口、一条完整的
+有限域归约示例、独立重放计数，以及定理--证明--程序--Lean 对照表。
 
 \section*{可复现性与声明}
 
 \par\medskip\noindent\textbf{数据与代码可得性。}\quad
 本文为理论研究，不生成或分析经验数据。配套工件包包括证明、精确 blocker
 搜索、构造验证器、CNF 生成器、DRAT 证书与清单、Lean 源代码、测试及锁定的
-依赖。该工件包可从 GitHub 的
-\href{https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.0.0}
-{v1.0.0 版本}获取，并以 DOI
-\href{https://doi.org/10.5281/zenodo.21679078}{10.5281/zenodo.21679078}
-归档于 Zenodo。
+依赖。本修订发布于 GitHub
+\href{https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.0}
+{v1.1.0}，并以 Zenodo DOI
+\href{https://doi.org/10.5281/zenodo.21730916}{10.5281/zenodo.21730916}
+归档。
 
 \par\medskip\noindent\textbf{生成式 AI 与 AI 辅助技术声明。}\quad
 在准备本文期间，作者使用 OpenAI Codex 辅助文献检索式设计、证明与代码起草、
-验证编排和语言编辑。作者审阅并修改了所有生成内容，并对论文全部内容承担责任。
-数学主张依赖文中展示的论证、可独立重放的证书、直接验证器和 Lean 内核的接受，
-而不依赖模型输出。
+验证编排和语言编辑。使用该工具后，作者按需审阅和修改相关内容，并对论文全部
+内容承担责任。数学主张依赖文中展示的论证、可独立重放的证书、直接验证器和
+Lean 内核的接受，而不依赖模型输出。
 
 \par\medskip\noindent\textbf{资助。}\quad
 本研究未获得公共、商业或非营利部门资助机构的任何专项资助。

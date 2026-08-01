@@ -84,10 +84,46 @@ Summary: 8 verified, 0 mismatches, 0 not found, 0 requiring manual resolution.
 
 The manuscript may state:
 
-> A final pre-submission search on 29 July 2026 found no public equivalent of
-> either exact value in Crossref, arXiv, OpenAlex, Google Scholar, the indexed
-> citation graph, or the directly relevant full texts. This bounded negative
-> search does not establish novelty or priority.
+> A bounded pre-submission search, last refreshed on 30 July 2026, found no
+> public equivalent of either exact value in Crossref, arXiv, OpenAlex,
+> Google Scholar, the indexed citation graph, or the directly relevant full
+> texts. This negative search does not establish novelty or priority.
 
 The audit does not authorize `first`, `world first`, `previously unknown in
 all literature`, or any equivalent absolute priority wording.
+
+## Targeted refresh on 2026-07-30
+
+Refresh time: 2026-07-30 04:08 PDT.
+
+`SEARCHED`: A final targeted refresh rechecked the exact-value keywords,
+the arXiv Sperner-saturation records, and the current OpenAlex citation graph
+of Martin--Veldt (OpenAlex work `W4408890044`). The direct web-search endpoint
+returned HTTP 404, so that channel is recorded as unavailable rather than as
+a negative result.
+
+The arXiv API query `all:saturated AND all:Sperner` returned the four directly
+relevant records already covered above: arXiv `1105.4453`, `1402.5646`,
+`2106.02226`, and `2402.14113`. OpenAlex keyword searches for
+`"saturated 7-Sperner" 55`, `"sat(7)" Sperner`, and
+`"sat(6)" Sperner` returned only previously audited directly relevant works;
+none stated either exact value.
+
+OpenAlex reported two works citing Martin--Veldt:
+
+1. Ji--Patkós--Yue, _Poset Saturation of Unions of Chains_, DOI
+   `10.1007/s11083-026-09731-6`;
+2. Axenovich--Martin--Patkós, _Extremal Poset Theory_, DOI
+   `10.1017/9781009766012.003`.
+
+The first work is open access; its five-page published PDF was searched in
+full for `sat(6)`, `sat(7)`, `saturated 6`, `saturated 7`, `30`, and `55`.
+No exact-value statement was found. The second work has closed full text and
+no Crossref abstract; its publisher, Crossref, and OpenAlex metadata were
+checked, but the unavailable full text is not counted as a negative
+full-text result.
+
+`NO_PUBLIC_EQUIVALENT_FOUND_IN_REFRESHED_SCOPE`: The refresh found no public
+record stating or proving `sat(6)=30` or `sat(7)=55`. This remains a bounded
+negative search and does not establish novelty or priority. If public release
+occurs after 2026-07-30, repeat this short refresh on the actual release date.
