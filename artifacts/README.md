@@ -31,15 +31,14 @@ the moment of the review-package freeze; later publication metadata does not
 alter those bytes. The same two files must be used for the GitHub release and
 the Zenodo record.
 
-## Pending 1.1.0 revision
+## 1.1.0 revision
 
-The revision-synchronized candidate uses these provisional asset names:
+The revision-synchronized release uses these asset names:
 
-- `P0054-review-package-2026-07-30.tar.gz`;
-- `P0054-review-package-2026-07-30.tar.gz.sha256`.
+- `P0054-artifacts-v1.1.0.tar.gz`;
+- `P0054-artifacts-v1.1.0.tar.gz.sha256`.
 
-The local directory and archive pass their integrity checks. The archive is
-not final until the reserved Zenodo version DOI is inserted into the paper,
-the PDFs and package are rebuilt, and the final sidecar is regenerated. Until
-then, release `v1.0.0` and DOI `10.5281/zenodo.21679078` remain the only public
-identifiers.
+The archive and sidecar are attached to GitHub release `v1.1.0` and deposited
+unchanged under Zenodo DOI `10.5281/zenodo.21730916`. The package contains the
+revision-synchronized manuscripts, formal sources, verification entry points,
+and archived certificate evidence.

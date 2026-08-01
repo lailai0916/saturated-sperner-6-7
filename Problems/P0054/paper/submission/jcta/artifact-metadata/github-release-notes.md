@@ -1,4 +1,4 @@
-# v1.1.0 — revised manuscript and complete formalization artifacts (draft)
+# v1.1.0 — revised manuscript and complete formalization artifacts
 
 This release synchronizes the revised manuscript and Supplement for “The exact
 saturated 6- and 7-Sperner numbers” with the complete Lean 4 formalization.  It
@@ -25,11 +25,8 @@ machine-readable `steps.ndjson` and `result.json` summaries containing the
 commands, exit codes, Lake warning count, final theorem types, and expected
 axiom boundary.
 
-The local release directory passes its integrity check. The authoritative
-core script passes the Lean, construction, saved-result, and P0054 test
-replays in the current source tree, including a controlled failure-path test;
-a new empty-cache replay from the frozen directory remains a publication
-gate. The release asset and checksum must be attached together. This file
-remains a draft until the public GitHub release exists.
-Insert the new Zenodo version DOI here only after the new version of record
-21679078 has been published.
+The release directory passes its integrity check. The authoritative core
+script passes the Lean, construction, saved-result, and P0054 test replays,
+including a controlled failure-path test. The release asset and checksum are
+attached together and mirrored unchanged on Zenodo under DOI
+[`10.5281/zenodo.21730916`](https://doi.org/10.5281/zenodo.21730916).

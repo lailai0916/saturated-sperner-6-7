@@ -30,11 +30,9 @@ page by page before approval.
   the submission system requests that exact form.
 - Author metadata: enter the fields from `submission-metadata.md`; enter the
   telephone number directly in the private system.
-- Data and code availability: publish GitHub release `v1.1.0` and a new Zenodo
-  version, insert the resolving revision URL and version DOI, and verify that
-  both identify the exact uploaded snapshot.  The current `v1.0.0` record is
-  only the immutable baseline and blocks final approval until superseded in
-  the submission files.
+- Data and code availability: use GitHub release `v1.1.0` and Zenodo DOI
+  `10.5281/zenodo.21730916`, and verify that both identify the exact uploaded
+  snapshot before final approval.
 
 ## Do not upload as manuscript source
 

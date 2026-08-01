@@ -3,6 +3,9 @@ message: "If you use these artifacts, please cite the associated manuscript and 
 title: "Artifacts for The exact saturated 6- and 7-Sperner numbers"
 type: software
 version: 1.1.0
+date-released: 2026-08-01
+doi: 10.5281/zenodo.21730916
+url: "https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.0"
 repository-code: "https://github.com/lailai0916/saturated-sperner-6-7"
 authors:
   - given-names: Jiazhi

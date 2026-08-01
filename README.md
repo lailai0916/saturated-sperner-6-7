@@ -92,12 +92,11 @@ they are intentionally not represented as fully type-annotated modules.
   tests.
 
 The source repository omits large DRAT traces that exceed ordinary GitHub file
-limits. The current public baseline is
-[release `v1.0.0`](https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.0.0)
-and [Zenodo record `21679078`](https://doi.org/10.5281/zenodo.21679078).
-Those identifiers predate the revised manuscript and Supplement. A local
-`v1.1.0` candidate freezes the revision-synchronized source, PDFs, and nine
-CNF/DRAT pairs; its GitHub release and Zenodo version DOI remain pending.
+limits. The revision-synchronized source, PDFs, and nine CNF/DRAT pairs are
+published as [release `v1.1.0`](https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.0)
+and archived under [Zenodo DOI `10.5281/zenodo.21730916`](https://doi.org/10.5281/zenodo.21730916).
+The earlier `v1.0.0` release and DOI `10.5281/zenodo.21679078` remain immutable
+historical versions.
 See [`artifacts/README.md`](artifacts/README.md) for the integrity boundary.
 In a source-only clone, five archive-byte tests are reported as skipped. After
 placing the archived paths into the working tree, set
@@ -108,5 +107,5 @@ hard test failure.
 
 Machine-readable citation metadata is in [`CITATION.cff`](CITATION.cff). The
 software and formalization sources are released under the Apache License 2.0;
-see [`LICENSE`](LICENSE). DOI `10.5281/zenodo.21679078` identifies the public
-`v1.0.0` baseline, not the pending revision.
+see [`LICENSE`](LICENSE). The DOI for this revision is
+[`10.5281/zenodo.21730916`](https://doi.org/10.5281/zenodo.21730916).

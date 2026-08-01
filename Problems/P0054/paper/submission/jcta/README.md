@@ -1,6 +1,6 @@
 # JCTA submission package
 
-Status: `LOCAL_V1.1_ARTIFACT_VERIFIED_PUBLICATION_PENDING`
+Status: `PUBLIC_V1.1_ARTIFACT_VERIFIED_SUBMISSION_PENDING`
 
 This directory contains the editable Journal of Combinatorial Theory,
 Series A submission source and the author-facing submission materials for
@@ -26,21 +26,18 @@ article or its artifacts have been submitted or made public.
 - `output/doc/P0054-declaration-of-competing-interests.docx`: separate
   competing-interest statement, stored at the repository root relative path.
 
-## Revision actions before final approval
+## Actions before final approval
 
-The GitHub v1.0.0 release and Zenodo record are public baselines, but they
-predate the fourth-pre-review revision. The local v1.1.0 archive and metadata
-are verified; the new public release and version DOI do not yet exist. Before approving a
-journal submission or arXiv upload, complete the following actions:
+GitHub release `v1.1.0` and Zenodo DOI `10.5281/zenodo.21730916` identify the
+revision-synchronized artifact. Before approving a journal submission or
+arXiv upload, complete the following actions:
 
 - upload the revised editable manuscript source and the Supplement as two
   clearly described items;
 - compare the submission system's generated manuscript PDF with the locally
   verified reference PDF;
-- publish GitHub v1.1.0 and a new Zenodo version containing this exact
-  revision; do not alter v1.0.0 in place;
-- replace every baseline URL and DOI with the resolved revision identifiers,
-  then regenerate the PDF and SHA-256 manifest;
+- verify that the GitHub and Zenodo archives are byte-identical and match the
+  published SHA-256 sidecar;
 - if Elsevier's submission system requires its declarations tool, complete
   that tool and upload its generated Word document in place of, or together
   with, the locally prepared declaration;
@@ -105,9 +102,8 @@ The supporting Python tests, construction replays, fixed-package integrity
 check, and nine archived DRAT replays last passed on 29 July 2026.  Their
 sources and certificates were not changed by this document-facing revision.
 
-The hashes in `submission-output.sha256` bind the current rendered files after
-this gate.  They must be regenerated once more after the revision DOI is
-inserted.  The immutable public v1.0.0 archive still predates the revision.
+The hashes in `submission-output.sha256` bind the rendered files containing
+the revision DOI and release URL.
 
 Repository-wide Ruff and Mypy still report diagnostics in pre-existing,
 untracked certificate-generator scripts; Ruff also repeats those diagnostics

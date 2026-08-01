@@ -75,18 +75,16 @@ Problems/P0054/release/verify-core.sh
 - `Problems/P0054/experiments/`：精确搜索输入、输出和紧凑证书；
 - `scripts/`、`tests/`：生成器、语义验证器和回归测试。
 
-超过 GitHub 普通文件上限的 DRAT 轨迹不进入源码 Git 历史。当前公开基线是
-[版本 `v1.0.0`](https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.0.0)
-和 [Zenodo 记录 `21679078`](https://doi.org/10.5281/zenodo.21679078)。
-两者早于本轮论文与 Supplement 修订。本地 `v1.1.0` 候选已冻结对应源码、PDF
-和九组 CNF/DRAT 文件；GitHub Release 与 Zenodo 新版本 DOI 尚未发布。
+超过 GitHub 普通文件上限的 DRAT 轨迹不进入源码 Git 历史。本轮对应的源码、PDF
+和九组 CNF/DRAT 文件发布于 [版本 `v1.1.0`](https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.0)，
+并以 [Zenodo DOI `10.5281/zenodo.21730916`](https://doi.org/10.5281/zenodo.21730916)
+归档。旧 `v1.0.0` 与 DOI `10.5281/zenodo.21679078` 仍作为不可变历史版本保留。
 完整性边界见 [`artifacts/README.md`](artifacts/README.md)。
 纯源码克隆中有五项逐字节归档测试会明确显示为跳过；将归档文件放回对应路径后，
 设置 `P0054_REQUIRE_ARCHIVE_ARTIFACTS=1`，任何缺失文件都会成为硬失败。
 
 ## 引用与许可证
 
-引用信息见 [`CITATION.cff`](CITATION.cff)。DOI
-[`10.5281/zenodo.21679078`](https://doi.org/10.5281/zenodo.21679078)
-仅标识公开的 `v1.0.0` 基线，不标识待发布修订。代码与形式化源码采用
-Apache-2.0 许可证。
+引用信息见 [`CITATION.cff`](CITATION.cff)。本修订 DOI 为
+[`10.5281/zenodo.21730916`](https://doi.org/10.5281/zenodo.21730916)。
+代码与形式化源码采用 Apache-2.0 许可证。

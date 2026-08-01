@@ -22,10 +22,12 @@
   ],
   "related_identifiers": [
     {
-      "identifier": "https://github.com/lailai0916/saturated-sperner-6-7",
+      "identifier": "https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.0",
       "relation": "isSupplementTo",
       "scheme": "url"
     }
   ],
-  "notes": "Create this as a new version of Zenodo record 21679078. Add the reserved version DOI and GitHub v1.1.0 release URL only after they exist. Do not modify v1.0.0 in place."
+  "doi": "10.5281/zenodo.21730916",
+  "publication_date": "2026-08-01",
+  "notes": "Version DOI: 10.5281/zenodo.21730916. This is a new version of record 21679078; v1.0.0 remains unchanged."
 }
