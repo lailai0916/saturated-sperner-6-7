@@ -38,8 +38,8 @@ The manuscript is original, has not been published previously, and is not
 under consideration for publication elsewhere. The author declares no
 competing interests. This research received no specific grant from funding
 agencies in the public, commercial, or not-for-profit sectors. The final
-submission cites GitHub release `v1.1.0` and Zenodo DOI
-`10.5281/zenodo.21730916`, which contain this exact revision.
+submission cites GitHub release `v1.1.1` and Zenodo DOI
+`10.5281/zenodo.21769438`, which contain this exact revision.
 
 Thank you for considering the manuscript.
 

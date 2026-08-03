@@ -11,7 +11,7 @@
   ],
   "access_right": "open",
   "license": "Apache-2.0",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "keywords": [
     "saturated Sperner family",
     "Boolean lattice",
@@ -22,12 +22,12 @@
   ],
   "related_identifiers": [
     {
-      "identifier": "https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.0",
+      "identifier": "https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.1",
       "relation": "isSupplementTo",
       "scheme": "url"
     }
   ],
-  "doi": "10.5281/zenodo.21730916",
-  "publication_date": "2026-08-01",
-  "notes": "Version DOI: 10.5281/zenodo.21730916. This is a new version of record 21679078; v1.0.0 remains unchanged."
+  "doi": "10.5281/zenodo.21769438",
+  "publication_date": "2026-08-03",
+  "notes": "Version DOI: 10.5281/zenodo.21769438. This patch synchronizes the professionally typeset manuscript; earlier versions remain unchanged."
 }

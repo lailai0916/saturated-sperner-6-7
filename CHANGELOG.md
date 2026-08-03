@@ -2,6 +2,15 @@
 
 All notable public artifact releases are recorded here.
 
+## 1.1.1 - 2026-08-03
+
+- Professionally refresh the English, JCTA, arXiv, and Simplified-Chinese
+  manuscript typography without changing any mathematical result.
+- Add complete PDF metadata and bookmarks, portable Chinese fonts, booktabs
+  tables, and a corrected JCTA abstract-column layout.
+- Publish the synchronized archive as GitHub release `v1.1.1` and Zenodo
+  version DOI `10.5281/zenodo.21769438`.
+
 ## 1.1.0 - 2026-08-01
 
 - Synchronize the revised manuscript and new Supplement with the complete
