@@ -20,8 +20,8 @@ page by page before approval.
 - Highlights: paste or upload `highlights.txt`.
 - Supplementary material: upload `supplement.tex` as editable source and
   `output/pdf/P0054-sat6-sat7-supplement.pdf` as its reference PDF.  Use the
-  description “Arbitrary-finite blocker interfaces, a worked finite-domain
-  reduction, independent replay counts, and
+  description “Support-quotient and finite-classification completeness
+  theorems, a worked finite-domain reduction, independent replay counts, and
   theorem--proof--program--Lean crosswalk.”
 - Cover letter: `output/doc/P0054-JCTA-cover-letter.docx`.
 - Competing interests:
@@ -30,9 +30,10 @@ page by page before approval.
   the submission system requests that exact form.
 - Author metadata: enter the fields from `submission-metadata.md`; enter the
   telephone number directly in the private system.
-- Data and code availability: use GitHub release `v1.1.0` and Zenodo DOI
-  `10.5281/zenodo.21730916`, and verify that both identify the exact uploaded
-  snapshot before final approval.
+- Data and code availability: use GitHub release `v1.1.1` and Zenodo DOI
+  `10.5281/zenodo.21769438`; both identify the synchronized manuscript,
+  formal-source, certificate, and replay snapshot used by the paper. Earlier
+  records remain immutable prior versions.
 
 ## Do not upload as manuscript source
 

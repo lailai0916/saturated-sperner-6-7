@@ -2,9 +2,9 @@
 
 This directory contains the canonical English manuscript and a
 Simplified-Chinese review translation for the exact stable values
-`sat(6)=30` and `sat(7)=55`. The manuscript is an internal-review artifact: it
-has not been submitted, accepted, published, independently peer reviewed, or
-cleared for public novelty wording.
+`sat(6)=30` and `sat(7)=55`. The manuscript was submitted to JCTA on 29 July
+2026 as `JCTA-26-00415` and is under editorial review. It has not been accepted
+or published, and its bounded-search novelty wording does not claim priority.
 
 ## Manuscript files
 
@@ -31,13 +31,17 @@ Simplified Chinese:
 
 ```bash
 cd Problems/P0054/paper/manuscript
-latexmk -xelatex -interaction=nonstopmode -halt-on-error main.zh-Hans.tex
+latexmk -lualatex -interaction=nonstopmode -halt-on-error main.zh-Hans.tex
 ```
+
+The Chinese source uses the TeX Live bundled Fandol typefaces and therefore
+does not depend on macOS-only CJK fonts.
 
 The reviewed outputs are installed as:
 
 ```text
 output/pdf/P0054-sat6-sat7-English.pdf
+output/pdf/P0054-sat6-sat7-arXiv-preprint.pdf
 output/pdf/P0054-sat6-sat7-zh-Hans.pdf
 output/pdf/P0054-sat6-sat7-JCTA-submission-draft.pdf
 ```
@@ -53,7 +57,7 @@ lake env lean Problems/P0054/formal/Main.lean
 ```
 
 The complete exact-value chain first closed on 27 July 2026 and was
-revalidated after the fourth pre-review revision on 30 July 2026. The
+revalidated after the anonymous-pre-review revision on 31 July 2026. The
 full-library build reported 17,488 successful jobs, and `Main.lean` accepted
 both exported theorems:
 
@@ -68,6 +72,10 @@ AiMathLab.P0054.Sat7StableExact.sat_seven_eq_fifty_five
 evaluated by Lean. It asserts that some threshold `N` exists such that, for
 every `n >= N`, a saturated `k`-Sperner family of size `s` exists on `Fin n`
 and every saturated `k`-Sperner family on `Fin n` has size at least `s`.
+
+The pinned environment is Lean 4.33.0-rc1 at commit
+`62eed1db4d67327ec8120be05f1a1b0847d74561`, with Mathlib at commit
+`79d0395a1825a6264ad5d269e35e60537518955e`.
 
 For both exact theorems, `#print axioms` reports only:
 
@@ -148,15 +156,18 @@ peer review, novelty, or priority.
 The proposed identity `sat(k)=A075529(k)` remains unresolved; in particular,
 the manuscript makes no claim about the first unknown case `k=8`.
 
-## Before submission
+## Current external state
 
-- Obtain independent human combinatorics review.
-- Confirm prior-art status directly with a field expert or the authors of the
-  56-member paper.
-- Confirm that the manuscript is not under consideration elsewhere and
-  approve the cover letter as an author statement.
-- Publish the curated source and release on GitHub, archive the same version
-  on Zenodo, and insert the public release URL and DOI.
-- If required by the submission system, complete Elsevier's declarations tool
-  and upload its generated Word document.
-- Repeat the bibliography and novelty search immediately before submission.
+- JCTA received the manuscript on 29 July 2026 as `JCTA-26-00415`; a request
+  to replace the PDFs with the latest exposition-only revision is awaiting a
+  human response from Elsevier Researcher Support.
+- arXiv submission `7884979` is configured for `math.CO` but remains blocked
+  by category endorsement.
+- The clean 17-page preprint and upload archive are under
+  `output/arxiv/P0054-arxiv-clean-2026-08-01/`. The 16-page Supplement is
+  included as ancillary material.
+- GitHub release `v1.1.1` and Zenodo DOI `10.5281/zenodo.21769438` identify the
+  synchronized manuscript, Lean, certificate, and replay snapshot. The
+  preceding `v1.1.0` record remains an immutable historical version.
+- After arXiv publication, add its identifier to ORCID, GitHub, Zenodo, and
+  the JCTA record through the permitted editorial channel.

@@ -1,7 +1,6 @@
-\documentclass[UTF8,11pt,a4paper]{ctexart}
+\documentclass[UTF8,11pt,a4paper,fontset=fandol]{ctexart}
 
 \usepackage[a4paper,margin=27mm]{geometry}
-\usepackage{microtype}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{booktabs}
 \usepackage{array}
@@ -12,12 +11,18 @@
 \usepackage[nameinlink,noabbrev]{cleveref}
 
 \hypersetup{
+  unicode=true,
   colorlinks=true,
   linkcolor=blue!55!black,
   citecolor=blue!55!black,
   urlcolor=blue!55!black,
-  pdftitle={饱和6-Sperner数与7-Sperner数的精确值},
-  pdfauthor={Jiazhi Chen}
+  pdftitle={饱和 6-Sperner 数与 7-Sperner 数的精确值},
+  pdfauthor={Jiazhi Chen},
+  pdfsubject={极值集合论与饱和 Sperner 系统},
+  pdfkeywords={饱和 Sperner 族, 布尔格, blocker, 极值集合论, SAT 证书, Lean 4},
+  pdflang={zh-CN},
+  pdfdisplaydoctitle=true,
+  bookmarksnumbered=true
 }
 
 \newtheorem{theorem}{定理}[section]
@@ -48,10 +53,9 @@
 \title{饱和 6-Sperner 数与 7-Sperner 数的精确值}
 \author{Jiazhi Chen\\
 \small 浙江省杭州第二中学\\
-\small 中国浙江省杭州市滨江区东信大道 76 号，310053\\
 \small \href{mailto:lailai0x394@gmail.com}{lailai0x394@gmail.com}\quad
 \href{https://orcid.org/0009-0008-9790-9881}{ORCID: 0009-0008-9790-9881}}
-\date{内部审阅中文对照稿，2026 年 7 月 30 日}
+\date{}
 
 \begin{document}
 
@@ -112,6 +116,8 @@ $m(2,3)=9$。第二，\cref{thm:sat7-lower}由更强的局部定理
 $m(2,4)=12$ 推出 $\sat(7)\geq47$。第三，\cref{sec:exact-seven}排除全部
 54 元轮廓。第四，\cref{sec:construction}给出一个 55 元构造。两者合并得到
 $\sat(7)=55$。
+其中 $m(3,3)=14$ 的下界与 Fano 等号分类在正文中分成两条独立定理；
+Supplement 的 S10 节另给出支撑商与有限分类完备性定理。
 
 该上界构造包含两个简短且可检查的证书。对每一层，大核心集合恰好是避开所有
 小核心成员的包含极大集合；一个一般引理证明饱和性，显式前驱表证明分层性。
@@ -353,14 +359,16 @@ $A_i,P_i$ 各取一点，要么从两个不同的 $P$ 类各取一点。三点�
 故 $a\geq7$。若所有 $\pi_i\leq1$，利用式 (1) 对 $\alpha_i$ 的单调性，
 在对称意义下仅需检查
 \[
-\begin{array}{c|c|c}
+\begin{array}{ccc}
+\toprule
 (\pi_1,\pi_2,\pi_3)&
 \min(\alpha_1,\alpha_2,\alpha_3)&\min a\\
-\hline
+\midrule
 (0,0,0)&(3,3,3)&27\\
 (0,0,1)&(2,2,3)&15\\
 (0,1,1)&(1,2,2)&9\\
-(1,1,1)&(1,1,1)&7
+(1,1,1)&(1,1,1)&7\\
+\bottomrule
 \end{array}
 \]
 所以仍有 $a\geq7$。
@@ -420,6 +428,8 @@ $|\mathcal A_2|,|\mathcal A_3|\geq9$。所以
   |\family|\geq1+5+9+9+5+1=30.
 \]
 上下界相等。
+这里的 $3\cdot2^{30}$ 只是该论证使用的一个方便阈值见证，并不声称它是最优
+稳定化阈值。
 \end{proof}
 
 \section{七层情形的全局下界}
@@ -611,24 +621,34 @@ $1+4+8+8+5+1=27$。
 《补充证明与验证档案》给出任意有限接口、每个有限搜索域、一条完整的归约路径，
 以及定理--程序--Lean 对照表。
 
-\begin{theorem}[小于十六的中间 blocker 分类]
+\begin{theorem}[中间 blocker 下界]
 \label{thm:m33}
-精确局部参数为 $m(3,3)=14$。总基数为 14 的任意合格 pair，在删除非活跃点并
-重标活跃底集后，都是 Fano 直线 clutter 与自身组成的 pair。不存在总基数为
-15 的合格 pair。
+精确局部参数为 $m(3,3)=14$。
 \end{theorem}
 
 \begin{proof}
-补充材料 S2--S3 节给出任意有限证明。私有见证把每行大小限制在对侧行数以内；
+补充材料 S2 节给出任意有限下界证明。私有见证把每行大小限制在对侧行数以内；
 最初的度数与残余归约先给出下界 13。若取等，不计 blocker 对偶时只剩
 $(4,9)$、$(5,8)$、$(6,7)$。残余 blocker 排除高点度；当每点度至多为二时，
 实际点形成行标签上的自环多重图，并保留所有平行实际点。包含极小支撑核具有
 有界顶点度，因此支撑与重数域有限。精确分类排除三个拆分，得到下界 14。
 
-七条 Fano 直线构成自 blocker clutter，达到总数 14。等号分类用同样的残余与
-支撑归约排除非对称拆分；中央 $(7,7)$ 拆分具有 Fano 关联模式，blocker 对合
-固定另一侧。加入一个松弛行后重复归约，可排除全部总数 15 拆分。补充材料列出
-每个有限域及独立重放；对应 Lean 定理量化原始的任意有限底集类型。
+七条 Fano 直线构成自 blocker clutter，达到总数 14，所以下界可取到。
+\end{proof}
+
+\begin{theorem}[中间等号与单松弛分类]
+\label{thm:m33-classification-main}
+总基数为 14 的任意合格 pair，在删除非活跃点并重标活跃底集后，都是 Fano
+直线 clutter 与自身组成的 pair。不存在总基数为 15 的合格 pair。
+\end{theorem}
+
+\begin{proof}
+补充材料 S3 节给出等号与单松弛归约。等号分类用残余与支撑论证排除非对称
+拆分；中央 $(7,7)$ 拆分具有 Fano 关联模式，blocker 对合固定另一侧。加入一个
+松弛行后重复归约，可排除全部总数 15 拆分。Supplement S10 节的支撑商引理与
+有限分类完备性定理证明：这些有限重数域覆盖每个任意有限输入 pair，同时保留
+非活跃点、平行实际点、重复关联模式与非一致行。补充材料列出每个有限域及独立
+重放；对应 Lean 定理量化原始的任意有限底集类型。
 \end{proof}
 
 \begin{proposition}[Canonical 轮廓归约]
@@ -650,10 +670,10 @@ $(4,9)$、$(5,8)$、$(6,7)$。残余 blocker 排除高点度；当每点度至�
   \geq(1,6,12,14,12,6,1).
   \tag{2}
 \]
-式 (2) 取等时，中间 blocker 对只能是 Fano 平面。它无法与下方或上方的 12 元
-等号相邻层兼容，所以总数 52 不可能。若仅增加一个成员，则仍落入 Fano 排除，
-或使中间 blocker 对的总数为 15；后者由\cref{thm:m33}排除。所以总数 53
-也不可能。
+由\cref{thm:m33-classification-main}，式 (2) 取等时，中间 blocker 对只能是
+Fano 平面。它无法与下方或上方的 12 元等号相邻层兼容，所以总数 52 不可能。
+若仅增加一个成员，则仍落入 Fano 排除，或使中间 blocker 对的总数为 15；后者
+由\cref{thm:m33-classification-main}排除。所以总数 53 也不可能。
 
 对总数 54，在式 (2) 的五个内部层上引入非负松弛量，其和为二。若中间层有
 14 个成员，则它是 Fano 对，并迫使两个相邻层都严格大于等号。15 元中间对不
@@ -729,10 +749,12 @@ $(7,9)$ & 两侧最大度分别为三和四。若九行侧有三元行，则留�
 
 
 \cref{tab:exact-splits}中的每个有限域都来自行数、私有见证、点度界和支撑极小化；
-证明没有限制原始迹底集的大小。补充材料 S5--S10 节证明这些归约，并说明有限
-输出如何推出任意底集结论。C++ 枚举器与独立 Python 实现逐字节重放保存输出；
-Lean 证明把可执行检查连接到原始 clutter 的可靠性与实现引理。因此四个拆分及
-其 blocker 对偶均不可能。被强制存在的三元行无处可放，从而排除 $P_{16}$。
+证明没有限制原始迹底集的大小。补充材料 S5--S10 节证明这些归约；其中支撑商
+引理和有限分类完备性定理给出任意有限 blocker pair 的正向编码与反向展开。在
+该证明归约之后，C++ 枚举器与独立 Python 实现重放同一有限核及保存的语义计数；
+这些仅是 \texttt{COMPUTED} 交叉检查，不是普遍结论的来源。Lean 证明把这些
+有限域连接到原始 clutter 的可靠性、实现及分支排除引理。因此四个拆分及其
+blocker 对偶均不可能。被强制存在的三元行无处可放，从而排除 $P_{16}$。
 \end{proof}
 
 \begin{theorem}
@@ -843,8 +865,8 @@ Martin--Veldt 的 56 元构造给出了与之匹配的上界。
 作为负面对照，它们拒绝早期预印本中后来撤回的 54 元族：该族的第三层没有覆盖
 核心集合 $\{2,3,6\}$。
 
-具体的十一元素实现还使用 Mathlib~\cite{mathlib2020} 在 Lean 4
-\cite{lean4} 中完成了形式化。Lean 证明这个显式族的基数为 55，是
+具体的十一元素实现还使用 Mathlib~\cite{mathlib2020} 在
+Lean 4~\cite{lean4} 中完成了形式化。Lean 证明这个显式族的基数为 55，是
 7-Sperner 族，并且是饱和的。饱和性通过一个覆盖全部
 $2^{11}=2048$ 个掩码的冻结表进行检查：其中有 55 个成员行，以及 1993 个
 外部行；每个外部行都包含一条在插入对应集合后形成的八项严格链。该表被分为
@@ -859,6 +881,9 @@ $2^{11}=2048$ 个掩码的冻结表进行检查：其中有 55 个成员行，�
 饱和族都有至少 $s$ 个成员。谓词 \texttt{IsStableSaturationNumber} 对
 参数 $k,s$ 要求存在阈值 $N$，使前一性质对每个 $n\geq N$ 成立。因此，最终
 定理表达的是充分大底集上的统一取到性与最优性，而不是一次有限计算。
+该谓词定义在
+\path{AiMathLab/SaturatedSperner/StableSaturation.lean}；两个最终声明都没有
+额外假设，Supplement 的对照表列出其下界、构造、分类、可靠性与实现依赖。
 
 \cref{thm:m23}中的局部定理已单独形式化。Lean 证明了任意有限底集上的下界、
 六点见证的两个 blocker 等式及两侧基数。在此基础上，定理
@@ -888,8 +913,12 @@ $(7,9)$、$(8,8)$ 及其对偶分支，并把它们接入齐次原子与 canonic
 证书均位于已经证明的任意有限归约之后；独立求解器实验仍按各自边界标为
 \texttt{COMPUTED}，不会仅凭求解器输出提升为普遍结论。
 
-完整精确值链于 2026 年 7 月 27 日首次闭环，并在本轮修改后于 7 月 30 日重新
-通过最终门。整个 \texttt{AiMathLab} 库共处理 17488 个构建任务；
+受检环境使用 Lean 4.33.0-rc1（提交
+\path{62eed1db4d67327ec8120be05f1a1b0847d74561}）及 Mathlib 提交
+\path{79d0395a1825a6264ad5d269e35e60537518955e}；两者分别由
+\path{lean-toolchain} 与 \path{lake-manifest.json} 固定。完整精确值链于
+2026 年 7 月 27 日首次闭环，并在本轮修改后于 7 月 31 日重新通过最终门。
+整个 \texttt{AiMathLab} 库共处理 17488 个构建任务；
 \path{Problems/P0054/formal/Main.lean} 的独立检查也成功。
 \texttt{\#print axioms} 对最终精确值定理仅报告 \texttt{propext}、
 \texttt{Classical.choice} 和 \texttt{Quot.sound}。源代码扫描对
@@ -922,15 +951,15 @@ $(7,9)$、$(8,8)$ 及其对偶分支，并把它们接入齐次原子与 canonic
 有限域归约示例、独立重放计数，以及定理--证明--程序--Lean 对照表。
 
 \section*{可复现性与声明}
+\addcontentsline{toc}{section}{可复现性与声明}
 
 \par\medskip\noindent\textbf{数据与代码可得性。}\quad
 本文为理论研究，不生成或分析经验数据。配套工件包包括证明、精确 blocker
 搜索、构造验证器、CNF 生成器、DRAT 证书与清单、Lean 源代码、测试及锁定的
-依赖。本修订发布于 GitHub
-\href{https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.0}
-{v1.1.0}，并以 Zenodo DOI
-\href{https://doi.org/10.5281/zenodo.21730916}{10.5281/zenodo.21730916}
-归档。
+依赖。本次修订可从 GitHub 发布
+\href{https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.1}
+{v1.1.1} 获取；Zenodo 归档 DOI 为
+\href{https://doi.org/10.5281/zenodo.21769438}{10.5281/zenodo.21769438}。
 
 \par\medskip\noindent\textbf{生成式 AI 与 AI 辅助技术声明。}\quad
 在准备本文期间，作者使用 OpenAI Codex 辅助文献检索式设计、证明与代码起草、
@@ -963,12 +992,14 @@ $\mathcal S$ 的每个成员大小至少为二，$\mathcal C$ 的每个成员大
 记 $a=|\mathcal S|$、$b=|\mathcal C|$。私有见证引理给出
 $a\geq4$ 与 $b\geq2$。下面证明六个下界：
 \[
-\begin{array}{c|c@{\qquad}c|c}
+\begin{array}{cc@{\qquad\qquad}cc}
+\toprule
 b&a\text{ 的下界}&a&b\text{ 的下界}\\
-\hline
+\midrule
 2&16&4&16\\
 3&12&5&8\\
-4&8&6&6
+4&8&6&6\\
+\bottomrule
 \end{array}
 \tag{2}
 \]
@@ -1010,7 +1041,7 @@ $w_x=\min_{j:x\in O_j}o_j$，则
 把每个 $x$ 分配给一个取到 $w_x$ 的下标，并记三个类大小为 $t_j$。由于
 $t_j\leq o_j$ 且 $\sum t_j=n$，有
 \[
-  \sum_{x\in E}w_x=\sum_{j=2}^4t_jo_j
+  \sum_{x\in E}w_x=\sum_{j=2}^4t_j o_j
   \geq\sum_{j=2}^4t_j^2
   \geq\left\lceil\frac{n^2}{3}\right\rceil.
 \tag{4}
@@ -1068,16 +1099,18 @@ loop choice 组合，得到四个避开 $e_1$ 的极小 cover；它们与原来�
 
 式 (2) 穷尽全部可能：
 \[
-\begin{array}{c|c}
+\begin{array}{cc}
+\toprule
 \text{情形}&ab\\
-\hline
+\midrule
 b=2&\geq32\\
 b=3&\geq36\\
 b=4&\geq32\\
 b\geq5,\ a=4&\geq64\\
 b\geq5,\ a=5&\geq40\\
 b\geq5,\ a=6&\geq36\\
-b\geq5,\ a\geq7&\geq35
+b\geq5,\ a\geq7&\geq35\\
+\bottomrule
 \end{array}
 \]
 命题得证。
@@ -1130,6 +1163,8 @@ $1245678H\leftarrow1247$; $1345678H\leftarrow3568$.
 $12345678H\leftarrow23457$.
 \end{description}
 
+\phantomsection
+\addcontentsline{toc}{section}{参考文献}
 {\small
 \bibliographystyle{plain}
 \bibliography{references}

@@ -20,7 +20,12 @@
   citecolor=blue!55!black,
   urlcolor=blue!55!black,
   pdftitle={The exact saturated 6- and 7-Sperner numbers},
-  pdfauthor={Jiazhi Chen}
+  pdfauthor={Jiazhi Chen},
+  pdfsubject={Extremal set theory and saturated Sperner systems},
+  pdfkeywords={saturated Sperner family, Boolean lattice, blocker, extremal set theory, SAT certificate, Lean 4},
+  pdflang={en-US},
+  pdfdisplaydoctitle=true,
+  bookmarksnumbered=true
 }
 
 \newtheorem{theorem}{Theorem}[section]
@@ -40,17 +45,16 @@
 \newcommand{\blocker}{\mathcal{B}}
 \newcommand{\bits}[1]{\mathtt{#1}}
 
-\title{The Exact Saturated 6- and 7-Sperner Numbers}
+\title{The exact saturated 6- and 7-Sperner numbers}
 \author{Jiazhi Chen\\
 \small Hangzhou No.2 High School of Zhejiang Province\\
-\small No. 76 Dongxin Avenue, Binjiang District,\\
-\small Hangzhou, Zhejiang 310053, China\\
 \small \href{mailto:lailai0x394@gmail.com}{lailai0x394@gmail.com}\quad
 \href{https://orcid.org/0009-0008-9790-9881}{ORCID: 0009-0008-9790-9881}}
-\date{July 30, 2026}
+\date{}
 
 \begin{document}
 
+\pagestyle{plain}
 \maketitle
 
 \begin{abstract}
@@ -96,8 +100,8 @@ become part of a forbidden eight-term chain as soon as it is adjoined.
 Gerbner et al.~\cite{gerbner2013} initiated the systematic study of these
 minimum saturated families and proved, among other structural results, that
 the value stabilizes when the ground set is sufficiently large for fixed $k$.
-The eventual value is denoted $\sat(k)$.  Morrison, Noel, and Scott
-\cite{mns2014} developed a layered construction from saturated antichains and
+The eventual value is denoted $\sat(k)$.  Morrison, Noel, and
+Scott~\cite{mns2014} developed a layered construction from saturated antichains and
 a composition operation that turns an efficient construction for one value of
 $k$ into upper bounds for larger values.
 
@@ -120,9 +124,10 @@ The mathematical argument has four stages.  First,
 \cref{thm:canonical-reduction} states the finite canonical reduction with its
 exact incidence threshold.  Second, \cref{thm:m23,thm:m24,thm:m33} establish
 the local blocker bounds.  They give $\sat(6)=30$ and the seven-layer baseline
-$(1,6,12,14,12,6,1)$.  Third, \cref{sec:exact-seven} excludes totals 52, 53,
-and 54.  Fourth, \cref{sec:construction} gives a 55-member construction.
-Together these results prove $\sat(7)=55$.
+$(1,6,12,14,12,6,1)$; \cref{thm:m33-classification-main} separately records
+the equality and one-slack classification.  Third, \cref{sec:exact-seven}
+excludes totals 52, 53, and 54.  Fourth, \cref{sec:construction} gives a
+55-member construction.  Together these results prove $\sat(7)=55$.
 
 The upper-bound construction has two short, inspectable certificates.  For
 each layer, the large core sets are precisely the inclusion-maximal sets that
@@ -161,7 +166,7 @@ $A\in\mathcal A_{i-1}$ satisfies $A\subsetneq B$.
 We use the following theorem of Morrison--Noel--Scott, in the formulation used
 by Martin--Veldt.
 
-\begin{theorem}[Layered saturated antichains
+\begin{theorem}[Layered saturated antichains~
   \cite{mns2014,martinveldt2025}]
 \label{thm:layered}
 If $\mathcal A_0,\ldots,\mathcal A_{k-1}$ are pairwise disjoint, layered
@@ -410,14 +415,16 @@ $\alpha$-classes to be nonempty, a contradiction.  Thus $a\geq7$.  If every
 $\pi_i\leq1$, monotonicity in the $\alpha_i$ reduces the calculation, up to
 symmetry, to
 \[
-\begin{array}{c|c|c}
+\begin{array}{ccc}
+\toprule
 (\pi_1,\pi_2,\pi_3)&
 \min(\alpha_1,\alpha_2,\alpha_3)&\min a\\
-\hline
+\midrule
 (0,0,0)&(3,3,3)&27\\
 (0,0,1)&(2,2,3)&15\\
 (0,1,1)&(1,2,2)&9\\
-(1,1,1)&(1,1,1)&7
+(1,1,1)&(1,1,1)&7\\
+\bottomrule
 \end{array}
 \]
 so again $a\geq7$.
@@ -464,7 +471,7 @@ The eventual saturated 6-Sperner number is
 
 \begin{proof}
 Morrison--Noel--Scott constructed a 30-member saturated 6-Sperner family on
-every ground set of size at least eight
+every ground set of size at least eight~
 \cite[Proposition~20]{mns2014}, so $\sat(6)\leq30$.
 
 Choose $n$ in the stable range with $n\geq3\cdot2^{30}$, and choose a minimum
@@ -487,6 +494,8 @@ $|\mathcal A_2|,|\mathcal A_3|\geq9$.  Therefore
   |\family|\geq1+5+9+9+5+1=30.
 \]
 The upper and lower bounds agree.
+The displayed value $3\cdot2^{30}$ is only a convenient witness threshold
+for this argument; no claim of an optimal stabilization threshold is made.
 \end{proof}
 
 \section{A global lower bound at seven layers}
@@ -701,20 +710,17 @@ is cited below as the Supplement.  It states the arbitrary-finite interfaces,
 defines the finite search domains, works through one complete reduction path,
 and gives the theorem--program--Lean crosswalk.
 
-\begin{theorem}[Middle blocker classification below sixteen]
+\begin{theorem}[Middle blocker lower bound]
 \label{thm:m33}
-The exact local blocker parameter is $m(3,3)=14$.  Every admissible pair of
-total cardinality 14 is, after deleting inactive points and relabelling the
-active ground set, the Fano line clutter paired with itself.  No admissible
-pair has total cardinality 15.
+The exact local blocker parameter is $m(3,3)=14$.
 \end{theorem}
 
 \begin{proof}
-The arbitrary-finite proof is given in Sections S2--S3 of the Supplement; we
-record its reduction here.  Private witnesses bound every row by the number
-of rows on the opposite side.  The first degree and residual reductions give
-a lower bound of 13.  Under equality, the possible ordered splits reduce, up
-to blocker duality, to $(4,9)$, $(5,8)$, and $(6,7)$.
+The arbitrary-finite lower-bound proof is given in Section S2 of the
+Supplement; we record its reduction here.  Private witnesses bound every row
+by the number of rows on the opposite side.  The first degree and residual
+reductions give a lower bound of 13.  Under equality, the possible ordered
+splits reduce, up to blocker duality, to $(4,9)$, $(5,8)$, and $(6,7)$.
 Residual blockers exclude high point degrees.  When every point has degree at
 most two, the actual points form a loop-multigraph on the row labels;
 parallel points remain distinct.  Inclusion-minimal support cores have
@@ -722,12 +728,28 @@ bounded vertex degrees, so their support and multiplicity domains are finite.
 The resulting exact classifications exclude all three splits and prove the
 lower bound 14.
 
-The seven Fano lines form a self-blocking clutter and attain 14.  In the
-equality analysis, the asymmetric splits are excluded by the same residual
-and support reductions.  The central $(7,7)$ split has the Fano incidence
-pattern; blocker involution fixes the opposite side.  Repeating the reduction
-with one slack row excludes every split of total 15.  The Supplement states
-each finite domain and its independent replay, and the corresponding Lean
+The seven Fano lines form a self-blocking clutter and attain 14.  Hence the
+lower bound is sharp.
+\end{proof}
+
+\begin{theorem}[Middle equality and one-slack classification]
+\label{thm:m33-classification-main}
+Every admissible pair of total cardinality 14 is, after deleting inactive
+points and relabelling the active ground set, the Fano line clutter paired
+with itself.  No admissible pair has total cardinality 15.
+\end{theorem}
+
+\begin{proof}
+Section S3 of the Supplement gives the equality and one-slack reductions.  In
+the equality analysis, the asymmetric splits are excluded by the residual
+and support arguments.  The central $(7,7)$ split has the Fano incidence
+pattern, and blocker involution fixes the opposite side.  Repeating the
+reduction with one slack row excludes every split of total 15.  The
+support-quotient lemma and the finite-classification completeness theorem in
+Section S10 prove that the finite multiplicity domains cover every
+arbitrary-finite input pair while retaining inactive points, parallel actual
+points, repeated incidence patterns, and nonuniform rows.  The Supplement
+states each finite domain and its independent replay; the corresponding Lean
 theorems quantify over the original arbitrary finite ground type.
 \end{proof}
 
@@ -751,11 +773,11 @@ The finite canonical reduction, the private-witness bound,
   \geq(1,6,12,14,12,6,1).
   \tag{2}
 \]
-Equality in (2) forces the middle pair to be the Fano plane.  Its lower or
-upper adjacent 12-member equality interface is impossible, so total 52 is
-excluded.  With one slack member, either the same Fano exclusion applies or
-the middle pair has total 15, which \cref{thm:m33} excludes.  Thus total 53
-is excluded.
+By \cref{thm:m33-classification-main}, equality in (2) forces the middle pair
+to be the Fano plane.  Its lower or upper adjacent 12-member equality
+interface is impossible, so total 52 is excluded.  With one slack member,
+either the same Fano exclusion applies or the middle pair has total 15,
+which \cref{thm:m33-classification-main} excludes.  Thus total 53 is excluded.
 
 For total 54, write the five internal slacks over (2) as nonnegative integers
 with sum two.  A 14-member middle pair is Fano and forces both adjacent layers
@@ -849,13 +871,16 @@ second branch have at least four pair blockers, contradicting the bound three.
 Each finite domain in \cref{tab:exact-splits} follows from row count, private
 witnesses, point-degree bounds, and support minimization; no finite bound on
 the original trace ground set is assumed.  Sections S5--S10 of the Supplement
-prove these reductions and specify how a finite output implies the stated
-arbitrary-ground conclusion.  C++ enumerators and independent Python
-implementations reproduce the saved outputs byte for byte.  Lean proves the
-soundness and realization lemmas that connect the executable checks to the
-original clutters.  Thus all four splits and their blocker duals are
-impossible.  The forced three-point row has nowhere to occur, excluding
-$P_{16}$.
+prove these reductions.  In particular, its support-quotient lemma and
+finite-classification completeness theorem give the forward encoding and
+inverse expansion for an arbitrary finite blocker pair.  After that proved
+reduction, C++ enumerators and independent Python implementations replay the
+same finite kernels and saved semantic counts; these are \texttt{COMPUTED}
+cross-checks, not the source of the universal conclusion.  Lean proves the
+soundness, realization, and branch-exclusion lemmas that connect those finite
+domains to the original clutters.  Thus all four splits and their blocker
+duals are impossible.  The forced three-point row has nowhere to occur,
+excluding $P_{16}$.
 \end{proof}
 
 \begin{theorem}
@@ -943,7 +968,7 @@ The three signatures record whether an arbitrary test set meets $H$ in
 $\varnothing$, a nonempty proper subset, or all of $H$.  Inclusion against a
 template depends only on this signature and the core mask.  Hence every
 mathematical candidate of size at most 55 extends to a satisfying assignment
-of the CNF.  Conversely, the selected variables of a satisfying assignment
+of the CNF\@.  Conversely, the selected variables of a satisfying assignment
 decode to the stated template conditions; independent semantic checks are
 included as controls.
 
@@ -1019,6 +1044,17 @@ exported declarations are
 sat\_six\_eq\_thirty : IsStableSaturationNumber 6 30\\
 sat\_seven\_eq\_fifty\_five : IsStableSaturationNumber 7 55.
 \end{quote}
+The predicate is defined in
+\nolinkurl{AiMathLab/SaturatedSperner/StableSaturation.lean}.  The fully
+qualified declarations, neither of which has hypotheses, are
+\begin{quote}\small
+\texttt{AiMathLab.P0054.Sat6StableExact.}\allowbreak
+\texttt{sat\_six\_eq\_thirty}\\
+\texttt{AiMathLab.P0054.Sat7StableExact.}\allowbreak
+\texttt{sat\_seven\_eq\_fifty\_five}.
+\end{quote}
+The Supplement crosswalk lists their lower-bound,
+construction, classification, soundness, and realization dependencies.
 
 For six layers, the formal proof combines a parameterized 30-member
 construction with the arbitrary-finite theorem $m(2,3)=9$, homogeneous-atom
@@ -1050,8 +1086,18 @@ the branch exclusions.  The C++ and Python replays are independent
 universal conclusions by themselves.  The Supplement gives one complete
 worked path through this interface.
 
-The complete exact-value chain first closed on 27 July 2026 and was
-revalidated after the present revision on 30 July 2026.  The full Lake build
+The checked environment is pinned as follows:
+\begin{center}
+\small
+\begin{tabular}{@{}ll@{}}
+Lean 4.33.0-rc1 & \texttt{62eed1db4d67327ec8120be05f1a1b0847d74561}\\
+Mathlib & \texttt{79d0395a1825a6264ad5d269e35e60537518955e}
+\end{tabular}
+\end{center}
+The revisions are read from \nolinkurl{lean-toolchain} and
+\nolinkurl{lake-manifest.json}.  The complete
+exact-value chain first closed on 27 July 2026 and was revalidated after the
+present revision on 31 July 2026.  The full Lake build
 reported successful completion of 17,488 jobs, and the independent
 entry point \nolinkurl{Problems/P0054/formal/Main.lean} checked both exact
 theorems successfully.  For the exported exact statements,
@@ -1107,6 +1153,7 @@ finite-domain reduction, independent replay counts, and a
 theorem--proof--program--Lean crosswalk.
 
 \section*{Reproducibility and declarations}
+\addcontentsline{toc}{section}{Reproducibility and declarations}
 
 \par\medskip\noindent\textbf{Data and code availability.}\quad
 This work is theoretical and does not generate or analyse empirical datasets.
@@ -1114,9 +1161,9 @@ The supporting artifact package contains the proofs, exact blocker searches,
 construction verifiers, CNF generator, DRAT certificates and manifest, Lean
 sources, tests, and locked dependencies.  This revision is available from
 GitHub release
-\href{https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.0}
-{v1.1.0} and is archived on Zenodo under DOI
-\href{https://doi.org/10.5281/zenodo.21730916}{10.5281/zenodo.21730916}.
+\href{https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.1}
+{v1.1.1} and is archived on Zenodo under DOI
+\href{https://doi.org/10.5281/zenodo.21769438}{10.5281/zenodo.21769438}.
 
 \par\medskip\noindent\textbf{Declaration of generative AI and AI-assisted
 technologies in the manuscript preparation process.}\quad
@@ -1156,12 +1203,14 @@ $\mathcal C$ of size at least four.  Then
 Put $a=|\mathcal S|$ and $b=|\mathcal C|$.  The private-witness lemma gives
 $a\geq4$ and $b\geq2$.  We prove the following six bounds:
 \[
-\begin{array}{c|c@{\qquad}c|c}
+\begin{array}{cc@{\qquad\qquad}cc}
+\toprule
 b&\text{lower bound on }a&a&\text{lower bound on }b\\
-\hline
+\midrule
 2&16&4&16\\
 3&12&5&8\\
-4&8&6&6
+4&8&6&6\\
+\bottomrule
 \end{array}
 \tag{2}
 \]
@@ -1207,7 +1256,7 @@ $w_x=\min_{j:x\in O_j}o_j$, then
 Assign each $x$ to an index attaining $w_x$, and let $t_j$ be the three
 class sizes.  Since $t_j\leq o_j$ and $\sum t_j=n$,
 \[
-  \sum_{x\in E}w_x=\sum_{j=2}^4t_jo_j
+  \sum_{x\in E}w_x=\sum_{j=2}^4t_j o_j
   \geq\sum_{j=2}^4t_j^2
   \geq\left\lceil\frac{n^2}{3}\right\rceil.
 \tag{4}
@@ -1280,16 +1329,18 @@ containing $e_1$.  Thus $b\geq6$.
 
 The bounds in (2) now exhaust all possibilities:
 \[
-\begin{array}{c|c}
+\begin{array}{cc}
+\toprule
 \text{case}&ab\\
-\hline
+\midrule
 b=2&\geq32\\
 b=3&\geq36\\
 b=4&\geq32\\
 b\geq5,\ a=4&\geq64\\
 b\geq5,\ a=5&\geq40\\
 b\geq5,\ a=6&\geq36\\
-b\geq5,\ a\geq7&\geq35
+b\geq5,\ a\geq7&\geq35\\
+\bottomrule
 \end{array}
 \]
 which proves the proposition.
@@ -1343,6 +1394,8 @@ $1245678H\leftarrow1247$; $1345678H\leftarrow3568$.
 $12345678H\leftarrow23457$.
 \end{description}
 
+\phantomsection
+\addcontentsline{toc}{section}{References}
 {\small
 \bibliographystyle{plain}
 \bibliography{references}

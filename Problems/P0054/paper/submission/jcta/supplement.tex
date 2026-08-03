@@ -50,7 +50,7 @@
 \small Hangzhou No.2 High School of Zhejiang Province\\
 \small \href{mailto:lailai0x394@gmail.com}{lailai0x394@gmail.com}\quad
 \href{https://orcid.org/0009-0008-9790-9881}{ORCID 0009-0008-9790-9881}}
-\date{July 30, 2026}
+\date{July 31, 2026}
 
 \begin{document}
 \maketitle
@@ -64,7 +64,9 @@ ground set, states every residual search domain, records independent replay
 counts, and maps the natural-language statements to their Lean 4
 declarations.  Inactive points, parallel actual points, repeated incidence
 patterns, nonuniform rows, and empty optional incidence classes are retained
-throughout.  For the larger classifications, the named Lean declarations are
+throughout.  A support-quotient lemma and a finite-classification completeness
+theorem give the forward encoding and inverse expansion explicitly.  For the
+larger classifications, the named Lean declarations are
 the primary proof objects; the prose below records their mathematical
 interfaces and an audit path rather than reproducing every kernel reduction
 line by line.
@@ -781,44 +783,130 @@ Blocker duality leaves the four splits handled in
 \section{Why the residual searches are finite and sound}
 \label{sec:finite-interface}
 
-This section isolates the interface common to every enumeration above.
-Suppose a residual clutter has $r$ labelled rows.  Map each active actual
-point $u$ to its nonempty incidence support
+This section isolates, as a standalone mathematical statement, the interface
+common to every enumeration above.  Suppose a residual clutter
+$\mathcal H=\{H_1,\ldots,H_r\}$ has labelled rows on a finite ground set
+$U$, with every $H_i$ nonempty.  Put $U^*=\bigcup_iH_i$ and map each active
+actual point $u\in U^*$ to its nonempty incidence support
 \[
  I(u)=\{i\in[r]:u\text{ belongs to row }i\}.                \tag{S10.1}
 \]
-Points with the same support are not merged: their number is stored as a
-positive integer multiplicity $m_I$.  Inactive points are omitted because
-they occur in no row and can occur in no minimal transversal.
+For every nonempty $I\subseteq[r]$, let
+$P_I=\{u\in U^*:I(u)=I\}$ and $m_I=|P_I|$.  Thus points with the same support
+are counted, not identified.  A \emph{support cover} is a set $M$ of
+nonempty subsets of $[r]$ whose union is $[r]$; it is minimal if none of its
+proper subfamilies is a support cover.
 
-The reduction is finite for the following proved reasons.
+\begin{lemma}[Support quotient and exact expansion]
+\label{lem:support-quotient}
+There is a bijection
+\[
+ \blocker(\mathcal H)
+ \longleftrightarrow
+ \coprod_{\substack{M\text{ a minimal support cover}\\m_I>0\ (I\in M)}}
+ \prod_{I\in M}P_I.                                      \tag{S10.2}
+\]
+Under this bijection a transversal $T$ uses exactly one actual point from
+each support class indexed by $M$.  In particular,
+\[
+ |\blocker(\mathcal H)|
+   =\sum_M\prod_{I\in M}m_I,
+ \qquad
+ \min_{T\in\blocker(\mathcal H)}|T|=\min_M|M|,           \tag{S10.3}
+\]
+and
+\[
+ |H_i|=\sum_{I\ni i}m_I,
+ \qquad
+ \deg_{\mathcal H}(u)=|I(u)|.                            \tag{S10.4}
+\]
 
-\begin{enumerate}[label=(F\arabic*),leftmargin=12mm]
-\item The number of possible nonempty supports is $2^r-1$; rank and
-  no-full-support conclusions reduce it further in the five-row branches.
-\item Every row has a proved upper bound from \cref{lem:private}.  Therefore
-  every multiplicity $m_I$ is bounded by a row size containing $I$.
-\item Support minimization retains only incidence masks compatible with
-  clutter minimality, row-size bounds, transversal-number bounds, and the
-  previously proved limits on pair blockers and point degrees.
-\item A minimal transversal never uses two parallel copies of the same
-  support.  For each minimal support cover $M$, the number of actual choices
-  is exactly $\prod_{I\in M}m_I$.  Summing over the support covers gives the
-  weighted count used in (S7.6).
-\item Extension checks explicitly add all permitted incidences of existing
-  points and all nonempty incidence supports of new points.  Their
-  multiplicities are again bounded by row sizes.  The semantic verifier then
-  expands actual labelled copies and recomputes both blockers by
-  inclusion-minimal choice-union enumeration.
-\end{enumerate}
+Conversely, from a vector $(m_I)$ construct the labelled expansion
+\[
+ U(m)=\{(I,j):\varnothing\ne I\subseteq[r],\ 1\leq j\leq m_I\},
+ \qquad
+ H_i(m)=\{(I,j):i\in I\}.                                \tag{S10.5}
+\]
+After deleting inactive points, the map sending the $j$th member of $P_I$
+to $(I,j)$ is an isomorphism from $\mathcal H$ to
+$\mathcal H(m)=\{H_i(m):i\in[r]\}$.  It induces an isomorphism of their
+blockers.  Hence expansion preserves row sizes, transversal sizes, point
+degrees, blocker cardinality, and blocker equality exactly.
+\end{lemma}
 
-Conversely, every arbitrary-finite instance maps to one enumerated
-multiplicity vector by (S10.1), and expanding that vector realizes the same
-row family up to inactive points and relabelling of parallel actual points.
-Thus the search domain is a quotient with an explicit inverse realization,
-not an assumption that $|U|$ is small.  Empty optional incidence classes,
-repeated residual supports, and nonuniform rows are all present in this
-description.
+\begin{proof}
+If a minimal transversal $T$ contained distinct $x,y\in P_I$, then deleting
+$y$ would not change the set of rows met by $T$, contradicting minimality.
+Thus $T$ selects at most one representative of each support.  The supports
+it selects cover $[r]$ because $T$ meets every row.  If that support cover
+were not minimal, deleting the representative of a redundant support would
+again leave a transversal.  This maps $T$ to the right-hand side of
+(S10.2).
+
+Conversely, let $M$ be a minimal support cover and choose one point from each
+$P_I$, $I\in M$.  The chosen points meet every row.  For each $I\in M$,
+minimality of $M$ supplies an index in $I$ that belongs to no other support
+in $M$; deleting the representative of $I$ therefore misses that row.  The
+chosen set is a minimal transversal.  The two constructions are inverse.
+Equations (S10.3)--(S10.4) follow immediately.  The expansion (S10.5)
+retains one labelled point for every member of every $P_I$, so the displayed
+point bijection preserves membership in every row.  Applying it to minimal
+transversals proves the blocker assertion.
+\end{proof}
+
+\begin{theorem}[Completeness of the finite classification reductions]
+\label{thm:finite-classification-completeness}
+Let $(\mathcal S,\mathcal C)$ be a mutual-blocker pair on an arbitrary finite
+ground set, with $|\mathcal S|=r$ and $|\mathcal C|=s$.  After deleting
+inactive points and labelling the rows of $\mathcal S$, there is a vector
+\[
+ (m_I)_{\varnothing\ne I\subseteq[r]},
+ \qquad 0\leq m_I\leq s,                                 \tag{S10.6}
+\]
+whose expansion is isomorphic to $\mathcal S$ and whose blocker is
+isomorphic to $\mathcal C$.  The vector preserves the two minimum row sizes,
+all point degrees, all row cardinalities, and every minimum-transversal and
+blocker-cardinality condition used in Sections S2--S9.
+
+Conversely, if a vector satisfying (S10.6) expands to a clutter
+$\mathcal H(m)$ with $|\blocker(\mathcal H(m))|=s$, then
+$(\mathcal H(m),\blocker(\mathcal H(m)))$ is a mutual-blocker pair; any
+listed row-size, degree, or transversal conditions verified after expansion
+hold for that pair.  Therefore exhausting all such vectors, after imposing
+only branch conditions already proved necessary, exhausts the original
+arbitrary-finite branch.  The same statement applies after exchanging the
+two blocker sides and at each residual or row-extension step.
+\end{theorem}
+
+\begin{proof}
+Apply \cref{lem:support-quotient} to $\mathcal S$.  Because each row of
+$\mathcal S=\blocker(\mathcal C)$ is a minimal transversal of the $s$ rows
+of $\mathcal C$, \cref{lem:private} gives $|S|\leq s$ for every
+$S\in\mathcal S$.  If $m_I>0$ and $i\in I$, then
+$m_I\leq|S_i|\leq s$, proving (S10.6).  The expansion recovers
+$\mathcal S$ exactly up to relabelling, and the blocker part of
+\cref{lem:support-quotient} recovers $\mathcal C$.  Equations
+(S10.3)--(S10.4) prove preservation of all listed invariants.
+
+For the converse, blocker involution for finite clutters gives
+$\blocker(\blocker(\mathcal H(m)))=\mathcal H(m)$.  Thus the expanded pair
+is mutual-blocking.  There are only $2^r-1$ coordinates in (S10.6), each in a
+finite range.  Clutter minimality and all additional conditions are checked
+on the exact expansion, so filtering cannot create a spurious pair.  In a
+residual or extension branch, the proved row-count and private-witness bounds
+again provide the finite ranges; applying the same argument to the enlarged
+labelled row family proves the final sentence.
+\end{proof}
+
+This theorem is the logical bridge from the arbitrary input pair to each
+finite kernel.  Rank bounds, no-full-support conclusions, point-degree
+bounds, and forced-incidence rules in Sections S2--S9 are branch lemmas that
+only shrink (S10.6).  Extension checks include every permitted incidence of
+an existing point and every nonempty support of a new point.  The semantic
+verifiers then expand all labelled copies and recompute both blockers.
+Consequently inactive points are harmless; multiplicity $m_I>1$ retains
+parallel actual points and repeated incidence patterns; zero coordinates
+retain empty optional classes; and no uniformity of row sizes is assumed.
 
 \subsection{Worked interface: the five-row kernel in the
 \texorpdfstring{$(7,8)$}{(7,8)} split}
@@ -830,7 +918,7 @@ and maximum point degree three.  Suppose a point $x$ has degree two in
 $\mathcal H$, and let
 \[
  \mathcal K=\{E\in\mathcal H:x\notin E\}.
- \tag{S10.2}
+ \tag{S10.7}
 \]
 Then $\mathcal K$ is a five-row clutter, its rows have size at least three,
 and its maximum point degree is at most three.  All blocker rows in this
@@ -842,7 +930,7 @@ give
  \min_{Q\in\blocker(\mathcal K)}|Q|\geq2,
  \qquad |\blocker(\mathcal K)|\leq8,
  \qquad |\{Q\in\blocker(\mathcal K):|Q|=2\}|\leq3.
- \tag{S10.3}
+ \tag{S10.8}
 \]
 The exact five-row principle strengthens the last inequality to equality.
 
@@ -850,10 +938,10 @@ For $Q\in\blocker(\mathcal K)$, define its forced lift by
 \[
  L_x(Q)=
  \begin{cases}
-  Q\cup\{x\},&|Q|=2,\\
+ Q\cup\{x\},&|Q|=2,\\
   Q,&|Q|>2.
  \end{cases}
- \tag{S10.4}
+ \tag{S10.9}
 \]
 The three pair blockers exhaust the degree available at $x$ on the eight-row
 side.  Residual minimality shows that every $L_x(Q)$ belongs to
@@ -898,7 +986,7 @@ The fully qualified name of the final declaration is
 \path{MiddleSevenEightFiveKernelBranch.}\allowbreak%
 \path{sevenRows_degreeTwo_impossible}.
 \end{center}
-This declaration constructs the interface (S10.2)--(S10.4) from the natural
+This declaration constructs the interface (S10.7)--(S10.9) from the natural
 seven-row family and applies
 \path{G413.no_kernel_completion_of_eight}.  Thus this branch does not
 deduce an arbitrary-ground conclusion from the executable counts.  The
@@ -956,9 +1044,11 @@ $(7,9)$, couplings
 
 Each experiment directory contains a manifest with toolchain information and
 SHA-256 digests.  The saved numeric output is \computed.  The conclusion
-about arbitrary finite clutters follows only after the proved interface
-(F1)--(F5); in the final artifact this interface and the classifications are
-also checked in Lean.
+about arbitrary finite clutters follows only after
+\cref{lem:support-quotient,thm:finite-classification-completeness} and the
+branch-specific necessity lemmas.  In the final artifact the branchwise
+support/realization interfaces and the classifications are also checked in
+Lean.
 
 \clearpage
 \begin{landscape}
@@ -1025,6 +1115,16 @@ Equality 14 is Fano
 No middle total 15
 & \Cref{sec:m33-classification}; G4.11 replay
 & \path{MiddleFifteen.middle_fifteen_impossible} \\
+Support quotient and inverse expansion
+& \Cref{lem:support-quotient}; equations (S10.2)--(S10.5)
+& Worked formal instance:
+  \path{G413.threeK2_actual_support_classification};
+  \path{G413.finiteBlocker_eq_blocker} \\
+Completeness of finite classification reductions
+& \Cref{thm:finite-classification-completeness}; branch domains in
+  Sections S5--S9
+& Realized branchwise by the soundness, actual-support, and closing
+  declarations in the rows below \\
 Five-row completion in the $(7,8)$ split
 & \Cref{sec:finite-interface}, worked interface
 & \path{G413.no_kernel_completion_of_eight};
@@ -1085,17 +1185,38 @@ not claims of optimal stabilization.
 \label{sec:reproduction}
 
 The versioned artifact is available from
-\href{https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.0}
-{GitHub release v1.1.0} and
-\href{https://doi.org/10.5281/zenodo.21730916}{Zenodo DOI
-10.5281/zenodo.21730916}.  Both records identify this revision; the immutable
-v1.0.0 records remain available as the preceding version.
+\href{https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.1}
+{GitHub release v1.1.1} and
+\href{https://doi.org/10.5281/zenodo.21769438}{Zenodo DOI
+10.5281/zenodo.21769438}.  These records identify the formal-source,
+certificate, and replay snapshot used here.  The present manuscript-only
+clarifications postdate that immutable archive and do not change any Lean
+source, certificate, manifest, or executable result.
 
 From the artifact root, the two principal Lean checks are
 \begin{verbatim}
 lake build AiMathLab AiMathLab.P0054Sat7StableExact
 lake env lean Problems/P0054/formal/Main.lean
 \end{verbatim}
+The pinned formal environment is:
+\begin{center}
+\small
+\begin{tabular}{@{}ll@{}}
+Lean 4.33.0-rc1 & \texttt{62eed1db4d67327ec8120be05f1a1b0847d74561}\\
+Mathlib & \texttt{79d0395a1825a6264ad5d269e35e60537518955e}\\
+Lake & 5.0.0
+\end{tabular}
+\end{center}
+These identifiers are read from \path{lean-toolchain} and
+\path{lake-manifest.json}, rather than from an unversioned global
+installation.  The locked supporting environment
+requires Python 3.12; the reference replay for this revision used Python
+3.12.13 under uv 0.11.29.  The local source-replay environment reports Apple
+clang 21.0.0; the experiment reports preserve the exact C++17 or C++20 flags
+for each enumerator.  Compiler and interpreter versions affect
+reproducibility, but not the Lean kernel's acceptance of the exported
+theorems.
+
 The complete recorded build checks 17488 jobs.  The formal entry point prints
 the axioms of the two final declarations; the accepted list is exactly
 \code{propext}, \code{Classical.choice}, and \code{Quot.sound}.  A source

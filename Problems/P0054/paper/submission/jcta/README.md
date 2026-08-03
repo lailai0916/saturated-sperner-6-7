@@ -1,11 +1,12 @@
 # JCTA submission package
 
-Status: `PUBLIC_V1.1_ARTIFACT_VERIFIED_SUBMISSION_PENDING`
+Status: `POST_RELEASE_MANUSCRIPT_REVISION_VALIDATED_EDITOR_UPDATE_REQUIRED`
 
 This directory contains the editable Journal of Combinatorial Theory,
 Series A submission source and the author-facing submission materials for
-“The exact saturated 6- and 7-Sperner numbers”.  It is not evidence that the
-article or its artifacts have been submitted or made public.
+“The exact saturated 6- and 7-Sperner numbers”. The article was submitted on
+29 July 2026 as `JCTA-26-00415`. The revision artifacts are public; the
+revision-synchronized manuscript files still require editor-side replacement.
 
 ## Principal files
 
@@ -26,18 +27,21 @@ article or its artifacts have been submitted or made public.
 - `output/doc/P0054-declaration-of-competing-interests.docx`: separate
   competing-interest statement, stored at the repository root relative path.
 
-## Actions before final approval
+## Revision actions before final approval
 
-GitHub release `v1.1.0` and Zenodo DOI `10.5281/zenodo.21730916` identify the
-revision-synchronized artifact. Before approving a journal submission or
-arXiv upload, complete the following actions:
+GitHub release `v1.1.1` and Zenodo DOI `10.5281/zenodo.21769438` are public
+and resolving. They synchronize the professionally typeset manuscript with
+the unchanged formal-source, certificate, and replay snapshot. Before
+approving a journal revision,
+complete the following actions:
 
 - upload the revised editable manuscript source and the Supplement as two
   clearly described items;
 - compare the submission system's generated manuscript PDF with the locally
   verified reference PDF;
-- verify that the GitHub and Zenodo archives are byte-identical and match the
-  published SHA-256 sidecar;
+- retain the published GitHub and Zenodo versions as immutable records;
+- verify every revision URL and DOI, then regenerate the PDF and SHA-256
+  manifest;
 - if Elsevier's submission system requires its declarations tool, complete
   that tool and upload its generated Word document in place of, or together
   with, the locally prepared declaration;
@@ -67,13 +71,17 @@ mathematical and computational checks.
 
 ## Last local verification
 
-On 30 July 2026, the revised JCTA source, ordinary English source, Chinese
-review translation, and Supplement compiled to 16, 17, 17, and 15 pages,
-respectively.  The Supplement compiled without warnings.  The JCTA log has
-only the known `cas-sc` title-generation box/empty-anchor diagnostics; visual
-inspection found no corresponding page overflow.
+On 2 August 2026, the revised JCTA source, ordinary English source, Chinese
+review translation, and Supplement compiled to 16, 17, 17, and 16 pages,
+respectively.  The first JCTA page is the CAS Highlights page; the numbered
+manuscript occupies the remaining 15 pages.  The Supplement compiled without
+warnings.  The JCTA log has only the known `cas-sc` title-generation
+box/empty-anchor diagnostics, including the same 117.0831-point box diagnostic
+reproduced by a minimal official-template test; visual inspection found no
+corresponding page overflow.
 
-The fourth-pre-review verification gates passed on the same date:
+The post-release manuscript-revision verification gates passed on the same
+date:
 
 - the two-target Lake check found all 17,488 jobs current, and the independent
   `Problems/P0054/formal/Main.lean` entry point accepted both exact theorems;
@@ -81,9 +89,10 @@ The fourth-pre-review verification gates passed on the same date:
   `Quot.sound`, while the forbidden-construct scan returned zero matches;
 - PDF text extraction found no literal `quad`, unresolved references, or
   undefined citations, and every page was visually inspected;
-- the revision-matched arXiv source package compiled to the same 16-page PDF;
-  and
-- the six JCTA submission outputs passed their regenerated SHA-256 manifest.
+- the regenerated arXiv main source is byte-identical to the canonical English
+  manuscript, its extracted PDF text matches the canonical PDF, and the
+  current Supplement is included as 16-page ancillary material; and
+- the seven JCTA submission outputs passed their regenerated SHA-256 manifest.
 
 The authoritative `Problems/P0054/release/verify-core.sh` replay also passed
 the same two-target Lake gate, the independent `Main.lean` check,
@@ -94,7 +103,7 @@ failure returned exit code 42 and emitted `FAIL`, rather than a false pass.
 The synchronized review-package directory passes `verify-integrity.sh`; its
 top-level `verify-core.sh` is byte-identical to the tested authoritative
 script. A new default-path empty-cache package replay was not repeated after
-this document-only fourth-round change. An external DRAT-trim executable was
+this manuscript-only change. An external DRAT-trim executable was
 not available for a new nine-proof replay; the archive preserves the earlier
 independent acceptance logs and states both limitations explicitly.
 
@@ -102,8 +111,9 @@ The supporting Python tests, construction replays, fixed-package integrity
 check, and nine archived DRAT replays last passed on 29 July 2026.  Their
 sources and certificates were not changed by this document-facing revision.
 
-The hashes in `submission-output.sha256` bind the rendered files containing
-the revision DOI and release URL.
+The hashes in `submission-output.sha256` bind the rendered files after the
+revision DOI was inserted. The immutable public `v1.1.1` release is the
+manuscript-synchronized proof-artifact snapshot; `v1.1.0` remains unchanged.
 
 Repository-wide Ruff and Mypy still report diagnostics in pre-existing,
 untracked certificate-generator scripts; Ruff also repeats those diagnostics

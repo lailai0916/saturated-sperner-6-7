@@ -76,8 +76,8 @@ Problems/P0054/release/verify-core.sh
 - `scripts/`、`tests/`：生成器、语义验证器和回归测试。
 
 超过 GitHub 普通文件上限的 DRAT 轨迹不进入源码 Git 历史。本轮对应的源码、PDF
-和九组 CNF/DRAT 文件发布于 [版本 `v1.1.0`](https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.0)，
-并以 [Zenodo DOI `10.5281/zenodo.21730916`](https://doi.org/10.5281/zenodo.21730916)
+和九组 CNF/DRAT 文件发布于 [版本 `v1.1.1`](https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.1)，
+并以 [Zenodo DOI `10.5281/zenodo.21769438`](https://doi.org/10.5281/zenodo.21769438)
 归档。旧 `v1.0.0` 与 DOI `10.5281/zenodo.21679078` 仍作为不可变历史版本保留。
 完整性边界见 [`artifacts/README.md`](artifacts/README.md)。
 纯源码克隆中有五项逐字节归档测试会明确显示为跳过；将归档文件放回对应路径后，
@@ -86,5 +86,5 @@ Problems/P0054/release/verify-core.sh
 ## 引用与许可证
 
 引用信息见 [`CITATION.cff`](CITATION.cff)。本修订 DOI 为
-[`10.5281/zenodo.21730916`](https://doi.org/10.5281/zenodo.21730916)。
+[`10.5281/zenodo.21769438`](https://doi.org/10.5281/zenodo.21769438)。
 代码与形式化源码采用 Apache-2.0 许可证。
