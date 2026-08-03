@@ -163,8 +163,8 @@ the manuscript makes no claim about the first unknown case `k=8`.
   human response from Elsevier Researcher Support.
 - arXiv submission `7884979` is configured for `math.CO` but remains blocked
   by category endorsement.
-- The clean 17-page preprint and upload archive are under
-  `output/arxiv/P0054-arxiv-clean-2026-08-01/`. The 16-page Supplement is
+- The clean 16-page preprint and upload archive are under
+  `output/arxiv/P0054-arxiv-clean-2026-08-03/`. The 16-page Supplement is
   included as ancillary material.
 - GitHub release `v1.1.2` and Zenodo DOI `10.5281/zenodo.21770438` identify the
   synchronized manuscript, Lean, certificate, and replay snapshot. The
