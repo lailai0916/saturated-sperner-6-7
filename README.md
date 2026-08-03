@@ -93,8 +93,8 @@ they are intentionally not represented as fully type-annotated modules.
 
 The source repository omits large DRAT traces that exceed ordinary GitHub file
 limits. The revision-synchronized source, PDFs, and nine CNF/DRAT pairs are
-published as [release `v1.1.1`](https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.1)
-and archived under [Zenodo DOI `10.5281/zenodo.21769438`](https://doi.org/10.5281/zenodo.21769438).
+published as [release `v1.1.2`](https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.2)
+and archived under [Zenodo DOI `10.5281/zenodo.21770438`](https://doi.org/10.5281/zenodo.21770438).
 Earlier releases and version DOIs remain immutable historical versions.
 See [`artifacts/README.md`](artifacts/README.md) for the integrity boundary.
 In a source-only clone, five archive-byte tests are reported as skipped. After
@@ -107,4 +107,4 @@ hard test failure.
 Machine-readable citation metadata is in [`CITATION.cff`](CITATION.cff). The
 software and formalization sources are released under the Apache License 2.0;
 see [`LICENSE`](LICENSE). The DOI for this revision is
-[`10.5281/zenodo.21769438`](https://doi.org/10.5281/zenodo.21769438).
+[`10.5281/zenodo.21770438`](https://doi.org/10.5281/zenodo.21770438).

@@ -1,14 +1,14 @@
 # Public artifact inventory
 
-Status: `PUBLIC_V1.1.1_PAYLOAD_VERIFIED`
+Status: `PUBLIC_V1.1.2_PAYLOAD_VERIFIED`
 
-The v1.1.1 payload synchronizes the professionally typeset manuscript with the
+The v1.1.2 payload synchronizes the professionally typeset manuscript with the
 unchanged formalization and certificate snapshot. The release archive is:
 
-- local path: `output/release/P0054-artifacts-v1.1.1.tar.gz`
+- local path: `output/release/P0054-artifacts-v1.1.2.tar.gz`
 - SHA-256: recorded in the adjacent `.sha256` sidecar after archive creation;
 - integrity sidecar:
-  `output/release/P0054-artifacts-v1.1.1.tar.gz.sha256`
+  `output/release/P0054-artifacts-v1.1.2.tar.gz.sha256`
 
 Its top-level verification interface consists of:
 
@@ -33,6 +33,6 @@ not repeated after the fourth-round document-only changes.
 the package records this limitation and retains the nine earlier independent
 acceptance logs without describing them as a new replay.
 
-The archive and sidecar are published unchanged on GitHub release `v1.1.1`
-and Zenodo DOI `10.5281/zenodo.21769438`. If any payload byte changes, it must
+The archive and sidecar are published unchanged on GitHub release `v1.1.2`
+and Zenodo DOI `10.5281/zenodo.21770438`. If any payload byte changes, it must
 be released under a new version rather than replacing these immutable files.

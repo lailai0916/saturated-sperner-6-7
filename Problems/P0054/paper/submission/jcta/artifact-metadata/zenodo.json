@@ -1,7 +1,7 @@
 {
   "title": "Artifacts for The exact saturated 6- and 7-Sperner numbers",
   "upload_type": "software",
-  "description": "Revision-synchronized Lean 4 formalization, manuscript and Supplement sources, exact-search programs, construction verifiers, certificate generators, CNF instances, DRAT proofs, verification scripts, manifests, checksums, tests, and locked dependency metadata supporting the exact eventual saturated 6- and 7-Sperner numbers.",
+  "description": "Exposition-revised manuscript and Supplement sources, Lean 4 formalization, exact-search programs, construction verifiers, certificate generators, CNF instances, DRAT proofs, verification scripts, manifests, checksums, tests, and locked dependency metadata supporting the exact eventual saturated 6- and 7-Sperner numbers.",
   "creators": [
     {
       "name": "Chen, Jiazhi",
@@ -11,7 +11,7 @@
   ],
   "access_right": "open",
   "license": "Apache-2.0",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "keywords": [
     "saturated Sperner family",
     "Boolean lattice",
@@ -20,5 +20,5 @@
     "SAT certificate",
     "Lean 4"
   ],
-  "notes": "Published as Zenodo record 21769438 and linked to GitHub release https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.1. Earlier versions remain immutable."
+  "notes": "Published as Zenodo record 21770438 and linked to GitHub release https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.2. This patch revises exposition only; earlier versions remain immutable."
 }

@@ -12,7 +12,7 @@ revision-synchronized manuscript files still require editor-side replacement.
 
 - `manuscript.tex`, `references.bib`: editable Elsevier CAS source.
 - `supplement.tex`: editable source for the separately submitted
-  “Supplementary proofs and verification dossier”.
+  “Supplementary proofs and verification”.
 - `highlights.txt`: five highlights, each no longer than 85 characters.
 - `cover-letter.md`: author-confirmed final cover letter.
 - `output/doc/P0054-JCTA-cover-letter.docx`: typeset Word version of the
@@ -29,7 +29,7 @@ revision-synchronized manuscript files still require editor-side replacement.
 
 ## Revision actions before final approval
 
-GitHub release `v1.1.1` and Zenodo DOI `10.5281/zenodo.21769438` are public
+GitHub release `v1.1.2` and Zenodo DOI `10.5281/zenodo.21770438` are public
 and resolving. They synchronize the professionally typeset manuscript with
 the unchanged formal-source, certificate, and replay snapshot. Before
 approving a journal revision,
@@ -112,7 +112,7 @@ check, and nine archived DRAT replays last passed on 29 July 2026.  Their
 sources and certificates were not changed by this document-facing revision.
 
 The hashes in `submission-output.sha256` bind the rendered files after the
-revision DOI was inserted. The immutable public `v1.1.1` release is the
+revision DOI was inserted. The immutable public `v1.1.2` release is the
 manuscript-synchronized proof-artifact snapshot; `v1.1.0` remains unchanged.
 
 Repository-wide Ruff and Mypy still report diagnostics in pre-existing,

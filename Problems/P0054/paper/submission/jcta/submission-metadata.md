@@ -16,8 +16,8 @@
   finite-domain reduction, independent replay counts, and a
   theorem–proof–program–Lean crosswalk.”
 - GitHub release:
-  `https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.1`
-- Zenodo version DOI: `10.5281/zenodo.21769438`
+  `https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.2`
+- Zenodo version DOI: `10.5281/zenodo.21770438`
 - Funding: No specific grant from public, commercial, or not-for-profit
   funding agencies
 - Competing interests: None declared
@@ -51,7 +51,7 @@ Validation; Writing — original draft; Writing — review and editing.
 
 ## Submission-system checks
 
-- The public GitHub `v1.1.1` URL and Zenodo version DOI resolve to the
+- The public GitHub `v1.1.2` URL and Zenodo version DOI resolve to the
   synchronized manuscript, formal-source, certificate, and replay archive.
   **Verified 3 August 2026.**
 - The final AI-assisted-technologies declaration accurately describes the

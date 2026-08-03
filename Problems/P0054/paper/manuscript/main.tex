@@ -58,27 +58,24 @@
 \maketitle
 
 \begin{abstract}
-We determine the eventual saturated 6- and 7-Sperner numbers.  A finite
-canonical-reduction theorem makes the homogeneous-atom threshold and every
-ground-set hypothesis explicit.  It reduces the lower bounds to mutual
-blocker pairs on arbitrary finite ground sets.  We prove the exact local
-values $m(2,3)=9$, $m(2,4)=12$, and $m(3,3)=14$.  The first gives
-$\sat(6)=30$.  At seven layers, the equality classification for $m(3,3)$ and
-the adjacent-layer interfaces exclude totals 52 and 53 and reduce total 54 to
-two profiles.  Exact branch arguments and independently replayed finite
-kernel enumerations exclude the Fano profile and all middle splits $(5,11)$,
-$(6,10)$, $(7,9)$, and $(8,8)$, together with their blocker duals.  Hence
-$\sat(7)\geq55$.  An explicit 55-member family over an eight-element core and
-a disjoint homogeneous atom gives equality.
-Its small/large split is $28/27$, so composition also yields
+We determine the eventual minimum sizes of saturated 6- and 7-Sperner
+families, proving $\sat(6)=30$ and $\sat(7)=55$.  The lower bounds begin with
+a finite canonical reduction.  Once a homogeneous atom is present,
+consecutive layers determine mutual blocker pairs on an arbitrary finite
+trace ground set.  The exact values $m(2,3)=9$, $m(2,4)=12$, and
+$m(3,3)=14$ settle the six-layer case and give the initial seven-layer
+profile.  At seven layers, the equality case for $m(3,3)$ is the Fano plane.
+Its adjacent layers, together with a finite classification of the remaining
+middle blocker pairs, exclude sizes at most 54 in the stable range.  A matching
+55-member construction uses an eight-element core and a disjoint homogeneous
+atom.  Its small/large split is $28/27$, and composition gives
 \[
   \sat(5j+2+s)\leq 2^s(28^j+27^j)
   \qquad(j\geq1,\ 0\leq s\leq4).
 \]
-Both eventual equalities are also formalized in Lean 4 as attainment-and-
-optimality statements on every sufficiently large labelled ground set.  A
-certificate-checked encoding separately proves that 56 is optimal only within
-the analogous seven-core layered template class.
+The arbitrary-ground arguments and both exact values have also been
+formalized in Lean 4.  The finite classifications enter through proved
+reductions from arbitrary finite blocker pairs.
 \end{abstract}
 
 \noindent\textbf{Keywords:} saturated Sperner family; Boolean lattice;
@@ -87,59 +84,48 @@ blocker; extremal set theory; SAT certificate; Lean 4
 \section{Introduction}
 
 Let $X$ be a finite set.  A family $\family\subseteq\powerset(X)$ is
-$k$-Sperner when it contains no strict chain of length $k+1$, and it is
-saturated when adjoining any subset outside $\family$ creates such a chain.
-The corresponding minimum size, denoted $\sat(n,k)$ when $|X|=n$, asks for a
-family that is simultaneously chain-free and maximal with respect to this
-property.
+$k$-Sperner if it contains no strict chain of length $k+1$.  It is saturated
+if adjoining any missing subset creates such a chain.  Write $\sat(n,k)$ for
+the minimum size when $|X|=n$.  The chain condition alone is local, but
+saturation is not: every omitted subset must acquire a place in a forbidden
+chain after it is added.
 
-Thus, the number 55 counts selected subsets, not points of the ground set.
-The difficulty is maximality: every one of the many omitted subsets must
-become part of a forbidden eight-term chain as soon as it is adjoined.
+Gerbner et al.~\cite{gerbner2013} proved that this minimum stabilizes for each
+fixed $k$ once the ground set is sufficiently large.  We denote the eventual
+value by $\sat(k)$.  Morrison, Noel, and Scott~\cite{mns2014} developed
+layered constructions from saturated antichains and obtained a 30-member
+construction for six layers.  Their composition operation also converts one
+small construction into upper bounds for infinitely many parameters.
 
-Gerbner et al.~\cite{gerbner2013} initiated the systematic study of these
-minimum saturated families and proved, among other structural results, that
-the value stabilizes when the ground set is sufficiently large for fixed $k$.
-The eventual value is denoted $\sat(k)$.  Morrison, Noel, and
-Scott~\cite{mns2014} developed a layered construction from saturated antichains and
-a composition operation that turns an efficient construction for one value of
-$k$ into upper bounds for larger values.
+Martin and Veldt~\cite{martinveldt2025} used the same framework to construct a
+56-member saturated 7-Sperner family and asked whether it was optimal.  The
+construction gives the composition bound $2^{s+1}28^j$ at parameter
+$5j+2+s$.  A later machine-learning search found a 108-member saturated
+8-Sperner family~\cite{patternboost}, but it does not settle the seven-layer
+problem.
 
-Martin and Veldt~\cite{martinveldt2025} used this framework to construct a
-56-member saturated 7-Sperner family.  Their construction improved the
-composition factor available at $k=7$ and led to the upper bound
-$2^{s+1}28^j$ at parameter $5j+2+s$.  They explicitly asked whether
-$\sat(7)=56$ or a smaller construction exists.  The same paper records that a
-smaller value appearing in early preprint versions was erroneous.  A separate
-machine-learning search later produced a 108-member saturated 8-Sperner
-family~\cite{patternboost}; that result changes the leading asymptotic bound
-but does not answer the question at $k=7$.
+We prove that the six- and seven-layer values are 30 and 55.  The common
+starting point is a finite canonical reduction.  Its consecutive layers
+produce mutual blocker pairs, so lower bounds for saturated families become
+small extremal problems for clutters.  The identities
+$m(2,3)=9$, $m(2,4)=12$, and $m(3,3)=14$ settle six layers and force a narrow
+set of profiles at seven layers.  The equality case of $m(3,3)$ is governed
+by the Fano plane.  Analysing its adjacent layers rules out the smallest
+profiles, and the remaining 54-member case reduces to four middle splits.
 
-A bounded pre-submission search, last refreshed on 30 July 2026, found no
-public equivalent of either exact value in the recorded bibliographic
-databases, citation graph, directly relevant full texts, or public code
-search.  This negative search is not a proof of novelty or priority.
+The matching construction consists of seven saturated antichains over an
+eight-element core and a common homogeneous atom.  Each layer is certified by
+a simple maximal-avoidance rule, while a predecessor list records the
+layering.  The resulting family has 28 small and 27 large members.  This
+asymmetry gives a strict improvement over the earlier $28/28$ composition
+factor for every finite iterate.
 
-The mathematical argument has four stages.  First,
-\cref{thm:canonical-reduction} states the finite canonical reduction with its
-exact incidence threshold.  Second, \cref{thm:m23,thm:m24,thm:m33} establish
-the local blocker bounds.  They give $\sat(6)=30$ and the seven-layer baseline
-$(1,6,12,14,12,6,1)$; \cref{thm:m33-classification-main} separately records
-the equality and one-slack classification.  Third, \cref{sec:exact-seven}
-excludes totals 52, 53, and 54.  Fourth, \cref{sec:construction} gives a
-55-member construction.  Together these results prove $\sat(7)=55$.
-
-The upper-bound construction has two short, inspectable certificates.  For
-each layer, the large core sets are precisely the inclusion-maximal sets that
-avoid all small core members.  A general lemma proves saturation, and an
-explicit predecessor list proves layering.  A direct finite-ground verifier
-and Lean 4 check its concrete eleven-point realization.  The Lean development
-also formalizes the arbitrary-ground lower-bound chain and exports the two
-eventual exact statements.  Separately, a DRAT-certified encoding proves that
-56 is optimal inside the seven-core version of the same template class.  That
-class result is not a global lower bound.  The accompanying Supplement gives
-the arbitrary-finite interfaces, every finite search domain, one complete
-worked reduction path, and a theorem--program--Lean crosswalk.
+Some of the middle-blocker classifications are finite but too long to print
+case by case.  The Supplement proves the reductions from arbitrary finite
+clutters, describes the finite domains, and gives a worked example.  The
+exact-value arguments are also formalized in Lean 4.  Direct verifiers and a
+DRAT proof provide separate checks of the construction and the seven-core
+template class.
 
 \section{Preliminaries}
 \label{sec:preliminaries}
@@ -700,15 +686,14 @@ of $\sat(7)$.
 \section{Excluding 54 members}
 \label{sec:exact-seven}
 
-We now refine the lower bound.  Let
+We now sharpen the lower bound.  Let
 $\mathcal A_0,\ldots,\mathcal A_6$ be the canonical layers of a minimum
 family on a stable ground set with a homogeneous atom.  For an internal layer,
 write $\mathcal S_i$ for its small traces and $\mathcal C_i$ for the
 complements of its large traces, as in \cref{thm:canonical-reduction}.
-The accompanying file \emph{Supplementary proofs and verification dossier}
-is cited below as the Supplement.  It states the arbitrary-finite interfaces,
-defines the finite search domains, works through one complete reduction path,
-and gives the theorem--program--Lean crosswalk.
+We refer to the accompanying \emph{Supplementary proofs and verification}
+as the Supplement.  It contains the longer arbitrary-finite reductions and
+one worked path from a blocker pair to a finite classification.
 
 \begin{theorem}[Middle blocker lower bound]
 \label{thm:m33}
@@ -740,17 +725,14 @@ with itself.  No admissible pair has total cardinality 15.
 \end{theorem}
 
 \begin{proof}
-Section S3 of the Supplement gives the equality and one-slack reductions.  In
-the equality analysis, the asymmetric splits are excluded by the residual
-and support arguments.  The central $(7,7)$ split has the Fano incidence
-pattern, and blocker involution fixes the opposite side.  Repeating the
-reduction with one slack row excludes every split of total 15.  The
-support-quotient lemma and the finite-classification completeness theorem in
-Section S10 prove that the finite multiplicity domains cover every
-arbitrary-finite input pair while retaining inactive points, parallel actual
-points, repeated incidence patterns, and nonuniform rows.  The Supplement
-states each finite domain and its independent replay; the corresponding Lean
-theorems quantify over the original arbitrary finite ground type.
+Section S3 of the Supplement gives the equality and one-slack reductions.
+Residual and support arguments exclude the asymmetric equality splits.  The
+central $(7,7)$ split has the Fano incidence pattern, and blocker involution
+fixes the opposite side.  Repeating the reduction with one slack row excludes
+every split of total 15.  The quotient and inverse-expansion results in
+Section S10 cover inactive points, parallel points, repeated incidence
+patterns, and nonuniform rows.  Thus the classification applies to the
+original arbitrary finite ground set.
 \end{proof}
 
 \begin{proposition}[Canonical profile reduction]
@@ -868,18 +850,13 @@ second branch have at least four pair blockers, contradicting the bound three.
 \label{tab:exact-splits}
 \end{table}
 
-Each finite domain in \cref{tab:exact-splits} follows from row count, private
-witnesses, point-degree bounds, and support minimization; no finite bound on
-the original trace ground set is assumed.  Sections S5--S10 of the Supplement
-prove these reductions.  In particular, its support-quotient lemma and
-finite-classification completeness theorem give the forward encoding and
-inverse expansion for an arbitrary finite blocker pair.  After that proved
-reduction, C++ enumerators and independent Python implementations replay the
-same finite kernels and saved semantic counts; these are \texttt{COMPUTED}
-cross-checks, not the source of the universal conclusion.  Lean proves the
-soundness, realization, and branch-exclusion lemmas that connect those finite
-domains to the original clutters.  Thus all four splits and their blocker
-duals are impossible.  The forced three-point row has nowhere to occur,
+Row counts, private witnesses, degree bounds, and support minimization produce
+the finite domains in \cref{tab:exact-splits}.  Sections S5--S10 of the
+Supplement prove that the quotient has an inverse expansion to every
+arbitrary finite blocker pair.  Independent C++ and Python programs check the
+resulting kernels, and Lean connects these checks to the original clutters by
+soundness and realization lemmas.  All four splits and their blocker duals
+are therefore impossible.  The forced three-point row has nowhere to occur,
 excluding $P_{16}$.
 \end{proof}
 
@@ -943,10 +920,9 @@ because the larger part still has size 28.
 \section{Seven-core class optimality}
 \label{sec:class-optimality}
 
-The 55-member construction uses an eight-element core.  We also tested whether
-the analogous seven-core template class can contain 55 members.  The next
-result is computer-assisted and has a deliberately narrower scope than
-\cref{thm:size55}.
+The 55-member construction uses an eight-element core.  The analogous
+seven-core template class has a different optimum.  The next proposition is
+computer-assisted and concerns only that class.
 
 \begin{proposition}[Certificate-backed class optimum]
 \label{prop:class-optimum}
@@ -986,48 +962,26 @@ and it does not require the Fano-plane pattern.  Nevertheless,
 or systems without a common block, and therefore gives no global lower bound
 on $\sat(7)$.
 
-\section{Independent verification and formalization}
+\section{Formal and computational verification}
 \label{sec:verification}
 
-The discovery computations, independently replayed certificates, and Lean
-formalization have different logical roles.  The proof of
-\cref{thm:size55} is the structural argument from
-\cref{lem:maximal-free} and the displayed certificates; it does not trust the
-SAT solver used to discover the family.  Four redundant exact checks were
-also performed.
+The construction and the lower bound use computation in different ways.  For
+the construction, a symbolic program checks all $3\cdot2^8=768$ core/block
+signatures in each layer.  Three further checks use the full powerset of an
+eleven-point realization, two of them testing the 55-member union by
+independent algorithms.  All four accept the family in \cref{tab:layers}.
+They also locate the failed layer in the withdrawn 54-member preprint family.
 
-\begin{enumerate}[leftmargin=*]
-  \item A symbolic verifier checks all $3\cdot2^8=768$ core/block signatures
-        for every layer.
-  \item Expanding $H$ to three points gives an eleven-element ground set; a
-        second verifier checks each layer on the full powerset.
-  \item An integer-bitmask dynamic program checks that the 55-set union has no
-        chain of length eight and checks a witness after adjoining each of the
-        other 1993 ground subsets.
-  \item A separately implemented set/DAG verifier repeats the union-level
-        check without sharing the bitmask dynamic program.
-\end{enumerate}
+Lean 4~\cite{lean4} and Mathlib~\cite{mathlib2020} verify the concrete
+eleven-point realization.  The formal theorem states that the family has 55
+members, is 7-Sperner, and is saturated.  Its saturation table covers all
+$2^{11}=2048$ masks.  This finite theorem complements the direct proof of
+\cref{thm:size55}, which works for every $|H|>2$.
 
-All four checks accept the same semantic family; its SHA-256 identifier is
-recorded in the supplementary computational certificate.
-As a negative control, they reject the withdrawn 54-member preprint family at
-its third layer, with core set $\{2,3,6\}$ uncovered.
-
-The concrete eleven-element realization was formalized in Lean
-4~\cite{lean4} using Mathlib~\cite{mathlib2020}.  Lean proves that the explicit
-family has cardinality 55, is 7-Sperner, and is saturated.  Saturation is
-checked through a frozen table covering all $2^{11}=2048$ masks: 55 member
-rows and 1993 external rows containing a strict chain of length eight after
-insertion.  The table is divided into 32 kernel-reduced blocks.  This theorem
-covers the concrete case $H\cong[3]$; the arbitrary-$H$ construction in
-\cref{thm:size55} is proved independently by the maximal-small-free argument.
-
-The final Lean development goes beyond this concrete certificate and
-formalizes both eventual exact values.  Its central predicate is not a
-numeric function evaluated by Lean.  Writing
-$\operatorname{Sat}_k(\mathcal F)$ for the assertion that $\mathcal F$ is a
-saturated $k$-Sperner family, the proposition
-\texttt{IsStableSaturationNumber k s} expands to
+The main Lean development formalizes the eventual exact values themselves.
+Writing $\operatorname{Sat}_k(\mathcal F)$ for the assertion that
+$\mathcal F$ is a saturated $k$-Sperner family, the Lean predicate for
+stability expands to
 \[
   \exists N\ \forall n\geq N,\quad
   \left(\exists\mathcal F\subseteq\powerset([n]),
@@ -1036,144 +990,71 @@ saturated $k$-Sperner family, the proposition
   \left(\forall\mathcal F\subseteq\powerset([n]),
     \operatorname{Sat}_k(\mathcal F)\ \Longrightarrow\ s\leq|\mathcal F|\right).
 \]
-Thus the proposition contains, after one threshold, both an upper-bound
-witness and a universal lower bound on every labelled ground
-\texttt{Fin n}.  In their respective stable-exact namespaces, the two
-exported declarations are
+Thus it contains both attainment and a universal lower bound on every
+sufficiently large labelled ground set.  The two exported declarations are
 \begin{quote}\small\ttfamily
 sat\_six\_eq\_thirty : IsStableSaturationNumber 6 30\\
 sat\_seven\_eq\_fifty\_five : IsStableSaturationNumber 7 55.
 \end{quote}
-The predicate is defined in
-\nolinkurl{AiMathLab/SaturatedSperner/StableSaturation.lean}.  The fully
-qualified declarations, neither of which has hypotheses, are
-\begin{quote}\small
-\texttt{AiMathLab.P0054.Sat6StableExact.}\allowbreak
-\texttt{sat\_six\_eq\_thirty}\\
-\texttt{AiMathLab.P0054.Sat7StableExact.}\allowbreak
-\texttt{sat\_seven\_eq\_fifty\_five}.
-\end{quote}
-The Supplement crosswalk lists their lower-bound,
-construction, classification, soundness, and realization dependencies.
 
-For six layers, the formal proof combines a parameterized 30-member
-construction with the arbitrary-finite theorem $m(2,3)=9$, homogeneous-atom
-existence, canonical decomposition, and the resulting layer sum.  For seven
-layers, it combines the parameterized 55-member construction with the
-canonical profile reduction, the Fano-adjacent exclusion, and every middle
-split of total 16.  In particular, the Fano, $(5,11)$, $(6,10)$, $(7,9)$,
-and $(8,8)$ branches and their blocker duals now occur in the dependency graph
-of the exported exact theorem.  The earlier local theorem
-\texttt{no\_kernel\_completion\_of\_eight} is the arbitrary-finite five-row
-component of the total-fifteen $(7,8)$ branch used before the total-sixteen
-classification.
+For six layers, the formal proof combines the 30-member construction with the
+arbitrary-finite theorem $m(2,3)=9$, homogeneous-atom existence, canonical
+decomposition, and the layer sum.  For seven layers, it combines the
+55-member construction with the canonical profile reduction, the
+Fano-adjacent exclusion, and the four middle splits of total 16.  The formal
+reduction includes the quotient and inverse-expansion maps needed for
+arbitrary finite clutters.
 
-The finite branches in \cref{prop:canonical-profiles,prop:exclude54} retain a
-separate manifest-bound trust chain.  The three manifests for the 52-, 53-,
-and 54-member reductions bind every proof, source, and output object by
-SHA-256.  Every saved enumeration was replayed, and independent
-implementations agreed on the semantic counts.  In Lean, executable checks
-are connected to the mathematical statements by proved soundness and
-realization lemmas; a raw search result is never used as an unproved theorem.
-
-For the larger finite classifications, the prose in the main text and
-Supplement is a proof architecture rather than a line-by-line standalone
-enumeration proof.  The primary proof objects are the Lean declarations named
-in the Supplement crosswalk.  They formalize the reduction from arbitrary
-finite clutters, the finite support domains, the inverse realization maps, and
-the branch exclusions.  The C++ and Python replays are independent
-\texttt{COMPUTED} checks of the same finite domains; they do not supply the
-universal conclusions by themselves.  The Supplement gives one complete
-worked path through this interface.
-
-The checked environment is pinned as follows:
-\begin{center}
-\small
-\begin{tabular}{@{}ll@{}}
-Lean 4.33.0-rc1 & \texttt{62eed1db4d67327ec8120be05f1a1b0847d74561}\\
-Mathlib & \texttt{79d0395a1825a6264ad5d269e35e60537518955e}
-\end{tabular}
-\end{center}
-The revisions are read from \nolinkurl{lean-toolchain} and
-\nolinkurl{lake-manifest.json}.  The complete
-exact-value chain first closed on 27 July 2026 and was revalidated after the
-present revision on 31 July 2026.  The full Lake build
-reported successful completion of 17,488 jobs, and the independent
-entry point \nolinkurl{Problems/P0054/formal/Main.lean} checked both exact
-theorems successfully.  For the exported exact statements,
-\texttt{\#print axioms} reports only \texttt{propext},
-\texttt{Classical.choice}, and \texttt{Quot.sound}.  A source-wide scan of
-the Lean files found zero occurrences of \texttt{sorry}, \texttt{admit}, an
-\texttt{axiom} declaration, \texttt{unsafe}, \texttt{native\_decide}, or
-\texttt{run\_tac}.
-
-We use three evidence labels throughout the project.  \texttt{COMPUTED}
-denotes discovery searches and redundant semantic replays that are not, by
-themselves, proof dependencies.  \texttt{PROVED} denotes arguments written out
-in the article or independently checked proof certificates for their stated
-finite encodings.  A compressed enumeration summary is not thereby a
-standalone \texttt{PROVED} arbitrary-finite theorem.  \texttt{FORMALIZED}
-denotes statements accepted by the Lean kernel, including $m(2,3)=9$,
-$m(2,4)=12$, the concrete 55-member certificate, the branch exclusions, and
-the two eventual exact values.  These labels concern logical support; none
-establishes novelty, priority, or independent peer review.
+The longest finite classifications are not reproduced line by line in the
+article.  Their Lean declarations prove the support reductions, realization
+maps, and branch exclusions.  Independent C++ and Python programs check the
+same finite kernels.  The Supplement gives the precise correspondence among
+the mathematical lemmas, programs, and Lean declarations.  The archived
+artifact fixes the Lean and Mathlib revisions and supplies a complete build
+recipe.
 
 \section{Discussion and open problems}
 
-The construction and exclusion theorem answer the numerical question posed by
-Martin--Veldt: the eventual value is 55.  The construction's asymmetry is
-useful under composition.  Although replacing the split $28/28$ by $28/27$
-does not change the leading asymptotic exponent, it improves every finite
-bound in \cref{cor:discrete-bound}.
+The construction and lower bound answer the question of Martin--Veldt: the
+eventual seven-layer value is 55.  Replacing the symmetric split $28/28$ by
+$28/27$ does not change the leading asymptotic exponent, but it improves every
+finite bound in \cref{cor:discrete-bound}.
 
-The seven-core class result gives a limited structural explanation for why the
-published family could not simply be optimized within its original core size:
-the complete common-block layered template class on seven core points has
-minimum 56.  The 55-member family escapes by using an eighth core point.  This
-does not imply that every smaller global construction must use eight core
-points or even admit a homogeneous-block description.
+The seven-core class result explains one obstruction to improving the earlier
+construction in place.  Its common-block template class has minimum 56, while
+the new family uses an eighth core point.  Other 55-member families need not
+share this template or even have a homogeneous-block description.
 
-The exact six-layer value closes the gap left by the published 30-member
-construction.  Its blocker proof is independent of the finite
-incidence-pattern search, which serves only as a regression and
-counterexample check.
-
-For the largest classifications, the named Lean declarations are the primary
-proof objects, while the paper supplies the mathematical reduction and a path
-for reconstructing their interfaces.  Kernel acceptance does not replace
-human scrutiny of those reductions and interfaces.
-The first unresolved numerical case is $\sat(8)$.  The methods here supply
-reusable blocker reductions but do not determine that value or a general
-formula for $\sat(k)$.
+The same blocker viewpoint closes the six-layer gap left by the known
+30-member construction.  More broadly, it separates the stable lower-bound
+problem into local questions about consecutive canonical layers.  At seven
+layers these local questions remain small enough for exact classification.
+The first unresolved value is $\sat(8)$, where new blocker estimates or new
+structure will be needed.
 
 \par\medskip\noindent\textbf{Supplementary material.}\quad
-The separately submitted PDF \emph{Supplementary proofs and verification
-dossier} supplies the arbitrary-finite blocker interfaces, a worked
-finite-domain reduction, independent replay counts, and a
-theorem--proof--program--Lean crosswalk.
+The separately submitted PDF \emph{Supplementary proofs and verification}
+contains the longer blocker reductions, finite-domain proofs, computational
+checks, and their correspondence with the Lean development.
 
 \section*{Reproducibility and declarations}
 \addcontentsline{toc}{section}{Reproducibility and declarations}
 
 \par\medskip\noindent\textbf{Data and code availability.}\quad
-This work is theoretical and does not generate or analyse empirical datasets.
-The supporting artifact package contains the proofs, exact blocker searches,
-construction verifiers, CNF generator, DRAT certificates and manifest, Lean
-sources, tests, and locked dependencies.  This revision is available from
+This work is theoretical and uses no empirical data.  Proofs, search programs,
+construction verifiers, certificates, Lean sources, and build instructions
+are included in the supporting artifact.  The artifact is available from
 GitHub release
-\href{https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.1}
-{v1.1.1} and is archived on Zenodo under DOI
-\href{https://doi.org/10.5281/zenodo.21769438}{10.5281/zenodo.21769438}.
+\href{https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.2}
+{v1.1.2} and is archived on Zenodo under DOI
+\href{https://doi.org/10.5281/zenodo.21770438}{10.5281/zenodo.21770438}.
 
 \par\medskip\noindent\textbf{Declaration of generative AI and AI-assisted
 technologies in the manuscript preparation process.}\quad
-During the preparation of this work, the author used OpenAI Codex for
-literature-query design, proof and code drafting, verification orchestration,
-and language editing.  After using this tool, the author reviewed and edited
-the content as needed and takes full responsibility for the content of the
-publication.  The mathematical claims rely on the displayed arguments,
-independently replayable certificates, direct verifiers, and Lean kernel
-acceptance rather than on model output.
+OpenAI Codex assisted with literature-search planning, proof development,
+code drafting, verification, and language editing.  The author checked the
+mathematical claims, code, and references and takes responsibility for the
+final article.
 
 \par\medskip\noindent\textbf{Funding.}\quad
 This research did not receive any specific grant from funding agencies in the

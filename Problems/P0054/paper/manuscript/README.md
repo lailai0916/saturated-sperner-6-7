@@ -166,7 +166,7 @@ the manuscript makes no claim about the first unknown case `k=8`.
 - The clean 17-page preprint and upload archive are under
   `output/arxiv/P0054-arxiv-clean-2026-08-01/`. The 16-page Supplement is
   included as ancillary material.
-- GitHub release `v1.1.1` and Zenodo DOI `10.5281/zenodo.21769438` identify the
+- GitHub release `v1.1.2` and Zenodo DOI `10.5281/zenodo.21770438` identify the
   synchronized manuscript, Lean, certificate, and replay snapshot. The
   preceding `v1.1.0` record remains an immutable historical version.
 - After arXiv publication, add its identifier to ORCID, GitHub, Zenodo, and

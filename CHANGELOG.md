@@ -2,6 +2,15 @@
 
 All notable public artifact releases are recorded here.
 
+## 1.1.2 - 2026-08-03
+
+- Revise the English, JCTA, arXiv, and Simplified-Chinese exposition for a
+  more concise mathematical narrative.
+- Streamline the abstract, introduction, verification discussion, evidence
+  labels, and Supplement headings without changing any theorem or artifact.
+- Publish the synchronized archive as GitHub release `v1.1.2` and Zenodo
+  version DOI `10.5281/zenodo.21770438`.
+
 ## 1.1.1 - 2026-08-03
 
 - Professionally refresh the English, JCTA, arXiv, and Simplified-Chinese

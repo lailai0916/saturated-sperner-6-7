@@ -1,6 +1,6 @@
 # Cover letter
 
-August 1, 2026
+August 3, 2026
 
 Editors  
 Journal of Combinatorial Theory, Series A
@@ -21,7 +21,7 @@ certificate reductions. An explicit 55-member construction gives the
 matching upper bound and improves the associated composition split from
 28/28 to 28/27.
 
-A separately submitted supplementary proof dossier records the
+A separately submitted supplement records the
 arbitrary-finite blocker interfaces, one complete worked reduction,
 independent replay counts, and a theorem–proof–program–Lean crosswalk.
 
@@ -38,8 +38,8 @@ The manuscript is original, has not been published previously, and is not
 under consideration for publication elsewhere. The author declares no
 competing interests. This research received no specific grant from funding
 agencies in the public, commercial, or not-for-profit sectors. The final
-submission cites GitHub release `v1.1.1` and Zenodo DOI
-`10.5281/zenodo.21769438`, which contain this exact revision.
+submission cites GitHub release `v1.1.2` and Zenodo DOI
+`10.5281/zenodo.21770438`, which contain this exact revision.
 
 Thank you for considering the manuscript.
 

@@ -2,22 +2,22 @@ cff-version: 1.2.0
 message: "If you use these artifacts, please cite the associated manuscript and this software release."
 title: "Artifacts for The exact saturated 6- and 7-Sperner numbers"
 type: software
-version: 1.1.1
-doi: 10.5281/zenodo.21769438
+version: 1.1.2
+doi: 10.5281/zenodo.21770438
 date-released: 2026-08-03
 repository-code: "https://github.com/lailai0916/saturated-sperner-6-7"
-url: "https://doi.org/10.5281/zenodo.21769438"
+url: "https://doi.org/10.5281/zenodo.21770438"
 authors:
   - given-names: Jiazhi
     family-names: Chen
     affiliation: Hangzhou No.2 High School of Zhejiang Province
     orcid: "https://orcid.org/0009-0008-9790-9881"
 abstract: >-
-  Revision-synchronized Lean 4 formalization, manuscript and Supplement
-  sources, exact-search programs, construction verifiers, certificate
-  generators, CNF instances, DRAT proofs, verification scripts, manifests,
-  checksums, tests, and locked dependency metadata supporting the exact
-  eventual saturated 6- and 7-Sperner numbers.
+  Exposition-revised manuscript and Supplement sources, Lean 4 formalization,
+  exact-search programs, construction verifiers, certificate generators, CNF
+  instances, DRAT proofs, verification scripts, manifests, checksums, tests,
+  and locked dependency metadata supporting the exact eventual saturated 6-
+  and 7-Sperner numbers.
 keywords:
   - saturated Sperner family
   - Boolean lattice

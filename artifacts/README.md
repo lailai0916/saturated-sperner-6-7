@@ -35,10 +35,10 @@ the Zenodo record.
 
 The revision-synchronized release uses these asset names:
 
-- `P0054-artifacts-v1.1.1.tar.gz`;
-- `P0054-artifacts-v1.1.1.tar.gz.sha256`.
+- `P0054-artifacts-v1.1.2.tar.gz`;
+- `P0054-artifacts-v1.1.2.tar.gz.sha256`.
 
-The archive and sidecar are attached to GitHub release `v1.1.1` and deposited
-unchanged under Zenodo DOI `10.5281/zenodo.21769438`. The package contains the
+The archive and sidecar are attached to GitHub release `v1.1.2` and deposited
+unchanged under Zenodo DOI `10.5281/zenodo.21770438`. The package contains the
 revision-synchronized manuscripts, formal sources, verification entry points,
 and archived certificate evidence.

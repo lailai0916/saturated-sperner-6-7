@@ -30,8 +30,8 @@ page by page before approval.
   the submission system requests that exact form.
 - Author metadata: enter the fields from `submission-metadata.md`; enter the
   telephone number directly in the private system.
-- Data and code availability: use GitHub release `v1.1.1` and Zenodo DOI
-  `10.5281/zenodo.21769438`; both identify the synchronized manuscript,
+- Data and code availability: use GitHub release `v1.1.2` and Zenodo DOI
+  `10.5281/zenodo.21770438`; both identify the synchronized manuscript,
   formal-source, certificate, and replay snapshot used by the paper. Earlier
   records remain immutable prior versions.
 

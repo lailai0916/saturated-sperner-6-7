@@ -15,7 +15,7 @@
 \usepackage[nameinlink,noabbrev]{cleveref}
 
 \hypersetup{
-  pdftitle={Supplementary proofs and verification dossier for The exact saturated 6- and 7-Sperner numbers},
+  pdftitle={Supplementary proofs and verification for The exact saturated 6- and 7-Sperner numbers},
   pdfauthor={Jiazhi Chen},
   pdfsubject={Arbitrary-finite blocker reductions, finite classifications, and Lean 4 verification}
 }
@@ -44,37 +44,31 @@
 \renewcommand*\l@subsection{\@dottedtocline{2}{2.5em}{4.5em}}
 \makeatother
 
-\title{Supplementary proofs and verification dossier for\\
+\title{Supplementary proofs and verification for\\
 \emph{The exact saturated 6- and 7-Sperner numbers}}
 \author{Jiazhi Chen\\
 \small Hangzhou No.2 High School of Zhejiang Province\\
 \small \href{mailto:lailai0x394@gmail.com}{lailai0x394@gmail.com}\quad
 \href{https://orcid.org/0009-0008-9790-9881}{ORCID 0009-0008-9790-9881}}
-\date{July 31, 2026}
+\date{}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-This supplement records the arbitrary-finite reductions and the exact finite
-classification interfaces used in the proof that
-$\sat(6)=30$ and $\sat(7)=55$.  Its purpose is auditability.  In particular,
-it explains why the finite searches do not impose a bound on the original
-ground set, states every residual search domain, records independent replay
-counts, and maps the natural-language statements to their Lean 4
-declarations.  Inactive points, parallel actual points, repeated incidence
-patterns, nonuniform rows, and empty optional incidence classes are retained
-throughout.  A support-quotient lemma and a finite-classification completeness
-theorem give the forward encoding and inverse expansion explicitly.  For the
-larger classifications, the named Lean declarations are
-the primary proof objects; the prose below records their mathematical
-interfaces and an audit path rather than reproducing every kernel reduction
-line by line.
+This supplement contains the arbitrary-finite reductions used to prove
+$\sat(6)=30$ and $\sat(7)=55$.  It gives the full middle-blocker
+classifications, including the Fano equality case and the four splits of total
+16.  The support-quotient lemma retains inactive points, parallel points,
+repeated incidence patterns, nonuniform rows, and empty optional classes.  A
+completeness theorem then expands each finite support back to the original
+ground set.  The final sections describe the corresponding Lean declarations
+and the independent computational checks.
 \end{abstract}
 
 \tableofcontents
 
-\section{Evidence labels and common blocker lemmas}
+\section{Blocker preliminaries and evidence conventions}
 \label{sec:evidence}
 
 All hypergraphs below are finite clutters on an arbitrary finite set $U$.
@@ -780,7 +774,7 @@ Blocker duality leaves the four splits handled in
 \cref{sec:five-eleven,sec:six-ten,sec:eight-eight,sec:seven-nine}.
 \end{proof}
 
-\section{Why the residual searches are finite and sound}
+\section{Completeness of the finite reductions}
 \label{sec:finite-interface}
 
 This section isolates, as a standalone mathematical statement, the interface
@@ -1052,7 +1046,7 @@ Lean.
 
 \clearpage
 \begin{landscape}
-\section{Theorem--proof--program--Lean crosswalk}
+\section{Correspondence with the Lean development}
 \label{sec:crosswalk}
 
 The table below gives the shortest review path.  Every P0054 name is complete
@@ -1181,14 +1175,14 @@ labelled finite ground set.  The explicit witness thresholds in the two Lean
 proofs are $3\cdot2^{30}$ and $3\cdot2^{55}$.  These are existence thresholds,
 not claims of optimal stabilization.
 
-\section{Reproduction and trust boundary}
+\section{Computational details and reproducibility}
 \label{sec:reproduction}
 
 The versioned artifact is available from
-\href{https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.1}
-{GitHub release v1.1.1} and
-\href{https://doi.org/10.5281/zenodo.21769438}{Zenodo DOI
-10.5281/zenodo.21769438}.  These records identify the formal-source,
+\href{https://github.com/lailai0916/saturated-sperner-6-7/releases/tag/v1.1.2}
+{GitHub release v1.1.2} and
+\href{https://doi.org/10.5281/zenodo.21770438}{Zenodo DOI
+10.5281/zenodo.21770438}.  These records identify the formal-source,
 certificate, and replay snapshot used here.  The present manuscript-only
 clarifications postdate that immutable archive and do not change any Lean
 source, certificate, manifest, or executable result.
