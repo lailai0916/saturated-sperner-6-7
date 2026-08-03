@@ -25,8 +25,10 @@ machine-readable `steps.ndjson` and `result.json` summaries containing the
 commands, exit codes, Lake warning count, final theorem types, and expected
 axiom boundary.
 
-The frozen release package passes all eight core replay steps, including the
-Lean, construction, saved-result, and P0054 test checks. Its nine CNF/DRAT
-pairs contain 18 verified files. The release asset and checksum sidecar are
-published together at GitHub release `v1.1.1` and archived on Zenodo under DOI
+The preceding `v1.1.0` package passed all eight core replay steps, including
+the Lean, construction, saved-result, and P0054 test checks. This typography
+patch changes no proof file or executable result and passes its regenerated
+integrity manifest and PDF metadata checks. Its nine CNF/DRAT pairs contain 18
+verified files. The release asset and checksum sidecar are published together
+at GitHub release `v1.1.1` and archived on Zenodo under DOI
 `10.5281/zenodo.21769438`. The preceding `v1.1.0` release remains immutable.
