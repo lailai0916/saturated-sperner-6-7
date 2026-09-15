@@ -1,4 +1,15 @@
-# The exact saturated 6- and 7-Sperner numbers
+<div align="center">
+  <h1>The exact saturated 6- and 7-Sperner numbers</h1>
+  <p><strong>English</strong> · <a href="README.zh-Hans.md">简体中文</a></p>
+  <p>
+    <img src="https://img.shields.io/github/last-commit/lailai0916/saturated-sperner-6-7?style=flat-square" alt="last commit" />
+    <img src="https://img.shields.io/github/languages/top/lailai0916/saturated-sperner-6-7?style=flat-square" alt="top language" />
+    <img src="https://img.shields.io/github/repo-size/lailai0916/saturated-sperner-6-7?style=flat-square" alt="repo size" />
+    <img src="https://img.shields.io/github/license/lailai0916/saturated-sperner-6-7?style=flat-square" alt="license" />
+  </p>
+</div>
+
+## Project Introduction
 
 This repository contains the proof, Lean 4 formalization, and reproducibility
 artifacts for the manuscript *The exact saturated 6- and 7-Sperner numbers* by
@@ -29,7 +40,58 @@ exists on `Fin n` and every saturated `k`-Sperner family on `Fin n` has at
 least `s` members. It is a quantified proposition, not evaluation of a Lean
 function named `sat`.
 
-[简体中文说明](README.zh-Hans.md)
+The repository separates mathematical proof, finite computation, and Lean kernel verification so
+that each claim can be checked at the appropriate evidence level.
+
+## Project Features
+
+📐 **Exact extremal values** — Formalized results establish `sat(6)=30` and `sat(7)=55` for
+sufficiently large Boolean lattices.
+
+🧠 **Lean 4 formalization** — The main statements and their supporting constructions are checked by
+Lean and mathlib.
+
+🧪 **Reproducible verification** — Python tests, deterministic generators, solver certificates, and
+Lean builds provide independent replay paths.
+
+🗂️ **Evidence boundaries** — PROVED, COMPUTED, FORMALIZED, and UNKNOWN claims remain explicitly
+separated instead of being presented as interchangeable evidence.
+
+## Getting Started
+
+Install Python 3.12, [uv](https://docs.astral.sh/uv/), and an
+[elan](https://github.com/leanprover/elan)-managed Lean installation, then run:
+
+```bash
+uv sync --locked --python 3.12
+uv run ruff check .
+uv run mypy
+uv run pytest
+lake build AiMathLab AiMathLab.P0054Sat7StableExact
+lake env lean Problems/P0054/formal/Main.lean
+```
+
+The single replay entry point is:
+
+```bash
+Problems/P0054/release/verify-core.sh
+```
+
+## Project Structure
+
+```bash
+saturated-sperner-6-7/
+├── AiMathLab/                      # Lean definitions and formal theorems
+├── artifacts/                      # Integrity boundary for archived artifacts
+├── Problems/                       # Proof, experiment, and release materials
+├── scripts/                        # Generators and semantic verifiers
+├── tests/                          # Regression and replay tests
+├── AiMathLab.lean                  # Root Lean module
+├── CITATION.cff                    # Machine-readable citation metadata
+├── lakefile.toml                   # Lake build configuration
+├── pyproject.toml                  # Python tooling configuration
+└── uv.lock                         # Locked Python dependencies
+```
 
 ## Evidence levels
 
@@ -46,7 +108,7 @@ they are not silently promoted to proofs. The final literature audit found no
 public equivalent in its recorded search scope, but this is not an absolute
 novelty or priority claim.
 
-## Reproduce the formal verification
+## Verification Details
 
 Prerequisites are Python 3.12, [uv](https://docs.astral.sh/uv/), and an
 [elan](https://github.com/leanprover/elan)-managed Lean installation. The
@@ -78,7 +140,7 @@ mechanical Lean source generators are instead checked by deterministic replay,
 generated-source comparisons, Python tests, and the final Lean kernel build;
 they are intentionally not represented as fully type-annotated modules.
 
-## Repository map
+## Repository Map
 
 - `AiMathLab/`: Lean definitions, certificates, reductions, and final theorems;
 - `Problems/P0054/formal/`: verification entry point, statement crosswalk, and
@@ -102,7 +164,7 @@ placing the archived paths into the working tree, set
 `P0054_REQUIRE_ARCHIVE_ARTIFACTS=1` to turn every missing archive file into a
 hard test failure.
 
-## Citation and license
+## License
 
 Machine-readable citation metadata is in [`CITATION.cff`](CITATION.cff). The
 software and formalization sources are released under the Apache License 2.0;
